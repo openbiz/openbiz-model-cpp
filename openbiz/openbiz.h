@@ -5,4 +5,6 @@
 #include "DataCollection.h"
 
 namespace openbiz {
+    class DataObject;
+    class DataCollection;
 }

@@ -18,7 +18,7 @@ namespace openbiz
     public:
         DataCollection() = default;
     protected:
-//        DataObject* _records[];
+        openbiz::DataObject *_records[];
     };
 }
 
