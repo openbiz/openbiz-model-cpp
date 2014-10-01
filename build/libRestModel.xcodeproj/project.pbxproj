@@ -137,7 +137,7 @@
 		4A7DB39719DC1EB800A33ACC /* meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meta.h; sourceTree = "<group>"; };
 		4A7DB39819DC1EB800A33ACC /* restclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restclient.h; sourceTree = "<group>"; };
 		4A7DB39A19DC1EB800A33ACC /* restclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = restclient.cpp; sourceTree = "<group>"; };
-		4A7DB48E19DC23F600A33ACC /* liblibRestModel Mac copy.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "liblibRestModel Mac copy.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7DB48E19DC23F600A33ACC /* liblibRestModel iOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "liblibRestModel iOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7DB31219DC1DFE00A33ACC /* liblibRestModel Mac.dylib */,
-				4A7DB48E19DC23F600A33ACC /* liblibRestModel Mac copy.dylib */,
+				4A7DB48E19DC23F600A33ACC /* liblibRestModel iOS.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -478,7 +478,7 @@
 			);
 			name = "libRestModel iOS";
 			productName = libRestModel;
-			productReference = 4A7DB48E19DC23F600A33ACC /* liblibRestModel Mac copy.dylib */;
+			productReference = 4A7DB48E19DC23F600A33ACC /* liblibRestModel iOS.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -672,7 +672,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "libRestModel Mac copy";
+				PRODUCT_NAME = "libRestModel iOS";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -698,7 +698,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "libRestModel Mac copy";
+				PRODUCT_NAME = "libRestModel iOS";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
