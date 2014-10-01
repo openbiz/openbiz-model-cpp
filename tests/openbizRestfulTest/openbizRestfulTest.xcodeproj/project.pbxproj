@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A7DB4B119DC2B0A00A33ACC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B019DC2B0A00A33ACC /* main.m */; };
+		4A7DB4B419DC2B0A00A33ACC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B319DC2B0A00A33ACC /* AppDelegate.m */; };
+		4A7DB4B619DC2B0A00A33ACC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */; };
+		4A7DB4B919DC2B0A00A33ACC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B719DC2B0A00A33ACC /* MainMenu.xib */; };
+		4A7DB4C519DC2B0A00A33ACC /* openbizRestfulTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4C419DC2B0A00A33ACC /* openbizRestfulTestTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A7DB4BF19DC2B0A00A33ACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A7DB4A319DC2B0A00A33ACC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A7DB4AA19DC2B0A00A33ACC;
+			remoteInfo = openbizRestfulTest;
+		};
+		4A7DB4DC19DC2B9B00A33ACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A7DB31219DC1DFE00A33ACC;
+			remoteInfo = "libRestModel Mac";
+		};
+		4A7DB4DE19DC2B9B00A33ACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A7DB48E19DC23F600A33ACC;
+			remoteInfo = "libRestModel iOS";
+		};
+		4A7DB4E319DC2BC500A33ACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A7DB31119DC1DFE00A33ACC;
+			remoteInfo = "libRestModel Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4A7DB4AB19DC2B0A00A33ACC /* openbizRestfulTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openbizRestfulTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7DB4AF19DC2B0A00A33ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A7DB4B019DC2B0A00A33ACC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A7DB4B219DC2B0A00A33ACC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A7DB4B319DC2B0A00A33ACC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4A7DB4B819DC2B0A00A33ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4A7DB4BE19DC2B0A00A33ACC /* openbizRestfulTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openbizRestfulTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7DB4C319DC2B0A00A33ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A7DB4C419DC2B0A00A33ACC /* openbizRestfulTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = openbizRestfulTestTests.m; sourceTree = "<group>"; };
+		4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libRestModel.xcodeproj; path = ../../build/libRestModel.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A7DB4A819DC2B0A00A33ACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A7DB4BB19DC2B0A00A33ACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A7DB4A219DC2B0A00A33ACC = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */,
+				4A7DB4AD19DC2B0A00A33ACC /* openbizRestfulTest */,
+				4A7DB4C119DC2B0A00A33ACC /* openbizRestfulTestTests */,
+				4A7DB4AC19DC2B0A00A33ACC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A7DB4AC19DC2B0A00A33ACC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4AB19DC2B0A00A33ACC /* openbizRestfulTest.app */,
+				4A7DB4BE19DC2B0A00A33ACC /* openbizRestfulTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A7DB4AD19DC2B0A00A33ACC /* openbizRestfulTest */ = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4B219DC2B0A00A33ACC /* AppDelegate.h */,
+				4A7DB4B319DC2B0A00A33ACC /* AppDelegate.m */,
+				4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */,
+				4A7DB4B719DC2B0A00A33ACC /* MainMenu.xib */,
+				4A7DB4AE19DC2B0A00A33ACC /* Supporting Files */,
+			);
+			path = openbizRestfulTest;
+			sourceTree = "<group>";
+		};
+		4A7DB4AE19DC2B0A00A33ACC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4AF19DC2B0A00A33ACC /* Info.plist */,
+				4A7DB4B019DC2B0A00A33ACC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A7DB4C119DC2B0A00A33ACC /* openbizRestfulTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4C419DC2B0A00A33ACC /* openbizRestfulTestTests.m */,
+				4A7DB4C219DC2B0A00A33ACC /* Supporting Files */,
+			);
+			path = openbizRestfulTestTests;
+			sourceTree = "<group>";
+		};
+		4A7DB4C219DC2B0A00A33ACC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4C319DC2B0A00A33ACC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A7DB4D819DC2B9B00A33ACC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A7DB4DD19DC2B9B00A33ACC /* liblibRestModel Mac.dylib */,
+				4A7DB4DF19DC2B9B00A33ACC /* liblibRestModel iOS.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A7DB4AA19DC2B0A00A33ACC /* openbizRestfulTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A7DB4C819DC2B0A00A33ACC /* Build configuration list for PBXNativeTarget "openbizRestfulTest" */;
+			buildPhases = (
+				4A7DB4A719DC2B0A00A33ACC /* Sources */,
+				4A7DB4A819DC2B0A00A33ACC /* Frameworks */,
+				4A7DB4A919DC2B0A00A33ACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A7DB4E419DC2BC500A33ACC /* PBXTargetDependency */,
+			);
+			name = openbizRestfulTest;
+			productName = openbizRestfulTest;
+			productReference = 4A7DB4AB19DC2B0A00A33ACC /* openbizRestfulTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A7DB4BD19DC2B0A00A33ACC /* openbizRestfulTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A7DB4CB19DC2B0A00A33ACC /* Build configuration list for PBXNativeTarget "openbizRestfulTestTests" */;
+			buildPhases = (
+				4A7DB4BA19DC2B0A00A33ACC /* Sources */,
+				4A7DB4BB19DC2B0A00A33ACC /* Frameworks */,
+				4A7DB4BC19DC2B0A00A33ACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A7DB4C019DC2B0A00A33ACC /* PBXTargetDependency */,
+			);
+			name = openbizRestfulTestTests;
+			productName = openbizRestfulTestTests;
+			productReference = 4A7DB4BE19DC2B0A00A33ACC /* openbizRestfulTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A7DB4A319DC2B0A00A33ACC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = openbiz;
+				TargetAttributes = {
+					4A7DB4AA19DC2B0A00A33ACC = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					4A7DB4BD19DC2B0A00A33ACC = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 4A7DB4AA19DC2B0A00A33ACC;
+					};
+				};
+			};
+			buildConfigurationList = 4A7DB4A619DC2B0A00A33ACC /* Build configuration list for PBXProject "openbizRestfulTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A7DB4A219DC2B0A00A33ACC;
+			productRefGroup = 4A7DB4AC19DC2B0A00A33ACC /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4A7DB4D819DC2B9B00A33ACC /* Products */;
+					ProjectRef = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4A7DB4AA19DC2B0A00A33ACC /* openbizRestfulTest */,
+				4A7DB4BD19DC2B0A00A33ACC /* openbizRestfulTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4A7DB4DD19DC2B9B00A33ACC /* liblibRestModel Mac.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = "liblibRestModel Mac.dylib";
+			remoteRef = 4A7DB4DC19DC2B9B00A33ACC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4A7DB4DF19DC2B9B00A33ACC /* liblibRestModel iOS.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = "liblibRestModel iOS.dylib";
+			remoteRef = 4A7DB4DE19DC2B9B00A33ACC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A7DB4A919DC2B0A00A33ACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7DB4B619DC2B0A00A33ACC /* Images.xcassets in Resources */,
+				4A7DB4B919DC2B0A00A33ACC /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A7DB4BC19DC2B0A00A33ACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A7DB4A719DC2B0A00A33ACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7DB4B419DC2B0A00A33ACC /* AppDelegate.m in Sources */,
+				4A7DB4B119DC2B0A00A33ACC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A7DB4BA19DC2B0A00A33ACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7DB4C519DC2B0A00A33ACC /* openbizRestfulTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A7DB4C019DC2B0A00A33ACC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A7DB4AA19DC2B0A00A33ACC /* openbizRestfulTest */;
+			targetProxy = 4A7DB4BF19DC2B0A00A33ACC /* PBXContainerItemProxy */;
+		};
+		4A7DB4E419DC2BC500A33ACC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libRestModel Mac";
+			targetProxy = 4A7DB4E319DC2BC500A33ACC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4A7DB4B719DC2B0A00A33ACC /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A7DB4B819DC2B0A00A33ACC /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A7DB4C619DC2B0A00A33ACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4A7DB4C719DC2B0A00A33ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4A7DB4C919DC2B0A00A33ACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = openbizRestfulTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4A7DB4CA19DC2B0A00A33ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = openbizRestfulTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4A7DB4CC19DC2B0A00A33ACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = openbizRestfulTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/openbizRestfulTest.app/Contents/MacOS/openbizRestfulTest";
+			};
+			name = Debug;
+		};
+		4A7DB4CD19DC2B0A00A33ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = openbizRestfulTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/openbizRestfulTest.app/Contents/MacOS/openbizRestfulTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A7DB4A619DC2B0A00A33ACC /* Build configuration list for PBXProject "openbizRestfulTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A7DB4C619DC2B0A00A33ACC /* Debug */,
+				4A7DB4C719DC2B0A00A33ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A7DB4C819DC2B0A00A33ACC /* Build configuration list for PBXNativeTarget "openbizRestfulTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A7DB4C919DC2B0A00A33ACC /* Debug */,
+				4A7DB4CA19DC2B0A00A33ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A7DB4CB19DC2B0A00A33ACC /* Build configuration list for PBXNativeTarget "openbizRestfulTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A7DB4CC19DC2B0A00A33ACC /* Debug */,
+				4A7DB4CD19DC2B0A00A33ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A7DB4A319DC2B0A00A33ACC /* Project object */;
+}

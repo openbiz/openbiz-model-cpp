@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A7DB46219DC23F600A33ACC"
-               BuildableName = "liblibRestModel Mac copy.dylib"
+               BuildableName = "liblibRestModel iOS.dylib"
                BlueprintName = "libRestModel iOS"
                ReferencedContainer = "container:libRestModel.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A7DB46219DC23F600A33ACC"
-            BuildableName = "liblibRestModel Mac copy.dylib"
+            BuildableName = "liblibRestModel iOS.dylib"
             BlueprintName = "libRestModel iOS"
             ReferencedContainer = "container:libRestModel.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A7DB46219DC23F600A33ACC"
-            BuildableName = "liblibRestModel Mac copy.dylib"
+            BuildableName = "liblibRestModel iOS.dylib"
             BlueprintName = "libRestModel iOS"
             ReferencedContainer = "container:libRestModel.xcodeproj">
          </BuildableReference>
