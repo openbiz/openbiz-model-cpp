@@ -7,167 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A7DB39B19DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32619DC1EB800A33ACC /* curl.h */; };
-		4A7DB39C19DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32619DC1EB800A33ACC /* curl.h */; };
-		4A7DB39D19DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32719DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB39E19DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32719DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB39F19DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32819DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3A019DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32819DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3A119DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32919DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3A219DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32919DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3A319DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32A19DC1EB800A33ACC /* easy.h */; };
-		4A7DB3A419DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32A19DC1EB800A33ACC /* easy.h */; };
-		4A7DB3A519DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32B19DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3A619DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32B19DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3A719DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32C19DC1EB800A33ACC /* multi.h */; };
-		4A7DB3A819DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32C19DC1EB800A33ACC /* multi.h */; };
-		4A7DB3A919DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32D19DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3AA19DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32D19DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3AB19DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32E19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3AC19DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32E19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3AD19DC1EB800A33ACC /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32F19DC1EB800A33ACC /* types.h */; };
-		4A7DB3AE19DC1EB800A33ACC /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB32F19DC1EB800A33ACC /* types.h */; };
-		4A7DB3AF19DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33219DC1EB800A33ACC /* curl.h */; };
-		4A7DB3B019DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33219DC1EB800A33ACC /* curl.h */; };
-		4A7DB3B119DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3B219DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3B319DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3B419DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3B519DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3B619DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3B719DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33619DC1EB800A33ACC /* easy.h */; };
-		4A7DB3B819DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33619DC1EB800A33ACC /* easy.h */; };
-		4A7DB3B919DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33719DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3BA19DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33719DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3BB19DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33819DC1EB800A33ACC /* multi.h */; };
-		4A7DB3BC19DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33819DC1EB800A33ACC /* multi.h */; };
-		4A7DB3BD19DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33919DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3BE19DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33919DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3BF19DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33A19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3C019DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33A19DC1EB800A33ACC /* typecheck-gcc.h */; };
 		4A7DB3C119DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33C19DC1EB800A33ACC /* curl.h */; };
-		4A7DB3C219DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33C19DC1EB800A33ACC /* curl.h */; };
 		4A7DB3C319DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33D19DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3C419DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33D19DC1EB800A33ACC /* curlbuild.h */; };
 		4A7DB3C519DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33E19DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3C619DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33E19DC1EB800A33ACC /* curlrules.h */; };
 		4A7DB3C719DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33F19DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3C819DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33F19DC1EB800A33ACC /* curlver.h */; };
 		4A7DB3C919DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34019DC1EB800A33ACC /* easy.h */; };
-		4A7DB3CA19DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34019DC1EB800A33ACC /* easy.h */; };
 		4A7DB3CB19DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34119DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3CC19DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34119DC1EB800A33ACC /* mprintf.h */; };
 		4A7DB3CD19DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34219DC1EB800A33ACC /* multi.h */; };
-		4A7DB3CE19DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34219DC1EB800A33ACC /* multi.h */; };
 		4A7DB3CF19DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34319DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3D019DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34319DC1EB800A33ACC /* stdcheaders.h */; };
 		4A7DB3D119DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3D219DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3D319DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34719DC1EB800A33ACC /* curl.h */; };
-		4A7DB3D419DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34719DC1EB800A33ACC /* curl.h */; };
-		4A7DB3D519DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34819DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3D619DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34819DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3D719DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34919DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3D819DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34919DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3D919DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34A19DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3DA19DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34A19DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3DB19DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34B19DC1EB800A33ACC /* easy.h */; };
-		4A7DB3DC19DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34B19DC1EB800A33ACC /* easy.h */; };
-		4A7DB3DD19DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34C19DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3DE19DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34C19DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3DF19DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34D19DC1EB800A33ACC /* multi.h */; };
-		4A7DB3E019DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34D19DC1EB800A33ACC /* multi.h */; };
-		4A7DB3E119DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34E19DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3E219DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34E19DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3E319DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34F19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3E419DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34F19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3E519DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35219DC1EB800A33ACC /* curl.h */; };
-		4A7DB3E619DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35219DC1EB800A33ACC /* curl.h */; };
-		4A7DB3E719DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35319DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3E819DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35319DC1EB800A33ACC /* curlbuild.h */; };
-		4A7DB3E919DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35419DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3EA19DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35419DC1EB800A33ACC /* curlrules.h */; };
-		4A7DB3EB19DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35519DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3EC19DC1EB800A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35519DC1EB800A33ACC /* curlver.h */; };
-		4A7DB3ED19DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35619DC1EB800A33ACC /* easy.h */; };
-		4A7DB3EE19DC1EB800A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35619DC1EB800A33ACC /* easy.h */; };
-		4A7DB3EF19DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35719DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3F019DC1EB800A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35719DC1EB800A33ACC /* mprintf.h */; };
-		4A7DB3F119DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35819DC1EB800A33ACC /* multi.h */; };
-		4A7DB3F219DC1EB800A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35819DC1EB800A33ACC /* multi.h */; };
-		4A7DB3F319DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35919DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3F419DC1EB800A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35919DC1EB800A33ACC /* stdcheaders.h */; };
-		4A7DB3F519DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35A19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3F619DC1EB800A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB35A19DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4A7DB3FE19DC1EB800A33ACC /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36519DC1EB800A33ACC /* libcurl.a */; };
-		4A7DB3FF19DC1EB800A33ACC /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36719DC1EB800A33ACC /* libcurl.4.dylib */; };
 		4A7DB40119DC1EB800A33ACC /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36819DC1EB800A33ACC /* libcurl.a */; };
-		4A7DB40319DC1EB800A33ACC /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36919DC1EB800A33ACC /* libcurl.dylib */; };
 		4A7DB40B19DC1EB800A33ACC /* allocators.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37919DC1EB800A33ACC /* allocators.h */; };
-		4A7DB40C19DC1EB800A33ACC /* allocators.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37919DC1EB800A33ACC /* allocators.h */; };
 		4A7DB40D19DC1EB800A33ACC /* document.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37A19DC1EB800A33ACC /* document.h */; };
-		4A7DB40E19DC1EB800A33ACC /* document.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37A19DC1EB800A33ACC /* document.h */; };
 		4A7DB40F19DC1EB800A33ACC /* encodedstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37B19DC1EB800A33ACC /* encodedstream.h */; };
-		4A7DB41019DC1EB800A33ACC /* encodedstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37B19DC1EB800A33ACC /* encodedstream.h */; };
 		4A7DB41119DC1EB800A33ACC /* encodings.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37C19DC1EB800A33ACC /* encodings.h */; };
-		4A7DB41219DC1EB800A33ACC /* encodings.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37C19DC1EB800A33ACC /* encodings.h */; };
 		4A7DB41319DC1EB800A33ACC /* en.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37E19DC1EB800A33ACC /* en.h */; };
-		4A7DB41419DC1EB800A33ACC /* en.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37E19DC1EB800A33ACC /* en.h */; };
 		4A7DB41519DC1EB800A33ACC /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37F19DC1EB800A33ACC /* error.h */; };
-		4A7DB41619DC1EB800A33ACC /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37F19DC1EB800A33ACC /* error.h */; };
 		4A7DB41719DC1EB800A33ACC /* filereadstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38019DC1EB800A33ACC /* filereadstream.h */; };
-		4A7DB41819DC1EB800A33ACC /* filereadstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38019DC1EB800A33ACC /* filereadstream.h */; };
 		4A7DB41919DC1EB800A33ACC /* filestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38119DC1EB800A33ACC /* filestream.h */; };
-		4A7DB41A19DC1EB800A33ACC /* filestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38119DC1EB800A33ACC /* filestream.h */; };
 		4A7DB41B19DC1EB800A33ACC /* filewritestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38219DC1EB800A33ACC /* filewritestream.h */; };
-		4A7DB41C19DC1EB800A33ACC /* filewritestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38219DC1EB800A33ACC /* filewritestream.h */; };
 		4A7DB41D19DC1EB800A33ACC /* dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38419DC1EB800A33ACC /* dtoa.h */; };
-		4A7DB41E19DC1EB800A33ACC /* dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38419DC1EB800A33ACC /* dtoa.h */; };
 		4A7DB41F19DC1EB800A33ACC /* itoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38519DC1EB800A33ACC /* itoa.h */; };
-		4A7DB42019DC1EB800A33ACC /* itoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38519DC1EB800A33ACC /* itoa.h */; };
 		4A7DB42119DC1EB800A33ACC /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38619DC1EB800A33ACC /* meta.h */; };
-		4A7DB42219DC1EB800A33ACC /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38619DC1EB800A33ACC /* meta.h */; };
 		4A7DB42319DC1EB800A33ACC /* pow10.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38719DC1EB800A33ACC /* pow10.h */; };
-		4A7DB42419DC1EB800A33ACC /* pow10.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38719DC1EB800A33ACC /* pow10.h */; };
 		4A7DB42519DC1EB800A33ACC /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38819DC1EB800A33ACC /* stack.h */; };
-		4A7DB42619DC1EB800A33ACC /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38819DC1EB800A33ACC /* stack.h */; };
 		4A7DB42719DC1EB800A33ACC /* strfunc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38919DC1EB800A33ACC /* strfunc.h */; };
-		4A7DB42819DC1EB800A33ACC /* strfunc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38919DC1EB800A33ACC /* strfunc.h */; };
 		4A7DB42919DC1EB800A33ACC /* memorybuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38A19DC1EB800A33ACC /* memorybuffer.h */; };
-		4A7DB42A19DC1EB800A33ACC /* memorybuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38A19DC1EB800A33ACC /* memorybuffer.h */; };
 		4A7DB42B19DC1EB800A33ACC /* memorystream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38B19DC1EB800A33ACC /* memorystream.h */; };
-		4A7DB42C19DC1EB800A33ACC /* memorystream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38B19DC1EB800A33ACC /* memorystream.h */; };
 		4A7DB43119DC1EB800A33ACC /* prettywriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38F19DC1EB800A33ACC /* prettywriter.h */; };
-		4A7DB43219DC1EB800A33ACC /* prettywriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38F19DC1EB800A33ACC /* prettywriter.h */; };
 		4A7DB43319DC1EB800A33ACC /* rapidjson.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39019DC1EB800A33ACC /* rapidjson.h */; };
-		4A7DB43419DC1EB800A33ACC /* rapidjson.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39019DC1EB800A33ACC /* rapidjson.h */; };
 		4A7DB43519DC1EB800A33ACC /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39119DC1EB800A33ACC /* reader.h */; };
-		4A7DB43619DC1EB800A33ACC /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39119DC1EB800A33ACC /* reader.h */; };
 		4A7DB43719DC1EB800A33ACC /* stringbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39219DC1EB800A33ACC /* stringbuffer.h */; };
-		4A7DB43819DC1EB800A33ACC /* stringbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39219DC1EB800A33ACC /* stringbuffer.h */; };
 		4A7DB43919DC1EB800A33ACC /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39319DC1EB800A33ACC /* writer.h */; };
-		4A7DB43A19DC1EB800A33ACC /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39319DC1EB800A33ACC /* writer.h */; };
 		4A7DB43B19DC1EB800A33ACC /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; };
-		4A7DB43C19DC1EB800A33ACC /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; };
 		4A7DB43D19DC1EB800A33ACC /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; };
-		4A7DB43E19DC1EB800A33ACC /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; };
 		4A7DB43F19DC1EB800A33ACC /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
-		4A7DB44019DC1EB800A33ACC /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
+		4A7DB46419DC23F600A33ACC /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
+		4A7DB46A19DC23F600A33ACC /* rapidjson.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39019DC1EB800A33ACC /* rapidjson.h */; };
+		4A7DB46B19DC23F600A33ACC /* filereadstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38019DC1EB800A33ACC /* filereadstream.h */; };
+		4A7DB46C19DC23F600A33ACC /* allocators.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37919DC1EB800A33ACC /* allocators.h */; };
+		4A7DB46D19DC23F600A33ACC /* encodedstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37B19DC1EB800A33ACC /* encodedstream.h */; };
+		4A7DB46E19DC23F600A33ACC /* filewritestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38219DC1EB800A33ACC /* filewritestream.h */; };
+		4A7DB46F19DC23F600A33ACC /* prettywriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38F19DC1EB800A33ACC /* prettywriter.h */; };
+		4A7DB47019DC23F600A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34119DC1EB800A33ACC /* mprintf.h */; };
+		4A7DB47119DC23F600A33ACC /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; };
+		4A7DB47219DC23F600A33ACC /* strfunc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38919DC1EB800A33ACC /* strfunc.h */; };
+		4A7DB47319DC23F600A33ACC /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37F19DC1EB800A33ACC /* error.h */; };
+		4A7DB47419DC23F600A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34219DC1EB800A33ACC /* multi.h */; };
+		4A7DB47519DC23F600A33ACC /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38819DC1EB800A33ACC /* stack.h */; };
+		4A7DB47619DC23F600A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33D19DC1EB800A33ACC /* curlbuild.h */; };
+		4A7DB47719DC23F600A33ACC /* filestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38119DC1EB800A33ACC /* filestream.h */; };
+		4A7DB47819DC23F600A33ACC /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39319DC1EB800A33ACC /* writer.h */; };
+		4A7DB47919DC23F600A33ACC /* pow10.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38719DC1EB800A33ACC /* pow10.h */; };
+		4A7DB47A19DC23F600A33ACC /* dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38419DC1EB800A33ACC /* dtoa.h */; };
+		4A7DB47B19DC23F600A33ACC /* en.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37E19DC1EB800A33ACC /* en.h */; };
+		4A7DB47C19DC23F600A33ACC /* stringbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39219DC1EB800A33ACC /* stringbuffer.h */; };
+		4A7DB47D19DC23F600A33ACC /* itoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38519DC1EB800A33ACC /* itoa.h */; };
+		4A7DB47E19DC23F600A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34019DC1EB800A33ACC /* easy.h */; };
+		4A7DB47F19DC23F600A33ACC /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38619DC1EB800A33ACC /* meta.h */; };
+		4A7DB48019DC23F600A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33C19DC1EB800A33ACC /* curl.h */; };
+		4A7DB48119DC23F600A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33E19DC1EB800A33ACC /* curlrules.h */; };
+		4A7DB48219DC23F600A33ACC /* encodings.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37C19DC1EB800A33ACC /* encodings.h */; };
+		4A7DB48319DC23F600A33ACC /* memorybuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38A19DC1EB800A33ACC /* memorybuffer.h */; };
+		4A7DB48419DC23F600A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34319DC1EB800A33ACC /* stdcheaders.h */; };
+		4A7DB48519DC23F600A33ACC /* memorystream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB38B19DC1EB800A33ACC /* memorystream.h */; };
+		4A7DB48619DC23F600A33ACC /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; };
+		4A7DB48719DC23F600A33ACC /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39119DC1EB800A33ACC /* reader.h */; };
+		4A7DB48819DC23F600A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33F19DC1EB800A33ACC /* curlver.h */; };
+		4A7DB48919DC23F600A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */; };
+		4A7DB48A19DC23F600A33ACC /* document.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB37A19DC1EB800A33ACC /* document.h */; };
+		4A7DB48F19DC243D00A33ACC /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36519DC1EB800A33ACC /* libcurl.a */; };
+		4A7DB49919DC244C00A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33219DC1EB800A33ACC /* curl.h */; };
+		4A7DB49A19DC244C00A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; };
+		4A7DB49B19DC244C00A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; };
+		4A7DB49C19DC244C00A33ACC /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; };
+		4A7DB49D19DC244C00A33ACC /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33619DC1EB800A33ACC /* easy.h */; };
+		4A7DB49E19DC244C00A33ACC /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33719DC1EB800A33ACC /* mprintf.h */; };
+		4A7DB49F19DC244C00A33ACC /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33819DC1EB800A33ACC /* multi.h */; };
+		4A7DB4A019DC244C00A33ACC /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33919DC1EB800A33ACC /* stdcheaders.h */; };
+		4A7DB4A119DC244C00A33ACC /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33A19DC1EB800A33ACC /* typecheck-gcc.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A7DB31219DC1DFE00A33ACC /* liblibRestModel Mac.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "liblibRestModel Mac.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A7DB32019DC1E2400A33ACC /* liblibRestModel iOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "liblibRestModel iOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A7DB32619DC1EB800A33ACC /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
-		4A7DB32719DC1EB800A33ACC /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlbuild.h; sourceTree = "<group>"; };
-		4A7DB32819DC1EB800A33ACC /* curlrules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlrules.h; sourceTree = "<group>"; };
-		4A7DB32919DC1EB800A33ACC /* curlver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlver.h; sourceTree = "<group>"; };
-		4A7DB32A19DC1EB800A33ACC /* easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easy.h; sourceTree = "<group>"; };
-		4A7DB32B19DC1EB800A33ACC /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mprintf.h; sourceTree = "<group>"; };
-		4A7DB32C19DC1EB800A33ACC /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
-		4A7DB32D19DC1EB800A33ACC /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
-		4A7DB32E19DC1EB800A33ACC /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
-		4A7DB32F19DC1EB800A33ACC /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
 		4A7DB33219DC1EB800A33ACC /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
 		4A7DB33319DC1EB800A33ACC /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlbuild.h; sourceTree = "<group>"; };
 		4A7DB33419DC1EB800A33ACC /* curlrules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlrules.h; sourceTree = "<group>"; };
@@ -186,24 +108,6 @@
 		4A7DB34219DC1EB800A33ACC /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
 		4A7DB34319DC1EB800A33ACC /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
 		4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
-		4A7DB34719DC1EB800A33ACC /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
-		4A7DB34819DC1EB800A33ACC /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlbuild.h; sourceTree = "<group>"; };
-		4A7DB34919DC1EB800A33ACC /* curlrules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlrules.h; sourceTree = "<group>"; };
-		4A7DB34A19DC1EB800A33ACC /* curlver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlver.h; sourceTree = "<group>"; };
-		4A7DB34B19DC1EB800A33ACC /* easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easy.h; sourceTree = "<group>"; };
-		4A7DB34C19DC1EB800A33ACC /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mprintf.h; sourceTree = "<group>"; };
-		4A7DB34D19DC1EB800A33ACC /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
-		4A7DB34E19DC1EB800A33ACC /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
-		4A7DB34F19DC1EB800A33ACC /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
-		4A7DB35219DC1EB800A33ACC /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
-		4A7DB35319DC1EB800A33ACC /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlbuild.h; sourceTree = "<group>"; };
-		4A7DB35419DC1EB800A33ACC /* curlrules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlrules.h; sourceTree = "<group>"; };
-		4A7DB35519DC1EB800A33ACC /* curlver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlver.h; sourceTree = "<group>"; };
-		4A7DB35619DC1EB800A33ACC /* easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easy.h; sourceTree = "<group>"; };
-		4A7DB35719DC1EB800A33ACC /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mprintf.h; sourceTree = "<group>"; };
-		4A7DB35819DC1EB800A33ACC /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
-		4A7DB35919DC1EB800A33ACC /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
-		4A7DB35A19DC1EB800A33ACC /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 		4A7DB36519DC1EB800A33ACC /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		4A7DB36719DC1EB800A33ACC /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcurl.4.dylib; sourceTree = "<group>"; };
 		4A7DB36819DC1EB800A33ACC /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
@@ -233,6 +137,7 @@
 		4A7DB39719DC1EB800A33ACC /* meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meta.h; sourceTree = "<group>"; };
 		4A7DB39819DC1EB800A33ACC /* restclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restclient.h; sourceTree = "<group>"; };
 		4A7DB39A19DC1EB800A33ACC /* restclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = restclient.cpp; sourceTree = "<group>"; };
+		4A7DB48E19DC23F600A33ACC /* liblibRestModel Mac copy.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "liblibRestModel Mac copy.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,17 +145,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7DB3FF19DC1EB800A33ACC /* libcurl.4.dylib in Frameworks */,
-				4A7DB40319DC1EB800A33ACC /* libcurl.dylib in Frameworks */,
 				4A7DB40119DC1EB800A33ACC /* libcurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A7DB31B19DC1E2400A33ACC /* Frameworks */ = {
+		4A7DB46519DC23F600A33ACC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7DB3FE19DC1EB800A33ACC /* libcurl.a in Frameworks */,
+				4A7DB48F19DC243D00A33ACC /* libcurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7DB31219DC1DFE00A33ACC /* liblibRestModel Mac.dylib */,
-				4A7DB32019DC1E2400A33ACC /* liblibRestModel iOS.dylib */,
+				4A7DB48E19DC23F600A33ACC /* liblibRestModel Mac copy.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,38 +200,10 @@
 		4A7DB32319DC1EB800A33ACC /* include */ = {
 			isa = PBXGroup;
 			children = (
-				4A7DB32419DC1EB800A33ACC /* android */,
 				4A7DB33019DC1EB800A33ACC /* ios */,
 				4A7DB33B19DC1EB800A33ACC /* mac */,
-				4A7DB34519DC1EB800A33ACC /* win32 */,
-				4A7DB35019DC1EB800A33ACC /* wp8 */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		4A7DB32419DC1EB800A33ACC /* android */ = {
-			isa = PBXGroup;
-			children = (
-				4A7DB32519DC1EB800A33ACC /* curl */,
-			);
-			path = android;
-			sourceTree = "<group>";
-		};
-		4A7DB32519DC1EB800A33ACC /* curl */ = {
-			isa = PBXGroup;
-			children = (
-				4A7DB32619DC1EB800A33ACC /* curl.h */,
-				4A7DB32719DC1EB800A33ACC /* curlbuild.h */,
-				4A7DB32819DC1EB800A33ACC /* curlrules.h */,
-				4A7DB32919DC1EB800A33ACC /* curlver.h */,
-				4A7DB32A19DC1EB800A33ACC /* easy.h */,
-				4A7DB32B19DC1EB800A33ACC /* mprintf.h */,
-				4A7DB32C19DC1EB800A33ACC /* multi.h */,
-				4A7DB32D19DC1EB800A33ACC /* stdcheaders.h */,
-				4A7DB32E19DC1EB800A33ACC /* typecheck-gcc.h */,
-				4A7DB32F19DC1EB800A33ACC /* types.h */,
-			);
-			path = curl;
 			sourceTree = "<group>";
 		};
 		4A7DB33019DC1EB800A33ACC /* ios */ = {
@@ -369,54 +244,6 @@
 				4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */,
 			);
 			path = mac;
-			sourceTree = "<group>";
-		};
-		4A7DB34519DC1EB800A33ACC /* win32 */ = {
-			isa = PBXGroup;
-			children = (
-				4A7DB34619DC1EB800A33ACC /* curl */,
-			);
-			path = win32;
-			sourceTree = "<group>";
-		};
-		4A7DB34619DC1EB800A33ACC /* curl */ = {
-			isa = PBXGroup;
-			children = (
-				4A7DB34719DC1EB800A33ACC /* curl.h */,
-				4A7DB34819DC1EB800A33ACC /* curlbuild.h */,
-				4A7DB34919DC1EB800A33ACC /* curlrules.h */,
-				4A7DB34A19DC1EB800A33ACC /* curlver.h */,
-				4A7DB34B19DC1EB800A33ACC /* easy.h */,
-				4A7DB34C19DC1EB800A33ACC /* mprintf.h */,
-				4A7DB34D19DC1EB800A33ACC /* multi.h */,
-				4A7DB34E19DC1EB800A33ACC /* stdcheaders.h */,
-				4A7DB34F19DC1EB800A33ACC /* typecheck-gcc.h */,
-			);
-			path = curl;
-			sourceTree = "<group>";
-		};
-		4A7DB35019DC1EB800A33ACC /* wp8 */ = {
-			isa = PBXGroup;
-			children = (
-				4A7DB35119DC1EB800A33ACC /* curl */,
-			);
-			path = wp8;
-			sourceTree = "<group>";
-		};
-		4A7DB35119DC1EB800A33ACC /* curl */ = {
-			isa = PBXGroup;
-			children = (
-				4A7DB35219DC1EB800A33ACC /* curl.h */,
-				4A7DB35319DC1EB800A33ACC /* curlbuild.h */,
-				4A7DB35419DC1EB800A33ACC /* curlrules.h */,
-				4A7DB35519DC1EB800A33ACC /* curlver.h */,
-				4A7DB35619DC1EB800A33ACC /* easy.h */,
-				4A7DB35719DC1EB800A33ACC /* mprintf.h */,
-				4A7DB35819DC1EB800A33ACC /* multi.h */,
-				4A7DB35919DC1EB800A33ACC /* stdcheaders.h */,
-				4A7DB35A19DC1EB800A33ACC /* typecheck-gcc.h */,
-			);
-			path = curl;
 			sourceTree = "<group>";
 		};
 		4A7DB35B19DC1EB800A33ACC /* prebuilt */ = {
@@ -532,153 +359,88 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7DB3E719DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB3B719DC1EB800A33ACC /* easy.h in Headers */,
 				4A7DB43319DC1EB800A33ACC /* rapidjson.h in Headers */,
-				4A7DB3B519DC1EB800A33ACC /* curlver.h in Headers */,
 				4A7DB41719DC1EB800A33ACC /* filereadstream.h in Headers */,
 				4A7DB40B19DC1EB800A33ACC /* allocators.h in Headers */,
 				4A7DB40F19DC1EB800A33ACC /* encodedstream.h in Headers */,
 				4A7DB41B19DC1EB800A33ACC /* filewritestream.h in Headers */,
 				4A7DB43119DC1EB800A33ACC /* prettywriter.h in Headers */,
-				4A7DB3D919DC1EB800A33ACC /* curlver.h in Headers */,
 				4A7DB3CB19DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB3EF19DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB3D719DC1EB800A33ACC /* curlrules.h in Headers */,
 				4A7DB43B19DC1EB800A33ACC /* meta.h in Headers */,
-				4A7DB3D519DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB3A319DC1EB800A33ACC /* easy.h in Headers */,
 				4A7DB42719DC1EB800A33ACC /* strfunc.h in Headers */,
 				4A7DB41519DC1EB800A33ACC /* error.h in Headers */,
 				4A7DB3CD19DC1EB800A33ACC /* multi.h in Headers */,
 				4A7DB42519DC1EB800A33ACC /* stack.h in Headers */,
-				4A7DB3DF19DC1EB800A33ACC /* multi.h in Headers */,
 				4A7DB3C319DC1EB800A33ACC /* curlbuild.h in Headers */,
 				4A7DB41919DC1EB800A33ACC /* filestream.h in Headers */,
-				4A7DB3DB19DC1EB800A33ACC /* easy.h in Headers */,
 				4A7DB43919DC1EB800A33ACC /* writer.h in Headers */,
 				4A7DB42319DC1EB800A33ACC /* pow10.h in Headers */,
-				4A7DB3A719DC1EB800A33ACC /* multi.h in Headers */,
 				4A7DB41D19DC1EB800A33ACC /* dtoa.h in Headers */,
-				4A7DB39B19DC1EB800A33ACC /* curl.h in Headers */,
 				4A7DB41319DC1EB800A33ACC /* en.h in Headers */,
 				4A7DB43719DC1EB800A33ACC /* stringbuffer.h in Headers */,
 				4A7DB41F19DC1EB800A33ACC /* itoa.h in Headers */,
 				4A7DB3C919DC1EB800A33ACC /* easy.h in Headers */,
-				4A7DB3B119DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB3AF19DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB3DD19DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB39D19DC1EB800A33ACC /* curlbuild.h in Headers */,
 				4A7DB42119DC1EB800A33ACC /* meta.h in Headers */,
-				4A7DB3AB19DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB3E319DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB3B319DC1EB800A33ACC /* curlrules.h in Headers */,
 				4A7DB3C119DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB3A119DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3BD19DC1EB800A33ACC /* stdcheaders.h in Headers */,
 				4A7DB3C519DC1EB800A33ACC /* curlrules.h in Headers */,
 				4A7DB41119DC1EB800A33ACC /* encodings.h in Headers */,
 				4A7DB42919DC1EB800A33ACC /* memorybuffer.h in Headers */,
-				4A7DB3E919DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB3F119DC1EB800A33ACC /* multi.h in Headers */,
-				4A7DB3F519DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB3F319DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3A919DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3BB19DC1EB800A33ACC /* multi.h in Headers */,
 				4A7DB3CF19DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3E519DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB3EB19DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3BF19DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
 				4A7DB42B19DC1EB800A33ACC /* memorystream.h in Headers */,
-				4A7DB39F19DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB3E119DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3D319DC1EB800A33ACC /* curl.h in Headers */,
 				4A7DB43D19DC1EB800A33ACC /* restclient.h in Headers */,
-				4A7DB3ED19DC1EB800A33ACC /* easy.h in Headers */,
 				4A7DB43519DC1EB800A33ACC /* reader.h in Headers */,
-				4A7DB3AD19DC1EB800A33ACC /* types.h in Headers */,
-				4A7DB3A519DC1EB800A33ACC /* mprintf.h in Headers */,
 				4A7DB3C719DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3B919DC1EB800A33ACC /* mprintf.h in Headers */,
 				4A7DB3D119DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
 				4A7DB40D19DC1EB800A33ACC /* document.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A7DB31C19DC1E2400A33ACC /* Headers */ = {
+		4A7DB46919DC23F600A33ACC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7DB3E819DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB3B819DC1EB800A33ACC /* easy.h in Headers */,
-				4A7DB43419DC1EB800A33ACC /* rapidjson.h in Headers */,
-				4A7DB3B619DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB41819DC1EB800A33ACC /* filereadstream.h in Headers */,
-				4A7DB40C19DC1EB800A33ACC /* allocators.h in Headers */,
-				4A7DB41019DC1EB800A33ACC /* encodedstream.h in Headers */,
-				4A7DB41C19DC1EB800A33ACC /* filewritestream.h in Headers */,
-				4A7DB43219DC1EB800A33ACC /* prettywriter.h in Headers */,
-				4A7DB3DA19DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3CC19DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB3F019DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB3D819DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB43C19DC1EB800A33ACC /* meta.h in Headers */,
-				4A7DB3D619DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB3A419DC1EB800A33ACC /* easy.h in Headers */,
-				4A7DB42819DC1EB800A33ACC /* strfunc.h in Headers */,
-				4A7DB41619DC1EB800A33ACC /* error.h in Headers */,
-				4A7DB3CE19DC1EB800A33ACC /* multi.h in Headers */,
-				4A7DB42619DC1EB800A33ACC /* stack.h in Headers */,
-				4A7DB3E019DC1EB800A33ACC /* multi.h in Headers */,
-				4A7DB3C419DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB41A19DC1EB800A33ACC /* filestream.h in Headers */,
-				4A7DB3DC19DC1EB800A33ACC /* easy.h in Headers */,
-				4A7DB43A19DC1EB800A33ACC /* writer.h in Headers */,
-				4A7DB42419DC1EB800A33ACC /* pow10.h in Headers */,
-				4A7DB3A819DC1EB800A33ACC /* multi.h in Headers */,
-				4A7DB41E19DC1EB800A33ACC /* dtoa.h in Headers */,
-				4A7DB39C19DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB41419DC1EB800A33ACC /* en.h in Headers */,
-				4A7DB43819DC1EB800A33ACC /* stringbuffer.h in Headers */,
-				4A7DB42019DC1EB800A33ACC /* itoa.h in Headers */,
-				4A7DB3CA19DC1EB800A33ACC /* easy.h in Headers */,
-				4A7DB3B219DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB3B019DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB3DE19DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB39E19DC1EB800A33ACC /* curlbuild.h in Headers */,
-				4A7DB42219DC1EB800A33ACC /* meta.h in Headers */,
-				4A7DB3AC19DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB3E419DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB3B419DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB3C219DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB3A219DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3BE19DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3C619DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB41219DC1EB800A33ACC /* encodings.h in Headers */,
-				4A7DB42A19DC1EB800A33ACC /* memorybuffer.h in Headers */,
-				4A7DB3EA19DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB3F219DC1EB800A33ACC /* multi.h in Headers */,
-				4A7DB3F619DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB3F419DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3AA19DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3BC19DC1EB800A33ACC /* multi.h in Headers */,
-				4A7DB3D019DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3E619DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB3EC19DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3C019DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB42C19DC1EB800A33ACC /* memorystream.h in Headers */,
-				4A7DB3A019DC1EB800A33ACC /* curlrules.h in Headers */,
-				4A7DB3E219DC1EB800A33ACC /* stdcheaders.h in Headers */,
-				4A7DB3D419DC1EB800A33ACC /* curl.h in Headers */,
-				4A7DB43E19DC1EB800A33ACC /* restclient.h in Headers */,
-				4A7DB3EE19DC1EB800A33ACC /* easy.h in Headers */,
-				4A7DB43619DC1EB800A33ACC /* reader.h in Headers */,
-				4A7DB3AE19DC1EB800A33ACC /* types.h in Headers */,
-				4A7DB3A619DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB3C819DC1EB800A33ACC /* curlver.h in Headers */,
-				4A7DB3BA19DC1EB800A33ACC /* mprintf.h in Headers */,
-				4A7DB3D219DC1EB800A33ACC /* typecheck-gcc.h in Headers */,
-				4A7DB40E19DC1EB800A33ACC /* document.h in Headers */,
+				4A7DB46A19DC23F600A33ACC /* rapidjson.h in Headers */,
+				4A7DB46B19DC23F600A33ACC /* filereadstream.h in Headers */,
+				4A7DB46C19DC23F600A33ACC /* allocators.h in Headers */,
+				4A7DB49A19DC244C00A33ACC /* curlbuild.h in Headers */,
+				4A7DB46D19DC23F600A33ACC /* encodedstream.h in Headers */,
+				4A7DB46E19DC23F600A33ACC /* filewritestream.h in Headers */,
+				4A7DB46F19DC23F600A33ACC /* prettywriter.h in Headers */,
+				4A7DB47019DC23F600A33ACC /* mprintf.h in Headers */,
+				4A7DB49F19DC244C00A33ACC /* multi.h in Headers */,
+				4A7DB47119DC23F600A33ACC /* meta.h in Headers */,
+				4A7DB47219DC23F600A33ACC /* strfunc.h in Headers */,
+				4A7DB47319DC23F600A33ACC /* error.h in Headers */,
+				4A7DB47419DC23F600A33ACC /* multi.h in Headers */,
+				4A7DB4A119DC244C00A33ACC /* typecheck-gcc.h in Headers */,
+				4A7DB47519DC23F600A33ACC /* stack.h in Headers */,
+				4A7DB47619DC23F600A33ACC /* curlbuild.h in Headers */,
+				4A7DB47719DC23F600A33ACC /* filestream.h in Headers */,
+				4A7DB47819DC23F600A33ACC /* writer.h in Headers */,
+				4A7DB47919DC23F600A33ACC /* pow10.h in Headers */,
+				4A7DB47A19DC23F600A33ACC /* dtoa.h in Headers */,
+				4A7DB47B19DC23F600A33ACC /* en.h in Headers */,
+				4A7DB47C19DC23F600A33ACC /* stringbuffer.h in Headers */,
+				4A7DB47D19DC23F600A33ACC /* itoa.h in Headers */,
+				4A7DB47E19DC23F600A33ACC /* easy.h in Headers */,
+				4A7DB47F19DC23F600A33ACC /* meta.h in Headers */,
+				4A7DB49919DC244C00A33ACC /* curl.h in Headers */,
+				4A7DB48019DC23F600A33ACC /* curl.h in Headers */,
+				4A7DB48119DC23F600A33ACC /* curlrules.h in Headers */,
+				4A7DB49B19DC244C00A33ACC /* curlrules.h in Headers */,
+				4A7DB48219DC23F600A33ACC /* encodings.h in Headers */,
+				4A7DB48319DC23F600A33ACC /* memorybuffer.h in Headers */,
+				4A7DB48419DC23F600A33ACC /* stdcheaders.h in Headers */,
+				4A7DB49C19DC244C00A33ACC /* curlver.h in Headers */,
+				4A7DB48519DC23F600A33ACC /* memorystream.h in Headers */,
+				4A7DB49E19DC244C00A33ACC /* mprintf.h in Headers */,
+				4A7DB48619DC23F600A33ACC /* restclient.h in Headers */,
+				4A7DB48719DC23F600A33ACC /* reader.h in Headers */,
+				4A7DB48819DC23F600A33ACC /* curlver.h in Headers */,
+				4A7DB48919DC23F600A33ACC /* typecheck-gcc.h in Headers */,
+				4A7DB49D19DC244C00A33ACC /* easy.h in Headers */,
+				4A7DB48A19DC23F600A33ACC /* document.h in Headers */,
+				4A7DB4A019DC244C00A33ACC /* stdcheaders.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,13 +464,13 @@
 			productReference = 4A7DB31219DC1DFE00A33ACC /* liblibRestModel Mac.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		4A7DB31919DC1E2400A33ACC /* libRestModel iOS */ = {
+		4A7DB46219DC23F600A33ACC /* libRestModel iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A7DB31D19DC1E2400A33ACC /* Build configuration list for PBXNativeTarget "libRestModel iOS" */;
+			buildConfigurationList = 4A7DB48B19DC23F600A33ACC /* Build configuration list for PBXNativeTarget "libRestModel iOS" */;
 			buildPhases = (
-				4A7DB31A19DC1E2400A33ACC /* Sources */,
-				4A7DB31B19DC1E2400A33ACC /* Frameworks */,
-				4A7DB31C19DC1E2400A33ACC /* Headers */,
+				4A7DB46319DC23F600A33ACC /* Sources */,
+				4A7DB46519DC23F600A33ACC /* Frameworks */,
+				4A7DB46919DC23F600A33ACC /* Headers */,
 			);
 			buildRules = (
 			);
@@ -716,7 +478,7 @@
 			);
 			name = "libRestModel iOS";
 			productName = libRestModel;
-			productReference = 4A7DB32019DC1E2400A33ACC /* liblibRestModel iOS.dylib */;
+			productReference = 4A7DB48E19DC23F600A33ACC /* liblibRestModel Mac copy.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -746,7 +508,7 @@
 			projectRoot = "";
 			targets = (
 				4A7DB31119DC1DFE00A33ACC /* libRestModel Mac */,
-				4A7DB31919DC1E2400A33ACC /* libRestModel iOS */,
+				4A7DB46219DC23F600A33ACC /* libRestModel iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -760,11 +522,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A7DB31A19DC1E2400A33ACC /* Sources */ = {
+		4A7DB46319DC23F600A33ACC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7DB44019DC1EB800A33ACC /* restclient.cpp in Sources */,
+				4A7DB46419DC23F600A33ACC /* restclient.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,15 +621,10 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi-v7a",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/x86",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/win32",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/arm",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/win32",
+					"$(SRC_ROOT)../external/curl/prebuilt/mac",
 				);
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -886,24 +643,21 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi-v7a",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/x86",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/win32",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/arm",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/win32",
+					"$(SRC_ROOT)../external/curl/prebuilt/mac",
 				);
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		4A7DB31E19DC1E2400A33ACC /* Debug */ = {
+		4A7DB48C19DC23F600A33ACC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Jixian (RCLALM3873)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "";
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -911,27 +665,25 @@
 					"$(SRC_ROOT)../external/curl/include/ios",
 					"$(SRC_ROOT)../external/restclient-cpp/include",
 				);
+				LD_DYLIB_INSTALL_NAME = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi-v7a",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/x86",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/win32",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/arm",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/win32",
+					"$(SRC_ROOT)../external/curl/prebuilt/ios",
 				);
-				PRODUCT_NAME = "libRestModel iOS";
-				SDKROOT = iphoneos8.0;
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "libRestModel Mac copy";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		4A7DB31F19DC1E2400A33ACC /* Release */ = {
+		4A7DB48D19DC23F600A33ACC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang Jixian (RCLALM3873)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "";
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -939,19 +691,15 @@
 					"$(SRC_ROOT)../external/curl/include/ios",
 					"$(SRC_ROOT)../external/restclient-cpp/include",
 				);
+				LD_DYLIB_INSTALL_NAME = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/armeabi-v7a",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/android/x86",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/win32",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/arm",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/wp8/win32",
+					"$(SRC_ROOT)../external/curl/prebuilt/ios",
 				);
-				PRODUCT_NAME = "libRestModel iOS";
-				SDKROOT = iphoneos8.0;
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "libRestModel Mac copy";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -976,11 +724,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A7DB31D19DC1E2400A33ACC /* Build configuration list for PBXNativeTarget "libRestModel iOS" */ = {
+		4A7DB48B19DC23F600A33ACC /* Build configuration list for PBXNativeTarget "libRestModel iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4A7DB31E19DC1E2400A33ACC /* Debug */,
-				4A7DB31F19DC1E2400A33ACC /* Release */,
+				4A7DB48C19DC23F600A33ACC /* Debug */,
+				4A7DB48D19DC23F600A33ACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
