@@ -8,17 +8,26 @@
 #ifndef __libRestModel__DataCollection__
 #define __libRestModel__DataCollection__
 
-#include "DataObject.h"
 #include "openbiz.h"
 #include <stdio.h>
+#include <vector>
 
 namespace openbiz
 {
-    class DataCollection{
+    class DataCollection:public Object
+    {
     public:
         DataCollection() = default;
+        virtual ~DataCollection() = default;
+        const std::string serialize();
+        DataCollection *deserialize();
+        std::vector<openbiz::DataObject> fetch();
+        std::vector<openbiz::DataObject> query(int limit,int offset);
+        std::vector<openbiz::DataObject> query(const std::string keyword,int limit,int offset);
+
     protected:
-        openbiz::DataObject *_records[];
+        std::vector<openbiz::DataObject> _records;
+        const std::string _baseUri;
     };
 }
 

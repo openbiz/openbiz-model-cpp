@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A78DE7C19DD2DCA00A8B28C /* openbiz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; };
+		4A78DE7D19DD2DCA00A8B28C /* openbiz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; };
+		4A78DE8219DD388200A8B28C /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8119DD388200A8B28C /* config.h */; };
+		4A78DE8319DD388200A8B28C /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8119DD388200A8B28C /* config.h */; };
+		4A78DE8619DD420000A8B28C /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
+		4A78DE8719DD420000A8B28C /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
+		4A78DE8819DD420000A8B28C /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; };
+		4A78DE8919DD420000A8B28C /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; };
 		4A7DB3C119DC1EB800A33ACC /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33C19DC1EB800A33ACC /* curl.h */; };
 		4A7DB3C319DC1EB800A33ACC /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33D19DC1EB800A33ACC /* curlbuild.h */; };
 		4A7DB3C519DC1EB800A33ACC /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33E19DC1EB800A33ACC /* curlrules.h */; };
@@ -99,6 +107,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A78DE8119DD388200A8B28C /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		4A78DE8419DD420000A8B28C /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = core/Object.cpp; sourceTree = "<group>"; };
+		4A78DE8519DD420000A8B28C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = core/Object.h; sourceTree = "<group>"; };
 		4A7DB31219DC1DFE00A33ACC /* liblibRestModel Mac.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "liblibRestModel Mac.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7DB33219DC1EB800A33ACC /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
 		4A7DB33319DC1EB800A33ACC /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlbuild.h; sourceTree = "<group>"; };
@@ -177,6 +188,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A78DE8019DD378100A8B28C /* core */ = {
+			isa = PBXGroup;
+			children = (
+				4A78DE8419DD420000A8B28C /* Object.cpp */,
+				4A78DE8519DD420000A8B28C /* Object.h */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
 		4A7DB30919DC1DFE00A33ACC = {
 			isa = PBXGroup;
 			children = (
@@ -373,10 +393,12 @@
 		4A7DB4E519DC2EA900A33ACC /* openbiz */ = {
 			isa = PBXGroup;
 			children = (
+				4A78DE8019DD378100A8B28C /* core */,
 				4A7DB4FB19DC4F7B00A33ACC /* platform */,
 				4A7DB4E819DC304200A33ACC /* model */,
 				4A7DB4E619DC2EA900A33ACC /* openbiz.cpp */,
 				4A7DB4E719DC2EA900A33ACC /* openbiz.h */,
+				4A78DE8119DD388200A8B28C /* config.h */,
 			);
 			name = openbiz;
 			path = ../openbiz;
@@ -416,6 +438,7 @@
 				4A7DB4FD19DC4FA000A33ACC /* PlatformConfig.h in Headers */,
 				4A7DB43119DC1EB800A33ACC /* prettywriter.h in Headers */,
 				4A7DB3CB19DC1EB800A33ACC /* mprintf.h in Headers */,
+				4A78DE7C19DD2DCA00A8B28C /* openbiz.h in Headers */,
 				4A7DB43B19DC1EB800A33ACC /* meta.h in Headers */,
 				4A7DB42719DC1EB800A33ACC /* strfunc.h in Headers */,
 				4A7DB41519DC1EB800A33ACC /* error.h in Headers */,
@@ -431,6 +454,7 @@
 				4A7DB41319DC1EB800A33ACC /* en.h in Headers */,
 				4A7DB43719DC1EB800A33ACC /* stringbuffer.h in Headers */,
 				4A7DB41F19DC1EB800A33ACC /* itoa.h in Headers */,
+				4A78DE8219DD388200A8B28C /* config.h in Headers */,
 				4A7DB3C919DC1EB800A33ACC /* easy.h in Headers */,
 				4A7DB42119DC1EB800A33ACC /* meta.h in Headers */,
 				4A7DB3C119DC1EB800A33ACC /* curl.h in Headers */,
@@ -438,6 +462,7 @@
 				4A7DB41119DC1EB800A33ACC /* encodings.h in Headers */,
 				4A7DB42919DC1EB800A33ACC /* memorybuffer.h in Headers */,
 				4A7DB3CF19DC1EB800A33ACC /* stdcheaders.h in Headers */,
+				4A78DE8819DD420000A8B28C /* Object.h in Headers */,
 				4A7DB42B19DC1EB800A33ACC /* memorystream.h in Headers */,
 				4A7DB43D19DC1EB800A33ACC /* restclient.h in Headers */,
 				4A7DB43519DC1EB800A33ACC /* reader.h in Headers */,
@@ -456,6 +481,7 @@
 				4A7DB46B19DC23F600A33ACC /* filereadstream.h in Headers */,
 				4A7DB46C19DC23F600A33ACC /* allocators.h in Headers */,
 				4A7DB49A19DC244C00A33ACC /* curlbuild.h in Headers */,
+				4A78DE8919DD420000A8B28C /* Object.h in Headers */,
 				4A7DB46D19DC23F600A33ACC /* encodedstream.h in Headers */,
 				4A7DB46E19DC23F600A33ACC /* filewritestream.h in Headers */,
 				4A7DB46F19DC23F600A33ACC /* prettywriter.h in Headers */,
@@ -467,6 +493,7 @@
 				4A7DB47319DC23F600A33ACC /* error.h in Headers */,
 				4A7DB4FE19DC4FA000A33ACC /* PlatformConfig.h in Headers */,
 				4A7DB47419DC23F600A33ACC /* multi.h in Headers */,
+				4A78DE7D19DD2DCA00A8B28C /* openbiz.h in Headers */,
 				4A7DB4A119DC244C00A33ACC /* typecheck-gcc.h in Headers */,
 				4A7DB47519DC23F600A33ACC /* stack.h in Headers */,
 				4A7DB47619DC23F600A33ACC /* curlbuild.h in Headers */,
@@ -496,6 +523,7 @@
 				4A7DB49D19DC244C00A33ACC /* easy.h in Headers */,
 				4A7DB48A19DC23F600A33ACC /* document.h in Headers */,
 				4A7DB4A019DC244C00A33ACC /* stdcheaders.h in Headers */,
+				4A78DE8319DD388200A8B28C /* config.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +603,7 @@
 			files = (
 				4A7DB43F19DC1EB800A33ACC /* restclient.cpp in Sources */,
 				4A7DB4EB19DC306B00A33ACC /* DataObject.cpp in Sources */,
+				4A78DE8619DD420000A8B28C /* Object.cpp in Sources */,
 				4A7DB4F119DC33E100A33ACC /* DataCollection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +614,7 @@
 			files = (
 				4A7DB46419DC23F600A33ACC /* restclient.cpp in Sources */,
 				4A7DB4EC19DC306B00A33ACC /* DataObject.cpp in Sources */,
+				4A78DE8719DD420000A8B28C /* Object.cpp in Sources */,
 				4A7DB4F219DC33E100A33ACC /* DataCollection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

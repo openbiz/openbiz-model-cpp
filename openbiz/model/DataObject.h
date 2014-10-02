@@ -12,20 +12,27 @@
 #include "openbiz.h"
 #include <iostream>
 #include <vector>
+#include <string>
 #include <stdio.h>
 
 
 namespace openbiz
 {
-    class DataObject
+    class DataObject: public Object
     {
     public:
         DataObject()  = default;
-        void set(std::string* key, std::string*  value);
-        std::string get(std::string* key);
+        
+//        DataObject parse();
+        const std::string serialize();
+        DataObject *deserialize();
         
     protected:
-        std::string _id;
+        const std::string _id;
+        const std::string _serializedData;
+        const std::string _baseUri;
+
+        
     };
 }
 

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A78DE7919DD2B1300A8B28C /* UserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE7719DD2B1300A8B28C /* UserInfo.cpp */; };
+		4A78DE7B19DD2D1F00A8B28C /* liblibRestModel Mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB4DD19DC2B9B00A33ACC /* liblibRestModel Mac.dylib */; };
 		4A7DB4B119DC2B0A00A33ACC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B019DC2B0A00A33ACC /* main.m */; };
-		4A7DB4B419DC2B0A00A33ACC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B319DC2B0A00A33ACC /* AppDelegate.m */; };
+		4A7DB4B419DC2B0A00A33ACC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B319DC2B0A00A33ACC /* AppDelegate.mm */; };
 		4A7DB4B619DC2B0A00A33ACC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */; };
 		4A7DB4B919DC2B0A00A33ACC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B719DC2B0A00A33ACC /* MainMenu.xib */; };
 		4A7DB4C519DC2B0A00A33ACC /* openbizRestfulTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4C419DC2B0A00A33ACC /* openbizRestfulTestTests.m */; };
@@ -46,11 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A78DE7719DD2B1300A8B28C /* UserInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserInfo.cpp; path = objects/UserInfo.cpp; sourceTree = "<group>"; };
+		4A78DE7819DD2B1300A8B28C /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfo.h; path = objects/UserInfo.h; sourceTree = "<group>"; };
 		4A7DB4AB19DC2B0A00A33ACC /* openbizRestfulTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openbizRestfulTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7DB4AF19DC2B0A00A33ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7DB4B019DC2B0A00A33ACC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A7DB4B219DC2B0A00A33ACC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4A7DB4B319DC2B0A00A33ACC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4A7DB4B319DC2B0A00A33ACC /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4A7DB4B819DC2B0A00A33ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4A7DB4BE19DC2B0A00A33ACC /* openbizRestfulTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openbizRestfulTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A78DE7B19DD2D1F00A8B28C /* liblibRestModel Mac.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A78DE7519DD2AE200A8B28C /* cpp objects */ = {
+			isa = PBXGroup;
+			children = (
+				4A78DE7719DD2B1300A8B28C /* UserInfo.cpp */,
+				4A78DE7819DD2B1300A8B28C /* UserInfo.h */,
+			);
+			name = "cpp objects";
+			sourceTree = "<group>";
+		};
 		4A7DB4A219DC2B0A00A33ACC = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +113,9 @@
 		4A7DB4AD19DC2B0A00A33ACC /* openbizRestfulTest */ = {
 			isa = PBXGroup;
 			children = (
+				4A78DE7519DD2AE200A8B28C /* cpp objects */,
 				4A7DB4B219DC2B0A00A33ACC /* AppDelegate.h */,
-				4A7DB4B319DC2B0A00A33ACC /* AppDelegate.m */,
+				4A7DB4B319DC2B0A00A33ACC /* AppDelegate.mm */,
 				4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */,
 				4A7DB4B719DC2B0A00A33ACC /* MainMenu.xib */,
 				4A7DB4AE19DC2B0A00A33ACC /* Supporting Files */,
@@ -266,8 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7DB4B419DC2B0A00A33ACC /* AppDelegate.m in Sources */,
+				4A7DB4B419DC2B0A00A33ACC /* AppDelegate.mm in Sources */,
 				4A7DB4B119DC2B0A00A33ACC /* main.m in Sources */,
+				4A78DE7919DD2B1300A8B28C /* UserInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +403,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRC_ROOT)../../openbiz",
+				);
 				INFOPLIST_FILE = openbizRestfulTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -398,6 +419,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRC_ROOT)../../openbiz",
+				);
 				INFOPLIST_FILE = openbizRestfulTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

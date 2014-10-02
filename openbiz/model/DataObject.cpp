@@ -7,7 +7,15 @@
 //
 
 #include "DataObject.h"
+using namespace std;
+
 namespace openbiz
 {
-
+    const string DataObject::serialize(){
+        return string("test");
+    };
+    
+    DataObject* DataObject::deserialize(){
+        return this;
+    };
 }

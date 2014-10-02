@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#include "UserInfo.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +25,8 @@
 }
 
 -(IBAction)btnTest:(id)sender{
-    NSLog(@"test trigger");
+    GAPP::User *u = new GAPP::User();
+    u->test();
 }
 
 @end
