@@ -9,12 +9,11 @@
 #ifndef __libRestModel__DataObject__
 #define __libRestModel__DataObject__
 
-#include "openbiz.h"
 #include <iostream>
 #include <vector>
 #include <string>
 #include <stdio.h>
-
+#include "Object.h"
 
 namespace openbiz
 {
@@ -22,16 +21,12 @@ namespace openbiz
     {
     public:
         DataObject()  = default;
+        virtual const std::string serialize();
+        virtual void deserialize();
         
-//        DataObject parse();
-        const std::string serialize();
-        DataObject *deserialize();
         
     protected:
-        const std::string _id;
         const std::string _serializedData;
-        const std::string _baseUri;
-
         
     };
 }

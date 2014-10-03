@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A78DE7919DD2B1300A8B28C /* UserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE7719DD2B1300A8B28C /* UserInfo.cpp */; };
-		4A78DE7B19DD2D1F00A8B28C /* liblibRestModel Mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB4DD19DC2B9B00A33ACC /* liblibRestModel Mac.dylib */; };
 		4A7DB4B119DC2B0A00A33ACC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B019DC2B0A00A33ACC /* main.m */; };
 		4A7DB4B419DC2B0A00A33ACC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B319DC2B0A00A33ACC /* AppDelegate.mm */; };
 		4A7DB4B619DC2B0A00A33ACC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */; };
 		4A7DB4B919DC2B0A00A33ACC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7DB4B719DC2B0A00A33ACC /* MainMenu.xib */; };
 		4A7DB4C519DC2B0A00A33ACC /* openbizRestfulTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4C419DC2B0A00A33ACC /* openbizRestfulTestTests.m */; };
+		4AEE73B519DE69AA00821A56 /* libRestModel-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE739D19DDABB800821A56 /* libRestModel-Mac.a */; };
+		4AEE73B819DE6A4900821A56 /* UserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73B719DE6A4900821A56 /* UserInfo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,32 +24,30 @@
 			remoteGlobalIDString = 4A7DB4AA19DC2B0A00A33ACC;
 			remoteInfo = openbizRestfulTest;
 		};
-		4A7DB4DC19DC2B9B00A33ACC /* PBXContainerItemProxy */ = {
+		4AEE739C19DDABB800821A56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+			containerPortal = 4AEE739719DDABB800821A56 /* libRestModel.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 4A7DB31219DC1DFE00A33ACC;
-			remoteInfo = "libRestModel Mac";
+			remoteGlobalIDString = 4AEE734119DD9BD700821A56;
+			remoteInfo = "RestModel-Mac";
 		};
-		4A7DB4DE19DC2B9B00A33ACC /* PBXContainerItemProxy */ = {
+		4AEE739E19DDABB800821A56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+			containerPortal = 4AEE739719DDABB800821A56 /* libRestModel.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 4A7DB48E19DC23F600A33ACC;
-			remoteInfo = "libRestModel iOS";
+			remoteGlobalIDString = 4AEE734919DD9C9900821A56;
+			remoteInfo = "RestModel-iOS";
 		};
-		4A7DB4E319DC2BC500A33ACC /* PBXContainerItemProxy */ = {
+		4AEE73A019DDABE100821A56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+			containerPortal = 4AEE739719DDABB800821A56 /* libRestModel.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 4A7DB31119DC1DFE00A33ACC;
-			remoteInfo = "libRestModel Mac";
+			remoteGlobalIDString = 4AEE734019DD9BD700821A56;
+			remoteInfo = "RestModel-Mac";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A78DE7719DD2B1300A8B28C /* UserInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserInfo.cpp; path = objects/UserInfo.cpp; sourceTree = "<group>"; };
-		4A78DE7819DD2B1300A8B28C /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfo.h; path = objects/UserInfo.h; sourceTree = "<group>"; };
 		4A7DB4AB19DC2B0A00A33ACC /* openbizRestfulTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openbizRestfulTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7DB4AF19DC2B0A00A33ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7DB4B019DC2B0A00A33ACC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,7 +58,9 @@
 		4A7DB4BE19DC2B0A00A33ACC /* openbizRestfulTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openbizRestfulTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7DB4C319DC2B0A00A33ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7DB4C419DC2B0A00A33ACC /* openbizRestfulTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = openbizRestfulTestTests.m; sourceTree = "<group>"; };
-		4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libRestModel.xcodeproj; path = ../../build/libRestModel.xcodeproj; sourceTree = "<group>"; };
+		4AEE739719DDABB800821A56 /* libRestModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libRestModel.xcodeproj; path = ../../build/libRestModel.xcodeproj; sourceTree = "<group>"; };
+		4AEE73B619DE6A4900821A56 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfo.h; path = objects/UserInfo.h; sourceTree = "<group>"; };
+		4AEE73B719DE6A4900821A56 /* UserInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserInfo.cpp; path = objects/UserInfo.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A78DE7B19DD2D1F00A8B28C /* liblibRestModel Mac.dylib in Frameworks */,
+				4AEE73B519DE69AA00821A56 /* libRestModel-Mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,19 +82,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A78DE7519DD2AE200A8B28C /* cpp objects */ = {
+		4A78DE7519DD2AE200A8B28C /* GAPP_Objects */ = {
 			isa = PBXGroup;
 			children = (
-				4A78DE7719DD2B1300A8B28C /* UserInfo.cpp */,
-				4A78DE7819DD2B1300A8B28C /* UserInfo.h */,
+				4AEE73B619DE6A4900821A56 /* UserInfo.h */,
+				4AEE73B719DE6A4900821A56 /* UserInfo.cpp */,
 			);
-			name = "cpp objects";
+			name = GAPP_Objects;
 			sourceTree = "<group>";
 		};
 		4A7DB4A219DC2B0A00A33ACC = {
 			isa = PBXGroup;
 			children = (
-				4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */,
+				4AEE739719DDABB800821A56 /* libRestModel.xcodeproj */,
 				4A7DB4AD19DC2B0A00A33ACC /* openbizRestfulTest */,
 				4A7DB4C119DC2B0A00A33ACC /* openbizRestfulTestTests */,
 				4A7DB4AC19DC2B0A00A33ACC /* Products */,
@@ -113,7 +113,7 @@
 		4A7DB4AD19DC2B0A00A33ACC /* openbizRestfulTest */ = {
 			isa = PBXGroup;
 			children = (
-				4A78DE7519DD2AE200A8B28C /* cpp objects */,
+				4A78DE7519DD2AE200A8B28C /* GAPP_Objects */,
 				4A7DB4B219DC2B0A00A33ACC /* AppDelegate.h */,
 				4A7DB4B319DC2B0A00A33ACC /* AppDelegate.mm */,
 				4A7DB4B519DC2B0A00A33ACC /* Images.xcassets */,
@@ -149,11 +149,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4A7DB4D819DC2B9B00A33ACC /* Products */ = {
+		4AEE739819DDABB800821A56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A7DB4DD19DC2B9B00A33ACC /* liblibRestModel Mac.dylib */,
-				4A7DB4DF19DC2B9B00A33ACC /* liblibRestModel iOS.dylib */,
+				4AEE739D19DDABB800821A56 /* libRestModel-Mac.a */,
+				4AEE739F19DDABB800821A56 /* libRestModel-iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4A7DB4E419DC2BC500A33ACC /* PBXTargetDependency */,
+				4AEE73A119DDABE100821A56 /* PBXTargetDependency */,
 			);
 			name = openbizRestfulTest;
 			productName = openbizRestfulTest;
@@ -228,8 +228,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4A7DB4D819DC2B9B00A33ACC /* Products */;
-					ProjectRef = 4A7DB4D719DC2B9B00A33ACC /* libRestModel.xcodeproj */;
+					ProductGroup = 4AEE739819DDABB800821A56 /* Products */;
+					ProjectRef = 4AEE739719DDABB800821A56 /* libRestModel.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -241,18 +241,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4A7DB4DD19DC2B9B00A33ACC /* liblibRestModel Mac.dylib */ = {
+		4AEE739D19DDABB800821A56 /* libRestModel-Mac.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "liblibRestModel Mac.dylib";
-			remoteRef = 4A7DB4DC19DC2B9B00A33ACC /* PBXContainerItemProxy */;
+			fileType = archive.ar;
+			path = "libRestModel-Mac.a";
+			remoteRef = 4AEE739C19DDABB800821A56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4A7DB4DF19DC2B9B00A33ACC /* liblibRestModel iOS.dylib */ = {
+		4AEE739F19DDABB800821A56 /* libRestModel-iOS.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "liblibRestModel iOS.dylib";
-			remoteRef = 4A7DB4DE19DC2B9B00A33ACC /* PBXContainerItemProxy */;
+			fileType = archive.ar;
+			path = "libRestModel-iOS.a";
+			remoteRef = 4AEE739E19DDABB800821A56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -283,7 +283,7 @@
 			files = (
 				4A7DB4B419DC2B0A00A33ACC /* AppDelegate.mm in Sources */,
 				4A7DB4B119DC2B0A00A33ACC /* main.m in Sources */,
-				4A78DE7919DD2B1300A8B28C /* UserInfo.cpp in Sources */,
+				4AEE73B819DE6A4900821A56 /* UserInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +303,10 @@
 			target = 4A7DB4AA19DC2B0A00A33ACC /* openbizRestfulTest */;
 			targetProxy = 4A7DB4BF19DC2B0A00A33ACC /* PBXContainerItemProxy */;
 		};
-		4A7DB4E419DC2BC500A33ACC /* PBXTargetDependency */ = {
+		4AEE73A119DDABE100821A56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "libRestModel Mac";
-			targetProxy = 4A7DB4E319DC2BC500A33ACC /* PBXContainerItemProxy */;
+			name = "RestModel-Mac";
+			targetProxy = 4AEE73A019DDABE100821A56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -401,32 +401,50 @@
 		4A7DB4C919DC2B0A00A33ACC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRC_ROOT)../../openbiz",
 				);
 				INFOPLIST_FILE = openbizRestfulTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/usr/local/include";
 			};
 			name = Debug;
 		};
 		4A7DB4CA19DC2B0A00A33ACC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRC_ROOT)../../openbiz",
 				);
 				INFOPLIST_FILE = openbizRestfulTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(TARGET_BUILD_DIR)/usr/local/include";
 			};
 			name = Release;
 		};

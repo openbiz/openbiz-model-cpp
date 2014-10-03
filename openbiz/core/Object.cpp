@@ -7,6 +7,7 @@
 //
 
 #include "Object.h"
+#include "config.h"
 
 using namespace std;
 namespace openbiz{

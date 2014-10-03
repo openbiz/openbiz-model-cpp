@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A7DB46219DC23F600A33ACC"
-               BuildableName = "liblibRestModel iOS.dylib"
-               BlueprintName = "libRestModel iOS"
+               BlueprintIdentifier = "4AEE734819DD9C9900821A56"
+               BuildableName = "libRestModel-iOS.a"
+               BlueprintName = "RestModel-iOS"
                ReferencedContainer = "container:libRestModel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A7DB46219DC23F600A33ACC"
-            BuildableName = "liblibRestModel iOS.dylib"
-            BlueprintName = "libRestModel iOS"
+            BlueprintIdentifier = "4AEE734819DD9C9900821A56"
+            BuildableName = "libRestModel-iOS.a"
+            BlueprintName = "RestModel-iOS"
             ReferencedContainer = "container:libRestModel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A7DB46219DC23F600A33ACC"
-            BuildableName = "liblibRestModel iOS.dylib"
-            BlueprintName = "libRestModel iOS"
+            BlueprintIdentifier = "4AEE734819DD9C9900821A56"
+            BuildableName = "libRestModel-iOS.a"
+            BlueprintName = "RestModel-iOS"
             ReferencedContainer = "container:libRestModel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

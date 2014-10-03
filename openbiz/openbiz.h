@@ -1,13 +1,11 @@
 #include <iostream>
-#include "config.h"
-#include "core/Object.h"
-#include "platform/PlatformConfig.h"
-#include "model/DataObject.h"
-#include "model/DataCollection.h"
+#include <sqlite3.h>
+#include "DataObject.h"
+#include "DataCollection.h"
+#include "RemoteDataObject.h"
+#include "RemoteDataCollection.h"
+
 
 namespace openbiz {
-    class Object;
-    class DataObject;
-    class DataCollection;
-    
+    const std::string getVersion();
 }

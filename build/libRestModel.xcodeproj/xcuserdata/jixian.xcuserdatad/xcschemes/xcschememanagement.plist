@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>libRestModel Mac.xcscheme</key>
+		<key>RestModel-Mac.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>libRestModel iOS.xcscheme</key>
+		<key>RestModel-iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -38,6 +38,21 @@
 			<true/>
 		</dict>
 		<key>4A7DB46219DC23F600A33ACC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AEE734019DD9BD700821A56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AEE734819DD9C9900821A56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AEE735219DD9C9900821A56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

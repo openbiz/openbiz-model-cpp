@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <config.h>
+
 
 namespace openbiz
 {
@@ -22,7 +22,7 @@ namespace openbiz
         virtual ~Object() = default;
         virtual const std::string getVersion();
         virtual const std::string serialize() = 0;
-        virtual Object *deserialize() = 0;
+        virtual void deserialize() = 0;
     };
 }
 #endif /* defined(__libRestModel__Object__) */

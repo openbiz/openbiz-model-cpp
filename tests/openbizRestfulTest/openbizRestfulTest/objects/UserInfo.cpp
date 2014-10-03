@@ -7,8 +7,20 @@
 //
 
 #include "UserInfo.h"
+#include "RemoteDataObject.h"
 namespace GAPP{
+    
     void User::test(){
-        std::cout << "version is: " << this->getVersion() << std::endl;
-    }
+        std::cout << "version is: " << this->getVersion() << this->fetch()<< std::endl;
+    };
+    
+//    const std::string User::fetch(){
+//        cout << "i m here" << endl;
+////        const string result = openbiz::RemoteDataObject::fetch();
+//        return result;
+//    }
+    
+    const std::string User::getBaseURI(){
+        return this->_baseUri;
+    };
 };

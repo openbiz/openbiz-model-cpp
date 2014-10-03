@@ -27,6 +27,9 @@
 -(IBAction)btnTest:(id)sender{
     GAPP::User *u = new GAPP::User();
     u->test();
+//    u->fetch();
+  //  openbiz::getVersion();
+    delete u;
 }
 
 @end
