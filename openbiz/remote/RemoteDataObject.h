@@ -14,6 +14,7 @@
 #include <vector>
 #include <string>
 #include "DataObject.h"
+#include "exception.h"
 
 namespace openbiz
 {

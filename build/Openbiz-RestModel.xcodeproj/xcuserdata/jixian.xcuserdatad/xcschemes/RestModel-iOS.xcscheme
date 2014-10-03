@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4AEE734819DD9C9900821A56"
                BuildableName = "libRestModel-iOS.a"
                BlueprintName = "RestModel-iOS"
-               ReferencedContainer = "container:libRestModel.xcodeproj">
+               ReferencedContainer = "container:Openbiz-RestModel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "4AEE734819DD9C9900821A56"
             BuildableName = "libRestModel-iOS.a"
             BlueprintName = "RestModel-iOS"
-            ReferencedContainer = "container:libRestModel.xcodeproj">
+            ReferencedContainer = "container:Openbiz-RestModel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,7 +63,7 @@
             BlueprintIdentifier = "4AEE734819DD9C9900821A56"
             BuildableName = "libRestModel-iOS.a"
             BlueprintName = "RestModel-iOS"
-            ReferencedContainer = "container:libRestModel.xcodeproj">
+            ReferencedContainer = "container:Openbiz-RestModel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

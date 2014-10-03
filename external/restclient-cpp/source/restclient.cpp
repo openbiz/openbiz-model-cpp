@@ -15,7 +15,7 @@
 #include <map>
 
 /** initialize user agent string */
-const char* RestClient::user_agent = "restclient-cpp/" VERSION;
+const char* RestClient::user_agent = "openbiz-rest-model/" OPENBIZ_VERSION;
 /** initialize authentication variable */
 std::string RestClient::user_pass =  std::string();
 /** Authentication Methods implementation */

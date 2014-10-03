@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
+		4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
+		4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */; };
+		4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */; };
+		4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4AB3FE7619DEEBE0007727C2 /* exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7519DEEB8E007727C2 /* exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
@@ -24,8 +31,8 @@
 		4AEE737219DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */; };
 		4AEE737319DD9ED300821A56 /* RemoteDataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */; };
 		4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */; };
-		4AEE737519DD9EF500821A56 /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; };
-		4AEE737619DD9EF500821A56 /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; };
+		4AEE737519DD9EF500821A56 /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE737619DD9EF500821A56 /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
 		4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
 		4AEE737919DD9F0200821A56 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36519DC1EB800A33ACC /* libcurl.a */; };
@@ -49,16 +56,16 @@
 		4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */; };
 		4AEE73C219DE893D00821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AEE73C319DE894400821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
-		4AEE73F519DE940A00821A56 /* assertions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D319DE940A00821A56 /* assertions.h */; };
-		4AEE73F619DE940A00821A56 /* autolink.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D419DE940A00821A56 /* autolink.h */; };
-		4AEE73F719DE940A00821A56 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D519DE940A00821A56 /* config.h */; };
-		4AEE73F819DE940A00821A56 /* features.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D619DE940A00821A56 /* features.h */; };
-		4AEE73F919DE940A00821A56 /* forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D719DE940A00821A56 /* forwards.h */; };
-		4AEE73FA19DE940A00821A56 /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D819DE940A00821A56 /* json.h */; };
-		4AEE73FB19DE940A00821A56 /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D919DE940A00821A56 /* reader.h */; };
-		4AEE73FC19DE940A00821A56 /* value.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DA19DE940A00821A56 /* value.h */; };
-		4AEE73FD19DE940A00821A56 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DB19DE940A00821A56 /* version.h */; };
-		4AEE73FE19DE940A00821A56 /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DC19DE940A00821A56 /* writer.h */; };
+		4AEE73F519DE940A00821A56 /* assertions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D319DE940A00821A56 /* assertions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73F619DE940A00821A56 /* autolink.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D419DE940A00821A56 /* autolink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73F719DE940A00821A56 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D519DE940A00821A56 /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73F819DE940A00821A56 /* features.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D619DE940A00821A56 /* features.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73F919DE940A00821A56 /* forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D719DE940A00821A56 /* forwards.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73FA19DE940A00821A56 /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D819DE940A00821A56 /* json.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73FB19DE940A00821A56 /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D919DE940A00821A56 /* reader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73FC19DE940A00821A56 /* value.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DA19DE940A00821A56 /* value.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73FD19DE940A00821A56 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DB19DE940A00821A56 /* version.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AEE73FE19DE940A00821A56 /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DC19DE940A00821A56 /* writer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE73FF19DE940A00821A56 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73E119DE940A00821A56 /* main.cpp */; };
 		4AEE740019DE940A00821A56 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73E119DE940A00821A56 /* main.cpp */; };
 		4AEE740119DE940A00821A56 /* json_batchallocator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73E519DE940A00821A56 /* json_batchallocator.h */; };
@@ -125,6 +132,11 @@
 		4A7DB4EF19DC33E100A33ACC /* DataCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataCollection.cpp; path = model/DataCollection.cpp; sourceTree = "<group>"; };
 		4A7DB4F019DC33E100A33ACC /* DataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataCollection.h; path = model/DataCollection.h; sourceTree = "<group>"; };
 		4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformConfig.h; path = platform/PlatformConfig.h; sourceTree = "<group>"; };
+		4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkConnectionException.cpp; path = exception/NetworkConnectionException.cpp; sourceTree = "<group>"; };
+		4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ServerErrorException.cpp; path = exception/ServerErrorException.cpp; sourceTree = "<group>"; };
+		4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerErrorException.h; path = exception/ServerErrorException.h; sourceTree = "<group>"; };
+		4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkConnectionException.h; path = exception/NetworkConnectionException.h; sourceTree = "<group>"; };
+		4AB3FE7519DEEB8E007727C2 /* exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = exception.h; path = exception/exception.h; sourceTree = "<group>"; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
 		4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataCollection.cpp; path = remote/RemoteDataCollection.cpp; sourceTree = "<group>"; };
@@ -342,6 +354,7 @@
 		4A7DB4E519DC2EA900A33ACC /* openbiz */ = {
 			isa = PBXGroup;
 			children = (
+				4AB3FE6619DEDA22007727C2 /* exception */,
 				4A78DE8019DD378100A8B28C /* core */,
 				4A7DB4FB19DC4F7B00A33ACC /* platform */,
 				4A7DB4E819DC304200A33ACC /* model */,
@@ -371,6 +384,18 @@
 				4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */,
 			);
 			name = platform;
+			sourceTree = "<group>";
+		};
+		4AB3FE6619DEDA22007727C2 /* exception */ = {
+			isa = PBXGroup;
+			children = (
+				4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */,
+				4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */,
+				4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */,
+				4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */,
+				4AB3FE7519DEEB8E007727C2 /* exception.h */,
+			);
+			name = exception;
 			sourceTree = "<group>";
 		};
 		4AEE731B19DD783500821A56 /* remote */ = {
@@ -487,6 +512,7 @@
 				4AEE736F19DD9ECB00821A56 /* RemoteDataObject.h in Headers */,
 				4AEE737519DD9EF500821A56 /* meta.h in Headers */,
 				4AEE73FD19DE940A00821A56 /* version.h in Headers */,
+				4AB3FE7619DEEBE0007727C2 /* exception.h in Headers */,
 				4AEE735E19DD9CFE00821A56 /* Object.h in Headers */,
 				4AEE738119DD9F1C00821A56 /* multi.h in Headers */,
 				4AEE73F619DE940A00821A56 /* autolink.h in Headers */,
@@ -494,12 +520,14 @@
 				4AEE740419DE940A00821A56 /* json_tool.h in Headers */,
 				4AEE740119DE940A00821A56 /* json_batchallocator.h in Headers */,
 				4AEE737F19DD9F1C00821A56 /* easy.h in Headers */,
+				4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */,
 				4AEE737C19DD9F1C00821A56 /* curlbuild.h in Headers */,
 				4AEE73F819DE940A00821A56 /* features.h in Headers */,
 				4AEE738319DD9F1C00821A56 /* typecheck-gcc.h in Headers */,
 				4AEE736819DD9E9D00821A56 /* openbiz.h in Headers */,
 				4AEE73FE19DE940A00821A56 /* writer.h in Headers */,
 				4AEE737019DD9ECB00821A56 /* RemoteDataCollection.h in Headers */,
+				4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */,
 				4AEE736A19DD9EAE00821A56 /* config.h in Headers */,
 				4AEE736D19DD9ECB00821A56 /* DataObject.h in Headers */,
 				4AEE73F719DE940A00821A56 /* config.h in Headers */,
@@ -560,7 +588,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A7DB30D19DC1DFE00A33ACC /* Build configuration list for PBXProject "libRestModel" */;
+			buildConfigurationList = 4A7DB30D19DC1DFE00A33ACC /* Build configuration list for PBXProject "Openbiz-RestModel" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -587,10 +615,12 @@
 				4AEE736019DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AEE740219DE940A00821A56 /* json_reader.cpp in Sources */,
 				4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */,
+				4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AEE737219DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
 				4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */,
 				4AEE736419DD9E8A00821A56 /* DataCollection.cpp in Sources */,
+				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AEE740519DE940A00821A56 /* json_value.cpp in Sources */,
 				4AEE73FF19DE940A00821A56 /* main.cpp in Sources */,
 				4AEE736619DD9E9900821A56 /* openbiz.cpp in Sources */,
@@ -608,7 +638,9 @@
 				4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE740619DE940A00821A56 /* json_value.cpp in Sources */,
 				4AEE740319DE940A00821A56 /* json_reader.cpp in Sources */,
+				4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AEE740019DE940A00821A56 /* main.cpp in Sources */,
+				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
 				4AEE736319DD9E8A00821A56 /* DataCollection.cpp in Sources */,
 			);
@@ -714,8 +746,9 @@
 				MACH_O_TYPE = mh_dylib;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -738,8 +771,9 @@
 				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				SKIP_INSTALL = NO;
 			};
 			name = Release;
@@ -800,7 +834,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A7DB30D19DC1DFE00A33ACC /* Build configuration list for PBXProject "libRestModel" */ = {
+		4A7DB30D19DC1DFE00A33ACC /* Build configuration list for PBXProject "Openbiz-RestModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A7DB31419DC1DFE00A33ACC /* Debug */,
