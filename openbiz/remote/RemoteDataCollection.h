@@ -16,17 +16,20 @@
 
 namespace openbiz
 {
-    class RemoteDataCollection:public DataCollection
+    namespace remote
     {
-    public:
-        RemoteDataCollection() = default;
-        virtual ~RemoteDataCollection() = default;
-//        std::vector<openbiz::RemoteDataObject> fetch() override;
-//        std::vector<openbiz::RemoteDataObject> query(const std::string keyword,int limit,int offset) ;
-//        
-    protected:
-        std::vector<openbiz::RemoteDataObject> _records;
-        const std::string _baseUri;
+        class DataCollection:public data::DataCollection
+        {
+        public:
+            DataCollection() = default;
+            virtual ~DataCollection() = default;
+            //        std::vector<openbiz::RemoteDataObject> fetch() override;
+            //        std::vector<openbiz::RemoteDataObject> query(const std::string keyword,int limit,int offset) ;
+            //
+        protected:
+            std::vector<openbiz::remote::DataObject> _records;
+            const std::string _baseUri;
+        };
     };
 }
 

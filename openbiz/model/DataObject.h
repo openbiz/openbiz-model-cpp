@@ -17,17 +17,20 @@
 
 namespace openbiz
 {
-    class DataObject: public Object
+    namespace data
     {
-    public:
-        DataObject()  = default;
-        virtual const std::string serialize();
-        virtual void deserialize();
-        
-        
-    protected:
-        const std::string _serializedData;
-        
+        class DataObject: public core::Object
+        {
+        public:
+            DataObject()  = default;
+            virtual const std::string serialize();
+            virtual void deserialize();
+            
+            
+        protected:
+            const std::string _serializedData;
+            
+        };
     };
 }
 

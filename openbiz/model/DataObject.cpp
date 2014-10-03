@@ -11,10 +11,10 @@ using namespace std;
 
 namespace openbiz
 {
-    const string DataObject::serialize(){
+    const string data::DataObject::serialize(){
         return this->_serializedData;
     };
     
-    void DataObject::deserialize(){
+    void data::DataObject::deserialize(){
     };
 }

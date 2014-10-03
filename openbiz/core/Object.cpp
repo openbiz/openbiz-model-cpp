@@ -11,7 +11,7 @@
 
 using namespace std;
 namespace openbiz{
-    const string Object::getVersion(){
+    const string core::Object::getVersion(){
         return OPENBIZ_VERSION;
     }
 }

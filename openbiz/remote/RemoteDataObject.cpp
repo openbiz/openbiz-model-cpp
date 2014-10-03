@@ -14,31 +14,37 @@ using namespace std;
 namespace openbiz
 {
    
-    const string RemoteDataObject::getBaseURI()
+    const string remote::DataObject::getId()
     {
-            return "";
+        return "";
     };
     
-    const string RemoteDataObject::fetch()
+    const string remote::DataObject::getBaseURI()
+    {
+        return "";
+    };
+    
+    const string remote::DataObject::fetch()
     {
         cout<< this->getBaseURI()<< endl;
         RestClient::response r = RestClient::get(this->getBaseURI());
         if(r.code!=-1){
             const string result = r.body;
             Json::Reader reader;
+            Json::StyledWriter writer;
             Json::Value root;
             reader.parse(r.body, root);
-            
-            return root["name"].asString();
+            return root["permissions"][0].asString();
+//            return writer.write(root["app"]);
         }else{
             return "CONNECTION ERROR";
         }
     };
     
-    const string RemoteDataObject::serialize(){
+    const string remote::DataObject::serialize(){
         return "";
     };
-    void RemoteDataObject::deserialize(){
+    void remote::DataObject::deserialize(){
     
     };
 }

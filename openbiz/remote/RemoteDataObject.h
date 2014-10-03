@@ -17,19 +17,22 @@
 
 namespace openbiz
 {
-    class RemoteDataObject: public DataObject
+    namespace remote
     {
-    public:
-        RemoteDataObject()  = default;
-        const std::string fetch();
-        
-    protected:
-        const std::string _id;
-        const std::string _baseUri;
-        virtual const std::string getBaseURI();
-        virtual const std::string serialize() override;
-        virtual void deserialize() override;
-        
-    };
+        class DataObject: public data::DataObject
+        {
+        public:
+            DataObject()  = default;
+            const std::string fetch();
+            virtual const std::string getId();
+            
+        protected:
+            const std::string _id;
+            virtual const std::string getBaseURI() =0;
+            virtual const std::string serialize() override;
+            virtual void deserialize() override;
+            
+        };
+    }
 }
 #endif /* defined(__libRestModel__RemoteDataObject__) */

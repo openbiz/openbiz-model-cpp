@@ -15,20 +15,23 @@
 
 namespace openbiz
 {
-    class DataCollection:public Object
+    namespace data
     {
-    public:
-        DataCollection() = default;
-        virtual ~DataCollection() = default;
-        virtual std::vector<openbiz::DataObject> fetch();
-//        std::vector<openbiz::DataObject> query(int limit){ return query("",limit,0); };
-//        std::vector<openbiz::DataObject> query(int limit,int offset){ return query("",limit,offset); };
-//        virtual std::vector<openbiz::DataObject> query(const std::string keyword,int limit,int offset);
-        
-    protected:
-        std::vector<openbiz::DataObject> _records;
-        const std::string _baseUri;
-    };
+        class DataCollection:public core::Object
+        {
+        public:
+            DataCollection() = default;
+            virtual ~DataCollection() = default;
+            virtual std::vector<openbiz::data::DataObject> fetch();
+            //        std::vector<openbiz::DataObject> query(int limit){ return query("",limit,0); };
+            //        std::vector<openbiz::DataObject> query(int limit,int offset){ return query("",limit,offset); };
+            //        virtual std::vector<openbiz::DataObject> query(const std::string keyword,int limit,int offset);
+            
+        protected:
+            std::vector<openbiz::data::DataObject> _records;
+            const std::string _baseUri;
+        };
+    }
 }
 
 #endif /* defined(__libRestModel__DataCollection__) */

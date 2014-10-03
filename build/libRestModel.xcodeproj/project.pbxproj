@@ -29,7 +29,6 @@
 		4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
 		4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
 		4AEE737919DD9F0200821A56 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36519DC1EB800A33ACC /* libcurl.a */; };
-		4AEE737A19DD9F0C00821A56 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7DB36819DC1EB800A33ACC /* libcurl.a */; };
 		4AEE737B19DD9F1C00821A56 /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33C19DC1EB800A33ACC /* curl.h */; };
 		4AEE737C19DD9F1C00821A56 /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33D19DC1EB800A33ACC /* curlbuild.h */; };
 		4AEE737D19DD9F1C00821A56 /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33E19DC1EB800A33ACC /* curlrules.h */; };
@@ -47,7 +46,6 @@
 		4AEE739319DDA1AF00821A56 /* RemoteDataCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AEE732319DD787B00821A56 /* RemoteDataCollection.h */; };
 		4AEE739419DDA1AF00821A56 /* openbiz.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; };
 		4AEE739519DDA1AF00821A56 /* config.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A78DE8119DD388200A8B28C /* config.h */; };
-		4AEE73AE19DDB47500821A56 /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73AC19DDB47500821A56 /* libcurl.4.dylib */; };
 		4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */; };
 		4AEE73C219DE893D00821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AEE73C319DE894400821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
@@ -71,6 +69,7 @@
 		4AEE740619DE940A00821A56 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EA19DE940A00821A56 /* json_value.cpp */; };
 		4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EC19DE940A00821A56 /* json_writer.cpp */; };
 		4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EC19DE940A00821A56 /* json_writer.cpp */; };
+		4AEE746719DEB1EF00821A56 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE746619DEB1EF00821A56 /* libcurl.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -116,7 +115,6 @@
 		4A7DB34319DC1EB800A33ACC /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
 		4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 		4A7DB36519DC1EB800A33ACC /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
-		4A7DB36819DC1EB800A33ACC /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		4A7DB39719DC1EB800A33ACC /* meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meta.h; sourceTree = "<group>"; };
 		4A7DB39819DC1EB800A33ACC /* restclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = restclient.h; sourceTree = "<group>"; };
 		4A7DB39A19DC1EB800A33ACC /* restclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = restclient.cpp; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		4AEE732319DD787B00821A56 /* RemoteDataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection.h; path = remote/RemoteDataCollection.h; sourceTree = "<group>"; };
 		4AEE734119DD9BD700821A56 /* libRestModel-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRestModel-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE734919DD9C9900821A56 /* libRestModel-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRestModel-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AEE73AC19DDB47500821A56 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcurl.4.dylib; sourceTree = "<group>"; };
 		4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AEE73D119DE940A00821A56 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		4AEE73D319DE940A00821A56 /* assertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assertions.h; sourceTree = "<group>"; };
@@ -161,6 +158,7 @@
 		4AEE73EC19DE940A00821A56 /* json_writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_writer.cpp; sourceTree = "<group>"; };
 		4AEE73ED19DE940A00821A56 /* sconscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sconscript; sourceTree = "<group>"; };
 		4AEE73EE19DE940A00821A56 /* version.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = version.h.in; sourceTree = "<group>"; };
+		4AEE746619DEB1EF00821A56 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +166,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEE746719DEB1EF00821A56 /* libcurl.dylib in Frameworks */,
 				4AEE73C319DE894400821A56 /* SystemConfiguration.framework in Frameworks */,
-				4AEE73AE19DDB47500821A56 /* libcurl.4.dylib in Frameworks */,
-				4AEE737A19DD9F0C00821A56 /* libcurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,8 +300,7 @@
 		4A7DB36619DC1EB800A33ACC /* mac */ = {
 			isa = PBXGroup;
 			children = (
-				4AEE73AC19DDB47500821A56 /* libcurl.4.dylib */,
-				4A7DB36819DC1EB800A33ACC /* libcurl.a */,
+				4AEE746619DEB1EF00821A56 /* libcurl.dylib */,
 			);
 			path = mac;
 			sourceTree = "<group>";
@@ -717,6 +713,7 @@
 				);
 				MACH_O_TYPE = mh_dylib;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 				SKIP_INSTALL = NO;
@@ -740,6 +737,7 @@
 					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
 				);
 				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 				SKIP_INSTALL = NO;

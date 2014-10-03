@@ -12,17 +12,19 @@
 #include <stdio.h>
 #include <iostream>
 
-
 namespace openbiz
 {
-    class Object
+    namespace core
     {
-    public:
-        Object() = default;
-        virtual ~Object() = default;
-        virtual const std::string getVersion();
-        virtual const std::string serialize() = 0;
-        virtual void deserialize() = 0;
+        class Object
+        {
+        public:
+            Object() = default;
+            virtual ~Object() = default;
+            virtual const std::string getVersion();
+            virtual const std::string serialize() = 0;
+            virtual void deserialize() = 0;
+        };
     };
 }
 #endif /* defined(__libRestModel__Object__) */

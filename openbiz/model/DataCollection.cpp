@@ -9,8 +9,8 @@
 #include "DataCollection.h"
 namespace openbiz
 {
-    std::vector<openbiz::DataObject> DataCollection::fetch(){
-        std::vector<openbiz::DataObject> results;
+    std::vector<openbiz::data::DataObject> data::DataCollection::fetch(){
+        std::vector<openbiz::data::DataObject> results;
         return results;
     };
     
