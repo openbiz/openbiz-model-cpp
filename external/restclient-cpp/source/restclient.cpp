@@ -8,7 +8,7 @@
          INCLUDES
   ========================*/
 #include "restclient-cpp/restclient.h"
-
+#include "config.h"
 #include <cstring>
 #include <string>
 #include <iostream>
@@ -50,6 +50,7 @@ RestClient::response RestClient::get(const std::string& url)
       curl_easy_setopt(curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
       curl_easy_setopt(curl, CURLOPT_USERPWD, RestClient::user_pass.c_str());
     }
+    curl_easy_setopt( curl, CURLOPT_CONNECTTIMEOUT, BIZ_NETWORK_CONNECTION_TIMEOUT );
     /** set user agent */
     curl_easy_setopt(curl, CURLOPT_USERAGENT, RestClient::user_agent);
     /** set query URL */

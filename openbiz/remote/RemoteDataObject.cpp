@@ -8,6 +8,7 @@
 
 #include "RemoteDataObject.h"
 #include "restclient-cpp/restclient.h"
+#include "json.h"
 
 using namespace std;
 namespace openbiz
@@ -22,8 +23,16 @@ namespace openbiz
     {
         cout<< this->getBaseURI()<< endl;
         RestClient::response r = RestClient::get(this->getBaseURI());
-        const string result = r.body;
-        return result;
+        if(r.code!=-1){
+            const string result = r.body;
+            Json::Reader reader;
+            Json::Value root;
+            reader.parse(r.body, root);
+            
+            return root["name"].asString();
+        }else{
+            return "CONNECTION ERROR";
+        }
     };
     
     const string RemoteDataObject::serialize(){
