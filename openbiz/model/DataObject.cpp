@@ -14,12 +14,17 @@ namespace openbiz
     
     const string data::DataObject::getId()
     {
-        return "";
+        return this->_id;
     };
     
-    void data::DataObject::parse(std::string data){
+    void data::DataObject::parse(const std::string &data ){
         Json::Reader reader;
         reader.parse(data,this->_data);
+        
+        //尝试给ID赋值
+        if(this->_data["_id"].isString()){
+            this->_id = this->_data["_id"].asString();
+        }
     }
     
     const std::string data::DataObject::serialize()

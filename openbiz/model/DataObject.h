@@ -38,7 +38,7 @@ namespace openbiz
             
             const std::string getId();
             virtual const std::string serialize();
-            virtual void parse(std::string data);
+            virtual void parse(const std::string &data);
             virtual const bool save();
 //            virtual const std::string getCacheName();
 //            bool isNew();

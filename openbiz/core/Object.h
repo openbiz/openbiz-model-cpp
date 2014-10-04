@@ -23,7 +23,7 @@ namespace openbiz
             virtual ~Object() = default;
             virtual const std::string getVersion();
             virtual const std::string serialize() = 0;
-            virtual void parse(std::string data) = 0;
+            virtual void parse(const std::string &data) = 0;
 
         protected:
         };
