@@ -23,15 +23,30 @@ namespace openbiz
         class DataObject: public data::DataObject
         {
         public:
-            DataObject()  = default;
-            const std::string fetch();
-            virtual const std::string getId();
+            typedef struct {
+                std::string uri;
+                std::string cacheName;
+                bool isCacheEnabled;
+                operator openbiz::data::DataObject::Metadata *();
+            } Metadata;
+            
+            explicit DataObject(Metadata *metadata):
+                _baseUri(metadata->uri),
+            data::DataObject::DataObject( static_cast<openbiz::data::DataObject::Metadata *>(*metadata)){};
+            
+            ~DataObject() = default;
+            //fetch from remote but dont update local cache
+            virtual const bool fetch();
+            
+            //fetch from remote and update local cache
+            virtual const bool sync();
+            
+            //save to local and push to remote
+            virtual const bool save() override;
             
         protected:
-            const std::string _id;
-            virtual const std::string getBaseURI() =0;
-            virtual const std::string serialize() override;
-            virtual void deserialize() override;
+            std::string _id;
+            const std::string _baseUri;
             
         };
     }

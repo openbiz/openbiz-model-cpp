@@ -7,3 +7,19 @@
 //
 
 #include "NetworkConnectionException.h"
+#include "config.h"
+
+namespace openbiz
+{
+    const char* exception::NetworkConnectionException::what() const throw()
+    {
+        std::string message;
+        message += "Network Connection Exception: \n";
+        if(!this->method.empty()){
+            message += "Method: \t" + this->method + "\n";
+        }
+        message += "URI: \t" + this->uri + "\n";
+        message += "Timeout: \t" + std::to_string(BIZ_NETWORK_CONNECTION_TIMEOUT) + "\n";
+        return message.c_str();
+    };
+}

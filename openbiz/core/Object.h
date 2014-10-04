@@ -19,11 +19,13 @@ namespace openbiz
         class Object
         {
         public:
-            Object() = default;
+            Object()=default;
             virtual ~Object() = default;
             virtual const std::string getVersion();
             virtual const std::string serialize() = 0;
-            virtual void deserialize() = 0;
+            virtual void parse(std::string data) = 0;
+
+        protected:
         };
     };
 }

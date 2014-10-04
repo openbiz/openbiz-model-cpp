@@ -11,8 +11,8 @@
 		4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
 		4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */; };
 		4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */; };
-		4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE7619DEEBE0007727C2 /* exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7519DEEB8E007727C2 /* exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,8 +66,6 @@
 		4AEE73FC19DE940A00821A56 /* value.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DA19DE940A00821A56 /* value.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE73FD19DE940A00821A56 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DB19DE940A00821A56 /* version.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE73FE19DE940A00821A56 /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DC19DE940A00821A56 /* writer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4AEE73FF19DE940A00821A56 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73E119DE940A00821A56 /* main.cpp */; };
-		4AEE740019DE940A00821A56 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73E119DE940A00821A56 /* main.cpp */; };
 		4AEE740119DE940A00821A56 /* json_batchallocator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73E519DE940A00821A56 /* json_batchallocator.h */; };
 		4AEE740219DE940A00821A56 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73E819DE940A00821A56 /* json_reader.cpp */; };
 		4AEE740319DE940A00821A56 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73E819DE940A00821A56 /* json_reader.cpp */; };
@@ -144,7 +142,6 @@
 		4AEE734119DD9BD700821A56 /* libRestModel-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRestModel-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE734919DD9C9900821A56 /* libRestModel-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRestModel-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4AEE73D119DE940A00821A56 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		4AEE73D319DE940A00821A56 /* assertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assertions.h; sourceTree = "<group>"; };
 		4AEE73D419DE940A00821A56 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
 		4AEE73D519DE940A00821A56 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
@@ -155,10 +152,6 @@
 		4AEE73DA19DE940A00821A56 /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
 		4AEE73DB19DE940A00821A56 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		4AEE73DC19DE940A00821A56 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
-		4AEE73DE19DE940A00821A56 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		4AEE73E019DE940A00821A56 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		4AEE73E119DE940A00821A56 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		4AEE73E219DE940A00821A56 /* sconscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sconscript; sourceTree = "<group>"; };
 		4AEE73E419DE940A00821A56 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		4AEE73E519DE940A00821A56 /* json_batchallocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_batchallocator.h; sourceTree = "<group>"; };
 		4AEE73E619DE940A00821A56 /* json_internalarray.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_internalarray.inl; sourceTree = "<group>"; };
@@ -354,11 +347,11 @@
 		4A7DB4E519DC2EA900A33ACC /* openbiz */ = {
 			isa = PBXGroup;
 			children = (
-				4AB3FE6619DEDA22007727C2 /* exception */,
 				4A78DE8019DD378100A8B28C /* core */,
 				4A7DB4FB19DC4F7B00A33ACC /* platform */,
 				4A7DB4E819DC304200A33ACC /* model */,
 				4AEE731B19DD783500821A56 /* remote */,
+				4AB3FE6619DEDA22007727C2 /* exception */,
 				4A7DB4E619DC2EA900A33ACC /* openbiz.cpp */,
 				4A7DB4E719DC2EA900A33ACC /* openbiz.h */,
 				4A78DE8119DD388200A8B28C /* config.h */,
@@ -430,7 +423,6 @@
 		4AEE73D019DE940A00821A56 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				4AEE73D119DE940A00821A56 /* CMakeLists.txt */,
 				4AEE73D219DE940A00821A56 /* json */,
 			);
 			path = include;
@@ -456,21 +448,9 @@
 		4AEE73DD19DE940A00821A56 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				4AEE73DE19DE940A00821A56 /* CMakeLists.txt */,
-				4AEE73DF19DE940A00821A56 /* jsontestrunner */,
 				4AEE73E319DE940A00821A56 /* lib_json */,
 			);
 			path = source;
-			sourceTree = "<group>";
-		};
-		4AEE73DF19DE940A00821A56 /* jsontestrunner */ = {
-			isa = PBXGroup;
-			children = (
-				4AEE73E019DE940A00821A56 /* CMakeLists.txt */,
-				4AEE73E119DE940A00821A56 /* main.cpp */,
-				4AEE73E219DE940A00821A56 /* sconscript */,
-			);
-			path = jsontestrunner;
 			sourceTree = "<group>";
 		};
 		4AEE73E319DE940A00821A56 /* lib_json */ = {
@@ -622,7 +602,6 @@
 				4AEE736419DD9E8A00821A56 /* DataCollection.cpp in Sources */,
 				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AEE740519DE940A00821A56 /* json_value.cpp in Sources */,
-				4AEE73FF19DE940A00821A56 /* main.cpp in Sources */,
 				4AEE736619DD9E9900821A56 /* openbiz.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,7 +618,6 @@
 				4AEE740619DE940A00821A56 /* json_value.cpp in Sources */,
 				4AEE740319DE940A00821A56 /* json_reader.cpp in Sources */,
 				4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
-				4AEE740019DE940A00821A56 /* main.cpp in Sources */,
 				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
 				4AEE736319DD9E8A00821A56 /* DataCollection.cpp in Sources */,

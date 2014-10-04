@@ -7,7 +7,6 @@
 #include "json.h"
 
 //Openbiz自定义库
-#include "NetworkConnectionException.h"
 #include "DataObject.h"
 #include "DataCollection.h"
 #include "RemoteDataObject.h"

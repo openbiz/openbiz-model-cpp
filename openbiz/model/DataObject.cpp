@@ -11,10 +11,27 @@ using namespace std;
 
 namespace openbiz
 {
-    const string data::DataObject::serialize(){
-        return this->_serializedData;
+    
+    const string data::DataObject::getId()
+    {
+        return "";
     };
     
-    void data::DataObject::deserialize(){
-    };
+    void data::DataObject::parse(std::string data){
+        Json::Reader reader;
+        reader.parse(data,this->_data);
+    }
+    
+    const std::string data::DataObject::serialize()
+    {
+        return this->_data.toStyledString();
+    }
+    
+    const bool data::DataObject::save(){
+        cout<< this->_cacheName <<endl;
+        return true;
+    }
+    
+
+    
 }

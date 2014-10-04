@@ -9,5 +9,5 @@
 
 // version string normally set from makefile
 #define RESTCLIENT_VERSION "0.1.2"
-
+#define RESTCLIENT_COOKIE_FILE "openbiz-rest-cookie.txt"
 #endif  // INCLUDE_META_H_

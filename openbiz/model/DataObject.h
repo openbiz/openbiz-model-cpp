@@ -13,7 +13,10 @@
 #include <vector>
 #include <string>
 #include <stdio.h>
+#include <time.h>
 #include "Object.h"
+#include "json.h"
+
 
 namespace openbiz
 {
@@ -22,14 +25,35 @@ namespace openbiz
         class DataObject: public core::Object
         {
         public:
-            DataObject()  = default;
-            virtual const std::string serialize();
-            virtual void deserialize();
+            typedef struct {
+                std::string cacheName;
+                bool isCacheEnabled;
+            } Metadata;
             
+            DataObject():_isCacheEnabled(false){};
+            
+            DataObject(Metadata *metadata):
+                _isCacheEnabled(metadata->isCacheEnabled),
+                _cacheName(metadata->cacheName){};
+            
+            const std::string getId();
+            virtual const std::string serialize();
+            virtual void parse(std::string data);
+            virtual const bool save();
+//            virtual const std::string getCacheName();
+//            bool isNew();
+//            bool hasChanged();
+//            bool hasChanged(std::string attribute);
             
         protected:
-            const std::string _serializedData;
+            std::string _id;
+            Json::Value _data;
+            Json::Value _changed;
+            time_t _lastUpdate;
+            const bool _isCacheEnabled;
+            std::string _cacheName;
             
+
         };
     };
 }

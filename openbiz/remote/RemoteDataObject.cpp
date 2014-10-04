@@ -13,38 +13,32 @@
 using namespace std;
 namespace openbiz
 {
-   
-    const string remote::DataObject::getId()
+#pragma mark - Metadata 运算符重载 向下兼容
+    remote::DataObject::Metadata::operator openbiz::data::DataObject::Metadata *()
     {
-        return "";
+        openbiz::data::DataObject::Metadata *meta = new openbiz::data::DataObject::Metadata();
+        meta->isCacheEnabled = isCacheEnabled;
+        meta->cacheName = cacheName;
+        return meta;
     };
-    
-    const string remote::DataObject::getBaseURI()
+
+#pragma mark - 核心业务逻辑
+    const bool remote::DataObject::fetch()
     {
-        return "";
+        cout<< std::to_string(this->_isCacheEnabled) << endl;
+        return true;
     };
     
-    const string remote::DataObject::fetch()
+    const bool remote::DataObject::save()
     {
-        cout<< this->getBaseURI()<< endl;
-        RestClient::response r = RestClient::get(this->getBaseURI());
-        if(r.code!=-1){
-            const string result = r.body;
-            Json::Reader reader;
-            Json::StyledWriter writer;
-            Json::Value root;
-            reader.parse(r.body, root);
-            return root["permissions"][0].asString();
-//            return writer.write(root["app"]);
-        }else{
-            return "CONNECTION ERROR";
-        }
+        bool result = data::DataObject::save();
+        return result;
     };
     
-    const string remote::DataObject::serialize(){
-        return "";
+    const bool remote::DataObject::sync()
+    {
+        return true;
     };
-    void remote::DataObject::deserialize(){
     
-    };
+
 }

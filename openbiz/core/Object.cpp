@@ -10,8 +10,11 @@
 #include "config.h"
 
 using namespace std;
-namespace openbiz{
-    const string core::Object::getVersion(){
+namespace openbiz
+{
+    const string core::Object::getVersion()
+    {
         return OPENBIZ_VERSION;
     }
+    
 }
