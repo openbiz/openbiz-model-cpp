@@ -35,14 +35,20 @@ namespace openbiz
             data::DataObject::DataObject( static_cast<openbiz::data::DataObject::Metadata *>(*metadata)){};
             
             ~DataObject() = default;
+            
+            virtual const std::string getUri() const throw();
+            
             //fetch from remote but dont update local cache
-            virtual const bool fetch();
+            virtual const bool fetch() override;
             
             //fetch from remote and update local cache
-            virtual const bool sync();
+            virtual const bool sync() override;
             
             //save to local and push to remote
             virtual const bool save() override;
+            
+            //destroy remote and local cache
+            virtual const bool destroy() throw (openbiz::exception::NetworkConnectionException) override;
             
         protected:
             std::string _id;

@@ -17,7 +17,12 @@
 #include "Object.h"
 #include "json.h"
 
-
+/*
+ SQLite中的数据结构是
+ CacheTableName
+    id,  timestamp,  serializedData
+ 
+ */
 namespace openbiz
 {
     namespace data
@@ -36,18 +41,42 @@ namespace openbiz
                 _isCacheEnabled(metadata->isCacheEnabled),
                 _cacheName(metadata->cacheName){};
             
-            const std::string getId();
-            virtual const std::string serialize();
-            virtual void parse(const std::string &data);
-            virtual const bool save();
-//            virtual const std::string getCacheName();
-//            bool isNew();
-//            bool hasChanged();
-//            bool hasChanged(std::string attribute);
+            const std::string getId() const throw();
             
+            //dump this object to JSON string
+            virtual const std::string serialize() const;
+
+            //parse a JSON string to local attribute
+            virtual void parse(const std::string &data);
+            
+            //fetch attributes from local db;
+            virtual const bool fetch();
+                        
+            //save changes to local db
+            virtual const bool save();
+            
+            //delete data from local db
+            virtual const bool destroy();
+            
+            //set value to local data, but not saving
+            template<typename T> void set(std::string &key, T value);
+            
+            //unset a local attribute , but not saved
+            virtual void unset(std::string &key);
+            
+            //clear local cache and attributes
+            virtual void clear();
+            
+            //reset local attributes to previousData
+            virtual void reset();
+            
+            const bool isNew() const throw();
+            const bool hasChanged() const throw();
+
         protected:
             std::string _id;
             Json::Value _data;
+            Json::Value _previousData;
             Json::Value _changed;
             time_t _lastUpdate;
             const bool _isCacheEnabled;
