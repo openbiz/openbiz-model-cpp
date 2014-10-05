@@ -8,6 +8,7 @@
  INCLUDES
  ========================*/
 #include "restclient-cpp/restclient.h"
+#include "FileUtils.h"
 #include "config.h"
 #include <cstring>
 #include <string>
@@ -26,6 +27,7 @@ void RestClient::setAuth(const std::string& user,const std::string& password){
     RestClient::user_pass.clear();
     RestClient::user_pass += user+":"+password;
 }
+std::string RestClient::cookies_file = openbiz::ext::FileUtils::getInstance()->getWritablePath() + RESTCLIENT_COOKIE_FILE ;
 /**
  * @brief HTTP GET method
  *
@@ -53,8 +55,8 @@ RestClient::response RestClient::get(const std::string& url)
             curl_easy_setopt(curl, CURLOPT_USERPWD, RestClient::user_pass.c_str());
         }
         /** set cookies */
-        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RESTCLIENT_COOKIE_FILE);
-        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RESTCLIENT_COOKIE_FILE);
+        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RestClient::cookies_file.c_str());
+        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RestClient::cookies_file.c_str());
         
         curl_easy_setopt( curl, CURLOPT_CONNECTTIMEOUT, BIZ_NETWORK_CONNECTION_TIMEOUT );
         /** set user agent */
@@ -121,8 +123,8 @@ RestClient::response RestClient::post(const std::string& url,
             curl_easy_setopt(curl, CURLOPT_USERPWD, RestClient::user_pass.c_str());
         }
         /** set cookies */
-        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RESTCLIENT_COOKIE_FILE);
-        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RESTCLIENT_COOKIE_FILE);
+        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RestClient::cookies_file.c_str());
+        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RestClient::cookies_file.c_str());
         
         /** set user agent */
         curl_easy_setopt(curl, CURLOPT_USERAGENT, RestClient::user_agent);
@@ -203,8 +205,8 @@ RestClient::response RestClient::put(const std::string& url,
             curl_easy_setopt(curl, CURLOPT_USERPWD, RestClient::user_pass.c_str());
         }
         /** set cookies */
-        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RESTCLIENT_COOKIE_FILE);
-        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RESTCLIENT_COOKIE_FILE);
+        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RestClient::cookies_file.c_str());
+        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RestClient::cookies_file.c_str());
         /** set user agent */
         curl_easy_setopt(curl, CURLOPT_USERAGENT, RestClient::user_agent);
         /** set query URL */
@@ -281,8 +283,8 @@ RestClient::response RestClient::del(const std::string& url)
             curl_easy_setopt(curl, CURLOPT_USERPWD, RestClient::user_pass.c_str());
         }
         /** set cookies */
-        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RESTCLIENT_COOKIE_FILE);
-        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RESTCLIENT_COOKIE_FILE);
+        curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RestClient::cookies_file.c_str());
+        curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RestClient::cookies_file.c_str());
         
         /** set user agent */
         curl_easy_setopt(curl, CURLOPT_USERAGENT, RestClient::user_agent);

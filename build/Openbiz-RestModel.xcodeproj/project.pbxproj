@@ -14,6 +14,13 @@
 		4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE7619DEEBE0007727C2 /* exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7519DEEB8E007727C2 /* exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9019E0F028007727C2 /* FileUtils.h */; };
+		4AB3FE9319E10751007727C2 /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9219E10751007727C2 /* FileUtils.cpp */; };
+		4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9219E10751007727C2 /* FileUtils.cpp */; };
+		4AB3FE9619E10C8D007727C2 /* PlatformMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */; };
+		4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */; };
+		4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */; };
+		4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
@@ -135,6 +142,11 @@
 		4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerErrorException.h; path = exception/ServerErrorException.h; sourceTree = "<group>"; };
 		4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NetworkConnectionException.h; path = exception/NetworkConnectionException.h; sourceTree = "<group>"; };
 		4AB3FE7519DEEB8E007727C2 /* exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = exception.h; path = exception/exception.h; sourceTree = "<group>"; };
+		4AB3FE9019E0F028007727C2 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = platform/FileUtils.h; sourceTree = "<group>"; };
+		4AB3FE9219E10751007727C2 /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = platform/FileUtils.cpp; sourceTree = "<group>"; };
+		4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlatformMacros.h; path = platform/PlatformMacros.h; sourceTree = "<group>"; };
+		4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "FileUtils-Apple.mm"; path = "platform/Apple/FileUtils-Apple.mm"; sourceTree = "<group>"; };
+		4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileUtils-Apple.h"; path = "platform/Apple/FileUtils-Apple.h"; sourceTree = "<group>"; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
 		4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataCollection.cpp; path = remote/RemoteDataCollection.cpp; sourceTree = "<group>"; };
@@ -374,7 +386,11 @@
 		4A7DB4FB19DC4F7B00A33ACC /* platform */ = {
 			isa = PBXGroup;
 			children = (
+				4AB3FE9719E10D1C007727C2 /* Apple */,
 				4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */,
+				4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */,
+				4AB3FE9019E0F028007727C2 /* FileUtils.h */,
+				4AB3FE9219E10751007727C2 /* FileUtils.cpp */,
 			);
 			name = platform;
 			sourceTree = "<group>";
@@ -389,6 +405,15 @@
 				4AB3FE7519DEEB8E007727C2 /* exception.h */,
 			);
 			name = exception;
+			sourceTree = "<group>";
+		};
+		4AB3FE9719E10D1C007727C2 /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */,
+				4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */,
+			);
+			name = Apple;
 			sourceTree = "<group>";
 		};
 		4AEE731B19DD783500821A56 /* remote */ = {
@@ -485,6 +510,7 @@
 				4AEE738019DD9F1C00821A56 /* mprintf.h in Headers */,
 				4AEE737D19DD9F1C00821A56 /* curlrules.h in Headers */,
 				4AEE736E19DD9ECB00821A56 /* DataCollection.h in Headers */,
+				4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */,
 				4AEE73FA19DE940A00821A56 /* json.h in Headers */,
 				4AEE73FC19DE940A00821A56 /* value.h in Headers */,
 				4AEE737619DD9EF500821A56 /* restclient.h in Headers */,
@@ -499,7 +525,9 @@
 				4AEE738219DD9F1C00821A56 /* stdcheaders.h in Headers */,
 				4AEE740419DE940A00821A56 /* json_tool.h in Headers */,
 				4AEE740119DE940A00821A56 /* json_batchallocator.h in Headers */,
+				4AB3FE9619E10C8D007727C2 /* PlatformMacros.h in Headers */,
 				4AEE737F19DD9F1C00821A56 /* easy.h in Headers */,
+				4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */,
 				4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */,
 				4AEE737C19DD9F1C00821A56 /* curlbuild.h in Headers */,
 				4AEE73F819DE940A00821A56 /* features.h in Headers */,
@@ -593,6 +621,8 @@
 			files = (
 				4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE736019DD9D1800821A56 /* DataObject.cpp in Sources */,
+				4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
+				4AB3FE9319E10751007727C2 /* FileUtils.cpp in Sources */,
 				4AEE740219DE940A00821A56 /* json_reader.cpp in Sources */,
 				4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */,
 				4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
@@ -621,6 +651,8 @@
 				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
 				4AEE736319DD9E8A00821A56 /* DataCollection.cpp in Sources */,
+				4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */,
+				4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
