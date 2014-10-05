@@ -42,7 +42,7 @@ namespace openbiz
             virtual const bool fetch() override;
             
             //fetch from remote and update local cache
-            virtual const bool sync() override;
+            virtual const bool sync();
             
             //save to local and push to remote
             virtual const bool save() override;
