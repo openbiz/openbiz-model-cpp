@@ -7,6 +7,9 @@
 //
 
 #include "DataObject.h"
+#define OPENBIZ_CACHE_CREATE_TABLE_SQL(CacheName) "CREATE TABLE "+p+"(id PRIMARY KEY, timestamp NUMERIC, data TEXT);"
+#define OPENBIZ_CACHE_DROP_TABLE_SQL(CacheName) "DROP TABLE "+p+";"
+
 using namespace std;
 using namespace openbiz::data;
 
@@ -29,6 +32,11 @@ namespace openbiz
     }
 
 #pragma mark - 实现自己的方法
+    const string DataObject::getId() const throw()
+    {
+        return this->_id;
+    };
+    
     template<typename T> void DataObject::set(std::string &key, T value)
     {
         this->_data[key]=value;
@@ -41,13 +49,16 @@ namespace openbiz
     }
     
     
-
-    
-    const string DataObject::getId() const throw()
+    void DataObject::clear()
     {
-        return this->_id;
-    };
+        this->_id.clear();
+        this->_data.clear();
+    }
     
+    void DataObject::reset()
+    {
+        this->_data = this->_previousData;
+    }
     
     const bool DataObject::fetch()
     {

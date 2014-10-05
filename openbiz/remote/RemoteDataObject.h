@@ -39,7 +39,7 @@ namespace openbiz
             virtual const std::string getUri() const throw();
             
             //fetch from remote but dont update local cache
-            virtual const bool fetch() override;
+            virtual const bool fetch() throw (openbiz::exception::NetworkConnectionException) override;
             
             //fetch from remote and update local cache
             virtual const bool sync();

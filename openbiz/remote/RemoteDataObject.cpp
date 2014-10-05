@@ -28,6 +28,11 @@ namespace openbiz
     };
 
 #pragma mark - 核心业务逻辑
+    /*
+     generate URI for this record
+     format:
+        baseUri + recordID
+     */
     const std::string DataObject::getUri() const throw()
     {
         std::string uri = this->_baseUri;
@@ -37,14 +42,25 @@ namespace openbiz
         return uri.c_str();
     };
     
+    /*
+     push local data changes to remote,
+     then call base class to update local cache
+     */
     const bool DataObject::sync()
     {
         return true;
-    }
+    };
     
-    const bool DataObject::fetch()
+    /*
+     fetch remote data
+     then parse data to local cache
+     */
+    const bool DataObject::fetch() throw ( NetworkConnectionException )
     {
-        if(!data::DataObject::fetch()) return false;
+        RestClient::response r = RestClient::get(this->getUri());
+        
+        //        if(!data::DataObject::fetch()) return false;
+        
         cout<< std::to_string(this->_isCacheEnabled) << endl;
         return true;
     };
@@ -55,10 +71,13 @@ namespace openbiz
         return true;
     };
     
+    
+    /*
+     purge remote data
+     then delete local cache
+     */
     const bool DataObject::destroy() throw ( NetworkConnectionException )
     {
-        if(!data::DataObject::destroy()) return false;
-        
         RestClient::response r = RestClient::del(this->getUri());
         switch(r.code)
         {
@@ -67,6 +86,8 @@ namespace openbiz
                 break;
                 break;
             case 200:
+            case 204:
+                if(!data::DataObject::destroy()) return false;
                 return true;
                 break;
             default:

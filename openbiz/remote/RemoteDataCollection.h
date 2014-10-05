@@ -18,7 +18,8 @@ namespace openbiz
 {
     namespace remote
     {
-        class DataCollection:public data::DataCollection
+        template <typename T>
+        class DataCollection:public data::DataCollection<T>
         {
         public:
             DataCollection() = default;

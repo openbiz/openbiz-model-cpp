@@ -17,6 +17,7 @@
 #include "Object.h"
 #include "json.h"
 
+
 /*
  SQLite中的数据结构是
  CacheTableName
@@ -41,13 +42,14 @@ namespace openbiz
                 _isCacheEnabled(metadata->isCacheEnabled),
                 _cacheName(metadata->cacheName){};
             
-            const std::string getId() const throw();
-            
             //dump this object to JSON string
             virtual const std::string serialize() const;
 
             //parse a JSON string to local attribute
             virtual void parse(const std::string &data);
+            
+            //get local data record ID
+            const std::string getId() const throw();
             
             //fetch attributes from local db;
             virtual const bool fetch();
@@ -70,7 +72,10 @@ namespace openbiz
             //reset local attributes to previousData
             virtual void reset();
             
+            //return is the data new or not
             const bool isNew() const throw();
+            
+            //is the record has chagned attribute or not 
             const bool hasChanged() const throw();
 
         protected:

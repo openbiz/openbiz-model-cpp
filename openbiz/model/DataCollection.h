@@ -9,7 +9,7 @@
 #define __libRestModel__DataCollection__
 
 #include <stdio.h>
-#include <vector>
+#include <list>
 #include "Object.h"
 #include "DataObject.h"
 
@@ -17,18 +17,19 @@ namespace openbiz
 {
     namespace data
     {
+        template<typename T>
         class DataCollection:public core::Object
         {
         public:
             DataCollection() = default;
             virtual ~DataCollection() = default;
-            virtual std::vector<openbiz::data::DataObject> fetch();
+            virtual std::list<T> fetch();
             //        std::vector<openbiz::DataObject> query(int limit){ return query("",limit,0); };
             //        std::vector<openbiz::DataObject> query(int limit,int offset){ return query("",limit,offset); };
             //        virtual std::vector<openbiz::DataObject> query(const std::string keyword,int limit,int offset);
             
         protected:
-            std::vector<openbiz::data::DataObject> _records;
+            std::list<T> _records;
             const std::string _baseUri;
         };
     }
