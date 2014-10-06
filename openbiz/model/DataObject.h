@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "Object.h"
+#include "exception.h"
 #include "json.h"
 
 
@@ -31,22 +32,16 @@ namespace openbiz
         class DataObject: public core::Object
         {
         public:
-            typedef struct {
-                std::string cacheName;
-                bool isCacheEnabled;
-            } Metadata;
-            
-            DataObject():_isCacheEnabled(false){};
-            
-            DataObject(Metadata *metadata):
-                _isCacheEnabled(metadata->isCacheEnabled),
-                _cacheName(metadata->cacheName){};
+            DataObject(const std::string &cacheName = ""):
+                _isCacheEnabled(!cacheName.empty()),
+                _cacheName(cacheName){};
+            ~DataObject() = default;
             
             //dump this object to JSON string
             virtual const std::string serialize() const;
 
             //parse a JSON string to local attribute
-            virtual void parse(const std::string &data);
+            virtual void parse(const std::string &data) throw (exception::DataFormatInvalidException);
             
             //get local data record ID
             const std::string getId() const throw();

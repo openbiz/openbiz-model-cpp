@@ -24,10 +24,10 @@ namespace openbiz
             NetworkConnectionException(RestClient::response r)
             :uri(r.uri),method(r.method){} ;
             
-            NetworkConnectionException(const std::string uri)
+            NetworkConnectionException(const std::string &uri)
                 :uri(uri){} ;
             
-            NetworkConnectionException(const std::string method,const std::string uri)
+            NetworkConnectionException(const std::string &method,const std::string &uri)
                 :method(method),uri(uri){} ;
             
             const std::string method;

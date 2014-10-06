@@ -10,6 +10,7 @@
 #define __libRestModel__RemoteDataCollection__
 
 #include <stdio.h>
+#include <iostream>
 #include <vector>
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
@@ -18,18 +19,24 @@ namespace openbiz
 {
     namespace remote
     {
-        template <typename T>
-        class DataCollection:public data::DataCollection<T>
+        class DataCollection: public data::DataCollection
         {
         public:
-            DataCollection() = default;
-            virtual ~DataCollection() = default;
-            //        std::vector<openbiz::RemoteDataObject> fetch() override;
-            //        std::vector<openbiz::RemoteDataObject> query(const std::string keyword,int limit,int offset) ;
-            //
+            DataCollection(const std::string &url):
+            _baseUrl(url){};
+            
+            ~DataCollection() = default;
+            
+            const std::string getUrl() const throw();
+            
+            const std::vector<openbiz::data::DataObject *> fetch(int limit=0,int offset=0);
+            template <typename T>
+            inline const std::vector<T> fetch(int limit=0,int offset=0){return dynamic_cast<std::vector<T>>(fetch(limit,offset));}
+            
+            const std::vector<openbiz::data::DataObject *> query(const std::string &keyword = "",int limit=0,int offset=0);
+            
         protected:
-            std::vector<openbiz::remote::DataObject> _records;
-            const std::string _baseUri;
+            const std::string _baseUrl;
         };
     };
 }

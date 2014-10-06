@@ -7,18 +7,25 @@
 //
 
 #include "DataObject.h"
-#define OPENBIZ_CACHE_CREATE_TABLE_SQL(CacheName) "CREATE TABLE "+p+"(id PRIMARY KEY, timestamp NUMERIC, data TEXT);"
-#define OPENBIZ_CACHE_DROP_TABLE_SQL(CacheName) "DROP TABLE "+p+";"
+#include "exception.h"
+
+#define OPENBIZ_CACHE_CREATE_TABLE_SQL(CacheName) "CREATE TABLE IF NOT EXISTS  `"+p+"`(id PRIMARY KEY, timestamp NUMERIC, data TEXT);"
+#define OPENBIZ_CACHE_DROP_TABLE_SQL(CacheName) "DROP TABLE IF EXISTS `"+p+"`;"
 
 using namespace std;
 using namespace openbiz::data;
+using namespace openbiz::exception;
 
 namespace openbiz
-{
+{    
 #pragma mark - 重载父类方法
-    void DataObject::parse(const std::string &data ){
+    void DataObject::parse(const std::string &data) throw (DataFormatInvalidException) {
         Json::Reader reader;
-        reader.parse(data,this->_data);
+        bool result = reader.parse(data,this->_data);
+        
+        if(!result){
+            throw DataFormatInvalidException(data);
+        }
         
         //尝试给ID赋值
         if(this->_data["_id"].isString()){

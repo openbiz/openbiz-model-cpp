@@ -13,6 +13,7 @@
 #include "RemoteDataCollection.h"
 #include "ServerErrorException.h"
 #include "NetworkConnectionException.h"
+#include "DataFormatInvalidException.h"
 
 
 namespace openbiz
@@ -24,17 +25,18 @@ namespace openbiz
     namespace data
     {
         class DataObject;
-        template<typename T> class DataCollection;
+        class DataCollection;
     }
     namespace remote
     {
         class DataObject;
-        template<typename T> class DataCollection;
+        class DataCollection;
     }
     namespace exception
     {
         class ServerErrorException;
         class NetworkConnectionException;
+        class DataFormatInvalidException;
     }
     
     const std::string getVersion();

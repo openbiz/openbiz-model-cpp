@@ -9,7 +9,7 @@
 #define __libRestModel__DataCollection__
 
 #include <stdio.h>
-#include <list>
+#include <vector>
 #include "Object.h"
 #include "DataObject.h"
 
@@ -17,20 +17,33 @@ namespace openbiz
 {
     namespace data
     {
-        template<typename T>
-        class DataCollection:public core::Object
+        class DataCollection: public core::Object
         {
         public:
             DataCollection() = default;
             virtual ~DataCollection() = default;
-            virtual std::list<T> fetch();
-            //        std::vector<openbiz::DataObject> query(int limit){ return query("",limit,0); };
-            //        std::vector<openbiz::DataObject> query(int limit,int offset){ return query("",limit,offset); };
-            //        virtual std::vector<openbiz::DataObject> query(const std::string keyword,int limit,int offset);
+            
+            //dump this object to JSON string
+            virtual const std::string serialize() const;
+            
+            //parse a JSON string to local attribute
+            virtual void parse(const std::string &data) throw (exception::DataFormatInvalidException);
+            
+            //fetch all
+            virtual const std::vector<openbiz::data::DataObject *> fetch(int limit=0,int offset=0);
+            template <typename T>
+            inline const std::vector<T> fetch(int limit=0,int offset=0){return dynamic_cast<T>(fetch(limit,offset));}
+            
+            virtual const std::vector<openbiz::data::DataObject *> query(const std::string &keyword = "",int limit=0,int offset=0);
+            inline  const std::vector<openbiz::data::DataObject *> query(int limit){ return query("",limit,0); };
+            inline  const std::vector<openbiz::data::DataObject *> query(int limit,int offset){ return query("",limit,offset); };
+            
+
             
         protected:
-            std::list<T> _records;
-            const std::string _baseUri;
+            std::vector<openbiz::data::DataObject *> _records;
+            const std::string _baseUrl;
+            Json::Value _data;
         };
     }
 }

@@ -10,4 +10,6 @@
 #define Openbiz_RestModel_PlatformMarcos_h
 
 #define BIZ_SAFE_DELETE(p)   do { delete (p); (p) = nullptr; } while(0)
+
+
 #endif

@@ -21,6 +21,9 @@
 		4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */; };
 		4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */; };
 		4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */; };
+		4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
+		4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
+		4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
@@ -147,6 +150,8 @@
 		4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlatformMacros.h; path = platform/PlatformMacros.h; sourceTree = "<group>"; };
 		4AB3FE9819E10D49007727C2 /* FileUtils-Apple.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "FileUtils-Apple.mm"; path = "platform/Apple/FileUtils-Apple.mm"; sourceTree = "<group>"; };
 		4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileUtils-Apple.h"; path = "platform/Apple/FileUtils-Apple.h"; sourceTree = "<group>"; };
+		4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataFormatInvalidException.cpp; path = exception/DataFormatInvalidException.cpp; sourceTree = "<group>"; };
+		4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFormatInvalidException.h; path = exception/DataFormatInvalidException.h; sourceTree = "<group>"; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
 		4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataCollection.cpp; path = remote/RemoteDataCollection.cpp; sourceTree = "<group>"; };
@@ -398,10 +403,12 @@
 		4AB3FE6619DEDA22007727C2 /* exception */ = {
 			isa = PBXGroup;
 			children = (
-				4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */,
+				4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */,
+				4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */,
 				4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */,
-				4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */,
+				4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */,
 				4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */,
+				4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */,
 				4AB3FE7519DEEB8E007727C2 /* exception.h */,
 			);
 			name = exception;
@@ -526,6 +533,7 @@
 				4AEE740419DE940A00821A56 /* json_tool.h in Headers */,
 				4AEE740119DE940A00821A56 /* json_batchallocator.h in Headers */,
 				4AB3FE9619E10C8D007727C2 /* PlatformMacros.h in Headers */,
+				4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */,
 				4AEE737F19DD9F1C00821A56 /* easy.h in Headers */,
 				4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */,
 				4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */,
@@ -631,6 +639,7 @@
 				4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */,
 				4AEE736419DD9E8A00821A56 /* DataCollection.cpp in Sources */,
 				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
+				4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4AEE740519DE940A00821A56 /* json_value.cpp in Sources */,
 				4AEE736619DD9E9900821A56 /* openbiz.cpp in Sources */,
 			);
@@ -650,6 +659,7 @@
 				4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
+				4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4AEE736319DD9E8A00821A56 /* DataCollection.cpp in Sources */,
 				4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */,
 				4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,

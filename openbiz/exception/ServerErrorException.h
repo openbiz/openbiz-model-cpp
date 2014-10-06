@@ -19,31 +19,31 @@ namespace openbiz{
         class ServerErrorException: public std::exception
         {
         public:
-            ServerErrorException(const std::string method,
-                                 const std::string uri) noexcept
+            ServerErrorException(const std::string &method,
+                                 const std::string &uri) noexcept
                                 :method(method),uri(uri){} ;
             
-            ServerErrorException(const std::string method,
-                                 const std::string uri,
+            ServerErrorException(const std::string &method,
+                                 const std::string &uri,
                                  unsigned int code) noexcept
                                 :method(method),uri(uri),_code(code){};
             
             //如果500错误服务器处于生产模式，没有给出详细信息就调用这个
-            ServerErrorException(const std::string method,
-                                 const std::string uri,
+            ServerErrorException(const std::string &method,
+                                 const std::string &uri,
                                  unsigned int code,
-                                 const std::string name,
-                                 const std::string message) noexcept
+                                 const std::string &name,
+                                 const std::string &message) noexcept
                                 :method(method),uri(uri),_code(code),
                                 _name(name),_message(message){};
             
             //如果500错误服务器处于开发模式，有给出详细信息就调用这个
-            ServerErrorException(const std::string method,
-                                 const std::string uri,
+            ServerErrorException(const std::string &method,
+                                 const std::string &uri,
                                  unsigned int code,
-                                 const std::string name,
-                                 const std::string message,
-                                 const std::string data) noexcept
+                                 const std::string &name,
+                                 const std::string &message,
+                                 const std::string &data) noexcept
                                 :method(method),uri(uri),_code(code),_name(name),
                                 _message(message),_data(data){};
 

@@ -18,24 +18,15 @@ using namespace openbiz::exception;
 
 namespace openbiz
 {
-#pragma mark - Metadata 运算符重载 向下兼容
-    DataObject::Metadata::operator openbiz::data::DataObject::Metadata *()
-    {
-        openbiz::data::DataObject::Metadata *meta = new openbiz::data::DataObject::Metadata();
-        meta->isCacheEnabled = isCacheEnabled;
-        meta->cacheName = cacheName;
-        return meta;
-    };
-
 #pragma mark - 核心业务逻辑
     /*
      generate URI for this record
      format:
         baseUri + recordID
      */
-    const std::string DataObject::getUri() const throw()
+    const std::string DataObject::getUrl() const throw()
     {
-        std::string uri = this->_baseUri;
+        std::string uri = this->_baseUrl;
         if(!this->_id.empty()){
             uri.append("/"+this->_id);
         }
@@ -57,9 +48,22 @@ namespace openbiz
      */
     const bool DataObject::fetch() throw ( NetworkConnectionException )
     {
-        RestClient::response r = RestClient::get(this->getUri());
-        
-        //        if(!data::DataObject::fetch()) return false;
+        RestClient::response r = RestClient::get(this->getUrl());
+        switch(r.code)
+        {
+            case -1:
+                throw NetworkConnectionException(r);
+                break;
+                break;
+            case 200:
+                data::DataObject::parse(r.body);
+                return true;
+                break;
+            case 204:
+            default:
+                return false;
+                
+        }
         
         cout<< std::to_string(this->_isCacheEnabled) << endl;
         return true;
@@ -78,7 +82,7 @@ namespace openbiz
      */
     const bool DataObject::destroy() throw ( NetworkConnectionException )
     {
-        RestClient::response r = RestClient::del(this->getUri());
+        RestClient::response r = RestClient::del(this->getUrl());
         switch(r.code)
         {
             case -1:
