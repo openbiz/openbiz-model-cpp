@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1E1C2B19E413320060B900 /* openbiz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C2C19E413700060B900 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C2D19E413750060B900 /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
+		4A1E1C2E19E4137E0060B900 /* FileUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */; };
+		4A1E1C2F19E4137E0060B900 /* PlatformConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */; };
+		4A1E1C3019E4137E0060B900 /* PlatformMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */; };
+		4A1E1C3119E4137E0060B900 /* FileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9019E0F028007727C2 /* FileUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3219E4138E0060B900 /* DataObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4EA19DC306B00A33ACC /* DataObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3319E4138E0060B900 /* DataCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4F019DC33E100A33ACC /* DataCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3419E413970060B900 /* RemoteDataObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE731D19DD786600821A56 /* RemoteDataObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3519E413970060B900 /* RemoteDataCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE732319DD787B00821A56 /* RemoteDataCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3619E413A40060B900 /* DataFormatInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3719E413A40060B900 /* NetworkConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3819E413A40060B900 /* ServerErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3919E413A40060B900 /* exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7519DEEB8E007727C2 /* exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3A19E413AB0060B900 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8119DD388200A8B28C /* config.h */; };
+		4A1E1C3B19E413C70060B900 /* assertions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D319DE940A00821A56 /* assertions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3C19E413C70060B900 /* autolink.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D419DE940A00821A56 /* autolink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3D19E413C70060B900 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D519DE940A00821A56 /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3E19E413C70060B900 /* features.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D619DE940A00821A56 /* features.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C3F19E413C70060B900 /* forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D719DE940A00821A56 /* forwards.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4019E413C70060B900 /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D819DE940A00821A56 /* json.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4119E413C70060B900 /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D919DE940A00821A56 /* reader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4219E413C70060B900 /* value.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DA19DE940A00821A56 /* value.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4319E413C70060B900 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DB19DE940A00821A56 /* version.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4419E413C70060B900 /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73DC19DE940A00821A56 /* writer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4E19E413E70060B900 /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1C4F19E413E70060B900 /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1E1CB619E423250060B900 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
@@ -55,14 +84,6 @@
 		4AEE738119DD9F1C00821A56 /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34219DC1EB800A33ACC /* multi.h */; };
 		4AEE738219DD9F1C00821A56 /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34319DC1EB800A33ACC /* stdcheaders.h */; };
 		4AEE738319DD9F1C00821A56 /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB34419DC1EB800A33ACC /* typecheck-gcc.h */; };
-		4AEE738E19DDA1AF00821A56 /* Object.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; };
-		4AEE738F19DDA1AF00821A56 /* PlatformConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */; };
-		4AEE739019DDA1AF00821A56 /* DataObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A7DB4EA19DC306B00A33ACC /* DataObject.h */; };
-		4AEE739119DDA1AF00821A56 /* DataCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A7DB4F019DC33E100A33ACC /* DataCollection.h */; };
-		4AEE739219DDA1AF00821A56 /* RemoteDataObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AEE731D19DD786600821A56 /* RemoteDataObject.h */; };
-		4AEE739319DDA1AF00821A56 /* RemoteDataCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AEE732319DD787B00821A56 /* RemoteDataCollection.h */; };
-		4AEE739419DDA1AF00821A56 /* openbiz.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; };
-		4AEE739519DDA1AF00821A56 /* config.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A78DE8119DD388200A8B28C /* config.h */; };
 		4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */; };
 		4AEE73C219DE893D00821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AEE73F519DE940A00821A56 /* assertions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D319DE940A00821A56 /* assertions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,26 +105,6 @@
 		4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EC19DE940A00821A56 /* json_writer.cpp */; };
 		4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EC19DE940A00821A56 /* json_writer.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4AEE734719DD9C9900821A56 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				4AEE738E19DDA1AF00821A56 /* Object.h in CopyFiles */,
-				4AEE738F19DDA1AF00821A56 /* PlatformConfig.h in CopyFiles */,
-				4AEE739019DDA1AF00821A56 /* DataObject.h in CopyFiles */,
-				4AEE739119DDA1AF00821A56 /* DataCollection.h in CopyFiles */,
-				4AEE739219DDA1AF00821A56 /* RemoteDataObject.h in CopyFiles */,
-				4AEE739319DDA1AF00821A56 /* RemoteDataCollection.h in CopyFiles */,
-				4AEE739419DDA1AF00821A56 /* openbiz.h in CopyFiles */,
-				4AEE739519DDA1AF00821A56 /* config.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4A4C2B2219E3ECEA001206AE /* DB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DB.cpp; path = core/DB.cpp; sourceTree = "<group>"; };
@@ -534,6 +535,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		4A1E1C2A19E412EF0060B900 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1E1C2B19E413320060B900 /* openbiz.h in Headers */,
+				4A1E1C2D19E413750060B900 /* DB.h in Headers */,
+				4A1E1C3919E413A40060B900 /* exception.h in Headers */,
+				4A1E1C3E19E413C70060B900 /* features.h in Headers */,
+				4A1E1C3719E413A40060B900 /* NetworkConnectionException.h in Headers */,
+				4A1E1C3B19E413C70060B900 /* assertions.h in Headers */,
+				4A1E1C3D19E413C70060B900 /* config.h in Headers */,
+				4A1E1C3A19E413AB0060B900 /* config.h in Headers */,
+				4A1E1C4F19E413E70060B900 /* restclient.h in Headers */,
+				4A1E1C4019E413C70060B900 /* json.h in Headers */,
+				4A1E1C2C19E413700060B900 /* Object.h in Headers */,
+				4A1E1C4319E413C70060B900 /* version.h in Headers */,
+				4A1E1C3219E4138E0060B900 /* DataObject.h in Headers */,
+				4A1E1C2E19E4137E0060B900 /* FileUtils-Apple.h in Headers */,
+				4A1E1C3819E413A40060B900 /* ServerErrorException.h in Headers */,
+				4A1E1C3419E413970060B900 /* RemoteDataObject.h in Headers */,
+				4A1E1C4119E413C70060B900 /* reader.h in Headers */,
+				4A1E1C3019E4137E0060B900 /* PlatformMacros.h in Headers */,
+				4A1E1C4E19E413E70060B900 /* meta.h in Headers */,
+				4A1E1C3119E4137E0060B900 /* FileUtils.h in Headers */,
+				4A1E1C2F19E4137E0060B900 /* PlatformConfig.h in Headers */,
+				4A1E1C4219E413C70060B900 /* value.h in Headers */,
+				4A1E1C3319E4138E0060B900 /* DataCollection.h in Headers */,
+				4A1E1C3C19E413C70060B900 /* autolink.h in Headers */,
+				4A1E1C3519E413970060B900 /* RemoteDataCollection.h in Headers */,
+				4A1E1C4419E413C70060B900 /* writer.h in Headers */,
+				4A1E1C3F19E413C70060B900 /* forwards.h in Headers */,
+				4A1E1C3619E413A40060B900 /* DataFormatInvalidException.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4AEE733F19DD9BD700821A56 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -605,7 +641,7 @@
 			buildPhases = (
 				4AEE734519DD9C9900821A56 /* Sources */,
 				4AEE734619DD9C9900821A56 /* Frameworks */,
-				4AEE734719DD9C9900821A56 /* CopyFiles */,
+				4A1E1C2A19E412EF0060B900 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -681,6 +717,7 @@
 				4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AEE736719DD9E9900821A56 /* openbiz.cpp in Sources */,
+				4A1E1CB619E423250060B900 /* Object.cpp in Sources */,
 				4AEE737319DD9ED300821A56 /* RemoteDataObject.cpp in Sources */,
 				4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE740619DE940A00821A56 /* json_value.cpp in Sources */,
@@ -732,7 +769,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -766,7 +803,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -797,6 +834,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
+				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -819,10 +857,12 @@
 					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib",
 				);
 				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
+				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 			};
 			name = Release;
@@ -847,9 +887,11 @@
 					"$(inherited)",
 					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
+				PRODUCT_NAME = "RestModel-iOS";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 			};
@@ -872,8 +914,9 @@
 					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
+				PRODUCT_NAME = "RestModel-iOS";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				VALIDATE_PRODUCT = YES;

@@ -48,7 +48,10 @@ namespace openbiz
                 }
                 
                 if(this->_data.empty()) return;
-                
+
+                //clear existing records
+                this->clear();
+
                 //创建每一个成员变量去
                 for(auto it = _data.begin(); it!= _data.end(); ++it ){
                     std::shared_ptr<T> record = std::make_shared<T>();
