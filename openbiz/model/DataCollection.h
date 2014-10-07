@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <memory>
 #include "Object.h"
 #include "DataObject.h"
 
@@ -18,8 +19,9 @@ namespace openbiz
     namespace data
     {
         template<typename T>
-        class DataCollection: public core::Object
+        class DataCollection: public std::vector<std::shared_ptr<T>>
         {
+            
         public:
             DataCollection() = default;
             virtual ~DataCollection() = default;
@@ -31,7 +33,7 @@ namespace openbiz
             };
             
             //parse a JSON string to local attribute
-            virtual void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
+            virtual const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
             {
                 Json::Reader reader;
                 bool result = reader.parse(data,this->_data);
@@ -44,34 +46,32 @@ namespace openbiz
                 
                 //创建每一个成员变量去
                 for(auto it = _data.begin(); it!= _data.end(); ++it ){
-                    T *record = new T();
+                    std::shared_ptr<T> record = std::make_shared<T>();
                     if(it->isObject()){
                         record->parse(it->toStyledString());
                     }
-                    this->_records.push_back(record);
+                    this->push_back(record);
                 }
             };
             
             //fetch all
-            virtual const std::vector<T*> fetch(int limit=0,int offset=0)
+            virtual const DataCollection<T> fetch(int limit=0,int offset=0) const
             {
-                return this->_records;
+                return *this;
             };
             
-            inline  const std::vector<T*> query(int limit){ return query("",limit,0); };
-            inline  const std::vector<T*> query(int limit,int offset){ return query("",limit,offset); };
-            virtual const std::vector<T*> query(const std::string &keyword = "",int limit=0,int offset=0)
+            inline  DataCollection<T> query(int limit){ return query("",limit,0); };
+            inline  DataCollection<T> query(int limit,int offset){ return query("",limit,offset); };
+            virtual DataCollection<T> query(const std::string &keyword = "",int limit=0,int offset=0) const
             {
-                return this->_records;
+                return *this;
             };
             
-            
-
             
         protected:
-            std::vector<T*> _records;
-            const std::string _baseUrl;
             Json::Value _data;
+            const std::string _baseUrl;
+            
         };
     }
 }

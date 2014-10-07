@@ -9,8 +9,10 @@
 #include "DataObject.h"
 #include "exception.h"
 
-#define OPENBIZ_CACHE_CREATE_TABLE_SQL(CacheName) "CREATE TABLE IF NOT EXISTS  `"+p+"`(id PRIMARY KEY, timestamp NUMERIC, data TEXT);"
-#define OPENBIZ_CACHE_DROP_TABLE_SQL(CacheName) "DROP TABLE IF EXISTS `"+p+"`;"
+#define OPENBIZ_CACHE_CREATE_TABLE_SQL(CacheName) \
+        "CREATE TABLE IF NOT EXISTS  `"+p+"`(id PRIMARY KEY, timestamp NUMERIC, data TEXT);"
+#define OPENBIZ_CACHE_DROP_TABLE_SQL(CacheName) \
+        "DROP TABLE IF EXISTS `"+p+"`;"
 
 using namespace std;
 using namespace openbiz::data;

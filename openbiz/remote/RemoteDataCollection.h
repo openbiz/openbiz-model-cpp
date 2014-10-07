@@ -15,6 +15,12 @@
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
 
+#define OPENBIZ_DATA_COLLECTION_PUBLIC_API(Collection,Model) \
+    inline Collection fetch(int limit=0,int offset=0) \
+        { DataCollection<Model>::fetch(limit,offset); return *this; }\
+    inline Collection query(const std::string &keyword = "", int limit=0,int offset=0) \
+        { DataCollection<Model>::query(keyword,limit,offset); return *this; }
+
 namespace openbiz
 {
     namespace remote
@@ -31,9 +37,9 @@ namespace openbiz
             const std::string getUrl() const throw()
             {
                 return this->_baseUrl.c_str();
-            };
+            };            
             
-            const std::vector<T*> fetch(int limit=0,int offset=0)
+            DataCollection fetch(int limit=0,int offset=0)
             {
                 std::cout<<"test test"<<std::endl;
                 RestClient::response r = RestClient::get(this->getUrl());
@@ -50,11 +56,11 @@ namespace openbiz
                     default:
                         break;                
                 }
-                return data::DataCollection<T>::_records;
+                return *this ;
             };
-            const std::vector<T*> query(const std::string &keyword = "",int limit=0,int offset=0)
+            DataCollection query(const std::string &keyword = "",int limit=0,int offset=0)
             {
-                return data::DataCollection<T>::_records;
+                return *this;
             };
             
         protected:
