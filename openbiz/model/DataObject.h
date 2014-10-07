@@ -14,6 +14,7 @@
 #include <string>
 #include <stdio.h>
 #include <time.h>
+#include <sqlite3.h>
 #include "Object.h"
 #include "exception.h"
 #include "json.h"
@@ -80,8 +81,9 @@ namespace openbiz
             Json::Value _changed;
             time_t _lastUpdate;
             const bool _isCacheEnabled;
-            std::string _cacheName;
+            const std::string _cacheName;
             
+            void _createCacheTable();
 
         };
     };

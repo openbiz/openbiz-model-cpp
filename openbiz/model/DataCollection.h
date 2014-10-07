@@ -23,7 +23,12 @@ namespace openbiz
         {
             
         public:
-            DataCollection() = default;
+            DataCollection(const std::string &cacheName = ""):
+                _isCacheEnabled(!cacheName.empty()),
+                _cacheName(cacheName){
+                //initalize SQLite table
+                
+                };
             virtual ~DataCollection() = default;
             
             //dump this object to JSON string
@@ -67,11 +72,20 @@ namespace openbiz
                 return *this;
             };
             
+            //save collection to local cache
+            virtual void save()
+            {
+                for(auto it = this->begin(); it!= this->end(); ++it )
+                {
+                    it->get()->save();
+                }
+            };
             
         protected:
             Json::Value _data;
             const std::string _baseUrl;
-            
+            const bool _isCacheEnabled;
+            const std::string _cacheName;
         };
     }
 }

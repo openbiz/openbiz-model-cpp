@@ -7,6 +7,7 @@
 #include "json.h"
 
 //Openbiz自定义库
+#include "DB.h"
 #include "DataObject.h"
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
@@ -14,12 +15,13 @@
 #include "ServerErrorException.h"
 #include "NetworkConnectionException.h"
 #include "DataFormatInvalidException.h"
-
+#include "FileUtils.h"
 
 namespace openbiz
 {
     namespace core
     {
+        class DB;
         class Object;
     }
     namespace data
@@ -38,6 +40,13 @@ namespace openbiz
         class NetworkConnectionException;
         class DataFormatInvalidException;
     }
+    namespace ext
+    {
+        class FileUtils;
+    }
     
     const std::string getVersion();
+    void initialize(const std::string &dbName="");
+    void cleanup();
+    
 }

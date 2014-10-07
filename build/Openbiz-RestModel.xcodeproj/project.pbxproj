@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
+		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
+		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
 		4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
 		4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
 		4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */; };
@@ -14,7 +17,7 @@
 		4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE7619DEEBE0007727C2 /* exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE7519DEEB8E007727C2 /* exception.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9019E0F028007727C2 /* FileUtils.h */; };
+		4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9019E0F028007727C2 /* FileUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE9319E10751007727C2 /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9219E10751007727C2 /* FileUtils.cpp */; };
 		4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE9219E10751007727C2 /* FileUtils.cpp */; };
 		4AB3FE9619E10C8D007727C2 /* PlatformMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */; };
@@ -104,6 +107,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A4C2B2219E3ECEA001206AE /* DB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DB.cpp; path = core/DB.cpp; sourceTree = "<group>"; };
+		4A4C2B2319E3ECEA001206AE /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DB.h; path = core/DB.h; sourceTree = "<group>"; };
 		4A78DE8119DD388200A8B28C /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		4A78DE8419DD420000A8B28C /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = core/Object.cpp; sourceTree = "<group>"; };
 		4A78DE8519DD420000A8B28C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = core/Object.h; sourceTree = "<group>"; };
@@ -202,6 +207,8 @@
 		4A78DE8019DD378100A8B28C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				4A4C2B2219E3ECEA001206AE /* DB.cpp */,
+				4A4C2B2319E3ECEA001206AE /* DB.h */,
 				4A78DE8419DD420000A8B28C /* Object.cpp */,
 				4A78DE8519DD420000A8B28C /* Object.h */,
 			);
@@ -502,6 +509,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4C2B2619E3ECEA001206AE /* DB.h in Headers */,
 				4AEE737B19DD9F1C00821A56 /* curl.h in Headers */,
 				4AEE737E19DD9F1C00821A56 /* curlver.h in Headers */,
 				4AEE73F519DE940A00821A56 /* assertions.h in Headers */,
@@ -628,6 +636,7 @@
 				4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */,
+				4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */,
 				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4AEE740519DE940A00821A56 /* json_value.cpp in Sources */,
@@ -639,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */,
 				4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AEE736719DD9E9900821A56 /* openbiz.cpp in Sources */,

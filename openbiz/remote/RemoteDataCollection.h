@@ -29,8 +29,9 @@ namespace openbiz
         class DataCollection: public openbiz::data::DataCollection<T>
         {
         public:
-            DataCollection(const std::string &url):
-            _baseUrl(url){};
+            DataCollection(const std::string &url,const std::string &cacheName=""):
+                _baseUrl(url),
+                openbiz::data::DataCollection<T>(cacheName){};
             
             ~DataCollection() = default;
             
@@ -46,11 +47,19 @@ namespace openbiz
                 switch(r.code)
                 {
                     case -1:
-                        throw openbiz::exception::NetworkConnectionException(r);
+                        if(this->_isCacheEnabled == true)
+                        {
+                            //if collection has no cache enabled,
+                            throw openbiz::exception::NetworkConnectionException(r);
+                        }else{
+                            //try to load cached data
+                            openbiz::data::DataCollection<T>::fetch(limit,offset);
+                        }
                         break;
                         break;
                     case 200:
                         openbiz::data::DataCollection<T>::parse(r.body);
+                        openbiz::data::DataCollection<T>::save();
                         break;
                     case 204:
                     default:
