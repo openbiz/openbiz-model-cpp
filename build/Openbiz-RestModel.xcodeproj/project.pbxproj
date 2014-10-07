@@ -28,8 +28,6 @@
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
 		4AEE736019DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
-		4AEE736319DD9E8A00821A56 /* DataCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4EF19DC33E100A33ACC /* DataCollection.cpp */; };
-		4AEE736419DD9E8A00821A56 /* DataCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4EF19DC33E100A33ACC /* DataCollection.cpp */; };
 		4AEE736619DD9E9900821A56 /* openbiz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E619DC2EA900A33ACC /* openbiz.cpp */; };
 		4AEE736719DD9E9900821A56 /* openbiz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E619DC2EA900A33ACC /* openbiz.cpp */; };
 		4AEE736819DD9E9D00821A56 /* openbiz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,9 +36,7 @@
 		4AEE736E19DD9ECB00821A56 /* DataCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4F019DC33E100A33ACC /* DataCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE736F19DD9ECB00821A56 /* RemoteDataObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE731D19DD786600821A56 /* RemoteDataObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE737019DD9ECB00821A56 /* RemoteDataCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE732319DD787B00821A56 /* RemoteDataCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4AEE737219DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */; };
 		4AEE737319DD9ED300821A56 /* RemoteDataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */; };
-		4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */; };
 		4AEE737519DD9EF500821A56 /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE737619DD9EF500821A56 /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB39A19DC1EB800A33ACC /* restclient.cpp */; };
@@ -137,7 +133,6 @@
 		4A7DB4E719DC2EA900A33ACC /* openbiz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = openbiz.h; sourceTree = "<group>"; };
 		4A7DB4E919DC306B00A33ACC /* DataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataObject.cpp; path = model/DataObject.cpp; sourceTree = "<group>"; };
 		4A7DB4EA19DC306B00A33ACC /* DataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataObject.h; path = model/DataObject.h; sourceTree = "<group>"; };
-		4A7DB4EF19DC33E100A33ACC /* DataCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataCollection.cpp; path = model/DataCollection.cpp; sourceTree = "<group>"; };
 		4A7DB4F019DC33E100A33ACC /* DataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataCollection.h; path = model/DataCollection.h; sourceTree = "<group>"; };
 		4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformConfig.h; path = platform/PlatformConfig.h; sourceTree = "<group>"; };
 		4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkConnectionException.cpp; path = exception/NetworkConnectionException.cpp; sourceTree = "<group>"; };
@@ -154,7 +149,6 @@
 		4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFormatInvalidException.h; path = exception/DataFormatInvalidException.h; sourceTree = "<group>"; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
-		4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataCollection.cpp; path = remote/RemoteDataCollection.cpp; sourceTree = "<group>"; };
 		4AEE732319DD787B00821A56 /* RemoteDataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection.h; path = remote/RemoteDataCollection.h; sourceTree = "<group>"; };
 		4AEE734119DD9BD700821A56 /* libRestModel-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRestModel-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE734919DD9C9900821A56 /* libRestModel-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRestModel-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,7 +376,6 @@
 			children = (
 				4A7DB4E919DC306B00A33ACC /* DataObject.cpp */,
 				4A7DB4EA19DC306B00A33ACC /* DataObject.h */,
-				4A7DB4EF19DC33E100A33ACC /* DataCollection.cpp */,
 				4A7DB4F019DC33E100A33ACC /* DataCollection.h */,
 			);
 			name = model;
@@ -428,7 +421,6 @@
 			children = (
 				4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */,
 				4AEE731D19DD786600821A56 /* RemoteDataObject.h */,
-				4AEE732219DD787B00821A56 /* RemoteDataCollection.cpp */,
 				4AEE732319DD787B00821A56 /* RemoteDataCollection.h */,
 			);
 			name = remote;
@@ -635,9 +627,7 @@
 				4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */,
 				4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */,
-				4AEE737219DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
 				4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */,
-				4AEE736419DD9E8A00821A56 /* DataCollection.cpp in Sources */,
 				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4AEE740519DE940A00821A56 /* json_value.cpp in Sources */,
@@ -658,9 +648,7 @@
 				4AEE740319DE940A00821A56 /* json_reader.cpp in Sources */,
 				4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
-				4AEE737419DD9ED300821A56 /* RemoteDataCollection.cpp in Sources */,
 				4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
-				4AEE736319DD9E8A00821A56 /* DataCollection.cpp in Sources */,
 				4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */,
 				4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 			);

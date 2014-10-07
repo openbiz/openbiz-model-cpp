@@ -17,6 +17,7 @@ namespace openbiz
 {
     namespace data
     {
+        template<typename T>
         class DataCollection: public core::Object
         {
         public:
@@ -24,24 +25,51 @@ namespace openbiz
             virtual ~DataCollection() = default;
             
             //dump this object to JSON string
-            virtual const std::string serialize() const;
+            virtual const std::string serialize() const
+            {
+                return this->_data.toStyledString();
+            };
             
             //parse a JSON string to local attribute
-            virtual void parse(const std::string &data) throw (exception::DataFormatInvalidException);
+            virtual void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
+            {
+                Json::Reader reader;
+                bool result = reader.parse(data,this->_data);
+                
+                if(!result){
+                    throw openbiz::exception::DataFormatInvalidException(data);
+                }
+                
+                if(this->_data.empty()) return;
+                
+                //创建每一个成员变量去
+                for(auto it = _data.begin(); it!= _data.end(); ++it ){
+                    T *record = new T();
+                    if(it->isObject()){
+                        record->parse(it->toStyledString());
+                    }
+                    this->_records.push_back(record);
+                }
+            };
             
             //fetch all
-            virtual const std::vector<openbiz::data::DataObject *> fetch(int limit=0,int offset=0);
-            template <typename T>
-            inline const std::vector<T> fetch(int limit=0,int offset=0){return dynamic_cast<T>(fetch(limit,offset));}
+            virtual const std::vector<T*> fetch(int limit=0,int offset=0)
+            {
+                return this->_records;
+            };
             
-            virtual const std::vector<openbiz::data::DataObject *> query(const std::string &keyword = "",int limit=0,int offset=0);
-            inline  const std::vector<openbiz::data::DataObject *> query(int limit){ return query("",limit,0); };
-            inline  const std::vector<openbiz::data::DataObject *> query(int limit,int offset){ return query("",limit,offset); };
+            inline  const std::vector<T*> query(int limit){ return query("",limit,0); };
+            inline  const std::vector<T*> query(int limit,int offset){ return query("",limit,offset); };
+            virtual const std::vector<T*> query(const std::string &keyword = "",int limit=0,int offset=0)
+            {
+                return this->_records;
+            };
+            
             
 
             
         protected:
-            std::vector<openbiz::data::DataObject *> _records;
+            std::vector<T*> _records;
             const std::string _baseUrl;
             Json::Value _data;
         };

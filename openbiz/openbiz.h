@@ -25,12 +25,12 @@ namespace openbiz
     namespace data
     {
         class DataObject;
-        class DataCollection;
+        template<typename T> class DataCollection;
     }
     namespace remote
     {
         class DataObject;
-        class DataCollection;
+        template<typename T> class DataCollection;
     }
     namespace exception
     {

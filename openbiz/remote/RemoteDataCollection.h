@@ -19,7 +19,8 @@ namespace openbiz
 {
     namespace remote
     {
-        class DataCollection: public data::DataCollection
+        template<typename T>
+        class DataCollection: public openbiz::data::DataCollection<T>
         {
         public:
             DataCollection(const std::string &url):
@@ -27,13 +28,34 @@ namespace openbiz
             
             ~DataCollection() = default;
             
-            const std::string getUrl() const throw();
+            const std::string getUrl() const throw()
+            {
+                return this->_baseUrl.c_str();
+            };
             
-            const std::vector<openbiz::data::DataObject *> fetch(int limit=0,int offset=0);
-            template <typename T>
-            inline const std::vector<T> fetch(int limit=0,int offset=0){return dynamic_cast<std::vector<T>>(fetch(limit,offset));}
-            
-            const std::vector<openbiz::data::DataObject *> query(const std::string &keyword = "",int limit=0,int offset=0);
+            const std::vector<T*> fetch(int limit=0,int offset=0)
+            {
+                std::cout<<"test test"<<std::endl;
+                RestClient::response r = RestClient::get(this->getUrl());
+                switch(r.code)
+                {
+                    case -1:
+                        throw openbiz::exception::NetworkConnectionException(r);
+                        break;
+                        break;
+                    case 200:
+                        openbiz::data::DataCollection<T>::parse(r.body);
+                        break;
+                    case 204:
+                    default:
+                        break;                
+                }
+                return data::DataCollection<T>::_records;
+            };
+            const std::vector<T*> query(const std::string &keyword = "",int limit=0,int offset=0)
+            {
+                return data::DataCollection<T>::_records;
+            };
             
         protected:
             const std::string _baseUrl;
