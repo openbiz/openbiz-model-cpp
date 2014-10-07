@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <sqlite3.h>
 #include <iostream>
-
+#include <stdexcept>
 namespace openbiz
 {
     namespace core
@@ -29,7 +29,7 @@ namespace openbiz
         protected:
             static DB *_instance;
             static sqlite3 *_db;
-        };
+        }; 
     }
 }
 #endif /* defined(__Openbiz_RestModel__DB__) */

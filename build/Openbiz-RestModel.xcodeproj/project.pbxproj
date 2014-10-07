@@ -27,6 +27,7 @@
 		4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
 		4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
 		4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
@@ -64,7 +65,6 @@
 		4AEE739519DDA1AF00821A56 /* config.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A78DE8119DD388200A8B28C /* config.h */; };
 		4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */; };
 		4AEE73C219DE893D00821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
-		4AEE73C319DE894400821A56 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AEE73F519DE940A00821A56 /* assertions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D319DE940A00821A56 /* assertions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE73F619DE940A00821A56 /* autolink.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D419DE940A00821A56 /* autolink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE73F719DE940A00821A56 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEE73D519DE940A00821A56 /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,7 +83,6 @@
 		4AEE740619DE940A00821A56 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EA19DE940A00821A56 /* json_value.cpp */; };
 		4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EC19DE940A00821A56 /* json_writer.cpp */; };
 		4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE73EC19DE940A00821A56 /* json_writer.cpp */; };
-		4AEE746719DEB1EF00821A56 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE746619DEB1EF00821A56 /* libcurl.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -152,6 +151,8 @@
 		4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FileUtils-Apple.h"; path = "platform/Apple/FileUtils-Apple.h"; sourceTree = "<group>"; };
 		4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataFormatInvalidException.cpp; path = exception/DataFormatInvalidException.cpp; sourceTree = "<group>"; };
 		4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFormatInvalidException.h; path = exception/DataFormatInvalidException.h; sourceTree = "<group>"; };
+		4AD8724F19E3F34000586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		4AD8725719E3F62300586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
 		4AEE732319DD787B00821A56 /* RemoteDataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection.h; path = remote/RemoteDataCollection.h; sourceTree = "<group>"; };
@@ -187,8 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AEE746719DEB1EF00821A56 /* libcurl.dylib in Frameworks */,
-				4AEE73C319DE894400821A56 /* SystemConfiguration.framework in Frameworks */,
+				4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +220,7 @@
 			children = (
 				4A7DB4E519DC2EA900A33ACC /* openbiz */,
 				4A7DB32119DC1EB800A33ACC /* external */,
-				4AEE73BE19DE890C00821A56 /* framework */,
+				4AEE73BE19DE890C00821A56 /* Frameworks */,
 				4A7DB31319DC1DFE00A33ACC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -237,6 +237,7 @@
 		4A7DB32119DC1EB800A33ACC /* external */ = {
 			isa = PBXGroup;
 			children = (
+				4AD8725C19E3F66A00586C23 /* SQLite3 */,
 				4AEE73CF19DE940A00821A56 /* jsoncpp */,
 				4A7DB32219DC1EB800A33ACC /* curl */,
 				4A7DB39419DC1EB800A33ACC /* restclient-cpp */,
@@ -423,6 +424,34 @@
 			name = Apple;
 			sourceTree = "<group>";
 		};
+		4AD8725A19E3F65D00586C23 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				4AD8725719E3F62300586C23 /* libsqlite3.dylib */,
+			);
+			name = Mac;
+			path = ../external;
+			sourceTree = "<group>";
+		};
+		4AD8725B19E3F66500586C23 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4AD8724F19E3F34000586C23 /* libsqlite3.dylib */,
+			);
+			name = iOS;
+			path = ../external;
+			sourceTree = "<group>";
+		};
+		4AD8725C19E3F66A00586C23 /* SQLite3 */ = {
+			isa = PBXGroup;
+			children = (
+				4AD8725A19E3F65D00586C23 /* Mac */,
+				4AD8725B19E3F66500586C23 /* iOS */,
+			);
+			name = SQLite3;
+			path = ../build;
+			sourceTree = "<group>";
+		};
 		4AEE731B19DD783500821A56 /* remote */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,12 +462,12 @@
 			name = remote;
 			sourceTree = "<group>";
 		};
-		4AEE73BE19DE890C00821A56 /* framework */ = {
+		4AEE73BE19DE890C00821A56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */,
 			);
-			name = framework;
+			name = Frameworks;
 			path = ../external;
 			sourceTree = "<group>";
 		};
@@ -760,8 +789,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib",
 				);
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
@@ -786,8 +816,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/mac",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib",
 				);
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
