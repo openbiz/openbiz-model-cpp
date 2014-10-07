@@ -10,7 +10,7 @@
 #define INCLUDE_RESTCLIENT_H_
 
 #if (BIZ_TARGET_PLATFORM==BIZ_TARGET_PLATFORM)
-#include "curl/curl.h"
+#include "curl.h"
 #else
 #include <curl/curl.h>
 #endif

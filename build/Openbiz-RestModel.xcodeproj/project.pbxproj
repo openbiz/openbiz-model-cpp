@@ -39,6 +39,15 @@
 		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
+		4A91A7AD19E436CA004A73D4 /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7AE19E436CA004A73D4 /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7B019E436CA004A73D4 /* easy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33619DC1EB800A33ACC /* easy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7B119E436CA004A73D4 /* mprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33719DC1EB800A33ACC /* mprintf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7B219E436CA004A73D4 /* multi.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33819DC1EB800A33ACC /* multi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7B319E436CA004A73D4 /* stdcheaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33919DC1EB800A33ACC /* stdcheaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7B419E436CA004A73D4 /* typecheck-gcc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33A19DC1EB800A33ACC /* typecheck-gcc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A91A7B519E4373B004A73D4 /* curl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33219DC1EB800A33ACC /* curl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
 		4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6719DEDA57007727C2 /* NetworkConnectionException.cpp */; };
 		4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */; };
@@ -541,17 +550,25 @@
 			files = (
 				4A1E1C2B19E413320060B900 /* openbiz.h in Headers */,
 				4A1E1C2D19E413750060B900 /* DB.h in Headers */,
+				4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */,
 				4A1E1C3919E413A40060B900 /* exception.h in Headers */,
+				4A91A7AE19E436CA004A73D4 /* curlrules.h in Headers */,
+				4A91A7AD19E436CA004A73D4 /* curlbuild.h in Headers */,
 				4A1E1C3E19E413C70060B900 /* features.h in Headers */,
 				4A1E1C3719E413A40060B900 /* NetworkConnectionException.h in Headers */,
+				4A91A7B219E436CA004A73D4 /* multi.h in Headers */,
 				4A1E1C3B19E413C70060B900 /* assertions.h in Headers */,
+				4A91A7B019E436CA004A73D4 /* easy.h in Headers */,
 				4A1E1C3D19E413C70060B900 /* config.h in Headers */,
 				4A1E1C3A19E413AB0060B900 /* config.h in Headers */,
 				4A1E1C4F19E413E70060B900 /* restclient.h in Headers */,
 				4A1E1C4019E413C70060B900 /* json.h in Headers */,
 				4A1E1C2C19E413700060B900 /* Object.h in Headers */,
+				4A91A7B119E436CA004A73D4 /* mprintf.h in Headers */,
 				4A1E1C4319E413C70060B900 /* version.h in Headers */,
 				4A1E1C3219E4138E0060B900 /* DataObject.h in Headers */,
+				4A91A7B419E436CA004A73D4 /* typecheck-gcc.h in Headers */,
+				4A91A7B519E4373B004A73D4 /* curl.h in Headers */,
 				4A1E1C2E19E4137E0060B900 /* FileUtils-Apple.h in Headers */,
 				4A1E1C3819E413A40060B900 /* ServerErrorException.h in Headers */,
 				4A1E1C3419E413970060B900 /* RemoteDataObject.h in Headers */,
@@ -562,6 +579,7 @@
 				4A1E1C2F19E4137E0060B900 /* PlatformConfig.h in Headers */,
 				4A1E1C4219E413C70060B900 /* value.h in Headers */,
 				4A1E1C3319E4138E0060B900 /* DataCollection.h in Headers */,
+				4A91A7B319E436CA004A73D4 /* stdcheaders.h in Headers */,
 				4A1E1C3C19E413C70060B900 /* autolink.h in Headers */,
 				4A1E1C3519E413970060B900 /* RemoteDataCollection.h in Headers */,
 				4A1E1C4419E413C70060B900 /* writer.h in Headers */,
