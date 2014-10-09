@@ -36,6 +36,7 @@
 		4A1E1C4E19E413E70060B900 /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39719DC1EB800A33ACC /* meta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1C4F19E413E70060B900 /* restclient.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB39819DC1EB800A33ACC /* restclient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1CB619E423250060B900 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
+		4A1FEE8D19E50DAD003969DF /* PlatformConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */; };
 		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
@@ -603,6 +604,7 @@
 				4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */,
 				4AEE73FA19DE940A00821A56 /* json.h in Headers */,
 				4AEE73FC19DE940A00821A56 /* value.h in Headers */,
+				4A1FEE8D19E50DAD003969DF /* PlatformConfig.h in Headers */,
 				4AEE737619DD9EF500821A56 /* restclient.h in Headers */,
 				4AEE73F919DE940A00821A56 /* forwards.h in Headers */,
 				4AEE736F19DD9ECB00821A56 /* RemoteDataObject.h in Headers */,

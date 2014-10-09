@@ -25,6 +25,22 @@ namespace openbiz
             static DB* getInstance();
             static void destroyInstance();
             void initialize(const std::string &dbName);
+            
+            void ensureTableExists(const std::string &tableName) const;
+            
+            const bool isTableExists(const std::string &tableName) const;
+            
+            const bool isRecordExists(const std::string &tableName,
+                                      const std::string &recordId) const;
+            
+            const bool insertRecord(const std::string &tableName,
+                                    const std::string &recordId,
+                                    const std::string &data) const;
+            
+            const bool updateRecord(const std::string &tableName,
+                                    const std::string &recordId,
+                                    const std::string &data) const;
+            
             const sqlite3 *db();
         protected:
             static DB *_instance;

@@ -9,17 +9,20 @@
 #ifndef INCLUDE_RESTCLIENT_H_
 #define INCLUDE_RESTCLIENT_H_
 
-#if (BIZ_TARGET_PLATFORM==BIZ_TARGET_PLATFORM)
+
+#include <string>
+#include <map>
+#include <algorithm>
+#include <cstdlib>
+#include "meta.h"
+
+
+#if defined(BIZ_TARGET_OS_IOS)
 #include "curl.h"
 #else
 #include <curl/curl.h>
 #endif
 
-#include <string>
-#include <map>
-#include <cstdlib>
-#include "meta.h"
-#include <algorithm>
 
 class RestClient
 {
@@ -55,9 +58,16 @@ class RestClient
     // HTTP POST
     static response post(const std::string& url, const std::string& ctype,
                          const std::string& data);
+    inline static response post(const std::string& url,const std::string& data){
+        return post(url,"application/json",data);
+    };
+    
     // HTTP PUT
     static response put(const std::string& url, const std::string& ctype,
                         const std::string& data);
+    inline static response put(const std::string& url,const std::string& data){
+        return put(url,"application/json",data);
+    };
     // HTTP DELETE
     static response del(const std::string& url);
 

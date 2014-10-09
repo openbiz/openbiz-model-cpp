@@ -10,11 +10,10 @@ namespace openbiz {
     
     void initialize(const string &dbName)
     {
-        if(!dbName.empty()){
-            const std::string path = ext::FileUtils::getInstance()->getWritablePath();
-        }
+        core::DB::getInstance()->initialize(dbName);
     };
     void cleanup(){
         ext::FileUtils::destroyInstance();
+        core::DB::destroyInstance();
     };
 }

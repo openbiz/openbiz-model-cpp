@@ -57,7 +57,12 @@ namespace openbiz
             virtual const bool destroy();
             
             //set value to local data, but not saving
-            template<typename T> void set(std::string &key, T value);
+            template<typename T> void set(std::string &key, T value){ _data[key]=value; _changed[key]=value;};
+            template<typename T> void set(const char *key, T value){ _data[key]=value; _changed[key]=value;};
+            
+            //set value to local data, but not saving
+            Json::Value get(std::string &key){ return _data[key]; };
+            Json::Value get(const char *key){ return _data[key]; };
             
             //unset a local attribute , but not saved
             virtual void unset(std::string &key);
@@ -73,7 +78,7 @@ namespace openbiz
             
             //is the record has chagned attribute or not 
             const bool hasChanged() const throw();
-
+            
         protected:
             std::string _id;
             Json::Value _data;
@@ -81,10 +86,7 @@ namespace openbiz
             Json::Value _changed;
             time_t _lastUpdate;
             const bool _isCacheEnabled;
-            const std::string _cacheName;
-            
-            void _createCacheTable();
-
+            const std::string _cacheName;            
         };
     };
 }

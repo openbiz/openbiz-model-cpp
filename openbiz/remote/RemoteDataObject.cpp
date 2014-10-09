@@ -33,20 +33,12 @@ namespace openbiz
         return uri.c_str();
     };
     
-    /*
-     push local data changes to remote,
-     then call base class to update local cache
-     */
-    const bool DataObject::sync()
-    {
-        return true;
-    };
-    
+
     /*
      fetch remote data
      then parse data to local cache
      */
-    const bool DataObject::fetch() throw ( NetworkConnectionException )
+    const bool DataObject::fetch() throw ( NetworkConnectionException,ServerErrorException )
     {
         RestClient::response r = RestClient::get(this->getUrl());
         switch(r.code)
@@ -54,10 +46,12 @@ namespace openbiz
             case -1:
                 throw NetworkConnectionException(r);
                 break;
-                break;
             case 200:
                 data::DataObject::parse(r.body);
                 return true;
+                break;
+            case 500:
+                throw ServerErrorException(r);
                 break;
             case 204:
             default:
@@ -69,9 +63,40 @@ namespace openbiz
         return true;
     };
     
-    const bool DataObject::save()
+    const bool DataObject::save() throw ( NetworkConnectionException,ServerErrorException )
     {
-        if(!data::DataObject::save()) return false;
+        RestClient::response r;
+        
+        if(_id.empty()){
+            //post to baseURL
+            r = RestClient::post(_baseUrl,_data.toStyledString());
+            
+        }else{
+            //put to record URL
+            r = RestClient::put(getUrl(),_data.toStyledString());
+        }
+        
+        switch(r.code)
+        {
+            case -1:
+                throw NetworkConnectionException(r);
+                break;
+            case 200:
+            case 201:
+                data::DataObject::parse(r.body);
+                if(!data::DataObject::save()) return false;
+                break;
+            case 204:
+                if(!data::DataObject::save()) return false;
+                break;
+            case 500:
+                throw ServerErrorException(r);                
+                break;
+            default:
+                return false;
+                break;
+        }
+        _lastSync = std::time(nullptr);
         return true;
     };
     
@@ -80,7 +105,7 @@ namespace openbiz
      purge remote data
      then delete local cache
      */
-    const bool DataObject::destroy() throw ( NetworkConnectionException )
+    const bool DataObject::destroy() throw ( NetworkConnectionException,ServerErrorException )
     {
         RestClient::response r = RestClient::del(this->getUrl());
         switch(r.code)
@@ -88,17 +113,17 @@ namespace openbiz
             case -1:
                 throw NetworkConnectionException(r);
                 break;
-                break;
             case 200:
             case 204:
                 if(!data::DataObject::destroy()) return false;
                 return true;
                 break;
+            case 500:
+                throw ServerErrorException(r);
             default:
                 return false;
-                
+                break;
         }
-
         return true;
     }
 

@@ -33,21 +33,21 @@ namespace openbiz
             virtual const std::string getUrl() const throw();
             
             //fetch from remote but dont update local cache
-            virtual const bool fetch() throw (openbiz::exception::NetworkConnectionException) override;
-            
-            //fetch from remote and update local cache
-            virtual const bool sync();
+            virtual const bool fetch() throw (openbiz::exception::NetworkConnectionException,
+                                              openbiz::exception::ServerErrorException) override;
             
             //save to local and push to remote
-            virtual const bool save() override;
+            virtual const bool save() throw (openbiz::exception::NetworkConnectionException,
+                                             openbiz::exception::ServerErrorException) override;
             
             //destroy remote and local cache
-            virtual const bool destroy() throw (openbiz::exception::NetworkConnectionException) override;
+            virtual const bool destroy() throw (openbiz::exception::NetworkConnectionException,
+                                                openbiz::exception::ServerErrorException) override;
             
         protected:
             std::string _id;
+            std::time_t _lastSync;
             const std::string _baseUrl;
-            
         };
     }
 }

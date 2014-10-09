@@ -8,13 +8,10 @@
 
 #include "DataObject.h"
 #include "exception.h"
-
-#define OPENBIZ_CACHE_CREATE_TABLE_SQL(CacheName) \
-        "CREATE TABLE IF NOT EXISTS  `"+p+"`(id PRIMARY KEY, timestamp NUMERIC, data TEXT);"
-#define OPENBIZ_CACHE_DROP_TABLE_SQL(CacheName) \
-        "DROP TABLE IF EXISTS `"+p+"`;"
+#include "DB.h"
 
 using namespace std;
+using namespace openbiz::core;
 using namespace openbiz::data;
 using namespace openbiz::exception;
 
@@ -44,13 +41,7 @@ namespace openbiz
     const string DataObject::getId() const throw()
     {
         return this->_id;
-    };
-    
-    template<typename T> void DataObject::set(std::string &key, T value)
-    {
-        this->_data[key]=value;
-        this->_changed[key]=value;
-    }
+    };    
     
     void DataObject::unset(std::string &key)
     {
@@ -81,7 +72,25 @@ namespace openbiz
     
     const bool DataObject::save()
     {
-        cout<< this->_cacheName <<endl;
+        if(!_isCacheEnabled) return false;
+        //if no record ID, then cannot save it
+        if(_id.empty()) return false;
+        
+        //ensure cache table exists
+        DB::getInstance()->ensureTableExists(_cacheName);
+        
+        //is record exists in db
+        if(DB::getInstance()->isRecordExists(_cacheName,_id)){
+            //update record and timestamp
+            DB::getInstance()->updateRecord(_cacheName,_id,serialize());
+        }else{
+            //create new record
+            DB::getInstance()->insertRecord(_cacheName,_id,serialize());
+        }
+        
+        //update timestamp
+        _lastUpdate = std::time(nullptr);
+
         return true;
     }
     
@@ -94,4 +103,5 @@ namespace openbiz
     {
         return !this->_changed.isNull();
     }
+    
 }
