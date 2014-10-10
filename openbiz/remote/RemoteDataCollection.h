@@ -16,10 +16,10 @@
 #include "RemoteDataObject.h"
 
 #define OPENBIZ_DATA_COLLECTION_PUBLIC_API(Collection,Model) \
-    inline Collection fetch(int limit=0,int offset=0) \
-        { DataCollection<Model>::fetch(limit,offset); return *this; }\
-    inline Collection query(const std::string &keyword = "", int limit=0,int offset=0) \
-        { DataCollection<Model>::query(keyword,limit,offset); return *this; }
+    inline Collection fetch(int offset=0,int limit=-1) \
+        { DataCollection<Model>::fetch(offset,limit); return *this; }\
+    inline Collection query(const std::string &keyword = "", int offset=0,int limit=-1) \
+        { DataCollection<Model>::query(keyword,offset,limit); return *this; }
 
 namespace openbiz
 {
@@ -40,22 +40,20 @@ namespace openbiz
                 return this->_baseUrl.c_str();
             };            
             
-            DataCollection fetch(int limit=0,int offset=0)
+            DataCollection<T> fetch(int offset=0,int limit=-1)
             {
-                std::cout<<"test test"<<std::endl;
                 RestClient::response r = RestClient::get(this->getUrl());
                 switch(r.code)
                 {
                     case -1:
-                        if(this->_isCacheEnabled == true)
+                        if(this->isCacheEnabled())
                         {
+                            //try to load cached data
+                            openbiz::data::DataCollection<T>::fetch(offset,limit);
+                        }else{
                             //if collection has no cache enabled,
                             throw openbiz::exception::NetworkConnectionException(r);
-                        }else{
-                            //try to load cached data
-                            openbiz::data::DataCollection<T>::fetch(limit,offset);
                         }
-                        break;
                         break;
                     case 200:
                         openbiz::data::DataCollection<T>::parse(r.body);

@@ -8,7 +8,7 @@ namespace openbiz {
         return OPENBIZ_VERSION;
     }
     
-    void initialize(const string &dbName)
+    void initialize(const string dbName)
     {
         core::DB::getInstance()->initialize(dbName);
     };

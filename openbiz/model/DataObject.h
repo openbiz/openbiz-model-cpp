@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <sqlite3.h>
+#include "DB.h"
 #include "Object.h"
 #include "exception.h"
 #include "json.h"
@@ -33,9 +34,7 @@ namespace openbiz
         class DataObject: public core::Object
         {
         public:
-            DataObject(const std::string &cacheName = ""):
-                _isCacheEnabled(!cacheName.empty()),
-                _cacheName(cacheName){};
+            DataObject(const std::string &cacheName = "");
             ~DataObject() = default;
             
             //dump this object to JSON string
@@ -76,8 +75,13 @@ namespace openbiz
             //return is the data new or not
             const bool isNew() const throw();
             
+            const bool isCacheEnabled() const throw();
+            
             //is the record has chagned attribute or not 
             const bool hasChanged() const throw();
+            
+            //is the data has been cached before
+            const bool hasCachedData() const throw();
             
         protected:
             std::string _id;

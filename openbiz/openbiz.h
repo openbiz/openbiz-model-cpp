@@ -8,6 +8,7 @@
 
 //Openbiz自定义库
 #include "DB.h"
+#include "Object.h"
 #include "DataObject.h"
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
@@ -46,7 +47,7 @@ namespace openbiz
     }
     
     const std::string getVersion();
-    void initialize(const std::string &dbName="");
+    void initialize(const std::string dbName="");
     void cleanup();
     
 }

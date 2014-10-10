@@ -20,6 +20,13 @@ namespace openbiz
         class DB
         {
         public:
+            struct record
+            {
+                std::string Id;
+                std::string data;
+                time_t timestamp;
+            };
+            
             DB();
             ~DB();
             static DB* getInstance();
@@ -33,6 +40,9 @@ namespace openbiz
             const bool isRecordExists(const std::string &tableName,
                                       const std::string &recordId) const;
             
+            const record* fetchRecord(const std::string &tableName,
+                                      const std::string &recordId) const;
+            
             const bool insertRecord(const std::string &tableName,
                                     const std::string &recordId,
                                     const std::string &data) const;
@@ -40,6 +50,13 @@ namespace openbiz
             const bool updateRecord(const std::string &tableName,
                                     const std::string &recordId,
                                     const std::string &data) const;
+            
+            const bool removeRecord(const std::string &tableName,
+                                    const std::string &recordId) const;
+            
+            const std::vector<record*> *fetchRecords(const std::string &tableName,
+                                                    int offset=0,
+                                                    int limit=-1) const;
             
             const sqlite3 *db();
         protected:

@@ -8,7 +8,6 @@
 
 #include "DataObject.h"
 #include "exception.h"
-#include "DB.h"
 
 using namespace std;
 using namespace openbiz::core;
@@ -30,6 +29,11 @@ namespace openbiz
         if(this->_data["_id"].isString()){
             this->_id = this->_data["_id"].asString();
         }
+        
+        //save it to previous data
+        reader.parse(data,this->_previousData);
+        
+        _changed.clear();
     }
     
     const string DataObject::serialize() const
@@ -38,21 +42,29 @@ namespace openbiz
     }
 
 #pragma mark - 实现自己的方法
-    const string DataObject::getId() const throw()
-    {
-        return this->_id;
-    };    
-    
-    void DataObject::unset(std::string &key)
-    {
+    DataObject::DataObject(const std::string &cacheName):
+    _isCacheEnabled(!cacheName.empty()),
+    _cacheName(cacheName){
 
     }
     
+    const string DataObject::getId() const throw()
+    {
+        return this->_id;
+    }
+    
+    void DataObject::unset(std::string &key)
+    {
+        _data.removeMember(key);
+        _changed[key]=Json::nullValue;
+    }
     
     void DataObject::clear()
     {
         this->_id.clear();
         this->_data.clear();
+        this->_changed.clear();
+        this->_previousData.clear();
     }
     
     void DataObject::reset()
@@ -62,25 +74,57 @@ namespace openbiz
     
     const bool DataObject::fetch()
     {
-        return true;
+        if(!this->isCacheEnabled()) return false;
+        if(this->isNew()) return false;
+        
+        DB::getInstance()->ensureTableExists(_cacheName);
+        const DB::record *record = DB::getInstance()->fetchRecord(_cacheName,_id);
+        if(record!=nullptr)
+        {
+            //fetch record content
+            this->parse(record->data);
+            _lastUpdate = record->timestamp;
+            return true;
+        }
+        return false;
     }
     
     const bool DataObject::destroy()
     {
-        return true;
+        if(this->isNew())
+        {
+            this->clear();
+            return true;
+        }
+        
+        
+        DB::getInstance()->ensureTableExists(_cacheName);
+        bool result = DB::getInstance()->removeRecord(_cacheName,_id);
+        
+        this->clear();
+        return result;
+    }
+    
+    const bool DataObject::hasCachedData() const throw()
+    {
+        //ensure cache table exists
+        DB::getInstance()->ensureTableExists(_cacheName);
+        return DB::getInstance()->isRecordExists(_cacheName,_id);
     }
     
     const bool DataObject::save()
     {
-        if(!_isCacheEnabled) return false;
+        if(!this->isCacheEnabled()) return false;
+
         //if no record ID, then cannot save it
-        if(_id.empty()) return false;
-        
-        //ensure cache table exists
-        DB::getInstance()->ensureTableExists(_cacheName);
+        if(this->isNew()) return false;
         
         //is record exists in db
-        if(DB::getInstance()->isRecordExists(_cacheName,_id)){
+
+        if(this->hasCachedData())
+        {
+            if(!this->hasChanged()) return false;
+            
             //update record and timestamp
             DB::getInstance()->updateRecord(_cacheName,_id,serialize());
         }else{
@@ -90,18 +134,26 @@ namespace openbiz
         
         //update timestamp
         _lastUpdate = std::time(nullptr);
-
+        
+        _previousData = _data;
+        _changed.clear();
         return true;
+    }
+    
+    const bool DataObject::isCacheEnabled() const throw()
+    {
+        return this->_isCacheEnabled;
     }
     
     const bool DataObject::isNew() const throw()
     {
-        return !this->_id.empty();
+        return ( this->_id.empty() && this->_previousData.empty() );
     }
     
     const bool DataObject::hasChanged() const throw()
     {
-        return !this->_changed.isNull();
+        if(this->_changed.isNull()) return false;
+        return (this->_changed.size()>0);
     }
     
 }

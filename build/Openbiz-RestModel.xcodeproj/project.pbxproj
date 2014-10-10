@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A1E1C2B19E413320060B900 /* openbiz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1C2C19E413700060B900 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A1E1C2D19E413750060B900 /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
+		4A1E1C2D19E413750060B900 /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1C2E19E4137E0060B900 /* FileUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */; };
 		4A1E1C2F19E4137E0060B900 /* PlatformConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */; };
 		4A1E1C3019E4137E0060B900 /* PlatformMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FE9519E10BE6007727C2 /* PlatformMacros.h */; };
@@ -39,7 +39,7 @@
 		4A1FEE8D19E50DAD003969DF /* PlatformConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4FC19DC4FA000A33ACC /* PlatformConfig.h */; };
 		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
-		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; };
+		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AD19E436CA004A73D4 /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AE19E436CA004A73D4 /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; settings = {ATTRIBUTES = (Public, ); }; };

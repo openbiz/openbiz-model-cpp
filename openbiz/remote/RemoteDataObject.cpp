@@ -37,6 +37,7 @@ namespace openbiz
     /*
      fetch remote data
      then parse data to local cache
+     if network connection timeout, then only fetch from local and return
      */
     const bool DataObject::fetch() throw ( NetworkConnectionException,ServerErrorException )
     {
@@ -44,7 +45,10 @@ namespace openbiz
         switch(r.code)
         {
             case -1:
-                throw NetworkConnectionException(r);
+                if(!data::DataObject::fetch())
+                {
+                    throw NetworkConnectionException(r);
+                }
                 break;
             case 200:
                 data::DataObject::parse(r.body);
@@ -58,16 +62,21 @@ namespace openbiz
                 return false;
                 
         }
-        
-        cout<< std::to_string(this->_isCacheEnabled) << endl;
         return true;
     };
     
     const bool DataObject::save() throw ( NetworkConnectionException,ServerErrorException )
     {
+        if( this->isCacheEnabled() &&  !this->hasChanged() )
+            data::DataObject::save();
+        
+        //if there are nothing changed, then nothign to do
+        if(!this->hasChanged()) return true;
+        
+        //prepare to send changes to server
         RestClient::response r;
         
-        if(_id.empty()){
+        if(this->isNew()){
             //post to baseURL
             r = RestClient::post(_baseUrl,_data.toStyledString());
             

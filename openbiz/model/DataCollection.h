@@ -9,8 +9,9 @@
 #define __libRestModel__DataCollection__
 
 #include <stdio.h>
-#include <vector>
+#include <map>
 #include <memory>
+#include "DB.h"
 #include "Object.h"
 #include "DataObject.h"
 
@@ -19,7 +20,7 @@ namespace openbiz
     namespace data
     {
         template<typename T>
-        class DataCollection: public std::vector<std::shared_ptr<T>>
+        class DataCollection: public std::map<std::string,std::shared_ptr<T>>
         {
             
         public:
@@ -58,19 +59,30 @@ namespace openbiz
                     if(it->isObject()){
                         record->parse(it->toStyledString());
                     }
-                    this->push_back(record);
+                    this->insert({record->getId(),record});
                 }
             };
             
             //fetch all
-            virtual const DataCollection<T> fetch(int limit=0,int offset=0) const
+            DataCollection<T> fetch(int offset=0,int limit=-1)
             {
+                if(!this->isCacheEnabled()) return *this;
+                openbiz::core::DB::getInstance()->ensureTableExists(_cacheName);
+                const std::vector<openbiz::core::DB::record*> *records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,limit);
+                if(records->size()>0){
+                    for(auto it = records->cbegin(); it!= records->cend(); ++it )
+                    {
+                        std::shared_ptr<T> record = std::make_shared<T>();
+                        record->parse((*it)->data);
+                        this->insert({record->getId(),record});
+                    }
+                }
                 return *this;
             };
             
             inline  DataCollection<T> query(int limit){ return query("",limit,0); };
             inline  DataCollection<T> query(int limit,int offset){ return query("",limit,offset); };
-            virtual DataCollection<T> query(const std::string &keyword = "",int limit=0,int offset=0) const
+            DataCollection<T> query(const std::string &keyword = "",int limit=0,int offset=0) const
             {
                 return *this;
             };
@@ -80,8 +92,12 @@ namespace openbiz
             {
                 for(auto it = this->begin(); it!= this->end(); ++it )
                 {
-                    it->get()->save();
+                    it->second.get()->save();
                 }
+            };
+            
+            const bool isCacheEnabled() const throw(){
+                return _isCacheEnabled;
             };
             
         protected:

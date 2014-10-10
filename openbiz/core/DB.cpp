@@ -8,9 +8,11 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 #include "DB.h"
 #include "PlatformMacros.h"
 #include "FileUtils.h"
+
 
 #define OPENBIZ_CACHE_CREATE_TABLE_SQL(tableName) \
     "CREATE TABLE IF NOT EXISTS `"+tableName+"` (`id` PRIMARY KEY, `timestamp` NUMERIC, `data` TEXT);"
@@ -22,13 +24,23 @@
     "SELECT 1 FROM `sqlite_master` WHERE `type`='table' AND `name`= ? ;"
 
 #define OPENBIZ_CACHE_CHECK_RECORD_EXISTS_SQL(tableName) \
-    "SELECT `id`,`timestamp`,`data` FROM `"+tableName+"` WHERE `id`= ? ;"
+    "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` WHERE `id`= ? ;"
+
+#define OPENBIZ_CACHE_FETCH_RECORD_SQL(tableName) \
+    "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` WHERE `id`= ? ;"
+
+#define OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName) \
+    "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` LIMIT ?,?;"
 
 #define OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName) \
     "UPDATE `"+tableName+"` SET `timestamp`=datetime(),`data`= ? WHERE id= ? ;"
 
 #define OPENBIZ_CACHE_INSERT_RECORD_SQL(tableName) \
     "INSERT INTO `"+tableName+"` (`id`,`timestamp`,`data`) VALUES (?, datetime(), ?); "
+
+#define OPENBIZ_CACHE_REMOVE_RECORD_SQL(tableName) \
+    "DELETE FROM `"+tableName+"` WHERE `id`= ? ; "
+
 
 
 using namespace std;
@@ -118,6 +130,42 @@ namespace openbiz
             return false;
         }
         
+        const bool DB::removeRecord(const std::string &tableName,
+                                    const std::string &recordId) const
+        {
+            sqlite3_stmt *stmt;
+            int rc;
+            const char* sql = std::string(OPENBIZ_CACHE_REMOVE_RECORD_SQL(tableName)).c_str();
+            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            rc = sqlite3_bind_text(stmt, 1,
+                                   recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
+            rc = sqlite3_step(stmt);
+            if(rc == SQLITE_DONE){
+                return true;
+            }
+            return false;
+        }
+        
+        const DB::record* DB::fetchRecord(const std::string &tableName,
+                                          const std::string &recordId) const
+        {
+            DB::record* record = nullptr;
+            sqlite3_stmt *stmt;
+            int rc;
+            const char* sql = std::string(OPENBIZ_CACHE_FETCH_RECORD_SQL(tableName)).c_str();
+            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            rc = sqlite3_bind_text(stmt, 1,
+                                   recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
+            rc = sqlite3_step(stmt);
+            if(rc == SQLITE_ROW){
+                record = new DB::record;
+                record->Id      = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
+                record->data    = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
+                record->timestamp = static_cast<time_t>((sqlite3_column_int(stmt,2)));
+            }
+            return record;
+        }
+        
         const bool DB::insertRecord(const std::string &tableName,
                                     const std::string &recordId,
                                     const std::string &data) const
@@ -153,6 +201,30 @@ namespace openbiz
                 return true;
             }
             return false;
+        };
+        
+        const std::vector<DB::record*> *DB::fetchRecords(const std::string &tableName, int offset, int limit) const{
+            std::vector<DB::record*> *records = new std::vector<DB::record*>;
+            
+            sqlite3_stmt *stmt;
+            int rc;
+            const char* sql = std::string(OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName)).c_str();
+            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            rc = sqlite3_bind_int(stmt, 1, offset);
+            rc = sqlite3_bind_int(stmt, 2, limit);
+            rc = sqlite3_step(stmt);
+            
+            while(rc == SQLITE_ROW)
+            {
+
+                DB::record *record = new DB::record;
+                record->Id      = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
+                record->data    = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
+                record->timestamp = static_cast<time_t>((sqlite3_column_int(stmt,2)));
+                records->push_back(record);
+                rc = sqlite3_step(stmt);
+            }
+            return records;
         };
         
         void DB::destroyInstance(){
