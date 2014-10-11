@@ -40,6 +40,10 @@
 		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A5ACEAF19E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A5ACEB019E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A5ACEB219E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A5ACEB319E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AD19E436CA004A73D4 /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AE19E436CA004A73D4 /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -119,6 +123,8 @@
 /* Begin PBXFileReference section */
 		4A4C2B2219E3ECEA001206AE /* DB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DB.cpp; path = core/DB.cpp; sourceTree = "<group>"; };
 		4A4C2B2319E3ECEA001206AE /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DB.h; path = core/DB.h; sourceTree = "<group>"; };
+		4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataCollection_imp.h; path = model/DataCollection_imp.h; sourceTree = "<group>"; };
+		4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection_imp.h; path = remote/RemoteDataCollection_imp.h; sourceTree = "<group>"; };
 		4A78DE8119DD388200A8B28C /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		4A78DE8419DD420000A8B28C /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = core/Object.cpp; sourceTree = "<group>"; };
 		4A78DE8519DD420000A8B28C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = core/Object.h; sourceTree = "<group>"; };
@@ -395,6 +401,7 @@
 			children = (
 				4A7DB4E919DC306B00A33ACC /* DataObject.cpp */,
 				4A7DB4EA19DC306B00A33ACC /* DataObject.h */,
+				4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */,
 				4A7DB4F019DC33E100A33ACC /* DataCollection.h */,
 			);
 			name = model;
@@ -468,6 +475,7 @@
 			children = (
 				4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */,
 				4AEE731D19DD786600821A56 /* RemoteDataObject.h */,
+				4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */,
 				4AEE732319DD787B00821A56 /* RemoteDataCollection.h */,
 			);
 			name = remote;
@@ -566,6 +574,7 @@
 				4A1E1C4019E413C70060B900 /* json.h in Headers */,
 				4A1E1C2C19E413700060B900 /* Object.h in Headers */,
 				4A91A7B119E436CA004A73D4 /* mprintf.h in Headers */,
+				4A5ACEAF19E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */,
 				4A1E1C4319E413C70060B900 /* version.h in Headers */,
 				4A1E1C3219E4138E0060B900 /* DataObject.h in Headers */,
 				4A91A7B419E436CA004A73D4 /* typecheck-gcc.h in Headers */,
@@ -576,6 +585,7 @@
 				4A1E1C4119E413C70060B900 /* reader.h in Headers */,
 				4A1E1C3019E4137E0060B900 /* PlatformMacros.h in Headers */,
 				4A1E1C4E19E413E70060B900 /* meta.h in Headers */,
+				4A5ACEB219E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */,
 				4A1E1C3119E4137E0060B900 /* FileUtils.h in Headers */,
 				4A1E1C2F19E4137E0060B900 /* PlatformConfig.h in Headers */,
 				4A1E1C4219E413C70060B900 /* value.h in Headers */,
@@ -622,10 +632,12 @@
 				4AEE737F19DD9F1C00821A56 /* easy.h in Headers */,
 				4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */,
 				4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */,
+				4A5ACEB019E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */,
 				4AEE737C19DD9F1C00821A56 /* curlbuild.h in Headers */,
 				4AEE73F819DE940A00821A56 /* features.h in Headers */,
 				4AEE738319DD9F1C00821A56 /* typecheck-gcc.h in Headers */,
 				4AEE736819DD9E9D00821A56 /* openbiz.h in Headers */,
+				4A5ACEB319E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */,
 				4AEE73FE19DE940A00821A56 /* writer.h in Headers */,
 				4AEE737019DD9ECB00821A56 /* RemoteDataCollection.h in Headers */,
 				4AB3FE7219DEE6DC007727C2 /* ServerErrorException.h in Headers */,

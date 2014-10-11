@@ -29,46 +29,13 @@ namespace openbiz
         class DataCollection: public openbiz::data::DataCollection<T>
         {
         public:
-            DataCollection(const std::string &url,const std::string &cacheName=""):
-                _baseUrl(url),
-                openbiz::data::DataCollection<T>(cacheName){};
-            
+            DataCollection(const std::string &url,const std::string &cacheName="");
             ~DataCollection() = default;
             
-            const std::string getUrl() const throw()
-            {
-                return this->_baseUrl.c_str();
-            };            
+            const std::string getUrl() const throw();
             
-            DataCollection<T> fetch(int offset=0,int limit=-1)
-            {
-                RestClient::response r = RestClient::get(this->getUrl());
-                switch(r.code)
-                {
-                    case -1:
-                        if(this->isCacheEnabled())
-                        {
-                            //try to load cached data
-                            openbiz::data::DataCollection<T>::fetch(offset,limit);
-                        }else{
-                            //if collection has no cache enabled,
-                            throw openbiz::exception::NetworkConnectionException(r);
-                        }
-                        break;
-                    case 200:
-                        openbiz::data::DataCollection<T>::parse(r.body);
-                        openbiz::data::DataCollection<T>::save();
-                        break;
-                    case 204:
-                    default:
-                        break;                
-                }
-                return *this ;
-            };
-            DataCollection query(const std::string &keyword = "",int limit=0,int offset=0)
-            {
-                return *this;
-            };
+            DataCollection<T> fetch(int offset=0,int limit=-1);
+            DataCollection query(const std::string &keyword = "",int limit=0,int offset=0);
             
         protected:
             const std::string _baseUrl;
@@ -76,4 +43,5 @@ namespace openbiz
     };
 }
 
+#include "RemoteDataCollection_imp.h"
 #endif /* defined(__libRestModel__RemoteDataCollection__) */
