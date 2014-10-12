@@ -51,7 +51,9 @@ namespace openbiz
             {
                 message += "Payload: \t" + this->payload + "\n";
             }
-            message += "Code: \t" + std::to_string(this->_code) + "\n";
+            message += "Code: \t" ;
+            message += this->_code ;
+            message += "\n";
             if(!this->_name.empty())
             {
                 message += "Name: \t" + this->_name + "\n";

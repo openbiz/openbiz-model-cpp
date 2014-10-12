@@ -45,7 +45,7 @@ namespace openbiz
                                                 openbiz::exception::ServerErrorException) override;
             
         protected:
-            std::time_t _lastSync;
+            time_t _lastSync;
             const std::string _baseUrl;
         };
     }

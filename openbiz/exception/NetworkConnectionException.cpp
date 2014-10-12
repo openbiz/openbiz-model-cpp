@@ -19,7 +19,8 @@ namespace openbiz
             message += "Method: \t" + this->method + "\n";
         }
         message += "URI: \t" + this->uri + "\n";
-        message += "Timeout: \t" + std::to_string(BIZ_NETWORK_CONNECTION_TIMEOUT) + "\n";
+        message += BIZ_NETWORK_CONNECTION_TIMEOUT;
+        message += "\n";
         return message.c_str();
     };
 }

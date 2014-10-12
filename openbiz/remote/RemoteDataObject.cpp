@@ -7,7 +7,7 @@
 //
 
 #include "RemoteDataObject.h"
-#include "restclient-cpp/restclient.h"
+#include "restclient.h"
 #include "json.h"
 
 using namespace std;
@@ -105,7 +105,7 @@ namespace openbiz
                 return false;
                 break;
         }
-        _lastSync = std::time(nullptr);
+        _lastSync = time(nullptr);
         return true;
     };
     

@@ -133,7 +133,7 @@ namespace openbiz
         }
         
         //update timestamp
-        _lastUpdate = std::time(nullptr);
+        _lastUpdate = time(nullptr);
         
         _previousData = _data;
         _changed.clear();
