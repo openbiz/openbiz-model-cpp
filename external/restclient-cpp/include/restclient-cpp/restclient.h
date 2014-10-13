@@ -72,7 +72,8 @@ class RestClient
     static response del(const std::string& url);
 
   private:
-    static std::string cookies_file ;
+    static std::string get_cookies_file() ;
+    static std::string _cookies_file;
     
     // writedata callback function
     static size_t write_callback(void *ptr, size_t size, size_t nmemb,

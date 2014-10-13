@@ -2,9 +2,11 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := openbiz_internal_static
+LOCAL_MODULE := openbiz_static
 
-LOCAL_MODULE_FILENAME := libopenbiz_int_static
+LOCAL_MODULE_FILENAME := libopenbiz_static
+
+LOCAL_ARM_MODE := arm
 
 LOCAL_SRC_FILES := \
 					openbiz.cpp \
@@ -15,7 +17,10 @@ LOCAL_SRC_FILES := \
 					exception/ServerErrorException.cpp \
 					model/DataObject.cpp \
 					remote/RemoteDataObject.cpp \
-					platform/FileUtils.cpp
+					platform/FileUtils.cpp \
+					platform/Android/FileUtils-Android.cpp \
+					platform/Android/jni/JniHelper.cpp \
+					platform/Android/jni/Java_com_openbiz_lib_OpenbizHelper.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH) \
 					$(LOCAL_PATH)/core \
@@ -43,22 +48,10 @@ LOCAL_WHOLE_STATIC_LIBRARIES := openbiz_curl_static
 LOCAL_WHOLE_STATIC_LIBRARIES += openbiz_zlib_static
 LOCAL_WHOLE_STATIC_LIBRARIES += openbiz_external_static
 
-include $(BUILD_STATIC_LIBRARY)
 
-#==============================================================
-
-LOCAL_PATH := $(call my-dir)
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := openbiz_static
-
-LOCAL_MODULE_FILENAME := libopenbiz_static
-
-LOCAL_WHOLE_STATIC_LIBRARIES := openbiz_internal_static
-LOCAL_WHOLE_STATIC_LIBRARIES += openbiz_external_static
 
 include $(BUILD_STATIC_LIBRARY)
 
 #==============================================================
 $(call import-module,external)
+

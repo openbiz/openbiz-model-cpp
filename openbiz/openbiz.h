@@ -44,10 +44,11 @@ namespace openbiz
     namespace ext
     {
         class FileUtils;
+        class JniHelper;
     }
     
     const std::string getVersion();
-    void initialize(const std::string dbName="");
+    void initialize(const std::string dbName);
     void cleanup();
     
 }
