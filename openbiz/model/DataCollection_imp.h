@@ -102,5 +102,46 @@ const bool openbiz::data::DataCollection<T>::isCacheEnabled() const throw(){
     return _isCacheEnabled;
 };
 
+template<typename T>
+const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const throw(std::out_of_range)
+{
+    if(index >= this->size())
+    {
+        throw std::out_of_range("index is larger than sizz");
+    }
+    auto it = this->begin();
+    std::advance(it,index);
+    return (T*)it->second.get();
+};
 
+template<typename T>
+const T* openbiz::data::DataCollection<T>::get(const std::string &key) const throw(std::out_of_range)
+{
+    auto i = this->find(key);
+    if (i == this->end()){
+        throw std::out_of_range("key not found");
+    }
+    return i->second.get();
+};
+
+template<typename T>
+void openbiz::data::DataCollection<T>::del(const std::string &key) throw (std::out_of_range){
+    auto i = this->find(key);
+    if (i == this->end()){
+        throw std::out_of_range("key not found");
+    }
+    this->erase(i);
+};
+
+template<typename T>
+const bool openbiz::data::DataCollection<T>::has(const std::string& key) const throw(){
+    auto i = this->find(key);
+    return i != this->end();
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::set(const std::string& key, T& item) throw(){
+    std::shared_ptr<T> record = std::make_shared<T>(item);
+    (*(this))[key]=record;
+}
 #endif
