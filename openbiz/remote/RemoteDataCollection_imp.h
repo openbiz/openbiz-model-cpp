@@ -22,7 +22,7 @@ const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 };
 
 template<typename T>
-openbiz::remote::DataCollection<T> openbiz::remote::DataCollection<T>::fetch(int offset,int limit)
+openbiz::remote::DataCollection<T>* openbiz::remote::DataCollection<T>::fetch(int offset,int limit)
 {
     RestClient::response r = RestClient::get(this->getUrl());
     switch(r.code)
@@ -45,13 +45,13 @@ openbiz::remote::DataCollection<T> openbiz::remote::DataCollection<T>::fetch(int
         default:
             break;
     }
-    return *this ;
+    return this ;
 };
 
 
 template<typename T>
-openbiz::remote::DataCollection<T> openbiz::remote::DataCollection<T>::query(const std::string &keyword,int limit,int offset)
+openbiz::remote::DataCollection<T>* openbiz::remote::DataCollection<T>::query(const std::string &keyword,int limit,int offset)
 {
-    return *this;
+    return this;
 };
 #endif

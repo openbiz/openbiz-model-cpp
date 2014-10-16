@@ -34,10 +34,10 @@ namespace openbiz
             virtual const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             
             //fetch all
-            DataCollection<T> fetch(int offset=0,int limit=-1);
-            inline  DataCollection<T> query(int limit){ return query("",limit,0); };
-            inline  DataCollection<T> query(int limit,int offset){ return query("",limit,offset); };
-            DataCollection<T> query(const std::string &keyword = "",int limit=0,int offset=0) const;
+            DataCollection<T>* fetch(int offset=0,int limit=-1);
+            inline  DataCollection<T>* query(int limit){ return query("",limit,0); };
+            inline  DataCollection<T>* query(int limit,int offset){ return query("",limit,offset); };
+            DataCollection<T>* query(const std::string &keyword = "",int limit=0,int offset=0) const;
             
             //save collection to local cache
             virtual void save();

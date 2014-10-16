@@ -55,9 +55,9 @@ const void openbiz::data::DataCollection<T>::parse(const std::string &data) thro
 
 //fetch all
 template<typename T>
-openbiz::data::DataCollection<T> openbiz::data::DataCollection<T>::fetch(int offset,int limit)
+openbiz::data::DataCollection<T>* openbiz::data::DataCollection<T>::fetch(int offset,int limit)
 {
-    if(!this->isCacheEnabled()) return *this;
+    if(!this->isCacheEnabled()) return this;
     openbiz::core::DB::getInstance()->ensureTableExists(_cacheName);
     const std::vector<openbiz::core::DB::record*> *records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,limit);
     if(records->size()>0){
@@ -68,13 +68,13 @@ openbiz::data::DataCollection<T> openbiz::data::DataCollection<T>::fetch(int off
             this->insert({record->getId(),record});
         }
     }
-    return *this;
+    return this;
 };
 
 template<typename T>
-openbiz::data::DataCollection<T> openbiz::data::DataCollection<T>::query(const std::string &keyword,int limit,int offset) const
+openbiz::data::DataCollection<T>* openbiz::data::DataCollection<T>::query(const std::string &keyword,int limit,int offset) const
 {
-    return *this;
+    return this;
 };
 
 //save collection to local cache
