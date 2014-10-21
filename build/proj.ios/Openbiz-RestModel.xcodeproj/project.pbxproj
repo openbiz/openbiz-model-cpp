@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A123D4A19F4C42100BB5A96 /* DataValidationException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */; };
+		4A123D4B19F4C42100BB5A96 /* DataValidationException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */; };
+		4A123D4C19F4C42100BB5A96 /* DataValidationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A123D4919F4C42100BB5A96 /* DataValidationException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A123D4D19F4C42100BB5A96 /* DataValidationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A123D4919F4C42100BB5A96 /* DataValidationException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1C2B19E413320060B900 /* openbiz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB4E719DC2EA900A33ACC /* openbiz.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1C2C19E413700060B900 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1E1C2D19E413750060B900 /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,6 +125,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataValidationException.cpp; path = exception/DataValidationException.cpp; sourceTree = "<group>"; };
+		4A123D4919F4C42100BB5A96 /* DataValidationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataValidationException.h; path = exception/DataValidationException.h; sourceTree = "<group>"; };
 		4A4C2B2219E3ECEA001206AE /* DB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DB.cpp; path = core/DB.cpp; sourceTree = "<group>"; };
 		4A4C2B2319E3ECEA001206AE /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DB.h; path = core/DB.h; sourceTree = "<group>"; };
 		4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataCollection_imp.h; path = model/DataCollection_imp.h; sourceTree = "<group>"; };
@@ -428,6 +434,8 @@
 				4AB3FE7319DEE725007727C2 /* NetworkConnectionException.h */,
 				4AB3FE6C19DEE553007727C2 /* ServerErrorException.cpp */,
 				4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */,
+				4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */,
+				4A123D4919F4C42100BB5A96 /* DataValidationException.h */,
 				4AB3FE7519DEEB8E007727C2 /* exception.h */,
 			);
 			name = exception;
@@ -560,6 +568,7 @@
 				4A1E1C2B19E413320060B900 /* openbiz.h in Headers */,
 				4A1E1C2D19E413750060B900 /* DB.h in Headers */,
 				4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */,
+				4A123D4C19F4C42100BB5A96 /* DataValidationException.h in Headers */,
 				4A1E1C3919E413A40060B900 /* exception.h in Headers */,
 				4A91A7AE19E436CA004A73D4 /* curlrules.h in Headers */,
 				4A91A7AD19E436CA004A73D4 /* curlbuild.h in Headers */,
@@ -644,6 +653,7 @@
 				4AEE736A19DD9EAE00821A56 /* config.h in Headers */,
 				4AEE736D19DD9ECB00821A56 /* DataObject.h in Headers */,
 				4AEE73F719DE940A00821A56 /* config.h in Headers */,
+				4A123D4D19F4C42100BB5A96 /* DataValidationException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A123D4B19F4C42100BB5A96 /* DataValidationException.cpp in Sources */,
 				4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE736019DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
@@ -745,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A123D4A19F4C42100BB5A96 /* DataValidationException.cpp in Sources */,
 				4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */,
 				4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */,

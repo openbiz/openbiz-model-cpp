@@ -65,7 +65,7 @@ namespace openbiz
         return true;
     };
     
-    const bool DataObject::save() throw ( NetworkConnectionException,ServerErrorException )
+    const bool DataObject::save() throw ( NetworkConnectionException,ServerErrorException,DataValidationException )
     {
         if( this->isCacheEnabled() &&  !this->hasChanged() )
             data::DataObject::save();

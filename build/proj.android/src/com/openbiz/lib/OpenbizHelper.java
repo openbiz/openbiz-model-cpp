@@ -11,7 +11,7 @@ public class OpenbizHelper {
 		if(pContext instanceof Context){
 			Context context = (Context )pContext;
 			OpenbizHelper.sContext = context;
-			OpenbizHelper.sFileDirectory = context.getFilesDir().getAbsolutePath();
+			OpenbizHelper.sFileDirectory = sContext.getFilesDir().getAbsolutePath();
 		}
 	}
 	

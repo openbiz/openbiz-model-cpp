@@ -12,4 +12,5 @@
 #include "ServerErrorException.h"
 #include "NetworkConnectionException.h"
 #include "DataFormatInvalidException.h"
+#include "DataValidationException.h"
 #endif

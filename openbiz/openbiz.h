@@ -40,6 +40,7 @@ namespace openbiz
         class ServerErrorException;
         class NetworkConnectionException;
         class DataFormatInvalidException;
+        class DataValidationException;
     }
     namespace ext
     {

@@ -48,7 +48,10 @@ namespace openbiz
             
             //fetch attributes from local db;
             virtual const bool fetch();
-                        
+            
+            //validate record before save, put extra custom validation logic here
+            virtual const bool validate() throw (openbiz::exception::DataValidationException);
+            
             //save changes to local db
             virtual const bool save();
             

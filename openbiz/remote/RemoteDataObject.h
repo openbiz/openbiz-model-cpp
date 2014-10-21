@@ -37,7 +37,8 @@ namespace openbiz
                                               openbiz::exception::ServerErrorException) override;
             
             //save to local and push to remote
-            virtual const bool save() throw (openbiz::exception::NetworkConnectionException,
+            virtual const bool save() throw (openbiz::exception::DataValidationException,
+                                             openbiz::exception::NetworkConnectionException,
                                              openbiz::exception::ServerErrorException) override;
             
             //destroy remote and local cache

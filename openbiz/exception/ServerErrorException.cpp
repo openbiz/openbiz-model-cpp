@@ -13,7 +13,7 @@ namespace openbiz
 {
     namespace exception
     {
-        ServerErrorException::ServerErrorException(RestClient::response r) noexcept:
+        ServerErrorException::ServerErrorException(RestClient::response r) throw():
         method(r.method),
         payload(r.payload),
         uri(r.uri),

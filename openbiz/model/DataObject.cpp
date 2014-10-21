@@ -59,6 +59,11 @@ namespace openbiz
         _changed[key]=Json::nullValue;
     }
     
+    const bool validate() throw (exception::DataValidationException)
+    {
+        return true;
+    }
+    
     void DataObject::clear()
     {
         this->_id.clear();
@@ -119,8 +124,10 @@ namespace openbiz
         //if no record ID, then cannot save it
         if(this->isNew()) return false;
         
+        //validate data before save
+        if(!this->validate()) return false;
+        
         //is record exists in db
-
         if(this->hasCachedData())
         {
             if(!this->hasChanged()) return false;
