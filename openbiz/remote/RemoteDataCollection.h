@@ -15,11 +15,6 @@
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
 
-#define OPENBIZ_DATA_COLLECTION_PUBLIC_API(Collection,Model) \
-    inline Collection* fetch(int offset=0,int limit=-1) \
-        { openbiz::remote::DataCollection<Model>::fetch(offset,limit); return this; }\
-    inline Collection* query(const std::string &keyword = "", int offset=0,int limit=-1) \
-        { openbiz::remote::DataCollection<Model>::query(keyword,offset,limit); return this; }
 
 namespace openbiz
 {

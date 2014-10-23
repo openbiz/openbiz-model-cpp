@@ -17,12 +17,12 @@ using namespace openbiz::exception;
 namespace openbiz
 {    
 #pragma mark - 重载父类方法
-    void DataObject::parse(const std::string &data) throw (DataFormatInvalidException) {
+    void DataObject::parse(const std::string &json) throw (DataFormatInvalidException) {
         Json::Reader reader;
-        bool result = reader.parse(data,this->_data);
+        bool result = reader.parse(json,this->_data);
         
         if(!result){
-            throw DataFormatInvalidException(data);
+            throw DataFormatInvalidException(json);
         }
         
         //尝试给ID赋值
@@ -31,11 +31,11 @@ namespace openbiz
         }
         
         //save it to previous data
-        reader.parse(data,this->_previousData);
+        reader.parse(json,this->_previousData);
         
         _changed.clear();
     }
-    
+        
     const string DataObject::serialize() const
     {
         return this->_data.toStyledString();
@@ -59,7 +59,7 @@ namespace openbiz
         _changed[key]=Json::nullValue;
     }
     
-    const bool validate() throw (exception::DataValidationException)
+    const bool DataObject::validate() throw (exception::DataValidationException)
     {
         return true;
     }
@@ -94,20 +94,20 @@ namespace openbiz
         return false;
     }
     
-    const bool DataObject::destroy()
+    const void DataObject::destroy()
     {
         if(this->isNew())
         {
             this->clear();
-            return true;
+            return;
         }
         
         
         DB::getInstance()->ensureTableExists(_cacheName);
-        bool result = DB::getInstance()->removeRecord(_cacheName,_id);
+        DB::getInstance()->removeRecord(_cacheName,_id);
         
         this->clear();
-        return result;
+        return;
     }
     
     const bool DataObject::hasCachedData() const throw()
@@ -117,20 +117,20 @@ namespace openbiz
         return DB::getInstance()->isRecordExists(_cacheName,_id);
     }
     
-    const bool DataObject::save()
+    const void DataObject::save() throw(openbiz::exception::DataValidationException)
     {
-        if(!this->isCacheEnabled()) return false;
+        if(!this->isCacheEnabled()) return;
 
         //if no record ID, then cannot save it
-        if(this->isNew()) return false;
+        if(this->isNew()) return;
         
         //validate data before save
-        if(!this->validate()) return false;
+        if(!this->validate()) return;
         
         //is record exists in db
         if(this->hasCachedData())
         {
-            if(!this->hasChanged()) return false;
+            if(!this->hasChanged()) return;
             
             //update record and timestamp
             DB::getInstance()->updateRecord(_cacheName,_id,serialize());
@@ -144,7 +144,7 @@ namespace openbiz
         
         _previousData = _data;
         _changed.clear();
-        return true;
+        return;
     }
     
     const bool DataObject::isCacheEnabled() const throw()

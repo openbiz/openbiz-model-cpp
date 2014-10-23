@@ -15,6 +15,19 @@
 #include "Object.h"
 #include "DataObject.h"
 
+#define OPENBIZ_DATA_COLLECTION_MUTABLE_API(Model) \
+void save();\
+void destroy();\
+void del(const std::string &key) throw (std::out_of_range);\
+void set(const std::string& key, Model& item) throw();\
+
+#define OPENBIZ_DATA_COLLECTION_PUBLIC_API(Collection,Model) \
+inline Collection* fetch(int offset=0,int limit=-1) \
+{ openbiz::remote::DataCollection<Model>::fetch(offset,limit); return this; }\
+inline Collection* query(const std::string &keyword = "", int offset=0,int limit=-1) \
+{ openbiz::remote::DataCollection<Model>::query(keyword,offset,limit); return this; }
+
+
 namespace openbiz
 {
     namespace data
@@ -54,6 +67,9 @@ namespace openbiz
             
             //is the collection has cache feature enabled
             const bool isCacheEnabled() const throw();
+            
+            //base class methods
+            inline const bool isEmpty(){return this->empty();};
             
         protected:
             Json::Value _data;

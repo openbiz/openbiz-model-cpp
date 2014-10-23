@@ -700,7 +700,7 @@
 		4A7DB30A19DC1DFE00A33ACC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = openbiz;
 				TargetAttributes = {
 					4AEE734019DD9BD700821A56 = {
@@ -856,6 +856,7 @@
 		4AEE734319DD9BD700821A56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					BIZ_TARGET_OS_MAC,
@@ -888,6 +889,7 @@
 		4AEE734419DD9BD700821A56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = BIZ_TARGET_OS_MAC;
 				HEADER_SEARCH_PATHS = (

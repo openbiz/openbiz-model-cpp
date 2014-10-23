@@ -45,11 +45,10 @@ const void openbiz::data::DataCollection<T>::parse(const std::string &data) thro
     
     //创建每一个成员变量去
     for(auto it = _data.begin(); it!= _data.end(); ++it ){
-        std::shared_ptr<T> record = std::make_shared<T>();
         if(it->isObject()){
-            record->parse(it->toStyledString());
+            std::shared_ptr<T> record( T::template parse<T>(it->toStyledString()) );
+            this->insert({record->getId(),record});
         }
-        this->insert({record->getId(),record});
     }
 };
 
@@ -63,8 +62,7 @@ openbiz::data::DataCollection<T>* openbiz::data::DataCollection<T>::fetch(int of
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
-            std::shared_ptr<T> record = std::make_shared<T>();
-            record->parse((*it)->data);
+            std::shared_ptr<T> record( T::template parse<T>((*it)->data) );
             this->insert({record->getId(),record});
         }
     }

@@ -20,6 +20,21 @@
 #include "exception.h"
 #include "json.h"
 
+#define OPENBIZ_DATA_OBJECT_FRIEND_CLASS(Model) \
+friend class openbiz::data::DataObject;\
+friend class openbiz::remote::DataObject;\
+friend class openbiz::data::DataCollection<Model>;\
+friend class openbiz::remote::DataCollection<Model>;
+
+#define OPENBIZ_DATA_OBJECT_MUTABLE_API(Model,BaseClass) \
+friend class openbiz::data::DataCollection<Model>;\
+friend class openbiz::remote::DataCollection<Model>;\
+using BaseClass::set; \
+using BaseClass::validate;\
+using BaseClass::hasChanged; \
+using BaseClass::clear; \
+using BaseClass::save; \
+using BaseClass::destroy;
 
 /*
  SQLite中的数据结构是
@@ -41,7 +56,12 @@ namespace openbiz
             virtual const std::string serialize() const;
 
             //parse a JSON string to local attribute
-            virtual void parse(const std::string &data) throw (exception::DataFormatInvalidException);
+            virtual void parse(const std::string &json) throw (exception::DataFormatInvalidException);
+            template<typename T> static T* parse(const std::string &json) throw (exception::DataFormatInvalidException){
+                T* record = new T();
+                record->parse(json);
+                return record;
+            };
             
             //get local data record ID
             const std::string getId() const throw();
@@ -53,10 +73,10 @@ namespace openbiz
             virtual const bool validate() throw (openbiz::exception::DataValidationException);
             
             //save changes to local db
-            virtual const bool save();
+            const void save() throw (openbiz::exception::DataValidationException);
             
             //delete data from local db
-            virtual const bool destroy();
+            const void destroy();
             
             //set value to local data, but not saving
             template<typename T> void set(std::string &key, T value){ _data[key]=value; _changed[key]=value;};

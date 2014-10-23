@@ -65,13 +65,13 @@ namespace openbiz
         return true;
     };
     
-    const bool DataObject::save() throw ( NetworkConnectionException,ServerErrorException,DataValidationException )
+    const void DataObject::save() throw ( NetworkConnectionException,ServerErrorException,DataValidationException )
     {
         if( this->isCacheEnabled() &&  !this->hasChanged() )
             data::DataObject::save();
         
         //if there are nothing changed, then nothign to do
-        if(!this->hasChanged()) return true;
+        if(!this->hasChanged()) return;
         
         //prepare to send changes to server
         RestClient::response r;
@@ -93,20 +93,19 @@ namespace openbiz
             case 200:
             case 201:
                 data::DataObject::parse(r.body);
-                if(!data::DataObject::save()) return false;
+                data::DataObject::save();
                 break;
             case 204:
-                if(!data::DataObject::save()) return false;
+                data::DataObject::save();
                 break;
             case 500:
                 throw ServerErrorException(r);                
                 break;
             default:
-                return false;
                 break;
         }
         _lastSync = time(nullptr);
-        return true;
+        return;
     };
     
     
@@ -114,7 +113,7 @@ namespace openbiz
      purge remote data
      then delete local cache
      */
-    const bool DataObject::destroy() throw ( NetworkConnectionException,ServerErrorException )
+    const void DataObject::destroy() throw ( NetworkConnectionException,ServerErrorException )
     {
         RestClient::response r = RestClient::del(this->getUrl());
         switch(r.code)
@@ -124,16 +123,14 @@ namespace openbiz
                 break;
             case 200:
             case 204:
-                if(!data::DataObject::destroy()) return false;
-                return true;
+                data::DataObject::destroy();
                 break;
             case 500:
                 throw ServerErrorException(r);
             default:
-                return false;
                 break;
         }
-        return true;
+        return ;
     }
 
 }
