@@ -67,6 +67,7 @@ namespace openbiz{
             std::string _name;
             std::string _message;
             std::string _data;
+            std::string _raw;
         };
     }
 }

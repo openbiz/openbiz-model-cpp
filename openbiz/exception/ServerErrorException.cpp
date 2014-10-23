@@ -5,7 +5,7 @@
 //  Created by Jixian Wang on 14-10-3.
 //  Copyright (c) 2014年 openbiz. All rights reserved.
 //
-
+#include <stdio.h>
 #include "ServerErrorException.h"
 #include "config.h"
 #include "json.h"
@@ -17,7 +17,8 @@ namespace openbiz
         method(r.method),
         payload(r.payload),
         uri(r.uri),
-        _code(r.code)
+        _code(r.code),
+        _raw(r.body)
         {
             Json::Value data;
             Json::Reader reader;
@@ -43,6 +44,7 @@ namespace openbiz
         
         const char* ServerErrorException::what() const throw()
         {
+
             std::string message;
             message += "Remote Server Error Exception: \n";
             message += "Method: \t" + this->method + "\n";
@@ -51,9 +53,10 @@ namespace openbiz
             {
                 message += "Payload: \t" + this->payload + "\n";
             }
-            message += "Code: \t" ;
-            message += this->_code ;
-            message += "\n";
+#if (BIZ_TARGET_PLATFORM != BIZ_TARGET_PLATFORM)
+            //std::to_string is not availble for android NDK
+            message += "Code: \t" + std::to_string(_code) + "\n";
+#endif
             if(!this->_name.empty())
             {
                 message += "Name: \t" + this->_name + "\n";
@@ -63,6 +66,8 @@ namespace openbiz
             {
                 message += "Data: \t" + this->_data + "\n";
             }
+            message += "Raw:\n";
+            message += _raw;
             return message.c_str();
         };
     }
