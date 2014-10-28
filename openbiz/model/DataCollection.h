@@ -48,13 +48,11 @@ namespace openbiz
             
             //fetch all
             void fetch();
-            void fetchByPageId(unsigned int pageId);
+            void fetchByPageId(unsigned int pageId) throw (std::out_of_range);
             void fetchNextPage();
             void fetchPreviousPage();
             
-            /**
-             search
-             **/
+            //search
             void search(const std::string &keyword);
             void resetSearch();
             
@@ -62,11 +60,11 @@ namespace openbiz
             const bool isFirstPage() const;
             const bool isEmpty() const;
             
-            const unsigned int getPageSize();
+            const unsigned int getPageSize() const;
             void setPageSize(unsigned int pageSize);
             
-            const unsigned int getCurrentPageId();
-            const unsigned int getCurrentReocrds();
+            const unsigned int getCurrentPageId() const;
+            const unsigned int getCurrentRecords();
             const unsigned int getTotalPages();
             const unsigned int getTotalRecords();
             
@@ -98,8 +96,10 @@ namespace openbiz
             const std::string _baseUrl;
             const bool _isCacheEnabled;
             const std::string _cacheName;
+            int _totalRecords;
+            int _totalPages;
             int _pageSize;
-            int _pageId;
+            unsigned int _pageId;
             std::string _keyword;
         };
     }
