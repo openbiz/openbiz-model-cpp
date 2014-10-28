@@ -58,6 +58,13 @@ namespace openbiz
                                                     int offset=0,
                                                     int limit=-1) const;
             
+            const std::vector<record*> *queryRecords(const std::string &tableName,
+                                                     const std::string &keyword="",
+                                                     int offset=0,
+                                                     int limit=-1) const;
+            
+            unsigned int countRecords(const std::string &tableName,const std::string &keyword="");
+            
             const sqlite3 *db();
         protected:
             static DB *_instance;

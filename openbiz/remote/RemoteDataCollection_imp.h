@@ -31,7 +31,7 @@ openbiz::remote::DataCollection<T>* openbiz::remote::DataCollection<T>::fetch(in
             if(this->isCacheEnabled())
             {
                 //try to load cached data
-                openbiz::data::DataCollection<T>::fetch(offset,limit);
+                openbiz::data::DataCollection<T>::fetch();
             }else{
                 //if collection has no cache enabled,
                 throw openbiz::exception::NetworkConnectionException(r);

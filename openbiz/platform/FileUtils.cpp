@@ -19,7 +19,7 @@ namespace openbiz
         FileUtils::FileUtils(){};
         
         void FileUtils::destroyInstance(){
-            BIZ_SAFE_DELETE(_instance);
+            OPENBIZ_SAFE_DELETE(_instance);
         };
     }
 }

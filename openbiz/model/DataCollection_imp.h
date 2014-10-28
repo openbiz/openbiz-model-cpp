@@ -9,17 +9,121 @@
 #ifndef Openbiz_RestModel_DataCollection_imp_h
 #define Openbiz_RestModel_DataCollection_imp_h
 
+#include <math.h>
+#include <stdexcept>
+#include "config.h"
 
 
-
+#pragma mark - Constructor, ensure SQLite table exists
 template<typename T>
 openbiz::data::DataCollection<T>::DataCollection(const std::string &cacheName):
 _isCacheEnabled(!cacheName.empty()),
 _cacheName(cacheName){
-    //initalize SQLite table
-    
+    _pageId =0;
+    _pageSize = OPENBIZ_DEFAULT_COLLECTION_PAGESIZE;
+    _totalRecords = -1;
+    _totalPages = -1;
+    //initalize SQLite table if its cache enabled collection
+    if(this->isCacheEnabled())
+    {
+        openbiz::core::DB::getInstance()->ensureTableExists(_cacheName);
+    }
 };
 
+#pragma mark - Desctructor , release pointers in collection
+template<typename T>
+openbiz::data::DataCollection<T>::~DataCollection()
+{
+    if(this->begin() != this->end()){
+        for(auto it = this->begin(); it!= this->end(); it++ ){
+            delete it->second;
+        }
+    }
+}
+
+
+#pragma mark - Getter/setting methods
+template<typename T>
+const unsigned int openbiz::data::DataCollection<T>::getPageSize() const
+{
+    return _pageSize;
+}
+
+template<typename T>
+const unsigned int openbiz::data::DataCollection<T>::getCurrentPageId() const
+{
+    return _pageId;
+}
+
+template<typename T>
+const unsigned int openbiz::data::DataCollection<T>::getCurrentRecords()
+{
+    return this->size();
+}
+
+
+template<typename T>
+const unsigned int openbiz::data::DataCollection<T>::getTotalRecords()
+{
+    if(_totalRecords==-1){
+        _totalRecords = openbiz::core::DB::getInstance()->countRecords(_cacheName);
+    }
+    return _totalRecords;
+}
+
+template<typename T>
+const unsigned int openbiz::data::DataCollection<T>::getTotalPages()
+{
+    if(_totalPages==-1)
+    {
+        _totalPages =  ceil( getTotalRecords() / _pageSize  );
+    }
+    return _totalPages;
+}
+
+
+template<typename T>
+const bool openbiz::data::DataCollection<T>::isFirstPage() const
+{
+    return (getCurrentPageId()==0);
+}
+
+template<typename T>
+const bool openbiz::data::DataCollection<T>::isLastPage() const
+{
+    return (getCurrentPageId() == getTotalPages());
+}
+
+template<typename T>
+const bool openbiz::data::DataCollection<T>::isEmpty() const
+{
+    return (getCurrentRecords()==0);
+}
+
+#pragma mark - Setters also reset collection internal state
+template<typename T>
+void openbiz::data::DataCollection<T>::setPageSize(unsigned int pageSize)
+{
+    if(pageSize>0)
+    {
+        _pageSize = pageSize;
+        _pageId = 0;
+        _totalPages = -1;
+        fetch();
+    }
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::resetSearch()
+{
+    _pageId = 0;
+    _totalPages = -1;
+    _totalRecords = -1;
+    fetch();
+}
+
+
+#pragma mark - Serilizer / Deserilizer
 //dump this object to JSON string
 template<typename T>
 const std::string openbiz::data::DataCollection<T>::serialize() const
@@ -52,12 +156,12 @@ const void openbiz::data::DataCollection<T>::parse(const std::string &data) thro
     }
 };
 
+#pragma mark - Fetch and Search methods
 //fetch all
 template<typename T>
-openbiz::data::DataCollection<T>* openbiz::data::DataCollection<T>::fetch(int offset,int limit)
+void openbiz::data::DataCollection<T>::fetch()
 {
     if(!this->isCacheEnabled()) return this;
-    openbiz::core::DB::getInstance()->ensureTableExists(_cacheName);
     const std::vector<openbiz::core::DB::record*> *records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,limit);
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
@@ -69,11 +173,33 @@ openbiz::data::DataCollection<T>* openbiz::data::DataCollection<T>::fetch(int of
     return this;
 };
 
+
 template<typename T>
-openbiz::data::DataCollection<T>* openbiz::data::DataCollection<T>::query(const std::string &keyword,int limit,int offset) const
-{
-    return this;
-};
+void openbiz::data::DataCollection<T>::fetchNextPage(){
+    if(!isLastPage()){
+        _pageId++;
+        fetch();
+    }
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::fetchPreviousPage(){
+    if(!isFirstPage()){
+        _pageId--;
+        fetch();
+    }
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::fetchByPageId(unsigned int pageId) throw(std::out_of_range){
+    if(pageId>getTotalPages() || pageId<0 ){
+        throw std::out_of_range("Page ID is out of range");
+    }
+    _pageId = pageId;
+    fetch();
+}
+
+
 
 //save collection to local cache
 template<typename T>

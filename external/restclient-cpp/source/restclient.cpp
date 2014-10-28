@@ -66,7 +66,7 @@ RestClient::response RestClient::get(const std::string& url)
         curl_easy_setopt(curl, CURLOPT_COOKIEFILE, RestClient::get_cookies_file().c_str());
         curl_easy_setopt(curl, CURLOPT_COOKIEJAR, RestClient::get_cookies_file().c_str());
         
-        curl_easy_setopt( curl, CURLOPT_CONNECTTIMEOUT, BIZ_NETWORK_CONNECTION_TIMEOUT );
+        curl_easy_setopt( curl, CURLOPT_CONNECTTIMEOUT, OPENBIZ_NETWORK_CONNECTION_TIMEOUT );
         /** set user agent */
         curl_easy_setopt(curl, CURLOPT_USERAGENT, RestClient::user_agent);
         /** set query URL */
