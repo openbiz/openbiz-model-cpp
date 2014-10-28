@@ -33,12 +33,12 @@ namespace openbiz
     namespace data
     {
         template<typename T>
-        class DataCollection: public std::map<std::string,std::shared_ptr<T>>
+        class DataCollection: protected std::map<std::string,T* >
         {
             
         public:
             DataCollection(const std::string &cacheName = "");
-            virtual ~DataCollection() = default;
+            virtual ~DataCollection();
             
             //dump this object to JSON string
             virtual const std::string serialize() const;
@@ -47,10 +47,29 @@ namespace openbiz
             virtual const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             
             //fetch all
-            DataCollection<T>* fetch(int offset=0,int limit=-1);
-            inline  DataCollection<T>* query(int limit){ return query("",limit,0); };
-            inline  DataCollection<T>* query(int limit,int offset){ return query("",limit,offset); };
-            DataCollection<T>* query(const std::string &keyword = "",int limit=0,int offset=0) const;
+            void fetch();
+            void fetchByPageId(unsigned int pageId);
+            void fetchNextPage();
+            void fetchPreviousPage();
+            
+            /**
+             search
+             **/
+            void search(const std::string &keyword);
+            void resetSearch();
+            
+            const bool isLastPage() const;
+            const bool isFirstPage() const;
+            const bool isEmpty() const;
+            
+            const unsigned int getPageSize();
+            void setPageSize(unsigned int pageSize);
+            
+            const unsigned int getCurrentPageId();
+            const unsigned int getCurrentReocrds();
+            const unsigned int getTotalPages();
+            const unsigned int getTotalRecords();
+            
             
             //save collection to local cache
             virtual void save();
@@ -71,11 +90,17 @@ namespace openbiz
             //base class methods
             inline const bool isEmpty(){return this->empty();};
             
+            using std::map<std::string,T* >::begin;
+            using std::map<std::string,T* >::end;
+            
         protected:
             Json::Value _data;
             const std::string _baseUrl;
             const bool _isCacheEnabled;
             const std::string _cacheName;
+            int _pageSize;
+            int _pageId;
+            std::string _keyword;
         };
     }
 }
