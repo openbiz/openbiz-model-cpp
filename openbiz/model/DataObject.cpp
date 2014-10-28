@@ -83,12 +83,13 @@ namespace openbiz
         if(this->isNew()) return false;
         
         DB::getInstance()->ensureTableExists(_cacheName);
-        const DB::record *record = DB::getInstance()->fetchRecord(_cacheName,_id);
-        if(record!=nullptr)
+        const DB::record* record = DB::getInstance()->fetchRecord(_cacheName,_id);
+        if(record)
         {
             //fetch record content
             this->parse(record->data);
             _lastUpdate = record->timestamp;
+            delete record; record = nullptr;
             return true;
         }
         return false;
@@ -141,7 +142,6 @@ namespace openbiz
         
         //update timestamp
         _lastUpdate = time(nullptr);
-        
         _previousData = _data;
         _changed.clear();
         return;
