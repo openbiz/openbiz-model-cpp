@@ -41,10 +41,10 @@ namespace openbiz
             virtual ~DataCollection();
             
             //dump this object to JSON string
-            virtual const std::string serialize() const;
+            const std::string serialize() const;
             
             //parse a JSON string to local attribute
-            virtual const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
+            const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             
             //fetch all
             void fetch();
@@ -72,17 +72,17 @@ namespace openbiz
             
             
             //save collection to local cache
-            virtual void save();
+            void save();
             
             //destroy collection to local cache
-            virtual void destroy();
+            void destroy();
             
             //accessor methods
-            virtual const T* get(const unsigned int index) const throw(std::out_of_range);
-            virtual const T* get(const std::string &key) const throw (std::out_of_range);
-            virtual void del(const std::string &key) throw (std::out_of_range);
-            virtual const bool has(const std::string& key) const throw();
-            virtual void set(const std::string& key, T& item) throw();
+            const T* get(const unsigned int index) const throw(std::out_of_range);
+            const T* get(const std::string &key) const throw (std::out_of_range);
+            void del(const std::string &key) throw (std::out_of_range);
+            const bool has(const std::string& key) const throw();
+            void set(const std::string& key, T& item) throw();
             
             //is the collection has cache feature enabled
             const bool isCacheEnabled() const throw();
