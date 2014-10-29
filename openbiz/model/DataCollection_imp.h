@@ -46,13 +46,13 @@ openbiz::data::DataCollection<T>::~DataCollection()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getPageSize() const
 {
-    return _pageSize;
+    return isCacheEnabled()?this->size():_pageSize;
 }
 
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getCurrentPageId() const
 {
-    return _pageId;
+    return isCacheEnabled()?_pageId:0;
 }
 
 template<typename T>
@@ -65,6 +65,8 @@ const unsigned int openbiz::data::DataCollection<T>::getCurrentRecords()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getTotalRecords()
 {
+    if(!isCacheEnabled()) return this->size();
+    
     if(_totalRecords==-1){
         _totalRecords = openbiz::core::DB::getInstance()->countRecords(_cacheName);
     }
@@ -74,6 +76,8 @@ const unsigned int openbiz::data::DataCollection<T>::getTotalRecords()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getTotalPages()
 {
+    if(!isCacheEnabled())return 0;
+    
     if(_totalPages==-1)
     {
         _totalPages =  ceil( getTotalRecords() / _pageSize  );
@@ -100,10 +104,16 @@ const bool openbiz::data::DataCollection<T>::isEmpty() const
     return (getCurrentRecords()==0);
 }
 
+template<typename T>
+const bool openbiz::data::DataCollection<T>::isCacheEnabled() const {
+    return _isCacheEnabled;
+}
+
 #pragma mark - Setters also reset collection internal state
 template<typename T>
 void openbiz::data::DataCollection<T>::setPageSize(unsigned int pageSize)
 {
+    if(!isCacheEnabled()) return;
     if(pageSize>0)
     {
         _pageSize = pageSize;
@@ -111,15 +121,6 @@ void openbiz::data::DataCollection<T>::setPageSize(unsigned int pageSize)
         _totalPages = -1;
         fetch();
     }
-}
-
-template<typename T>
-void openbiz::data::DataCollection<T>::resetSearch()
-{
-    _pageId = 0;
-    _totalPages = -1;
-    _totalRecords = -1;
-    fetch();
 }
 
 
@@ -176,6 +177,7 @@ void openbiz::data::DataCollection<T>::fetch()
 
 template<typename T>
 void openbiz::data::DataCollection<T>::fetchNextPage(){
+    if(!isCacheEnabled()) return;
     if(!isLastPage()){
         _pageId++;
         fetch();
@@ -184,6 +186,7 @@ void openbiz::data::DataCollection<T>::fetchNextPage(){
 
 template<typename T>
 void openbiz::data::DataCollection<T>::fetchPreviousPage(){
+    if(!isCacheEnabled()) return;
     if(!isFirstPage()){
         _pageId--;
         fetch();
@@ -192,6 +195,7 @@ void openbiz::data::DataCollection<T>::fetchPreviousPage(){
 
 template<typename T>
 void openbiz::data::DataCollection<T>::fetchByPageId(unsigned int pageId) throw(std::out_of_range){
+    if(!isCacheEnabled()) return;
     if(pageId>getTotalPages() || pageId<0 ){
         throw std::out_of_range("Page ID is out of range");
     }
@@ -200,11 +204,44 @@ void openbiz::data::DataCollection<T>::fetchByPageId(unsigned int pageId) throw(
 }
 
 
+#pragma mark - Search implemtation
+template<typename T>
+void openbiz::data::DataCollection<T>::search(const std::string &keyword){
+    if(!isCacheEnabled()) {
+        //search in records
+    }
+    if(keyword.empty())
+    {
+        resetSearch();
+    }else{
+        _keyword = keyword;
+        _pageId = 0;
+        _totalPages = -1;
+        _totalRecords = -1;
+        fetch();
+    }
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::resetSearch()
+{
+    if(!isCacheEnabled()) {
+        //search in records
+    }
+    _keyword.clear();
+    _pageId = 0;
+    _totalPages = -1;
+    _totalRecords = -1;
+    fetch();
+}
+
+#pragma mark -
 
 //save collection to local cache
 template<typename T>
 void openbiz::data::DataCollection<T>::save()
 {
+    if(!isCacheEnabled()) return;
     for(auto it = this->begin(); it!= this->end(); ++it )
     {
         it->second.get()->save();
@@ -221,10 +258,9 @@ void openbiz::data::DataCollection<T>::destroy()
     }
 };
 
-template<typename T>
-const bool openbiz::data::DataCollection<T>::isCacheEnabled() const throw(){
-    return _isCacheEnabled;
-};
+
+#pragma mark -
+
 
 template<typename T>
 const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const throw(std::out_of_range)

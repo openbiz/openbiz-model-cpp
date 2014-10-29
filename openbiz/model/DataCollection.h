@@ -83,10 +83,7 @@ namespace openbiz
             void set(const std::string& key, T& item) throw();
             
             //is the collection has cache feature enabled
-            const bool isCacheEnabled() const throw();
-            
-            //base class methods
-            inline const bool isEmpty(){return this->empty();};
+            const bool isCacheEnabled() const;
             
             using std::map<std::string,T* >::begin;
             using std::map<std::string,T* >::end;

@@ -75,6 +75,12 @@
 		4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
 		4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
+		4AE58DDF1A00C7D40023E030 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD8725719E3F62300586C23 /* libsqlite3.dylib */; };
+		4AE58DE11A00C7F00023E030 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */; };
+		4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
+		4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
+		4AE58DEA1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */; };
+		4AE58DEB1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
@@ -177,6 +183,9 @@
 		4AC0DD9219FFBEFB00B265B1 /* libpcre.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcre.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libpcre.dylib; sourceTree = DEVELOPER_DIR; };
 		4AD8724F19E3F34000586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4AD8725719E3F62300586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3_json_extension.c; path = sqlite3_json_ext/sqlite3_json_extension.c; sourceTree = "<group>"; };
+		4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3_json_extension.h; path = sqlite3_json_ext/sqlite3_json_extension.h; sourceTree = "<group>"; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
 		4AEE732319DD787B00821A56 /* RemoteDataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection.h; path = remote/RemoteDataCollection.h; sourceTree = "<group>"; };
@@ -212,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE58DE11A00C7F00023E030 /* libsqlite3.dylib in Frameworks */,
 				4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE58DDF1A00C7D40023E030 /* libsqlite3.dylib in Frameworks */,
 				4AEE737919DD9F0200821A56 /* libcurl.a in Frameworks */,
 				4AEE73C219DE893D00821A56 /* SystemConfiguration.framework in Frameworks */,
 			);
@@ -261,6 +272,7 @@
 		4A7DB32119DC1EB800A33ACC /* external */ = {
 			isa = PBXGroup;
 			children = (
+				4AE58DE51A00CF500023E030 /* SQLite3_json_extension */,
 				4AD8725C19E3F66A00586C23 /* SQLite3 */,
 				4AEE73CF19DE940A00821A56 /* jsoncpp */,
 				4A7DB32219DC1EB800A33ACC /* curl */,
@@ -479,6 +491,15 @@
 			path = ../../build;
 			sourceTree = "<group>";
 		};
+		4AE58DE51A00CF500023E030 /* SQLite3_json_extension */ = {
+			isa = PBXGroup;
+			children = (
+				4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */,
+				4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */,
+			);
+			name = SQLite3_json_extension;
+			sourceTree = "<group>";
+		};
 		4AEE731B19DD783500821A56 /* remote */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +514,7 @@
 		4AEE73BE19DE890C00821A56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */,
 				4AC0DD9219FFBEFB00B265B1 /* libpcre.dylib */,
 				4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */,
 			);
@@ -594,6 +616,7 @@
 				4A1E1C3819E413A40060B900 /* ServerErrorException.h in Headers */,
 				4A1E1C3419E413970060B900 /* RemoteDataObject.h in Headers */,
 				4A1E1C4119E413C70060B900 /* reader.h in Headers */,
+				4AE58DEA1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */,
 				4A1E1C3019E4137E0060B900 /* PlatformMacros.h in Headers */,
 				4A1E1C4E19E413E70060B900 /* meta.h in Headers */,
 				4A5ACEB219E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */,
@@ -625,6 +648,7 @@
 				4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */,
 				4AEE73FA19DE940A00821A56 /* json.h in Headers */,
 				4AEE73FC19DE940A00821A56 /* value.h in Headers */,
+				4AE58DEB1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */,
 				4A1FEE8D19E50DAD003969DF /* PlatformConfig.h in Headers */,
 				4AEE737619DD9EF500821A56 /* restclient.h in Headers */,
 				4AEE73F919DE940A00821A56 /* forwards.h in Headers */,
@@ -739,6 +763,7 @@
 				4A123D4B19F4C42100BB5A96 /* DataValidationException.cpp in Sources */,
 				4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE736019DD9D1800821A56 /* DataObject.cpp in Sources */,
+				4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */,
 				4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 				4AB3FE9319E10751007727C2 /* FileUtils.cpp in Sources */,
 				4AEE740219DE940A00821A56 /* json_reader.cpp in Sources */,
@@ -761,6 +786,7 @@
 				4A123D4A19F4C42100BB5A96 /* DataValidationException.cpp in Sources */,
 				4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */,
 				4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */,
+				4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */,
 				4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AEE736719DD9E9900821A56 /* openbiz.cpp in Sources */,
 				4A1E1CB619E423250060B900 /* Object.cpp in Sources */,

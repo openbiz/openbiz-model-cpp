@@ -13,7 +13,7 @@
 #include "DB.h"
 #include "PlatformMacros.h"
 #include "FileUtils.h"
-
+#include "sqlite3_json_extension.h"
 
 #define OPENBIZ_CACHE_CREATE_TABLE_SQL(tableName) \
     "CREATE TABLE IF NOT EXISTS `"+tableName+"` (`id` PRIMARY KEY, `timestamp` NUMERIC, `data` TEXT);"
@@ -33,8 +33,15 @@
 #define OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName) \
     "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` LIMIT ?,?;"
 
-#define OPENBIZ_CACHE_COUNT_RECORDS_SQL(tableName) \
-"SELECT count(*) AS total FROM `"+tableName+"` LIMIT ?,?;"
+#define OPENBIZ_CACHE_QUERY_RECORDS_SQL(tableName) \
+"SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
+
+#define OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName) \
+"SELECT count(data) AS total FROM `"+tableName+"` LIMIT ?,?;"
+
+#define OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName) \
+"SELECT count(data) AS total FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
+
 
 #define OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName) \
     "UPDATE `"+tableName+"` SET `timestamp`=datetime(),`data`= ? WHERE id= ? ;"
@@ -81,7 +88,11 @@ namespace openbiz
                 const std::string path = ext::FileUtils::getInstance()->getWritablePath();
                 const std::string dbFullname = path + "/" + dbName;
                 int result = sqlite3_open(dbFullname.c_str(),&_db);
-                if(result){
+                if(result == SQLITE_OK){
+                    //register sqlite json extension to db connection instance
+                    sqlite3_json_extension_init(_db,NULL);
+                }
+                else{
                     throw std::runtime_error("Con't open database file: "+dbFullname);
                 }
             }else{
@@ -230,15 +241,17 @@ namespace openbiz
             return records;
         };
         
-        const std::vector<DB::record*> *DB::queryRecords(const std::string &tableName, const std::string &keyword, int offset, int limit) const{
+        const std::vector<DB::record*> *DB::fetchRecords(const std::string &tableName, const std::string &keyword, int offset, int limit) const{
             std::vector<DB::record*> *records = new std::vector<DB::record*>;
             
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName)).c_str();
+            const char* sql = std::string(OPENBIZ_CACHE_QUERY_RECORDS_SQL(tableName)).c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_int(stmt, 1, offset);
-            rc = sqlite3_bind_int(stmt, 2, limit);
+            rc = sqlite3_bind_text(stmt, 1,
+                                   keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
+            rc = sqlite3_bind_int(stmt, 2, offset);
+            rc = sqlite3_bind_int(stmt, 3, limit);
             rc = sqlite3_step(stmt);
             
             while(rc == SQLITE_ROW)
@@ -253,9 +266,32 @@ namespace openbiz
             return records;
         };
         
-        unsigned int DB::countRecords(const std::string &tableName,const std::string &keyword){
+        unsigned int DB::countRecords(const std::string &tableName){
+            sqlite3_stmt *stmt;
+            int rc;
+            const char* sql = std::string(OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName)).c_str();
+            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            rc = sqlite3_step(stmt);
+            if(rc == SQLITE_ROW){
+                return sqlite3_column_int(stmt,0);
+            }
             return 0;
         };
+
+        unsigned int DB::countRecords(const std::string &tableName,const std::string &keyword){
+            sqlite3_stmt *stmt;
+            int rc;
+            const char* sql = std::string(OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName)).c_str();
+            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            rc = sqlite3_bind_text(stmt, 1,
+                                   keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
+            rc = sqlite3_step(stmt);
+            if(rc == SQLITE_ROW){
+                return sqlite3_column_int(stmt,0);
+            }
+            return 0;
+        };
+        
         
         void DB::destroyInstance(){
             if(_db!=NULL){
