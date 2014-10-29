@@ -20,7 +20,7 @@ static void sqlite3_json_contains( sqlite3_context *context, int argc, sqlite3_v
     char *pcre_err = NULL;
     int pcre_erroffset, pcre_errcode;
     const char *keyword = (const char *) sqlite3_value_text(argv[0]);
-    const char *pattern_template = "\".*?\"\\s?:\\s?\".*?(?i)%s.*?\"";
+    const char *pattern_template = "\"[^\"]*?\"\\s?:\\s?\"[^\"]*?(?i)%s[^\"]*?\"\\s?,";
     char pattern_str[strlen(pattern_template)+strlen(keyword)];
     sprintf(pattern_str, pattern_template, keyword);
     pcre *pattern = pcre_compile2(pattern_str, PCRE_UTF8, &pcre_errcode, (const char **) &pcre_err, &pcre_erroffset, NULL);

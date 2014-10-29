@@ -11,7 +11,7 @@
 
 #include <math.h>
 #include <stdexcept>
-#include "config.h"
+#define OPENBIZ_DEFAULT_COLLECTION_PAGESIZE 10
 
 
 #pragma mark - Constructor, ensure SQLite table exists
@@ -46,7 +46,7 @@ openbiz::data::DataCollection<T>::~DataCollection()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getPageSize() const
 {
-    return isCacheEnabled()?this->size():_pageSize;
+    return isCacheEnabled()?static_cast<int>(this->size()):_pageSize;
 }
 
 template<typename T>
@@ -58,7 +58,7 @@ const unsigned int openbiz::data::DataCollection<T>::getCurrentPageId() const
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getCurrentRecords()
 {
-    return this->size();
+    return static_cast<int>(this->size());
 }
 
 
@@ -151,7 +151,7 @@ const void openbiz::data::DataCollection<T>::parse(const std::string &data) thro
     //创建每一个成员变量去
     for(auto it = _data.begin(); it!= _data.end(); ++it ){
         if(it->isObject()){
-            std::shared_ptr<T> record( T::template parse<T>(it->toStyledString()) );
+            T* record = T::template parse<T>(it->toStyledString()) ;
             this->insert({record->getId(),record});
         }
     }
@@ -162,16 +162,22 @@ const void openbiz::data::DataCollection<T>::parse(const std::string &data) thro
 template<typename T>
 void openbiz::data::DataCollection<T>::fetch()
 {
-    if(!this->isCacheEnabled()) return this;
-    const std::vector<openbiz::core::DB::record*> *records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,limit);
+    if(!this->isCacheEnabled()) return ;
+    const std::vector<openbiz::core::DB::record*> *records;
+    int offset = (getCurrentPageId()*getPageSize());
+    if(_keyword.empty()){
+        records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,getPageSize());
+    }else{
+        records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,_keyword,offset,getPageSize());
+    }
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
-            std::shared_ptr<T> record( T::template parse<T>((*it)->data) );
+            T* record = T::template parse<T>((*it)->data);
             this->insert({record->getId(),record});
         }
     }
-    return this;
+    return ;
 };
 
 
@@ -244,7 +250,7 @@ void openbiz::data::DataCollection<T>::save()
     if(!isCacheEnabled()) return;
     for(auto it = this->begin(); it!= this->end(); ++it )
     {
-        it->second.get()->save();
+        it->second->save();
     }
 };
 
@@ -254,7 +260,7 @@ void openbiz::data::DataCollection<T>::destroy()
 {
     for(auto it = this->begin(); it!= this->end(); ++it )
     {
-        it->second.get()->destroy();
+        it->second->destroy();
     }
 };
 
@@ -271,7 +277,7 @@ const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const t
     }
     auto it = this->begin();
     std::advance(it,index);
-    return (T*)it->second.get();
+    return (T*)it->second;
 };
 
 template<typename T>
@@ -281,7 +287,7 @@ const T* openbiz::data::DataCollection<T>::get(const std::string &key) const thr
     if (i == this->end()){
         throw std::out_of_range("key not found");
     }
-    return i->second.get();
+    return i->second;
 };
 
 template<typename T>
