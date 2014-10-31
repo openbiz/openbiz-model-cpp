@@ -24,9 +24,14 @@ namespace openbiz
         class DataCollection: public openbiz::data::DataCollection<T>
         {
         public:
+            enum RemotePaging {
+                Supported,
+                NotSupported
+            };
+            
             DataCollection(const std::string &url,
                            const std::string &cacheName="",
-                           const bool usingRemotePaging = true);
+                           const RemotePaging usingRemotePaging = RemotePaging::Supported);
             ~DataCollection();
             
             const std::string getUrl() const throw();

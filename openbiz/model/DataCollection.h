@@ -64,6 +64,8 @@ namespace openbiz
             const unsigned int getTotalPages();
             const unsigned int getTotalRecords();
             
+            //reset the collection to default state
+            void reset();
             
             //save collection to local cache
             void save();

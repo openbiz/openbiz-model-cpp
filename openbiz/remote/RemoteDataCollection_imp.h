@@ -12,9 +12,9 @@
 template<typename T>
 openbiz::remote::DataCollection<T>::DataCollection(const std::string &url,
                                                    const std::string &cacheName,
-                                                   const bool usingRemotePaging):
+                                                   const RemotePaging usingRemotePaging):
 _baseUrl(url),
-_usingRemotePaging(usingRemotePaging),
+_usingRemotePaging( usingRemotePaging==RemotePaging::Supported?true:false ),
 openbiz::data::DataCollection<T>(cacheName){
     
 };

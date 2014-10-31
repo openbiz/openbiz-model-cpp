@@ -273,7 +273,15 @@ void openbiz::data::DataCollection<T>::destroy()
     }
 };
 
-
+template<typename T>
+void openbiz::data::DataCollection<T>::reset()
+{
+    _pageId =0;
+    _pageSize = OPENBIZ_DEFAULT_COLLECTION_PAGESIZE;
+    _totalRecords = -1;
+    _totalPages = -1;
+    this->clear();
+}
 #pragma mark -
 
 
