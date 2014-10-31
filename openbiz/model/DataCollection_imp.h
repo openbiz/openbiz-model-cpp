@@ -27,6 +27,7 @@ _cacheName(cacheName){
     if(this->isCacheEnabled())
     {
         openbiz::core::DB::getInstance()->ensureTableExists(_cacheName);
+        fetch();
     }
 };
 
@@ -137,25 +138,33 @@ template<typename T>
 const void openbiz::data::DataCollection<T>::parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
 {
     Json::Reader reader;
-    bool result = reader.parse(data,this->_data);
+    Json::Value records;
+    bool result = reader.parse(data,records);
     
     if(!result){
         throw openbiz::exception::DataFormatInvalidException(data);
     }
     
-    if(this->_data.empty()) return;
+    parse(records);
+    
+};
+
+template<typename T>
+const void openbiz::data::DataCollection<T>::parse(const Json::Value& records) throw () {
+    if(records.empty()) return;
+    _data = records;
     
     //clear existing records
     this->clear();
     
     //创建每一个成员变量去
-    for(auto it = _data.begin(); it!= _data.end(); ++it ){
+    for(auto it = records.begin(); it!= records.end(); ++it ){
         if(it->isObject()){
             T* record = T::template parse<T>(it->toStyledString()) ;
             this->insert({record->getId(),record});
         }
     }
-};
+}
 
 #pragma mark - Fetch and Search methods
 //fetch all

@@ -22,10 +22,6 @@ void del(const std::string &key) throw (std::out_of_range);\
 void set(const std::string& key, Model& item) throw();\
 
 #define OPENBIZ_DATA_COLLECTION_PUBLIC_API(Collection,Model) \
-inline Collection* fetch(int offset=0,int limit=-1) \
-{ openbiz::remote::DataCollection<Model>::fetch(offset,limit); return this; }\
-inline Collection* query(const std::string &keyword = "", int offset=0,int limit=-1) \
-{ openbiz::remote::DataCollection<Model>::query(keyword,offset,limit); return this; }
 
 
 namespace openbiz
@@ -47,7 +43,7 @@ namespace openbiz
             const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             
             //fetch all
-            void fetch();
+            virtual void fetch();
             void fetchByPageId(unsigned int pageId) throw (std::out_of_range);
             void fetchNextPage();
             void fetchPreviousPage();
@@ -89,6 +85,7 @@ namespace openbiz
             using std::map<std::string,T* >::end;
             
         protected:
+            const void parse(const Json::Value& records) throw ();
             Json::Value _data;
             const std::string _baseUrl;
             const bool _isCacheEnabled;

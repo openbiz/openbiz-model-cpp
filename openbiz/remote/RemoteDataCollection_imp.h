@@ -10,21 +10,39 @@
 #define Openbiz_RestModel_RemoteDataCollection_imp_h
 
 template<typename T>
-openbiz::remote::DataCollection<T>::DataCollection(const std::string &url,const std::string &cacheName):
-_baseUrl(url),openbiz::data::DataCollection<T>(cacheName){
+openbiz::remote::DataCollection<T>::DataCollection(const std::string &url,
+                                                   const std::string &cacheName,
+                                                   const bool usingRemotePaging):
+_baseUrl(url),
+_usingRemotePaging(usingRemotePaging),
+openbiz::data::DataCollection<T>(cacheName){
     
 };
 
 template<typename T>
+openbiz::remote::DataCollection<T>::~DataCollection(){
+    
+}
+
+template<typename T>
 const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 {
-    return this->_baseUrl.c_str();
+    if(!_usingRemotePaging) return _baseUrl;
+    
+    std::string formattedURL(this->_baseUrl);
+    formattedURL += "?per_page="+ std::to_string(this->_pageSize)+
+                    "&page="+std::to_string(this->_pageId);
+    if(!this->_keyword.empty())
+    {
+        formattedURL += "?keyword="+ this->_keyword;
+    }
+    return formattedURL;
 };
 
 template<typename T>
-openbiz::remote::DataCollection<T>* openbiz::remote::DataCollection<T>::fetch(int offset,int limit)
+void openbiz::remote::DataCollection<T>::fetch()
 {
-    RestClient::response r = RestClient::get(this->getUrl());
+    RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
     {
         case -1:
@@ -38,20 +56,29 @@ openbiz::remote::DataCollection<T>* openbiz::remote::DataCollection<T>::fetch(in
             }
             break;
         case 200:
-            openbiz::data::DataCollection<T>::parse(r.body);
+            if(_usingRemotePaging){
+                Json::Reader reader;
+                Json::Value data;
+                bool result = reader.parse(r.body,data);
+                if(!result){
+                    throw openbiz::exception::DataFormatInvalidException(r.body);
+                }
+                openbiz::data::DataCollection<T>::_totalRecords = data[0]["total_entries"].asInt();
+                openbiz::data::DataCollection<T>::_totalPages   = data[0]["total_pages"].asInt();
+                openbiz::data::DataCollection<T>::_pageSize     = data[0]["per_page"].asInt();
+                openbiz::data::DataCollection<T>::_pageId       = data[0]["page"].asInt();
+                openbiz::data::DataCollection<T>::parse(data[1]);
+            }else{
+                openbiz::data::DataCollection<T>::parse(r.body);
+            }
             openbiz::data::DataCollection<T>::save();
             break;
         case 204:
         default:
             break;
     }
-    return this ;
+    return  ;
 };
 
 
-template<typename T>
-openbiz::remote::DataCollection<T>* openbiz::remote::DataCollection<T>::query(const std::string &keyword,int limit,int offset)
-{
-    return this;
-};
 #endif

@@ -35,6 +35,7 @@ namespace openbiz
         
         _changed.clear();
     }
+
         
     const string DataObject::serialize() const
     {

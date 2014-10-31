@@ -24,16 +24,17 @@ namespace openbiz
         class DataCollection: public openbiz::data::DataCollection<T>
         {
         public:
-            DataCollection(const std::string &url,const std::string &cacheName="");
-            ~DataCollection() = default;
+            DataCollection(const std::string &url,
+                           const std::string &cacheName="",
+                           const bool usingRemotePaging = true);
+            ~DataCollection();
             
             const std::string getUrl() const throw();
-            
-            DataCollection<T>* fetch(int offset=0,int limit=-1);
-            DataCollection<T>* query(const std::string &keyword = "",int limit=0,int offset=0);
+            void fetch();
             
         protected:
             const std::string _baseUrl;
+            const bool _usingRemotePaging;
         };
     };
 }
