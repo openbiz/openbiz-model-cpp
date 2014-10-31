@@ -76,7 +76,6 @@
 		4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AE58DDF1A00C7D40023E030 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD8725719E3F62300586C23 /* libsqlite3.dylib */; };
-		4AE58DE11A00C7F00023E030 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */; };
 		4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
 		4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
 		4AE58DEA1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */; };
@@ -221,7 +220,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AE58DE11A00C7F00023E030 /* libsqlite3.dylib in Frameworks */,
 				4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -897,6 +895,7 @@
 					"$(SRC_ROOT)../../external/restclient-cpp/include",
 					"$(SRC_ROOT)../../external/curl/include/mac",
 					"$(SRC_ROOT)../../external/jsoncpp/include",
+					"$(SRC_ROOT)../../external/pcre/include",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -926,6 +925,7 @@
 					"$(SRC_ROOT)../../external/restclient-cpp/include",
 					"$(SRC_ROOT)../../external/curl/include/mac",
 					"$(SRC_ROOT)../../external/jsoncpp/include",
+					"$(SRC_ROOT)../../external/pcre/include",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -957,6 +957,7 @@
 					"$(SRC_ROOT)../../external/restclient-cpp/include",
 					"$(SRC_ROOT)../../external/curl/include/ios",
 					"$(SRC_ROOT)../../external/jsoncpp/include",
+					"$(SRC_ROOT)../../external/pcre/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -983,6 +984,7 @@
 					"$(SRC_ROOT)../../external/restclient-cpp/include",
 					"$(SRC_ROOT)../../external/curl/include/ios",
 					"$(SRC_ROOT)../../external/jsoncpp/include",
+					"$(SRC_ROOT)../../external/pcre/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
