@@ -15,13 +15,12 @@
 #include "Object.h"
 #include "DataObject.h"
 
-#define OPENBIZ_DATA_COLLECTION_MUTABLE_API(Model) \
-void save();\
-void destroy();\
-void del(const std::string &key) throw (std::out_of_range);\
-void set(const std::string& key, Model& item) throw();\
+#define OPENBIZ_DATA_COLLECTION_MUTABLE_API \
+using DataCollection::save; \
+using DataCollection::destroy; \
+using DataCollection::set; \
+using DataCollection::del;
 
-#define OPENBIZ_DATA_COLLECTION_PUBLIC_API(Collection,Model) \
 
 
 namespace openbiz
