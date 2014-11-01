@@ -171,7 +171,7 @@ const void openbiz::data::DataCollection<T>::parse(const Json::Value& records) t
 template<typename T>
 void openbiz::data::DataCollection<T>::fetch()
 {
-    if(!_hasPermission(DataPermission::Fetch)) throw openbiz::exception::DataPermissionException("Fetch");
+    if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     
     if(!this->isCacheEnabled()) return ;
     const std::vector<openbiz::core::DB::record*> *records;
@@ -293,7 +293,7 @@ template<typename T>
 const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
-    if(!_hasPermission(DataPermission::Fetch)) throw openbiz::exception::DataPermissionException("Fetch");
+    if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     if(index >= this->size())
     {
         throw std::out_of_range("index is larger than sizz");
@@ -307,7 +307,7 @@ template<typename T>
 const T* openbiz::data::DataCollection<T>::get(const std::string &key) const
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
-    if(!_hasPermission(DataPermission::Fetch)) throw openbiz::exception::DataPermissionException("Fetch");
+    if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     
     auto i = this->find(key);
     if (i == this->end()){

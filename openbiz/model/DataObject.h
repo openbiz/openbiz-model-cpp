@@ -47,9 +47,9 @@ namespace openbiz
     namespace data
     {
         enum DataPermission {
-            Read,
+            Create,
             Write,
-            Fetch,
+            Read,
             Delete
         };
         
