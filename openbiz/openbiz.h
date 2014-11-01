@@ -13,10 +13,10 @@
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
 #include "RemoteDataCollection.h"
-#include "ServerErrorException.h"
-#include "NetworkConnectionException.h"
-#include "DataFormatInvalidException.h"
 #include "FileUtils.h"
+
+//Openbiz自定义异常
+#include "exception.h"
 
 namespace openbiz
 {
@@ -41,6 +41,7 @@ namespace openbiz
         class NetworkConnectionException;
         class DataFormatInvalidException;
         class DataValidationException;
+        class DataPermissionException;
     }
     namespace ext
     {

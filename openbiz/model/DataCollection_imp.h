@@ -171,6 +171,8 @@ const void openbiz::data::DataCollection<T>::parse(const Json::Value& records) t
 template<typename T>
 void openbiz::data::DataCollection<T>::fetch()
 {
+    if(!_hasPermission(DataPermission::Fetch)) throw openbiz::exception::DataPermissionException("Fetch");
+    
     if(!this->isCacheEnabled()) return ;
     const std::vector<openbiz::core::DB::record*> *records;
     int offset = (getCurrentPageId()*getPageSize());
@@ -256,6 +258,7 @@ void openbiz::data::DataCollection<T>::resetSearch()
 template<typename T>
 void openbiz::data::DataCollection<T>::save()
 {
+    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     if(!isCacheEnabled()) return;
     for(auto it = this->begin(); it!= this->end(); ++it )
     {
@@ -267,6 +270,7 @@ void openbiz::data::DataCollection<T>::save()
 template<typename T>
 void openbiz::data::DataCollection<T>::destroy()
 {
+    if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
     for(auto it = this->begin(); it!= this->end(); ++it )
     {
         it->second->destroy();
@@ -286,8 +290,10 @@ void openbiz::data::DataCollection<T>::reset()
 
 
 template<typename T>
-const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const throw(std::out_of_range)
+const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
+throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
+    if(!_hasPermission(DataPermission::Fetch)) throw openbiz::exception::DataPermissionException("Fetch");
     if(index >= this->size())
     {
         throw std::out_of_range("index is larger than sizz");
@@ -298,8 +304,11 @@ const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const t
 };
 
 template<typename T>
-const T* openbiz::data::DataCollection<T>::get(const std::string &key) const throw(std::out_of_range)
+const T* openbiz::data::DataCollection<T>::get(const std::string &key) const
+throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
+    if(!_hasPermission(DataPermission::Fetch)) throw openbiz::exception::DataPermissionException("Fetch");
+    
     auto i = this->find(key);
     if (i == this->end()){
         throw std::out_of_range("key not found");
@@ -308,7 +317,11 @@ const T* openbiz::data::DataCollection<T>::get(const std::string &key) const thr
 };
 
 template<typename T>
-void openbiz::data::DataCollection<T>::del(const std::string &key) throw (std::out_of_range){
+void openbiz::data::DataCollection<T>::del(const std::string &key)
+throw (std::out_of_range,openbiz::exception::DataPermissionException){
+    //permission check
+    if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
+    
     auto i = this->find(key);
     if (i == this->end()){
         throw std::out_of_range("key not found");
@@ -323,8 +336,18 @@ const bool openbiz::data::DataCollection<T>::has(const std::string& key) const t
 }
 
 template<typename T>
-void openbiz::data::DataCollection<T>::set(const std::string& key, T& item) throw(){
+void openbiz::data::DataCollection<T>::set(const std::string& key, T& item)
+throw(openbiz::exception::DataPermissionException){
+    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
+    
     std::shared_ptr<T> record = std::make_shared<T>(item);
     (*(this))[key]=record;
 }
+
+
+template<typename T>
+const bool openbiz::data::DataCollection<T>::_hasPermission(DataPermission permission) const throw(){
+    return true;
+};
+
 #endif

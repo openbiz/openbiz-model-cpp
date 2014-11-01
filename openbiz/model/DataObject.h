@@ -46,6 +46,13 @@ namespace openbiz
 {
     namespace data
     {
+        enum DataPermission {
+            Read,
+            Write,
+            Fetch,
+            Delete
+        };
+        
         class DataObject: public core::Object
         {
         public:
@@ -73,7 +80,8 @@ namespace openbiz
             virtual const bool validate() throw (openbiz::exception::DataValidationException);
             
             //save changes to local db
-            const void save() throw (openbiz::exception::DataValidationException);
+            const void save() throw (openbiz::exception::DataValidationException,
+                                     openbiz::exception::DataPermissionException);
             
             //delete data from local db
             const void destroy();
@@ -107,6 +115,7 @@ namespace openbiz
             const bool hasCachedData() const throw();
             
         protected:
+            virtual const bool _hasPermission(DataPermission permission) const throw();
             std::string _id;
             Json::Value _data;
             Json::Value _previousData;

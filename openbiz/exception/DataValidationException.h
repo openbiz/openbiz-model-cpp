@@ -19,7 +19,7 @@ namespace openbiz{
         class DataValidationException: public std::runtime_error
         {
         public:
-            
+            DataValidationException(const char* msg):std::runtime_error(msg){};
         };
     }
 }

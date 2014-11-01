@@ -80,6 +80,10 @@
 		4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
 		4AE58DEA1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */; };
 		4AE58DEB1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */; };
+		4AE58E1C1A048BDB0023E030 /* DataPermissionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58E1A1A048BDB0023E030 /* DataPermissionException.cpp */; };
+		4AE58E1D1A048BDB0023E030 /* DataPermissionException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58E1A1A048BDB0023E030 /* DataPermissionException.cpp */; };
+		4AE58E1E1A048BDB0023E030 /* DataPermissionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58E1B1A048BDB0023E030 /* DataPermissionException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AE58E1F1A048BDB0023E030 /* DataPermissionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE58E1B1A048BDB0023E030 /* DataPermissionException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A78DE8419DD420000A8B28C /* Object.cpp */; };
 		4AEE735E19DD9CFE00821A56 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A78DE8519DD420000A8B28C /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DB4E919DC306B00A33ACC /* DataObject.cpp */; };
@@ -185,6 +189,8 @@
 		4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3_json_extension.c; path = sqlite3_json_ext/sqlite3_json_extension.c; sourceTree = "<group>"; };
 		4AE58DE71A00CF6E0023E030 /* sqlite3_json_extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3_json_extension.h; path = sqlite3_json_ext/sqlite3_json_extension.h; sourceTree = "<group>"; };
+		4AE58E1A1A048BDB0023E030 /* DataPermissionException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataPermissionException.cpp; path = exception/DataPermissionException.cpp; sourceTree = "<group>"; };
+		4AE58E1B1A048BDB0023E030 /* DataPermissionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataPermissionException.h; path = exception/DataPermissionException.h; sourceTree = "<group>"; };
 		4AEE731C19DD786600821A56 /* RemoteDataObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteDataObject.cpp; path = remote/RemoteDataObject.cpp; sourceTree = "<group>"; };
 		4AEE731D19DD786600821A56 /* RemoteDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataObject.h; path = remote/RemoteDataObject.h; sourceTree = "<group>"; };
 		4AEE732319DD787B00821A56 /* RemoteDataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection.h; path = remote/RemoteDataCollection.h; sourceTree = "<group>"; };
@@ -447,6 +453,8 @@
 				4AB3FE7119DEE6CA007727C2 /* ServerErrorException.h */,
 				4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */,
 				4A123D4919F4C42100BB5A96 /* DataValidationException.h */,
+				4AE58E1A1A048BDB0023E030 /* DataPermissionException.cpp */,
+				4AE58E1B1A048BDB0023E030 /* DataPermissionException.h */,
 				4AB3FE7519DEEB8E007727C2 /* exception.h */,
 			);
 			name = exception;
@@ -624,6 +632,7 @@
 				4A1E1C3319E4138E0060B900 /* DataCollection.h in Headers */,
 				4A91A7B319E436CA004A73D4 /* stdcheaders.h in Headers */,
 				4A1E1C3C19E413C70060B900 /* autolink.h in Headers */,
+				4AE58E1E1A048BDB0023E030 /* DataPermissionException.h in Headers */,
 				4A1E1C3519E413970060B900 /* RemoteDataCollection.h in Headers */,
 				4A1E1C4419E413C70060B900 /* writer.h in Headers */,
 				4A1E1C3F19E413C70060B900 /* forwards.h in Headers */,
@@ -664,6 +673,7 @@
 				4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */,
 				4AEE737F19DD9F1C00821A56 /* easy.h in Headers */,
 				4AB3FE9119E0F028007727C2 /* FileUtils.h in Headers */,
+				4AE58E1F1A048BDB0023E030 /* DataPermissionException.h in Headers */,
 				4AB3FE7419DEE7B3007727C2 /* NetworkConnectionException.h in Headers */,
 				4A5ACEB019E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */,
 				4AEE737C19DD9F1C00821A56 /* curlbuild.h in Headers */,
@@ -773,6 +783,7 @@
 				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4AEE740519DE940A00821A56 /* json_value.cpp in Sources */,
+				4AE58E1D1A048BDB0023E030 /* DataPermissionException.cpp in Sources */,
 				4AEE736619DD9E9900821A56 /* openbiz.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -796,6 +807,7 @@
 				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */,
+				4AE58E1C1A048BDB0023E030 /* DataPermissionException.cpp in Sources */,
 				4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

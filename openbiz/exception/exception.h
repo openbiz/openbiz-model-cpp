@@ -13,4 +13,5 @@
 #include "NetworkConnectionException.h"
 #include "DataFormatInvalidException.h"
 #include "DataValidationException.h"
+#include "DataPermissionException.h"
 #endif
