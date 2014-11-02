@@ -76,9 +76,9 @@ namespace openbiz
             const T* get(const unsigned int index) const throw(std::out_of_range,openbiz::exception::DataPermissionException);
             const T* get(const std::string &key) const throw (std::out_of_range,openbiz::exception::DataPermissionException);
             void del(const std::string &key) throw (std::out_of_range,openbiz::exception::DataPermissionException);
-            void set(const std::string& key, T& item) throw(openbiz::exception::DataPermissionException);
+            void set(const std::string &key, T *item) throw(openbiz::exception::DataPermissionException);
             
-            const bool has(const std::string& key) const throw();
+            const bool has(const std::string &key) const throw();
             
             //is the collection has cache feature enabled
             const bool isCacheEnabled() const;
@@ -88,8 +88,11 @@ namespace openbiz
             
             
         protected:
+            void clear();
+            void erase(const std::string &key);
+            
             virtual const bool _hasPermission(DataPermission permission) const throw();
-            const void parse(const Json::Value& records) throw ();
+            const void parse(const Json::Value &records) throw ();
             Json::Value _data;
             const std::string _baseUrl;
             const bool _isCacheEnabled;

@@ -150,7 +150,7 @@ const void openbiz::data::DataCollection<T>::parse(const std::string &data) thro
 };
 
 template<typename T>
-const void openbiz::data::DataCollection<T>::parse(const Json::Value& records) throw () {
+const void openbiz::data::DataCollection<T>::parse(const Json::Value &records) throw () {
     if(records.empty()) return;
     _data = records;
     
@@ -275,6 +275,7 @@ void openbiz::data::DataCollection<T>::destroy()
     {
         it->second->destroy();
     }
+    reset();
 };
 
 template<typename T>
@@ -288,6 +289,26 @@ void openbiz::data::DataCollection<T>::reset()
 }
 #pragma mark -
 
+
+#pragma mark - overload parent STL method for prevent memry leaks
+template<typename T>
+void openbiz::data::DataCollection<T>::clear(){
+    if(this->begin() != this->end()){
+        for(auto it = this->begin(); it!= this->end(); it++ ){
+            delete it->second;
+        }
+    }
+    std::map<std::string,T*>::clear();
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::erase(const std::string &key)
+{
+    delete this->find(key)->second;
+    std::map<std::string,T*>::erase(key);
+}
+
+#pragma mark -
 
 template<typename T>
 const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
@@ -326,22 +347,26 @@ throw (std::out_of_range,openbiz::exception::DataPermissionException){
     if (i == this->end()){
         throw std::out_of_range("key not found");
     }
-    this->erase(i);
+    erase(i);
 };
 
 template<typename T>
-const bool openbiz::data::DataCollection<T>::has(const std::string& key) const throw(){
+const bool openbiz::data::DataCollection<T>::has(const std::string &key) const throw(){
     auto i = this->find(key);
     return i != this->end();
 }
 
 template<typename T>
-void openbiz::data::DataCollection<T>::set(const std::string& key, T& item)
+void openbiz::data::DataCollection<T>::set(const std::string &key, T *item)
 throw(openbiz::exception::DataPermissionException){
     if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     
-    std::shared_ptr<T> record = std::make_shared<T>(item);
-    (*(this))[key]=record;
+    T* obj = this->find(key)->second;
+    //release memory if assign a new object to same key
+    if(obj != item){
+        delete obj;
+        (*(this))[key]=item;
+    }
 }
 
 
