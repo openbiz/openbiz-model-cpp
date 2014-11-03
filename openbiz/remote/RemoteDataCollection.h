@@ -32,7 +32,7 @@ namespace openbiz
             DataCollection(const std::string &url,
                            const std::string &cacheName="",
                            const RemotePaging usingRemotePaging = RemotePaging::Supported);
-            ~DataCollection();
+            virtual ~DataCollection() = 0;
             
             const std::string getUrl() const throw();
             void fetch();

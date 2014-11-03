@@ -19,9 +19,8 @@ namespace openbiz
         class Object
         {
         public:
-            Object()=default;
-            virtual ~Object() = default;
-            virtual const std::string getVersion();
+            Object();
+            virtual ~Object() = 0;
             virtual const std::string serialize() const = 0;
             virtual void parse(const std::string &data) = 0;
 

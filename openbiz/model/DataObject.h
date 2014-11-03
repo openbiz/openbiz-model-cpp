@@ -65,8 +65,7 @@ namespace openbiz
             //parse a JSON string to local attribute
             virtual void parse(const std::string &json) throw (exception::DataFormatInvalidException);
             template<typename T> static T* parse(const std::string &json) throw (exception::DataFormatInvalidException){
-                T* record = new T();
-                record->parse(json);
+                T* record = T::template parse<T>(json);
                 return record;
             };
             

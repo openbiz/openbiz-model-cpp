@@ -24,6 +24,7 @@ _cacheName(cacheName){
     _totalRecords = -1;
     _totalPages = -1;
     //initalize SQLite table if its cache enabled collection
+    _collection = new std::map<std::string,T*>;
     if(this->isCacheEnabled())
     {
         openbiz::core::DB::getInstance()->ensureTableExists(_cacheName);
@@ -35,11 +36,12 @@ _cacheName(cacheName){
 template<typename T>
 openbiz::data::DataCollection<T>::~DataCollection()
 {
-    if(this->begin() != this->end()){
-        for(auto it = this->begin(); it!= this->end(); it++ ){
+    if(_collection->begin() != _collection->end()){
+        for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
             delete it->second;
         }
     }
+    delete _collection;
 }
 
 
@@ -47,7 +49,7 @@ openbiz::data::DataCollection<T>::~DataCollection()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getPageSize() const
 {
-    return isCacheEnabled()?static_cast<int>(this->size()):_pageSize;
+    return isCacheEnabled()?static_cast<int>(_collection->size()):_pageSize;
 }
 
 template<typename T>
@@ -59,14 +61,14 @@ const unsigned int openbiz::data::DataCollection<T>::getCurrentPageId() const
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getCurrentRecords()
 {
-    return static_cast<int>(this->size());
+    return static_cast<int>(_collection->size());
 }
 
 
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getTotalRecords()
 {
-    if(!isCacheEnabled()) return this->size();
+    if(!isCacheEnabled()) return _collection->size();
     
     if(_totalRecords==-1){
         _totalRecords = openbiz::core::DB::getInstance()->countRecords(_cacheName);
@@ -135,7 +137,7 @@ const std::string openbiz::data::DataCollection<T>::serialize() const
 
 //parse a JSON string to local attribute
 template<typename T>
-const void openbiz::data::DataCollection<T>::parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
+void openbiz::data::DataCollection<T>::parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
 {
     Json::Reader reader;
     Json::Value records;
@@ -155,13 +157,13 @@ const void openbiz::data::DataCollection<T>::parse(const Json::Value &records) t
     _data = records;
     
     //clear existing records
-    this->clear();
+    clear();
     
     //创建每一个成员变量去
     for(auto it = records.begin(); it!= records.end(); ++it ){
         if(it->isObject()){
             T* record = T::template parse<T>(it->toStyledString()) ;
-            this->insert({record->getId(),record});
+            _collection->insert({record->getId(),record});
         }
     }
 }
@@ -185,7 +187,7 @@ void openbiz::data::DataCollection<T>::fetch()
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
             T* record = T::template parse<T>((*it)->data);
-            this->insert({record->getId(),record});
+            _collection->insert({record->getId(),record});
         }
     }
     return ;
@@ -260,7 +262,7 @@ void openbiz::data::DataCollection<T>::save()
 {
     if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     if(!isCacheEnabled()) return;
-    for(auto it = this->begin(); it!= this->end(); ++it )
+    for(auto it = _collection->begin(); it!= _collection->end(); ++it )
     {
         it->second->save();
     }
@@ -271,7 +273,7 @@ template<typename T>
 void openbiz::data::DataCollection<T>::destroy()
 {
     if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
-    for(auto it = this->begin(); it!= this->end(); ++it )
+    for(auto it = _collection->begin(); it!= _collection->end(); ++it )
     {
         it->second->destroy();
     }
@@ -285,7 +287,7 @@ void openbiz::data::DataCollection<T>::reset()
     _pageSize = OPENBIZ_DEFAULT_COLLECTION_PAGESIZE;
     _totalRecords = -1;
     _totalPages = -1;
-    this->clear();
+    clear();
 }
 #pragma mark -
 
@@ -293,20 +295,14 @@ void openbiz::data::DataCollection<T>::reset()
 #pragma mark - overload parent STL method for prevent memry leaks
 template<typename T>
 void openbiz::data::DataCollection<T>::clear(){
-    if(this->begin() != this->end()){
-        for(auto it = this->begin(); it!= this->end(); it++ ){
+    if(_collection->begin() != _collection->end()){
+        for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
             delete it->second;
         }
     }
-    std::map<std::string,T*>::clear();
+    _collection->clear();
 }
 
-template<typename T>
-void openbiz::data::DataCollection<T>::erase(const std::string &key)
-{
-    delete this->find(key)->second;
-    std::map<std::string,T*>::erase(key);
-}
 
 #pragma mark -
 
@@ -315,11 +311,11 @@ const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
-    if(index >= this->size())
+    if(index >= _collection->size())
     {
         throw std::out_of_range("index is larger than sizz");
     }
-    auto it = this->begin();
+    auto it = _collection->begin();
     std::advance(it,index);
     return (T*)it->second;
 };
@@ -330,8 +326,8 @@ throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     
-    auto i = this->find(key);
-    if (i == this->end()){
+    auto i = _collection->find(key);
+    if (i == _collection->end()){
         throw std::out_of_range("key not found");
     }
     return i->second;
@@ -343,32 +339,42 @@ throw (std::out_of_range,openbiz::exception::DataPermissionException){
     //permission check
     if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
     
-    auto i = this->find(key);
-    if (i == this->end()){
+    auto i = _collection->find(key);
+    if (i == _collection->end()){
         throw std::out_of_range("key not found");
     }
-    erase(i);
+    delete _collection->find(key)->second;
+    _collection->erase(key);
 };
 
 template<typename T>
 const bool openbiz::data::DataCollection<T>::has(const std::string &key) const throw(){
-    auto i = this->find(key);
-    return i != this->end();
+    auto i = _collection->find(key);
+    return i != _collection->end();
 }
 
 template<typename T>
-void openbiz::data::DataCollection<T>::set(const std::string &key, T *item)
+void openbiz::data::DataCollection<T>::set(const std::string &key, const T *item)
 throw(openbiz::exception::DataPermissionException){
     if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     
-    T* obj = this->find(key)->second;
+    T* obj = _collection->find(key)->second;
     //release memory if assign a new object to same key
     if(obj != item){
         delete obj;
-        (*(this))[key]=item;
+        _collection->find(key)=item;
     }
 }
 
+
+template<typename T>
+void openbiz::data::DataCollection<T>::add(const T *item)
+throw(openbiz::exception::DataPermissionException){
+    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
+
+    _collection->insert({item->getId(), item});
+    
+}
 
 template<typename T>
 const bool openbiz::data::DataCollection<T>::_hasPermission(DataPermission permission) const throw(){

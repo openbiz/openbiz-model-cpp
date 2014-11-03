@@ -12,9 +12,11 @@
 using namespace std;
 namespace openbiz
 {
-    const string core::Object::getVersion()
+    core::Object::Object()
     {
-        return OPENBIZ_VERSION;
     }
     
+    core::Object::~Object()
+    {
+    }
 }

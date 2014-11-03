@@ -28,18 +28,18 @@ namespace openbiz
     namespace data
     {
         template<typename T>
-        class DataCollection: protected std::map<std::string,T* >
+        class DataCollection: public core::Object
         {
             
         public:
             DataCollection(const std::string &cacheName = "");
-            virtual ~DataCollection();
+            virtual ~DataCollection() = 0;
             
             //dump this object to JSON string
             const std::string serialize() const;
             
             //parse a JSON string to local attribute
-            const void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
+            void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             
             //fetch all
             virtual void fetch();
@@ -67,7 +67,7 @@ namespace openbiz
             void reset();
             
             //save collection to local cache
-            void save();
+            virtual void save();
             
             //destroy collection to local cache
             void destroy();
@@ -75,16 +75,15 @@ namespace openbiz
             //accessor methods
             const T* get(const unsigned int index) const throw(std::out_of_range,openbiz::exception::DataPermissionException);
             const T* get(const std::string &key) const throw (std::out_of_range,openbiz::exception::DataPermissionException);
+            void add(const T *item) throw (openbiz::exception::DataPermissionException);
             void del(const std::string &key) throw (std::out_of_range,openbiz::exception::DataPermissionException);
-            void set(const std::string &key, T *item) throw(openbiz::exception::DataPermissionException);
+            void set(const std::string &key, const T *item) throw(openbiz::exception::DataPermissionException);
             
             const bool has(const std::string &key) const throw();
             
             //is the collection has cache feature enabled
             const bool isCacheEnabled() const;
             
-            using std::map<std::string,T* >::begin;
-            using std::map<std::string,T* >::end;
             
             
         protected:
@@ -102,6 +101,7 @@ namespace openbiz
             int _pageSize;
             unsigned int _pageId;
             std::string _keyword;
+            std::map<std::string,T*> *_collection;
         };
     }
 }

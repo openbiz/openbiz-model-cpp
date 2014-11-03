@@ -14,6 +14,7 @@
 #include "RemoteDataObject.h"
 #include "RemoteDataCollection.h"
 #include "FileUtils.h"
+#include "PlatformMacros.h"
 
 //Openbiz自定义异常
 #include "exception.h"
