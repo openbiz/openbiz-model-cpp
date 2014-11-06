@@ -12,6 +12,7 @@ namespace openbiz {
     {
         core::DB::getInstance()->initialize(dbName);
     };
+    
     void cleanup(){
         ext::FileUtils::destroyInstance();
         core::DB::destroyInstance();

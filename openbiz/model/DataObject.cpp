@@ -16,7 +16,7 @@ using namespace openbiz::exception;
 
 namespace openbiz
 {    
-#pragma mark - 重载父类方法
+#pragma mark - 重载父类方法i    
     void DataObject::parse(const std::string &json) throw (DataFormatInvalidException) {
         Json::Reader reader;
         bool result = reader.parse(json,this->_data);
@@ -42,7 +42,7 @@ namespace openbiz
         return this->_data.toStyledString();
     }
 
-#pragma mark - 实现自己的方法
+#pragma mark - 实现自己的方法    
     DataObject::DataObject(const std::string &cacheName):
     _isCacheEnabled(!cacheName.empty()),
     _cacheName(cacheName){

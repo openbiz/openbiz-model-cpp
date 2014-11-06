@@ -74,6 +74,10 @@
 		4AB3FEAC19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
 		4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */; };
 		4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AD60D371A09281500421FD6 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AD60D351A09281500421FD6 /* Util.cpp */; };
+		4AD60D381A09281500421FD6 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AD60D351A09281500421FD6 /* Util.cpp */; };
+		4AD60D3C1A09299A00421FD6 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD60D3B1A09299A00421FD6 /* Util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AD60D3D1A09299A00421FD6 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD60D3B1A09299A00421FD6 /* Util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AE58DDF1A00C7D40023E030 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD8725719E3F62300586C23 /* libsqlite3.dylib */; };
 		4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
@@ -188,6 +192,8 @@
 		4AB3FEAA19E25BCD007727C2 /* DataFormatInvalidException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataFormatInvalidException.cpp; path = exception/DataFormatInvalidException.cpp; sourceTree = "<group>"; };
 		4AB3FEAB19E25BCD007727C2 /* DataFormatInvalidException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFormatInvalidException.h; path = exception/DataFormatInvalidException.h; sourceTree = "<group>"; };
 		4AC0DD9219FFBEFB00B265B1 /* libpcre.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcre.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libpcre.dylib; sourceTree = DEVELOPER_DIR; };
+		4AD60D351A09281500421FD6 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
+		4AD60D3B1A09299A00421FD6 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = util/Util.h; sourceTree = "<group>"; };
 		4AD8724F19E3F34000586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4AD8725719E3F62300586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
@@ -417,6 +423,7 @@
 				4A7DB4E819DC304200A33ACC /* model */,
 				4AEE731B19DD783500821A56 /* remote */,
 				4AB3FE6619DEDA22007727C2 /* exception */,
+				4AD60D341A09280200421FD6 /* util */,
 				4A7DB4E619DC2EA900A33ACC /* openbiz.cpp */,
 				4A7DB4E719DC2EA900A33ACC /* openbiz.h */,
 				4A78DE8119DD388200A8B28C /* config.h */,
@@ -475,6 +482,15 @@
 				4AB3FE9919E10D49007727C2 /* FileUtils-Apple.h */,
 			);
 			name = Apple;
+			sourceTree = "<group>";
+		};
+		4AD60D341A09280200421FD6 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				4AD60D351A09281500421FD6 /* Util.cpp */,
+				4AD60D3B1A09299A00421FD6 /* Util.h */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 		4AD8725A19E3F65D00586C23 /* Mac */ = {
@@ -605,6 +621,7 @@
 			files = (
 				4A1E1C2B19E413320060B900 /* openbiz.h in Headers */,
 				4A1E1C2D19E413750060B900 /* DB.h in Headers */,
+				4AD60D3C1A09299A00421FD6 /* Util.h in Headers */,
 				4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */,
 				4A123D4C19F4C42100BB5A96 /* DataValidationException.h in Headers */,
 				4A1E1C3919E413A40060B900 /* exception.h in Headers */,
@@ -677,6 +694,7 @@
 				4AEE73F619DE940A00821A56 /* autolink.h in Headers */,
 				4AEE738219DD9F1C00821A56 /* stdcheaders.h in Headers */,
 				4AEE740419DE940A00821A56 /* json_tool.h in Headers */,
+				4AD60D3D1A09299A00421FD6 /* Util.h in Headers */,
 				4AEE740119DE940A00821A56 /* json_batchallocator.h in Headers */,
 				4AB3FE9619E10C8D007727C2 /* PlatformMacros.h in Headers */,
 				4AB3FEAE19E25BCD007727C2 /* DataFormatInvalidException.h in Headers */,
@@ -789,6 +807,7 @@
 				4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4AEE737719DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AEE73AF19DDB70D00821A56 /* RemoteDataObject.cpp in Sources */,
+				4AD60D381A09281500421FD6 /* Util.cpp in Sources */,
 				4AE58E4C1A0646310023E030 /* DataArray.cpp in Sources */,
 				4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */,
 				4AB3FE6919DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
@@ -814,6 +833,7 @@
 				4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE740619DE940A00821A56 /* json_value.cpp in Sources */,
 				4AEE740319DE940A00821A56 /* json_reader.cpp in Sources */,
+				4AD60D371A09281500421FD6 /* Util.cpp in Sources */,
 				4AE58E4B1A0646310023E030 /* DataArray.cpp in Sources */,
 				4AB3FE6A19DEDA57007727C2 /* NetworkConnectionException.cpp in Sources */,
 				4AB3FE6F19DEE553007727C2 /* ServerErrorException.cpp in Sources */,

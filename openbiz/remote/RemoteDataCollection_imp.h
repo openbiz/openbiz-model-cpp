@@ -16,7 +16,7 @@ openbiz::remote::DataCollection<T>::DataCollection(const std::string &url,
 _baseUrl(url),
 _usingRemotePaging( usingRemotePaging==RemotePaging::Supported?true:false ),
 openbiz::data::DataCollection<T>(cacheName){
-    
+    fetch();
 };
 
 template<typename T>

@@ -15,6 +15,7 @@
 #include "RemoteDataCollection.h"
 #include "FileUtils.h"
 #include "PlatformMacros.h"
+#include "Util.h"
 
 //Openbiz自定义异常
 #include "exception.h"
@@ -48,6 +49,11 @@ namespace openbiz
     {
         class FileUtils;
         class JniHelper;
+    }
+    
+    namespace util
+    {
+        
     }
     
     const std::string getVersion();

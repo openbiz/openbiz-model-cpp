@@ -23,12 +23,12 @@ namespace openbiz
         class DataObject: public data::DataObject
         {
         public:        
-            DataObject(const std::string &url,
-                       const std::string &cacheName=""):
+            explicit DataObject(const std::string &url,
+                                const std::string &cacheName=""):
                 _baseUrl(url),
                 data::DataObject::DataObject(cacheName){};
             
-            ~DataObject() = default;
+            virtual ~DataObject() = default;
             
             virtual const std::string getUrl() const throw();
             

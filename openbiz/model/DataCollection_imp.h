@@ -49,7 +49,7 @@ openbiz::data::DataCollection<T>::~DataCollection()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getPageSize() const
 {
-    return isCacheEnabled()?static_cast<int>(_collection->size()):_pageSize;
+    return _pageSize;
 }
 
 template<typename T>
@@ -162,7 +162,9 @@ const void openbiz::data::DataCollection<T>::parse(const Json::Value &records) t
     //创建每一个成员变量去
     for(auto it = records.begin(); it!= records.end(); ++it ){
         if(it->isObject()){
-            T* record = T::template parse<T>(it->toStyledString()) ;
+//            T* record = T::template parse<T>(it->toStyledString()) ;
+            T* record = new T;
+            record->parse(it->toStyledString());
             _collection->insert({record->getId(),record});
         }
     }
@@ -186,7 +188,8 @@ void openbiz::data::DataCollection<T>::fetch()
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
-            T* record = T::template parse<T>((*it)->data);
+            T* record = new T;
+            record->parse((*it)->data);
             _collection->insert({record->getId(),record});
         }
     }

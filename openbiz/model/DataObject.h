@@ -22,19 +22,22 @@
 
 #define OPENBIZ_DATA_OBJECT_FRIEND_CLASS(Model) \
 friend class openbiz::data::DataObject;\
-friend class openbiz::remote::DataObject;\
 friend class openbiz::data::DataCollection<Model>;\
+friend class openbiz::remote::DataObject;\
 friend class openbiz::remote::DataCollection<Model>;
 
-#define OPENBIZ_DATA_OBJECT_MUTABLE_API(Model,BaseClass) \
-friend class openbiz::data::DataCollection<Model>;\
-friend class openbiz::remote::DataCollection<Model>;\
+#define OPENBIZ_DATA_OBJECT_MUTABLE_API_WITH_BASE_CLASS(Model,BaseClass) \
+OPENBIZ_DATA_OBJECT_FRIEND_CLASS(Model)\
 using BaseClass::set; \
 using BaseClass::validate;\
 using BaseClass::hasChanged; \
 using BaseClass::clear; \
 using BaseClass::save; \
+using BaseClass::parse; \
 using BaseClass::destroy;
+
+#define OPENBIZ_DATA_OBJECT_MUTABLE_API(Model) \
+OPENBIZ_DATA_OBJECT_MUTABLE_API_WITH_BASE_CLASS(Model,DataObject)
 
 /*
  SQLite中的数据结构是
@@ -56,19 +59,14 @@ namespace openbiz
         class DataObject: public core::Object
         {
         public:
-            DataObject(const std::string &cacheName = "");
-            ~DataObject() = default;
+            explicit DataObject(const std::string &cacheName = "");
+            virtual ~DataObject() = default;
+            
+            virtual void parse(const std::string &json) throw (exception::DataFormatInvalidException);
             
             //dump this object to JSON string
             virtual const std::string serialize() const;
 
-            //parse a JSON string to local attribute
-            virtual void parse(const std::string &json) throw (exception::DataFormatInvalidException);
-            template<typename T> static T* parse(const std::string &json) throw (exception::DataFormatInvalidException){
-                T* record = T::template parse<T>(json);
-                return record;
-            };
-            
             //get local data record ID
             const std::string getId() const throw();
             
@@ -90,8 +88,8 @@ namespace openbiz
             template<typename T> void set(const char *key, T value){ _data[key]=value; _changed[key]=value;};
             
             //set value to local data, but not saving
-            Json::Value get(std::string &key){ return _data[key]; };
-            Json::Value get(const char *key){ return _data[key]; };
+            const Json::Value get(std::string &key) const { return _data[key]; };
+            const Json::Value get(const char *key) const { return _data[key]; };
             
             //unset a local attribute , but not saved
             virtual void unset(std::string &key);
