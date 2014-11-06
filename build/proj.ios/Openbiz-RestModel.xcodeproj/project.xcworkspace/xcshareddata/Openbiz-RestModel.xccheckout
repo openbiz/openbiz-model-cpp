@@ -14,11 +14,11 @@
 		<string>https://github.com/openbiz/openbiz-model-cpp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>build/Openbiz-RestModel.xcodeproj</string>
+	<string>build/proj.ios/Openbiz-RestModel.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>DA8C623E3541B324E18F0AE1015E1D28A964E14E</key>
-		<string>../../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/openbiz/openbiz-model-cpp.git</string>

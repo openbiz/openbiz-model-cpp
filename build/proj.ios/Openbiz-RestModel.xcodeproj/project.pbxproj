@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0A3C711A0B54A0001DA857 /* libpcre.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0A3C701A0B54A0001DA857 /* libpcre.a */; };
 		4A123D4A19F4C42100BB5A96 /* DataValidationException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */; };
 		4A123D4B19F4C42100BB5A96 /* DataValidationException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */; };
 		4A123D4C19F4C42100BB5A96 /* DataValidationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A123D4919F4C42100BB5A96 /* DataValidationException.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,7 +85,6 @@
 		4AD60D501A0B1DA700421FD6 /* pcrecpp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD60D4A1A0B1DA700421FD6 /* pcrecpp.h */; };
 		4AD60D511A0B1DA700421FD6 /* pcrecpparg.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD60D4B1A0B1DA700421FD6 /* pcrecpparg.h */; };
 		4AD60D521A0B1DA700421FD6 /* pcreposix.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD60D4C1A0B1DA700421FD6 /* pcreposix.h */; };
-		4AD60D541A0B1DB300421FD6 /* libpcre.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD60D531A0B1DB300421FD6 /* libpcre.a */; };
 		4AD8725D19E3F78400586C23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE73B919DE88B000821A56 /* SystemConfiguration.framework */; };
 		4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
 		4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AE58DE61A00CF6E0023E030 /* sqlite3_json_extension.c */; };
@@ -148,6 +148,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0A3C701A0B54A0001DA857 /* libpcre.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcre.a; path = pcre/prebuilt/ios/libpcre.a; sourceTree = "<group>"; };
 		4A123D4819F4C42100BB5A96 /* DataValidationException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataValidationException.cpp; path = exception/DataValidationException.cpp; sourceTree = "<group>"; };
 		4A123D4919F4C42100BB5A96 /* DataValidationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataValidationException.h; path = exception/DataValidationException.h; sourceTree = "<group>"; };
 		4A4C2B2219E3ECEA001206AE /* DB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DB.cpp; path = core/DB.cpp; sourceTree = "<group>"; };
@@ -206,7 +207,6 @@
 		4AD60D4A1A0B1DA700421FD6 /* pcrecpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pcrecpp.h; path = pcre/include/pcrecpp.h; sourceTree = "<group>"; };
 		4AD60D4B1A0B1DA700421FD6 /* pcrecpparg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pcrecpparg.h; path = pcre/include/pcrecpparg.h; sourceTree = "<group>"; };
 		4AD60D4C1A0B1DA700421FD6 /* pcreposix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pcreposix.h; path = pcre/include/pcreposix.h; sourceTree = "<group>"; };
-		4AD60D531A0B1DB300421FD6 /* libpcre.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcre.a; path = pcre/prebuilt/ios/libpcre.a; sourceTree = "<group>"; };
 		4AD8724F19E3F34000586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		4AD8725719E3F62300586C23 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4AE58DE01A00C7F00023E030 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
@@ -260,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AEE737919DD9F0200821A56 /* libcurl.a in Frameworks */,
-				4AD60D541A0B1DB300421FD6 /* libpcre.a in Frameworks */,
+				4A0A3C711A0B54A0001DA857 /* libpcre.a in Frameworks */,
 				4AEE73C219DE893D00821A56 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,7 +532,7 @@
 		4AD60D461A0B1D9600421FD6 /* prebuilt */ = {
 			isa = PBXGroup;
 			children = (
-				4AD60D531A0B1DB300421FD6 /* libpcre.a */,
+				4A0A3C701A0B54A0001DA857 /* libpcre.a */,
 			);
 			name = prebuilt;
 			sourceTree = "<group>";

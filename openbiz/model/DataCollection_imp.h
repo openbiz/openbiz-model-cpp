@@ -68,7 +68,7 @@ const unsigned int openbiz::data::DataCollection<T>::getCurrentRecords()
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getTotalRecords()
 {
-    if(!isCacheEnabled()) return _collection->size();
+    if(!isCacheEnabled()) return static_cast<int>(_collection->size());
     
     if(_totalRecords==-1){
         _totalRecords = openbiz::core::DB::getInstance()->countRecords(_cacheName);
