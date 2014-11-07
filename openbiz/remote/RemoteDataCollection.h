@@ -20,15 +20,16 @@ namespace openbiz
 {
     namespace remote
     {
+        enum RemotePaging {
+            Supported,
+            NotSupported
+        };
+        
         template<typename T>
         class DataCollection: public openbiz::data::DataCollection<T>
         {
         public:
-            enum RemotePaging {
-                Supported,
-                NotSupported
-            };
-            
+           
             DataCollection(const std::string &url,
                            const std::string &cacheName="",
                            const RemotePaging usingRemotePaging = RemotePaging::Supported);

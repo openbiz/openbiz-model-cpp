@@ -63,6 +63,7 @@ namespace openbiz
             virtual ~DataObject() = default;
             
             virtual void parse(const std::string &json) throw (exception::DataFormatInvalidException);
+            virtual void parse(const Json::Value &json);
             
             //dump this object to JSON string
             virtual const std::string serialize() const;

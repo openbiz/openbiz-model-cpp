@@ -19,23 +19,26 @@ namespace openbiz
 #pragma mark - 重载父类方法i    
     void DataObject::parse(const std::string &json) throw (DataFormatInvalidException) {
         Json::Reader reader;
-        bool result = reader.parse(json,this->_data);
+        Json::Value jsonData;
+        bool result = reader.parse(json,jsonData);
         
         if(!result){
             throw DataFormatInvalidException(json);
         }
         
+        parse(jsonData);
+    }
+
+    void DataObject::parse(const Json::Value &json){
+        _data = json;
+        _previousData = json;
+        
         //尝试给ID赋值
         if(this->_data["_id"].isString()){
             this->_id = this->_data["_id"].asString();
         }
-        
-        //save it to previous data
-        reader.parse(json,this->_previousData);
-        
         _changed.clear();
     }
-
         
     const string DataObject::serialize() const
     {
