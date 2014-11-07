@@ -1056,8 +1056,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/pcre/prebuilt/ios",
+					"$(SRC_ROOT)../../external/curl/prebuilt/ios",
+					"$(SRC_ROOT)../../external/pcre/prebuilt/ios",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1084,8 +1084,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/curl/prebuilt/ios",
-					"/Users/jixian/Workspace/GAPP_Project/GAPP_Project/openbiz-rest-model/external/pcre/prebuilt/ios",
+					"$(SRC_ROOT)../../external/curl/prebuilt/ios",
+					"$(SRC_ROOT)../../external/pcre/prebuilt/ios",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/openbiz;
