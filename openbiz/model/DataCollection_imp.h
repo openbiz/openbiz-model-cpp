@@ -16,10 +16,11 @@
 
 #pragma mark - Constructor, ensure SQLite table exists
 template<typename T>
-openbiz::data::DataCollection<T>::DataCollection(const std::string &cacheName):
+openbiz::data::DataCollection<T>::DataCollection(const std::string &cacheName, const bool isOwnPointers):
+_isOwnPointers(isOwnPointers),
 _isCacheEnabled(!cacheName.empty()),
 _cacheName(cacheName){
-    _pageId =0;
+    _pageId =1;
     _pageSize = OPENBIZ_DEFAULT_COLLECTION_PAGESIZE;
     _totalRecords = -1;
     _totalPages = -1;
@@ -36,9 +37,11 @@ _cacheName(cacheName){
 template<typename T>
 openbiz::data::DataCollection<T>::~DataCollection()
 {
-    if(_collection->begin() != _collection->end()){
-        for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
-            delete it->second;
+    if(_isOwnPointers){
+        if(_collection->begin() != _collection->end()){
+            for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
+                delete it->second;
+            }
         }
     }
     delete _collection;
@@ -55,7 +58,7 @@ const unsigned int openbiz::data::DataCollection<T>::getPageSize() const
 template<typename T>
 const unsigned int openbiz::data::DataCollection<T>::getCurrentPageId() const
 {
-    return isCacheEnabled()?_pageId:0;
+    return isCacheEnabled()?_pageId:1;
 }
 
 template<typename T>
@@ -120,7 +123,7 @@ void openbiz::data::DataCollection<T>::setPageSize(unsigned int pageSize)
     if(pageSize>0)
     {
         _pageSize = pageSize;
-        _pageId = 0;
+        _pageId = 1;
         _totalPages = -1;
         fetch();
     }
@@ -237,7 +240,7 @@ void openbiz::data::DataCollection<T>::search(const std::string &keyword){
         resetSearch();
     }else{
         _keyword = keyword;
-        _pageId = 0;
+        _pageId = 1;
         _totalPages = -1;
         _totalRecords = -1;
         fetch();
@@ -251,7 +254,7 @@ void openbiz::data::DataCollection<T>::resetSearch()
         //search in records
     }
     _keyword.clear();
-    _pageId = 0;
+    _pageId = 1;
     _totalPages = -1;
     _totalRecords = -1;
     fetch();
@@ -286,7 +289,7 @@ void openbiz::data::DataCollection<T>::destroy()
 template<typename T>
 void openbiz::data::DataCollection<T>::reset()
 {
-    _pageId =0;
+    _pageId =1;
     _pageSize = OPENBIZ_DEFAULT_COLLECTION_PAGESIZE;
     _totalRecords = -1;
     _totalPages = -1;
@@ -298,9 +301,11 @@ void openbiz::data::DataCollection<T>::reset()
 #pragma mark - overload parent STL method for prevent memry leaks
 template<typename T>
 void openbiz::data::DataCollection<T>::clear(){
-    if(_collection->begin() != _collection->end()){
-        for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
-            delete it->second;
+    if(_isOwnPointers){
+        if(_collection->begin() != _collection->end()){
+            for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
+                delete it->second;
+            }
         }
     }
     _collection->clear();
@@ -310,7 +315,7 @@ void openbiz::data::DataCollection<T>::clear(){
 #pragma mark -
 
 template<typename T>
-const T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
+T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
@@ -324,7 +329,7 @@ throw(std::out_of_range,openbiz::exception::DataPermissionException)
 };
 
 template<typename T>
-const T* openbiz::data::DataCollection<T>::get(const std::string &key) const
+T* openbiz::data::DataCollection<T>::get(const std::string &key) const
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
@@ -346,7 +351,9 @@ throw (std::out_of_range,openbiz::exception::DataPermissionException){
     if (i == _collection->end()){
         throw std::out_of_range("key not found");
     }
-    delete _collection->find(key)->second;
+    if(_isOwnPointers){
+        delete _collection->find(key)->second;
+    }
     _collection->erase(key);
 };
 
@@ -357,21 +364,28 @@ const bool openbiz::data::DataCollection<T>::has(const std::string &key) const t
 }
 
 template<typename T>
-void openbiz::data::DataCollection<T>::set(const std::string &key, const T *item)
+void openbiz::data::DataCollection<T>::set(const std::string &key, T *item)
 throw(openbiz::exception::DataPermissionException){
     if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     
     T* obj = _collection->find(key)->second;
     //release memory if assign a new object to same key
     if(obj != item){
-        delete obj;
-        _collection->find(key)=item;
+        if(_isOwnPointers){
+            delete obj;
+        }
+        if(has(key)){
+            _collection->find(key)->second=item;
+        }else{
+            _collection->insert({item->getId(),item});
+        }
+
     }
 }
 
 
 template<typename T>
-void openbiz::data::DataCollection<T>::add(const T *item)
+void openbiz::data::DataCollection<T>::add(T *item)
 throw(openbiz::exception::DataPermissionException){
     if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
 

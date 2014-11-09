@@ -32,7 +32,7 @@ namespace openbiz
         {
             
         public:
-            DataCollection(const std::string &cacheName = "");
+            DataCollection(const std::string &cacheName = "",const bool isOwnPointers=true);
             virtual ~DataCollection() = 0;
             
             //dump this object to JSON string
@@ -73,11 +73,11 @@ namespace openbiz
             void destroy();
             
             //accessor methods
-            const T* get(const unsigned int index) const throw(std::out_of_range,openbiz::exception::DataPermissionException);
-            const T* get(const std::string &key) const throw (std::out_of_range,openbiz::exception::DataPermissionException);
-            void add(const T *item) throw (openbiz::exception::DataPermissionException);
+            T* get(const unsigned int index) const throw(std::out_of_range,openbiz::exception::DataPermissionException);
+            T* get(const std::string &key) const throw (std::out_of_range,openbiz::exception::DataPermissionException);
+            void add(T *item) throw (openbiz::exception::DataPermissionException);
             void del(const std::string &key) throw (std::out_of_range,openbiz::exception::DataPermissionException);
-            void set(const std::string &key, const T *item) throw(openbiz::exception::DataPermissionException);
+            void set(const std::string &key, T *item) throw(openbiz::exception::DataPermissionException);
             
             const bool has(const std::string &key) const throw();
             
@@ -102,6 +102,7 @@ namespace openbiz
             unsigned int _pageId;
             std::string _keyword;
             std::map<std::string,T*> *_collection;
+            const bool _isOwnPointers;
         };
     }
 }
