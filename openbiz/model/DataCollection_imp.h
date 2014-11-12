@@ -180,7 +180,7 @@ void openbiz::data::DataCollection<T>::fetch()
 {
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     
-    if(!this->isCacheEnabled()) return ;
+    if(!isCacheEnabled()) return ;
     const std::vector<openbiz::core::DB::record*> *records;
     int offset = (getCurrentPageId()*getPageSize());
     if(_keyword.empty()){

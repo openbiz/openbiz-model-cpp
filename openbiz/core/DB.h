@@ -54,6 +54,8 @@ namespace openbiz
             const bool removeRecord(const std::string &tableName,
                                     const std::string &recordId) const;
             
+            const bool removeAllRecords(const std::string &tableName) const;
+            
             const std::vector<record*> *fetchRecords(const std::string &tableName,
                                                     int offset=0,
                                                     int limit=-1) const;

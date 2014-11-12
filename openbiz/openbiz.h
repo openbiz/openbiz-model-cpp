@@ -11,6 +11,7 @@
 #include "Object.h"
 #include "DataObject.h"
 #include "DataCollection.h"
+#include "DataArray.h"
 #include "RemoteDataObject.h"
 #include "RemoteDataCollection.h"
 #include "FileUtils.h"

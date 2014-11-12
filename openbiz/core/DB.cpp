@@ -34,13 +34,13 @@
     "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` LIMIT ?,?;"
 
 #define OPENBIZ_CACHE_QUERY_RECORDS_SQL(tableName) \
-"SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
+    "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
 
 #define OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName) \
-"SELECT count(data) AS total FROM `"+tableName+"` LIMIT ?,?;"
+    "SELECT count(data) AS total FROM `"+tableName+"` LIMIT ?,?;"
 
 #define OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName) \
-"SELECT count(data) AS total FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
+    "SELECT count(data) AS total FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
 
 
 #define OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName) \
@@ -52,7 +52,8 @@
 #define OPENBIZ_CACHE_REMOVE_RECORD_SQL(tableName) \
     "DELETE FROM `"+tableName+"` WHERE `id`= ? ; "
 
-
+#define OPENBIZ_CACHE_REMOVE_ALL_RECORDS_SQL(tableName) \
+    "DELETE FROM `"+tableName+"` ;"
 
 using namespace std;
 
@@ -154,6 +155,19 @@ namespace openbiz
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
+            rc = sqlite3_step(stmt);
+            if(rc == SQLITE_DONE){
+                return true;
+            }
+            return false;
+        }
+        
+        const bool DB::removeAllRecords(const std::string &tableName) const
+        {
+            sqlite3_stmt *stmt;
+            int rc;
+            const char* sql = std::string(OPENBIZ_CACHE_REMOVE_ALL_RECORDS_SQL(tableName)).c_str();
+            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
             if(rc == SQLITE_DONE){
                 return true;
