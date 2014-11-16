@@ -88,7 +88,7 @@ namespace openbiz
         void DB::initialize(const std::string &dbName)
         {
             if(!dbName.empty()){
-                if( _db!=nullptr){
+                if(!_db){
                     const std::string path = ext::FileUtils::getInstance()->getWritablePath();
                     const std::string dbFullname = path + "/" + dbName;
                     int result = sqlite3_open(dbFullname.c_str(),&_db);
