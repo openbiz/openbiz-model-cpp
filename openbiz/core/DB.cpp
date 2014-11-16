@@ -64,6 +64,7 @@ namespace openbiz
     {
         DB* DB::_instance = nullptr;
         sqlite3* DB::_db = nullptr;
+        string DB::_dbName = "";
         DB::~DB(){};
         DB::DB(){};
         
@@ -90,7 +91,7 @@ namespace openbiz
                 const std::string path = ext::FileUtils::getInstance()->getWritablePath();
                 const std::string dbFullname = path + "/" + dbName;
                 int result = sqlite3_open(dbFullname.c_str(),&_db);
-                _dbName = dbName;
+                DB::_dbName = dbName;
                 if(result == SQLITE_OK){
                     //register sqlite json extension to db connection instance
                     sqlite3_json_extension_init(_db,NULL);
@@ -105,11 +106,11 @@ namespace openbiz
         
         void DB::dropDatabase()
         {
-            if(!_dbName.empty()){
+            if(!DB::_dbName.empty()){
                 sqlite3_close(_db);
                 _db = nullptr;
                 const std::string path = ext::FileUtils::getInstance()->getWritablePath();
-                const std::string dbFullname = path + "/" + _dbName;
+                const std::string dbFullname = path + "/" + DB::_dbName;
                 std::remove(dbFullname.c_str());
             }
             destroyInstance();
@@ -120,7 +121,8 @@ namespace openbiz
             if(!isTableExists(tableName)){
                 sqlite3_stmt *stmt;
                 int rc;
-                const char* sql = std::string(OPENBIZ_CACHE_CREATE_TABLE_SQL(tableName)).c_str();
+                string sqlString(OPENBIZ_CACHE_CREATE_TABLE_SQL(tableName));
+                const char* sql = sqlString.c_str();
                 rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
                 rc = sqlite3_bind_text(stmt, 1,
                                        tableName.c_str(),static_cast<int>(tableName.size()), SQLITE_STATIC);
@@ -133,7 +135,8 @@ namespace openbiz
         {
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_CHECK_TABLE_EXISTS_SQL).c_str();
+            string sqlString(OPENBIZ_CACHE_CHECK_TABLE_EXISTS_SQL);
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    tableName.c_str(),static_cast<int>(tableName.size()), SQLITE_STATIC);
@@ -149,7 +152,8 @@ namespace openbiz
         {
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_CHECK_RECORD_EXISTS_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_CHECK_RECORD_EXISTS_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
@@ -165,7 +169,8 @@ namespace openbiz
         {
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_REMOVE_RECORD_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_REMOVE_RECORD_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
@@ -180,7 +185,8 @@ namespace openbiz
         {
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_REMOVE_ALL_RECORDS_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_REMOVE_ALL_RECORDS_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
             if(rc == SQLITE_DONE){
@@ -195,7 +201,8 @@ namespace openbiz
             DB::Record* record = nullptr;
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_FETCH_RECORD_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_FETCH_RECORD_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
@@ -215,8 +222,10 @@ namespace openbiz
         {
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_INSERT_RECORD_SQL(tableName)).c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            string sqlString(OPENBIZ_CACHE_INSERT_RECORD_SQL(tableName));
+            const char* sql =sqlString.c_str();
+            
+            rc = sqlite3_prepare(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
             rc = sqlite3_bind_text(stmt, 2,
@@ -233,7 +242,8 @@ namespace openbiz
         {
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
@@ -251,7 +261,8 @@ namespace openbiz
             
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_int(stmt, 1, offset);
             rc = sqlite3_bind_int(stmt, 2, limit);
@@ -274,7 +285,8 @@ namespace openbiz
             
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_QUERY_RECORDS_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_QUERY_RECORDS_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
@@ -297,7 +309,8 @@ namespace openbiz
         unsigned int DB::countRecords(const std::string &tableName){
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
             if(rc == SQLITE_ROW){
@@ -309,7 +322,8 @@ namespace openbiz
         unsigned int DB::countRecords(const std::string &tableName,const std::string &keyword){
             sqlite3_stmt *stmt;
             int rc;
-            const char* sql = std::string(OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName)).c_str();
+            string sqlString(OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName));
+            const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_bind_text(stmt, 1,
                                    keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);

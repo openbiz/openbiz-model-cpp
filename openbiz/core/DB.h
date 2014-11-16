@@ -74,9 +74,7 @@ namespace openbiz
             
         protected:
             static DB *_instance;
-            static sqlite3 *_db;
-            
-        private:
+            static sqlite3 *_db;            
             static std::string _dbName;
         }; 
     }
