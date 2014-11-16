@@ -32,6 +32,7 @@ namespace openbiz
     {
         class DataObject;
         template<typename T> class DataCollection;
+        template<typename T> class DataArray;
     }
     namespace remote
     {
