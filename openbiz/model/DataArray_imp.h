@@ -108,7 +108,7 @@ template<typename T>
 void openbiz::data::DataArray<T>::fetch()
 {
     if(!isCacheEnabled()) return ;
-    const std::vector<openbiz::core::DB::record*> *records;
+    const std::vector<openbiz::core::DB::Record*> *records;
     records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName);
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )

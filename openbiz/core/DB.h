@@ -20,7 +20,7 @@ namespace openbiz
         class DB
         {
         public:
-            struct record
+            struct Record
             {
                 std::string Id;
                 std::string data;
@@ -40,7 +40,7 @@ namespace openbiz
             const bool isRecordExists(const std::string &tableName,
                                       const std::string &recordId) const;
             
-            const record* fetchRecord(const std::string &tableName,
+            const Record* fetchRecord(const std::string &tableName,
                                       const std::string &recordId) const;
             
             const bool insertRecord(const std::string &tableName,
@@ -56,11 +56,11 @@ namespace openbiz
             
             const bool removeAllRecords(const std::string &tableName) const;
             
-            const std::vector<record*> *fetchRecords(const std::string &tableName,
+            const std::vector<Record*> *fetchRecords(const std::string &tableName,
                                                     int offset=0,
                                                     int limit=-1) const;
             
-            const std::vector<record*> *fetchRecords(const std::string &tableName,
+            const std::vector<Record*> *fetchRecords(const std::string &tableName,
                                                      const std::string &keyword,
                                                      int offset=0,
                                                      int limit=-1) const;

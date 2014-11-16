@@ -87,7 +87,7 @@ namespace openbiz
         if(this->isNew()) return false;
         
         DB::getInstance()->ensureTableExists(_cacheName);
-        const DB::record* record = DB::getInstance()->fetchRecord(_cacheName,_id);
+        const DB::Record* record = DB::getInstance()->fetchRecord(_cacheName,_id);
         if(record)
         {
             //fetch record content
