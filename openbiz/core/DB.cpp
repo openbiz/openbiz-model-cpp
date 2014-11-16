@@ -10,6 +10,7 @@
 #include <stdexcept>
 #include <vector>
 #include <regex>
+#include <cstdio>
 #include "DB.h"
 #include "PlatformMacros.h"
 #include "FileUtils.h"
@@ -89,6 +90,7 @@ namespace openbiz
                 const std::string path = ext::FileUtils::getInstance()->getWritablePath();
                 const std::string dbFullname = path + "/" + dbName;
                 int result = sqlite3_open(dbFullname.c_str(),&_db);
+                _dbName = dbName;
                 if(result == SQLITE_OK){
                     //register sqlite json extension to db connection instance
                     sqlite3_json_extension_init(_db,NULL);
@@ -99,6 +101,18 @@ namespace openbiz
             }else{
                 throw std::runtime_error("Please define a db name");
             }
+        }
+        
+        void DB::dropDatabase()
+        {
+            if(!_dbName.empty()){
+                sqlite3_close(_db);
+                _db = nullptr;
+                const std::string path = ext::FileUtils::getInstance()->getWritablePath();
+                const std::string dbFullname = path + "/" + _dbName;
+                std::remove(dbFullname.c_str());
+            }
+            destroyInstance();
         }
         
         void DB::ensureTableExists(const std::string &tableName) const

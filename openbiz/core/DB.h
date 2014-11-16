@@ -31,6 +31,8 @@ namespace openbiz
             ~DB();
             static DB* getInstance();
             static void destroyInstance();
+            static void dropDatabase();
+            
             void initialize(const std::string &dbName);
             
             void ensureTableExists(const std::string &tableName) const;
@@ -69,9 +71,13 @@ namespace openbiz
             unsigned int countRecords(const std::string &tableName,const std::string &keyword);
             
             const sqlite3 *db();
+            
         protected:
             static DB *_instance;
             static sqlite3 *_db;
+            
+        private:
+            static std::string _dbName;
         }; 
     }
 }
