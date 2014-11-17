@@ -167,6 +167,9 @@ const void openbiz::data::DataCollection<T>::parse(const Json::Value &records) t
         if(it->isObject()){
 //            T* record = T::template parse<T>(it->toStyledString()) ;
             T* record = new T;
+            if(!_cacheName.empty())
+                record->setCacheName(_cacheName);
+            
             record->parse(it->toStyledString());
             _collection->insert({record->getId(),record});
         }
@@ -192,6 +195,8 @@ void openbiz::data::DataCollection<T>::fetch()
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
             T* record = new T;
+            if(!_cacheName.empty())
+                record->setCacheName(_cacheName);
             record->parse((*it)->data);
             _collection->insert({record->getId(),record});
         }

@@ -95,7 +95,7 @@ namespace openbiz
             Json::Value _data;
             const std::string _baseUrl;
             const bool _isCacheEnabled;
-            const std::string _cacheName;
+            std::string _cacheName;
             int _totalRecords;
             int _totalPages;
             int _pageSize;

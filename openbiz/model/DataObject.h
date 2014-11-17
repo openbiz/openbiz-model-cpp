@@ -112,6 +112,8 @@ namespace openbiz
             //is the data has been cached before
             const bool hasCachedData() const throw();
             
+            void setCacheName(std::string &cacheName);
+            
         protected:
             virtual const bool _hasPermission(DataPermission permission) const throw();
             std::string _id;
@@ -120,7 +122,7 @@ namespace openbiz
             Json::Value _changed;
             time_t _lastUpdate;
             const bool _isCacheEnabled;
-            const std::string _cacheName;            
+            std::string _cacheName;            
         };
     };
 }

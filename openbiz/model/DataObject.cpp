@@ -159,6 +159,11 @@ namespace openbiz
         return this->_isCacheEnabled;
     }
     
+    void DataObject::setCacheName(std::string &cacheName)
+    {
+        _cacheName = cacheName;
+    }
+    
     const bool DataObject::isNew() const throw()
     {
         return ( this->_id.empty() && this->_previousData.empty() );
