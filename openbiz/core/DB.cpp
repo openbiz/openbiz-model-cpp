@@ -38,10 +38,10 @@
     "SELECT `id`,`data`,`timestamp` FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
 
 #define OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName) \
-    "SELECT count(data) AS total FROM `"+tableName+"` LIMIT ?,?;"
+    "SELECT count(data) AS total FROM `"+tableName+"`;"
 
 #define OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName) \
-    "SELECT count(data) AS total FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data) LIMIT ?,?;"
+    "SELECT count(data) AS total FROM `"+tableName+"` WHERE JSON_CONTAINS(?,data);"
 
 
 #define OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName) \
