@@ -60,7 +60,7 @@ template<typename T>
 T& openbiz::data::DataArray<T>::get(const unsigned int index) const
 {
     if(index>=0 && index<_vector->size())
-        return _vector[index];
+        return _vector->at(index);
     else
         throw std::out_of_range("vector index out of range");
 };
@@ -69,7 +69,7 @@ template<typename T>
 void openbiz::data::DataArray<T>::set(const unsigned int index, T &data)
 {
     if(index>=0 && index<_vector->size())
-        return _vector[index] = data;
+        return _vector->at(index) = data;
     else
         throw std::out_of_range("vector index out of range");
 };
