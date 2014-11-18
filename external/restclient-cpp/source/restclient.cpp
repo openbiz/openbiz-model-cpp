@@ -79,6 +79,9 @@ RestClient::response RestClient::get(const std::string& url)
         curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, RestClient::header_callback);
         /** callback object for headers */
         curl_easy_setopt(curl, CURLOPT_HEADERDATA, &ret);
+        /** ensure its not throw curl_resolv_timeout exception to crash app */
+        curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1L);
+        
         /** perform the actual query */
         res = curl_easy_perform(curl);
         if (res != CURLE_OK)
