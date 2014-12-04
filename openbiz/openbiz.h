@@ -12,6 +12,7 @@
 #include "DataObject.h"
 #include "DataCollection.h"
 #include "DataArray.h"
+#include "StandaloneDataObject.h"
 #include "RemoteDataObject.h"
 #include "RemoteDataCollection.h"
 #include "FileUtils.h"
@@ -31,6 +32,7 @@ namespace openbiz
     namespace data
     {
         class DataObject;
+        class StandaloneDataObject;
         template<typename T> class DataCollection;
         template<typename T> class DataArray;
     }

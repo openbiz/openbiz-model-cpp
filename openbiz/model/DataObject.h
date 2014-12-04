@@ -60,6 +60,7 @@ namespace openbiz
         {
         public:
             explicit DataObject(const std::string &cacheName = "");
+            
             virtual ~DataObject() = default;
             
             virtual void parse(const std::string &json) throw (exception::DataFormatInvalidException);
