@@ -85,11 +85,11 @@ namespace openbiz
             const void destroy();
             
             //set value to local data, but not saving
-            template<typename T> void set(std::string &key, T value){ _data[key]=value; _changed[key]=value;};
+            template<typename T> void set(const std::string &key, T value){ _data[key]=value; _changed[key]=value;};
             template<typename T> void set(const char *key, T value){ _data[key]=value; _changed[key]=value;};
             
             //set value to local data, but not saving
-            const Json::Value get(std::string &key) const { return _data[key]; };
+            const Json::Value get(const std::string &key) const { return _data[key]; };
             const Json::Value get(const char *key) const { return _data[key]; };
             
             //unset a local attribute , but not saved
