@@ -345,7 +345,11 @@ throw(std::out_of_range,openbiz::exception::DataPermissionException)
         throw std::out_of_range("index is larger than sizz");
     }
     auto it = _collection->begin();
-    std::advance(it,index);
+    
+    //this logic is for map type container
+    unsigned long realIndex = _collection->size() -1 - index;
+
+    std::advance(it,realIndex);
     return (T*)it->second;
 };
 

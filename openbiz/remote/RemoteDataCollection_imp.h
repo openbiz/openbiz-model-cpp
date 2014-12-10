@@ -67,7 +67,7 @@ void openbiz::remote::DataCollection<T>::fetch()
                 openbiz::data::DataCollection<T>::_totalPages   = data[0]["total_pages"].asInt();
                 openbiz::data::DataCollection<T>::_pageSize     = data[0]["per_page"].asInt();
                 openbiz::data::DataCollection<T>::_pageId       = data[0]["page"].asInt();
-                openbiz::data::DataCollection<T>::parse(data[1]);
+                openbiz::data::DataCollection<T>::parseAndAppend(data[1]);
             }else{
                 openbiz::data::DataCollection<T>::parse(r.body);
             }
