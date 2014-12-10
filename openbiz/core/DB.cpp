@@ -356,11 +356,13 @@ namespace openbiz
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
             _mtx.unlock();
+            int result = 0;
             if(rc == SQLITE_ROW){
-                return sqlite3_column_int(stmt,0);
+                result =  sqlite3_column_int(stmt,0);
             }
-            
-            return 0;
+            sqlite3_finalize(stmt);
+            _mtx.unlock();
+            return result;
         };
         
         unsigned int DB::countRecords(const std::string &tableName,const std::string &keyword)
@@ -376,11 +378,13 @@ namespace openbiz
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
             _mtx.unlock();
-            
+            int result = 0;
             if(rc == SQLITE_ROW){
-                return sqlite3_column_int(stmt,0);
+                result = sqlite3_column_int(stmt,0);
             }
-            return 0;
+            sqlite3_finalize(stmt);
+            _mtx.unlock();
+            return result;
         };
         
         
