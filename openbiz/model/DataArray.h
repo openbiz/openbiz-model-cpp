@@ -37,7 +37,7 @@ namespace openbiz
             
             const bool isEmpty() const;
             const unsigned int getTotalRecords() const;
-            T& get(const unsigned int index) const;
+            const T& get(const unsigned int index) const;
             void add(T &data);
             void set(const unsigned int index, T &data);
             void clear();

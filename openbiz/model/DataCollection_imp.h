@@ -99,7 +99,7 @@ const bool openbiz::data::DataCollection<T>::isFirstPage() const
 }
 
 template<typename T>
-const bool openbiz::data::DataCollection<T>::isLastPage() const
+const bool openbiz::data::DataCollection<T>::isLastPage() 
 {
     return (getCurrentPageId() == getTotalPages());
 }
@@ -142,6 +142,44 @@ const std::string openbiz::data::DataCollection<T>::serialize() const
 template<typename T>
 void openbiz::data::DataCollection<T>::parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
 {
+    parse(_parseStringToJson(data));
+};
+
+template<typename T>
+void openbiz::data::DataCollection<T>::parse(const Json::Value &records) throw () {
+    if(records.empty()) return;
+    //clear existing records
+    clear();
+    parseAndAppend(records);
+}
+
+template<typename T>
+void openbiz::data::DataCollection<T>::parseAndAppend(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
+{
+    parseAndAppend(_parseStringToJson(data));
+};
+
+template<typename T>
+void openbiz::data::DataCollection<T>::parseAndAppend(const Json::Value &records) throw () {
+    if(records.empty()) return;
+    _data.append(records);
+    
+    //创建每一个成员变量去
+    for(auto it = records.begin(); it!= records.end(); ++it ){
+        if(it->isObject()){
+            T* record = new T;
+            if(!_cacheName.empty()){
+                record->setCacheName(_cacheName);
+            }
+            record->parse(it->toStyledString());
+            _collection->insert({record->getId(),record});
+        }
+    }
+}
+
+template<typename T>
+Json::Value openbiz::data::DataCollection<T>::_parseStringToJson(const std::string &data) throw (openbiz::exception::DataFormatInvalidException)
+{
     Json::Reader reader;
     Json::Value records;
     bool result = reader.parse(data,records);
@@ -150,30 +188,7 @@ void openbiz::data::DataCollection<T>::parse(const std::string &data) throw (ope
         throw openbiz::exception::DataFormatInvalidException(data);
     }
     
-    parse(records);
-    
-};
-
-template<typename T>
-const void openbiz::data::DataCollection<T>::parse(const Json::Value &records) throw () {
-    if(records.empty()) return;
-    _data = records;
-    
-    //clear existing records
-    clear();
-    
-    //创建每一个成员变量去
-    for(auto it = records.begin(); it!= records.end(); ++it ){
-        if(it->isObject()){
-//            T* record = T::template parse<T>(it->toStyledString()) ;
-            T* record = new T;
-            if(!_cacheName.empty())
-                record->setCacheName(_cacheName);
-            
-            record->parse(it->toStyledString());
-            _collection->insert({record->getId(),record});
-        }
-    }
+    return records;
 }
 
 #pragma mark - Fetch and Search methods
@@ -314,6 +329,7 @@ void openbiz::data::DataCollection<T>::clear(){
         }
     }
     _collection->clear();
+    _data.clear();
 }
 
 

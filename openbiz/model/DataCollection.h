@@ -40,10 +40,10 @@ namespace openbiz
             
             //parse a JSON string to local attribute
             void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
+            void parseAndAppend(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             
             //fetch all
             virtual void fetch();
-            void fetchByPageId(unsigned int pageId) throw (std::out_of_range);
             void fetchNextPage();
             void fetchPreviousPage();
             
@@ -51,7 +51,7 @@ namespace openbiz
             void search(const std::string &keyword);
             void resetSearch();
             
-            const bool isLastPage() const;
+            const bool isLastPage();
             const bool isFirstPage() const;
             const bool isEmpty() const;
             
@@ -87,11 +87,14 @@ namespace openbiz
             
             
         protected:
+            void fetchByPageId(unsigned int pageId) throw (std::out_of_range);
             void clear();
             void erase(const std::string &key);
             
             virtual const bool _hasPermission(DataPermission permission) const throw();
-            const void parse(const Json::Value &records) throw ();
+            void parse(const Json::Value &records) throw ();
+            void parseAndAppend(const Json::Value &records) throw ();
+            Json::Value _parseStringToJson(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
             Json::Value _data;
             const std::string _baseUrl;
             const bool _isCacheEnabled;

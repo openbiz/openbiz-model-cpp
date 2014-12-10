@@ -47,7 +47,7 @@ const bool openbiz::data::DataArray<T>::isEmpty() const
 template<typename T>
 const unsigned int openbiz::data::DataArray<T>::getTotalRecords() const
 {
-    return _vector->size();
+    return (unsigned int)_vector->size();
 };
 
 template<typename T>
@@ -57,7 +57,7 @@ void openbiz::data::DataArray<T>::clear()
 };
 
 template<typename T>
-T& openbiz::data::DataArray<T>::get(const unsigned int index) const
+const T& openbiz::data::DataArray<T>::get(const unsigned int index) const
 {
     if(index>=0 && index<_vector->size())
         return _vector->at(index);
