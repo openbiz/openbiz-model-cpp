@@ -109,16 +109,17 @@ namespace openbiz
         
         void DB::dropDatabase()
         {
-            _mtx.lock();
             if(!DB::_dbName.empty()){
+                _mtx.lock();
                 sqlite3_close(_db);
+                _mtx.unlock();
                 _db = nullptr;
                 const std::string path = ext::FileUtils::getInstance()->getWritablePath();
                 const std::string dbFullname = path + "/" + DB::_dbName;
                 std::remove(dbFullname.c_str());
             }
             destroyInstance();
-            _mtx.unlock();
+            
         }
         
         void DB::ensureTableExists(const std::string &tableName) const
@@ -353,11 +354,12 @@ namespace openbiz
             const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
+            sqlite3_finalize(stmt);
+            _mtx.unlock();
             if(rc == SQLITE_ROW){
                 return sqlite3_column_int(stmt,0);
             }
-            sqlite3_finalize(stmt);
-            _mtx.unlock();
+            
             return 0;
         };
         
@@ -372,11 +374,12 @@ namespace openbiz
             rc = sqlite3_bind_text(stmt, 1,
                                    keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
+            sqlite3_finalize(stmt);
+            _mtx.unlock();
+            
             if(rc == SQLITE_ROW){
                 return sqlite3_column_int(stmt,0);
             }
-            sqlite3_finalize(stmt);
-            _mtx.unlock();
             return 0;
         };
         
