@@ -13,6 +13,8 @@
 #include <sqlite3.h>
 #include <iostream>
 #include <stdexcept>
+#include <mutex>
+
 namespace openbiz
 {
     namespace core
@@ -74,7 +76,8 @@ namespace openbiz
             
         protected:
             static DB *_instance;
-            static sqlite3 *_db;            
+            static sqlite3 *_db;
+            static std::mutex _mtx;
             static std::string _dbName;
         }; 
     }
