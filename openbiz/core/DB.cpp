@@ -354,8 +354,6 @@ namespace openbiz
             const char* sql = sqlString.c_str();
             rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
-            sqlite3_finalize(stmt);
-            _mtx.unlock();
             int result = 0;
             if(rc == SQLITE_ROW){
                 result =  sqlite3_column_int(stmt,0);
@@ -376,8 +374,6 @@ namespace openbiz
             rc = sqlite3_bind_text(stmt, 1,
                                    keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
-            sqlite3_finalize(stmt);
-            _mtx.unlock();
             int result = 0;
             if(rc == SQLITE_ROW){
                 result = sqlite3_column_int(stmt,0);
