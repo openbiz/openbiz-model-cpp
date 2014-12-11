@@ -306,6 +306,17 @@ void openbiz::data::DataCollection<T>::destroy()
     reset();
 };
 
+//only clear cache do not trigger remove delete request
+template<typename T>
+void openbiz::data::DataCollection<T>::clearCache()
+{
+    if(isCacheEnabled())
+    {
+        core::DB::getInstance()->removeAllRecords(_cacheName);
+    }
+    reset();
+};
+
 template<typename T>
 void openbiz::data::DataCollection<T>::reset()
 {
@@ -328,6 +339,10 @@ void openbiz::data::DataCollection<T>::clear(){
             }
         }
     }
+    _pageId =1;
+    _pageSize = OPENBIZ_DEFAULT_COLLECTION_PAGESIZE;
+    _totalRecords = -1;
+    _totalPages = -1;
     _collection->clear();
     _data.clear();
 }
@@ -336,13 +351,13 @@ void openbiz::data::DataCollection<T>::clear(){
 #pragma mark -
 
 template<typename T>
-T* openbiz::data::DataCollection<T>::get(const unsigned int index) const
+T* openbiz::data::DataCollection<T>::get(const unsigned int index) 
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     if(index >= _collection->size())
     {
-        throw std::out_of_range("index is larger than sizz");
+        throw std::out_of_range("index is larger than size");
     }
     auto it = _collection->begin();
     

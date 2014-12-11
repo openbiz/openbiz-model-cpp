@@ -37,10 +37,14 @@ namespace openbiz
             
             const std::string getUrl() const throw();
             void fetch();
+            void refresh();
             
         protected:
+            bool _isUsingCachedData;
+            void _processFetchedData(const RestClient::response &r);
             const std::string _baseUrl;
             const bool _usingRemotePaging;
+
         };
     };
 }

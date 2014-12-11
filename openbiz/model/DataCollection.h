@@ -72,8 +72,10 @@ namespace openbiz
             //destroy collection to local cache
             void destroy();
             
+            void clearCache();
+            
             //accessor methods
-            T* get(const unsigned int index) const throw(std::out_of_range,openbiz::exception::DataPermissionException);
+            T* get(const unsigned int index)  throw(std::out_of_range,openbiz::exception::DataPermissionException);
             T* get(const std::string &key) const throw (std::out_of_range,openbiz::exception::DataPermissionException);
             void add(T *item) throw (openbiz::exception::DataPermissionException);
             void del(const std::string &key) throw (std::out_of_range,openbiz::exception::DataPermissionException);

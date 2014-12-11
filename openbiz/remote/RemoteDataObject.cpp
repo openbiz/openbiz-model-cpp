@@ -121,13 +121,13 @@ namespace openbiz
             case -1:
                 throw NetworkConnectionException(r);
                 break;
+            default:
             case 200:
             case 204:
                 data::DataObject::destroy();
                 break;
             case 500:
                 throw ServerErrorException(r);
-            default:
                 break;
         }
         return ;
