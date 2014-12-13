@@ -35,7 +35,7 @@ namespace openbiz
                            const RemotePaging usingRemotePaging = RemotePaging::Supported);
             virtual ~DataCollection() = 0;
             
-            const std::string getUrl() const throw();
+            virtual const std::string getUrl() const throw();
             void fetch();
             void refresh();
             

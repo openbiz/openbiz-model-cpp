@@ -35,7 +35,7 @@ const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
                     "&page="+std::to_string(this->_pageId);
     if(!this->_keyword.empty())
     {
-        formattedURL += "?keyword="+ this->_keyword;
+        formattedURL += "&keyword="+ this->_keyword;
     }
     return formattedURL;
 };
