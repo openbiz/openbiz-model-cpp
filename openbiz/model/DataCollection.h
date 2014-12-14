@@ -108,6 +108,7 @@ namespace openbiz
             std::string _keyword;
             std::map<std::string,T*> *_collection;
             const bool _isOwnPointers;
+            static std::mutex _mtx;
         };
     }
 }

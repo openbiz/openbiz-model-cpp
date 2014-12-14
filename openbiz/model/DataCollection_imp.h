@@ -16,6 +16,9 @@
 
 #pragma mark - Constructor, ensure SQLite table exists
 template<typename T>
+std::mutex openbiz::data::DataCollection<T>::_mtx;
+
+template<typename T>
 openbiz::data::DataCollection<T>::DataCollection(const std::string &cacheName, const bool isOwnPointers):
 _isOwnPointers(isOwnPointers),
 _isCacheEnabled(!cacheName.empty()),
@@ -206,6 +209,7 @@ void openbiz::data::DataCollection<T>::fetch()
     }else{
         records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,_keyword,offset,getPageSize());
     }
+    _mtx.lock();
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
@@ -216,6 +220,7 @@ void openbiz::data::DataCollection<T>::fetch()
             _collection->insert({record->getId(),record});
         }
     }
+    _mtx.unlock();
     return ;
 };
 
@@ -286,12 +291,14 @@ void openbiz::data::DataCollection<T>::resetSearch()
 template<typename T>
 void openbiz::data::DataCollection<T>::save()
 {
+    _mtx.lock();
     if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     if(!isCacheEnabled()) return;
     for(auto it = _collection->begin(); it!= _collection->end(); ++it )
     {
         it->second->save();
     }
+    _mtx.unlock();
 };
 
 //destroy collection to local cache
@@ -299,11 +306,14 @@ template<typename T>
 void openbiz::data::DataCollection<T>::destroy()
 {
     if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
+    _mtx.lock();
     for(auto it = _collection->begin(); it!= _collection->end(); ++it )
     {
         it->second->destroy();
     }
+    _mtx.unlock();
     reset();
+    
 };
 
 //only clear cache do not trigger remove delete request
@@ -332,6 +342,7 @@ void openbiz::data::DataCollection<T>::reset()
 #pragma mark - overload parent STL method for prevent memry leaks
 template<typename T>
 void openbiz::data::DataCollection<T>::clear(){
+    _mtx.lock();
     if(_isOwnPointers){
         if(_collection->begin() != _collection->end()){
             for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
@@ -345,6 +356,7 @@ void openbiz::data::DataCollection<T>::clear(){
     _totalPages = -1;
     _collection->clear();
     _data.clear();
+    _mtx.unlock();
 }
 
 
