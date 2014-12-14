@@ -37,6 +37,9 @@ namespace openbiz
         if(this->_data["_id"].isString()){
             this->_id = this->_data["_id"].asString();
         }
+        if(this->_id.empty() && this->_data["id"].isString()){
+            this->_id = this->_data["id"].asString();
+        }
         _changed.clear();
     }
         
