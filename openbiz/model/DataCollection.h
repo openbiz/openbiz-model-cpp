@@ -86,7 +86,7 @@ namespace openbiz
             //is the collection has cache feature enabled
             const bool isCacheEnabled() const;
             
-            
+            const std::string getCacheName() const;
             
         protected:
             void fetchByPageId(unsigned int pageId) throw (std::out_of_range);

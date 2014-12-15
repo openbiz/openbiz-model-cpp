@@ -457,6 +457,12 @@ throw(openbiz::exception::DataPermissionException){
 }
 
 template<typename T>
+const std::string openbiz::data::DataCollection<T>::getCacheName() const
+{
+    return  _cacheName;
+}
+
+template<typename T>
 const bool openbiz::data::DataCollection<T>::_hasPermission(DataPermission permission) const throw(){
     return true;
 };
