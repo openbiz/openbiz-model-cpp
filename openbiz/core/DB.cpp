@@ -127,13 +127,12 @@ namespace openbiz
             if(!isTableExists(tableName)){
                 _mtx.lock();
                 sqlite3_stmt *stmt;
-                int rc;
                 string sqlString(OPENBIZ_CACHE_CREATE_TABLE_SQL(tableName));
                 const char* sql = sqlString.c_str();
-                rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-                rc = sqlite3_bind_text(stmt, 1,
+                sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+                sqlite3_bind_text(stmt, 1,
                                        tableName.c_str(),static_cast<int>(tableName.size()), SQLITE_STATIC);
-                rc = sqlite3_step(stmt);
+                sqlite3_step(stmt);
                 sqlite3_finalize(stmt);
                 _mtx.unlock();
             }
@@ -147,8 +146,8 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_CHECK_TABLE_EXISTS_SQL);
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    tableName.c_str(),static_cast<int>(tableName.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
@@ -167,8 +166,8 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_CHECK_RECORD_EXISTS_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
@@ -187,8 +186,8 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_REMOVE_RECORD_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
@@ -206,7 +205,7 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_REMOVE_ALL_RECORDS_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
             _mtx.unlock();
@@ -225,8 +224,8 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_FETCH_RECORD_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             if(rc == SQLITE_ROW){
@@ -250,10 +249,10 @@ namespace openbiz
             string sqlString(OPENBIZ_CACHE_INSERT_RECORD_SQL(tableName));
             const char* sql =sqlString.c_str();
             
-            rc = sqlite3_prepare(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
-            rc = sqlite3_bind_text(stmt, 2,
+            sqlite3_bind_text(stmt, 2,
                                    data.c_str(),static_cast<int>(data.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
@@ -273,10 +272,10 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
-            rc = sqlite3_bind_text(stmt, 2,
+            sqlite3_bind_text(stmt, 2,
                                    data.c_str(),static_cast<int>(data.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
@@ -296,9 +295,9 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_FETCH_RECORDS_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_int(stmt, 1, offset);
-            rc = sqlite3_bind_int(stmt, 2, limit);
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_int(stmt, 1, offset);
+            sqlite3_bind_int(stmt, 2, limit);
             rc = sqlite3_step(stmt);
             
             while(rc == SQLITE_ROW)
@@ -324,11 +323,11 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_QUERY_RECORDS_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
-            rc = sqlite3_bind_int(stmt, 2, offset);
-            rc = sqlite3_bind_int(stmt, 3, limit);
+            sqlite3_bind_int(stmt, 2, offset);
+            sqlite3_bind_int(stmt, 3, limit);
             rc = sqlite3_step(stmt);
             
             while(rc == SQLITE_ROW)
@@ -352,7 +351,7 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_COUNT_FETCHED_RECORDS_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
             rc = sqlite3_step(stmt);
             int result = 0;
             if(rc == SQLITE_ROW){
@@ -370,8 +369,8 @@ namespace openbiz
             int rc;
             string sqlString(OPENBIZ_CACHE_COUNT_FOUND_RECORDS_SQL(tableName));
             const char* sql = sqlString.c_str();
-            rc = sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            rc = sqlite3_bind_text(stmt, 1,
+            sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
+            sqlite3_bind_text(stmt, 1,
                                    keyword.c_str(),static_cast<int>(keyword.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             int result = 0;
