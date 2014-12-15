@@ -175,6 +175,11 @@ void openbiz::data::DataCollection<T>::parseAndAppend(const Json::Value &records
                 record->setCacheName(_cacheName);
             }
             record->parse(it->toStyledString());
+            if(record->getId().empty())
+            {
+                std::string message( "trying to insert a record with empty Id, data:" + record->serialize() );
+                throw std::runtime_error(message.c_str());
+            }
             _collection->insert({record->getId(),record});
         }
     }
@@ -217,6 +222,12 @@ void openbiz::data::DataCollection<T>::fetch()
             if(!_cacheName.empty())
                 record->setCacheName(_cacheName);
             record->parse((*it)->data);
+            
+            if(record->getId().empty())
+            {
+                std::string message( "trying to insert a record with empty Id, data:" + record->serialize() );
+                throw std::runtime_error(message.c_str());
+            }
             _collection->insert({record->getId(),record});
         }
     }
