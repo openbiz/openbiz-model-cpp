@@ -5,6 +5,7 @@
 //  Created by Jixian Wang on 14-10-11.
 //  Copyright (c) 2014年 openbiz. All rights reserved.
 //
+#include "openbiz.h"
 
 #ifndef Openbiz_RestModel_RemoteDataCollection_imp_h
 #define Openbiz_RestModel_RemoteDataCollection_imp_h
@@ -43,6 +44,9 @@ const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 template<typename T>
 void openbiz::remote::DataCollection<T>::fetch()
 {
+    if(ext::ThreadUtils::getInstance()->isOnMainThread()){
+        throw std::runtime_error("Openbiz network operation should not runs on main thread");
+    }
     RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
     {
@@ -79,6 +83,10 @@ void openbiz::remote::DataCollection<T>::refresh()
 {
     int originalPageId = this->_pageId;
     this->_pageId = 1;
+    
+    if(ext::ThreadUtils::getInstance()->isOnMainThread()){
+        throw std::runtime_error("Openbiz network operation should not runs on main thread");
+    }
     RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
     {

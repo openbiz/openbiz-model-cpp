@@ -22,6 +22,7 @@ namespace openbiz
             std::ostringstream os ; os << value ; return os.str();
         };
         time_t convertISOTime(const std::string &time);
+        const bool isMainThread();
     }
 }
 #endif /* defined(__Openbiz_RestModel__Util__) */

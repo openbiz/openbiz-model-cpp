@@ -16,6 +16,7 @@
 #include "RemoteDataObject.h"
 #include "RemoteDataCollection.h"
 #include "FileUtils.h"
+#include "ThreadUtils.h"
 #include "PlatformMacros.h"
 #include "Util.h"
 
@@ -52,6 +53,7 @@ namespace openbiz
     namespace ext
     {
         class FileUtils;
+        class ThreadUtils;
         class JniHelper;
     }
     
