@@ -23,7 +23,7 @@ namespace openbiz
             return _instance;
         }
         
-        std::string FileUtilsApple::getWritablePath() const
+        const std::string FileUtilsApple::getWritablePath() const
         {
             // save to document folder
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

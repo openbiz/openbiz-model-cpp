@@ -15,11 +15,14 @@ namespace openbiz
     namespace ext
     {
         ThreadUtils* ThreadUtils::_instance = nullptr;
-        ThreadUtils::~ThreadUtils(){};
-        ThreadUtils::ThreadUtils(){};
-        
+
         void ThreadUtils::destroyInstance(){
             OPENBIZ_SAFE_DELETE(_instance);
         };
+        
+        const bool ThreadUtils::isOnMainThread() const
+        {
+            return false;
+        }
     }
 }

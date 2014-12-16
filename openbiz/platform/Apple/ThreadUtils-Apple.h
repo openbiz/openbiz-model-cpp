@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 openbiz. All rights reserved.
 //
 
-#ifndef __Openbiz_RestModel__ThreadsUtils_Apple__
-#define __Openbiz_RestModel__ThreadsUtils_Apple__
+#ifndef __Openbiz_RestModel__ThreadUtils_Apple__
+#define __Openbiz_RestModel__ThreadUtils_Apple__
 
 #include <stdio.h>
 #include "ThreadUtils.h"
@@ -24,4 +24,4 @@ namespace openbiz
         
     }
 }
-#endif /* defined(__Openbiz_RestModel__FileUtils_Apple__) */
+#endif /* defined(__Openbiz_RestModel__ThreadUtils_Apple__) */

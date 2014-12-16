@@ -50,10 +50,10 @@
 		4A2F5ED31A4065FA002AF8B9 /* ThreadUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F5ED01A4065FA002AF8B9 /* ThreadUtils.cpp */; };
 		4A2F5ED41A4065FA002AF8B9 /* ThreadUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A2F5ED11A4065FA002AF8B9 /* ThreadUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A2F5ED51A4065FA002AF8B9 /* ThreadUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A2F5ED11A4065FA002AF8B9 /* ThreadUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A2F5ED81A4066F3002AF8B9 /* ThreadUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A2F5ED61A4066F3002AF8B9 /* ThreadUtils-Apple.h */; };
-		4A2F5ED91A4066F3002AF8B9 /* ThreadUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A2F5ED61A4066F3002AF8B9 /* ThreadUtils-Apple.h */; };
-		4A2F5EDA1A4066F3002AF8B9 /* ThreadUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F5ED71A4066F3002AF8B9 /* ThreadUtils-Apple.mm */; };
-		4A2F5EDB1A4066F3002AF8B9 /* ThreadUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F5ED71A4066F3002AF8B9 /* ThreadUtils-Apple.mm */; };
+		4A2F5EDE1A4072AC002AF8B9 /* ThreadUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A2F5ED61A4066F3002AF8B9 /* ThreadUtils-Apple.h */; };
+		4A2F5EDF1A4072AD002AF8B9 /* ThreadUtils-Apple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A2F5ED61A4066F3002AF8B9 /* ThreadUtils-Apple.h */; };
+		4A2F5EE01A4072B0002AF8B9 /* ThreadUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F5ED71A4066F3002AF8B9 /* ThreadUtils-Apple.mm */; };
+		4A2F5EE11A4072B1002AF8B9 /* ThreadUtils-Apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F5ED71A4066F3002AF8B9 /* ThreadUtils-Apple.mm */; };
 		4A4C2B2419E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C2B2219E3ECEA001206AE /* DB.cpp */; };
 		4A4C2B2619E3ECEA001206AE /* DB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A4C2B2319E3ECEA001206AE /* DB.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -706,7 +706,7 @@
 				4A1E1C3A19E413AB0060B900 /* config.h in Headers */,
 				4A1E1C4F19E413E70060B900 /* restclient.h in Headers */,
 				4A1E1C4019E413C70060B900 /* json.h in Headers */,
-				4A2F5ED81A4066F3002AF8B9 /* ThreadUtils-Apple.h in Headers */,
+				4A2F5EDE1A4072AC002AF8B9 /* ThreadUtils-Apple.h in Headers */,
 				4A1E1C2C19E413700060B900 /* Object.h in Headers */,
 				4A91A7B119E436CA004A73D4 /* mprintf.h in Headers */,
 				4A5ACEAF19E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */,
@@ -761,7 +761,7 @@
 				4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */,
 				4AEE73FA19DE940A00821A56 /* json.h in Headers */,
 				4AEE73FC19DE940A00821A56 /* value.h in Headers */,
-				4A2F5ED91A4066F3002AF8B9 /* ThreadUtils-Apple.h in Headers */,
+				4A2F5EDF1A4072AD002AF8B9 /* ThreadUtils-Apple.h in Headers */,
 				4AE58DEB1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */,
 				4A1FEE8D19E50DAD003969DF /* PlatformConfig.h in Headers */,
 				4AEE737619DD9EF500821A56 /* restclient.h in Headers */,
@@ -884,8 +884,8 @@
 				4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */,
 				4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 				4AB3FE9319E10751007727C2 /* FileUtils.cpp in Sources */,
+				4A2F5EE11A4072B1002AF8B9 /* ThreadUtils-Apple.mm in Sources */,
 				4AEE740219DE940A00821A56 /* json_reader.cpp in Sources */,
-				4A2F5EDB1A4066F3002AF8B9 /* ThreadUtils-Apple.mm in Sources */,
 				4AEE735D19DD9CFE00821A56 /* Object.cpp in Sources */,
 				4AB3FE6E19DEE553007727C2 /* ServerErrorException.cpp in Sources */,
 				4A2F5ED31A4065FA002AF8B9 /* ThreadUtils.cpp in Sources */,
@@ -912,11 +912,10 @@
 				4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */,
 				4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AEE736719DD9E9900821A56 /* openbiz.cpp in Sources */,
+				4A2F5EE01A4072B0002AF8B9 /* ThreadUtils-Apple.mm in Sources */,
 				4A1E1CB619E423250060B900 /* Object.cpp in Sources */,
-				4A2F5EDA1A4066F3002AF8B9 /* ThreadUtils-Apple.mm in Sources */,
 				4AEE737319DD9ED300821A56 /* RemoteDataObject.cpp in Sources */,
 				4AEE740819DE940A00821A56 /* json_writer.cpp in Sources */,
-				4A2F5ED21A4065FA002AF8B9 /* ThreadUtils.cpp in Sources */,
 				4AEE740619DE940A00821A56 /* json_value.cpp in Sources */,
 				4AEE740319DE940A00821A56 /* json_reader.cpp in Sources */,
 				4AD60D371A09281500421FD6 /* Util.cpp in Sources */,
@@ -925,6 +924,7 @@
 				4AB3FEAD19E25BCD007727C2 /* DataFormatInvalidException.cpp in Sources */,
 				4A23F2461A301329000D27FD /* StandaloneDataObject.cpp in Sources */,
 				4AB3FE9419E10751007727C2 /* FileUtils.cpp in Sources */,
+				4A2F5ED21A4065FA002AF8B9 /* ThreadUtils.cpp in Sources */,
 				4AE58E1C1A048BDB0023E030 /* DataPermissionException.cpp in Sources */,
 				4AB3FE9B19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 			);

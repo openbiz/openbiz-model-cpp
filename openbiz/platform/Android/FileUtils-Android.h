@@ -19,7 +19,7 @@ namespace openbiz
             friend class FileUtils;
         public:
             FileUtilsAndroid()=default;
-            virtual std::string getWritablePath() const;
+            virtual const std::string getWritablePath() const;
         };
         
     }

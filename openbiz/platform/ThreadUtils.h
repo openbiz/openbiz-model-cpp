@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+
 namespace openbiz
 {
     namespace ext
@@ -18,12 +19,12 @@ namespace openbiz
         class ThreadUtils
         {
         public:
-            virtual ~ThreadUtils();
+            virtual ~ThreadUtils()=default;
             static ThreadUtils* getInstance();
             static void destroyInstance();
-            virtual const bool isOnMainThread() const = 0;
+            virtual const bool isOnMainThread() const ;
         protected:
-            ThreadUtils();
+            ThreadUtils()=default;
             ThreadUtils(ThreadUtils const&);             // copy constructor is private
             ThreadUtils& operator=(ThreadUtils const&);  // assignment operator is private
             static ThreadUtils *_instance;

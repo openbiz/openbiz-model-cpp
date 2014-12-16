@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include "openbiz.h"
 
 /** initialize user agent string */
 const char* RestClient::user_agent = "openbiz-rest-model/" OPENBIZ_VERSION;
@@ -45,6 +46,9 @@ std::string RestClient::get_cookies_file()
  */
 RestClient::response RestClient::get(const std::string& url)
 {
+    if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
+        throw std::runtime_error("Openbiz network operation should not runs on main thread");
+    }
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "GET";
@@ -113,6 +117,9 @@ RestClient::response RestClient::post(const std::string& url,
                                       const std::string& ctype,
                                       const std::string& data)
 {
+    if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
+        throw std::runtime_error("Openbiz network operation should not runs on main thread");
+    }
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "POST";
@@ -190,6 +197,9 @@ RestClient::response RestClient::put(const std::string& url,
                                      const std::string& ctype,
                                      const std::string& data)
 {
+    if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
+        throw std::runtime_error("Openbiz network operation should not runs on main thread");
+    }
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "PUT";
@@ -273,6 +283,9 @@ RestClient::response RestClient::put(const std::string& url,
  */
 RestClient::response RestClient::del(const std::string& url)
 {
+    if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
+        throw std::runtime_error("Openbiz network operation should not runs on main thread");
+    }
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "PUT";

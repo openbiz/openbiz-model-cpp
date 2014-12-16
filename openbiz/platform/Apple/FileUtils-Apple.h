@@ -19,7 +19,7 @@ namespace openbiz
         {
         public:
             FileUtilsApple()=default;
-            virtual std::string getWritablePath() const override;
+            virtual const std::string getWritablePath() const override;
         };
         
     }

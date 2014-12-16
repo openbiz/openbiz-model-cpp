@@ -22,7 +22,7 @@ namespace openbiz
             virtual ~FileUtils();
             static FileUtils* getInstance();
             static void destroyInstance();
-            virtual std::string getWritablePath() const = 0;
+            virtual const std::string getWritablePath() const = 0;
         protected:
             FileUtils();
             FileUtils(FileUtils const&);             // copy constructor is private

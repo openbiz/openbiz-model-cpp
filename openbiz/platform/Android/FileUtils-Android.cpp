@@ -19,7 +19,7 @@ namespace openbiz
             return _instance;
         }
         
-        string FileUtilsAndroid::getWritablePath() const
+        const string FileUtilsAndroid::getWritablePath() const
         {
             // save to document folder
             string dir("");

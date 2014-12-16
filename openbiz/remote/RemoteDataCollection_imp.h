@@ -44,9 +44,6 @@ const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 template<typename T>
 void openbiz::remote::DataCollection<T>::fetch()
 {
-    if(ext::ThreadUtils::getInstance()->isOnMainThread()){
-        throw std::runtime_error("Openbiz network operation should not runs on main thread");
-    }
     RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
     {
@@ -84,9 +81,6 @@ void openbiz::remote::DataCollection<T>::refresh()
     int originalPageId = this->_pageId;
     this->_pageId = 1;
     
-    if(ext::ThreadUtils::getInstance()->isOnMainThread()){
-        throw std::runtime_error("Openbiz network operation should not runs on main thread");
-    }
     RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
     {

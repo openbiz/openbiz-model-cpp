@@ -7,24 +7,19 @@
 //
 #import <Foundation/Foundation.h>
 #include "ThreadUtils-Apple.h"
+#include "ThreadUtils.h"
 
-namespace openbiz
+
+openbiz::ext::ThreadUtils* openbiz::ext::ThreadUtils::getInstance()
 {
-    namespace ext
+    if (_instance == nullptr)
     {
-        ThreadUtils* ThreadUtils::getInstance()
-        {
-            if (_instance == nullptr)
-            {
-                _instance = new (std::nothrow) ThreadUtilsApple();
-            }
-            return _instance;
-        }
-        
-        const bool ThreadUtils::isOnMainThread() const
-        {
-            // save to document folder
-            return [NSThread isMainThread];
-        }
+        _instance = new (std::nothrow) openbiz::ext::ThreadUtilsApple();
     }
+    return _instance;
+}
+
+const bool openbiz::ext::ThreadUtilsApple::isOnMainThread() const
+{
+    return [NSThread isMainThread];
 }
