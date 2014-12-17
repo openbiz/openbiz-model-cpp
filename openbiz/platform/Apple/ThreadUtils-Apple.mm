@@ -21,5 +21,6 @@ openbiz::ext::ThreadUtils* openbiz::ext::ThreadUtils::getInstance()
 
 const bool openbiz::ext::ThreadUtilsApple::isOnMainThread() const
 {
-    return [NSThread isMainThread];
+    bool result =  [NSThread isMainThread];
+    return result;
 }
