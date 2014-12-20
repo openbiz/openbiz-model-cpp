@@ -12,8 +12,10 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <map>
 #include "DataCollection.h"
 #include "RemoteDataObject.h"
+
 
 
 namespace openbiz
@@ -40,6 +42,7 @@ namespace openbiz
             void refresh();
             
         protected:
+            virtual const QueryParameters getQueryParameters() const throw();            
             bool _isUsingCachedData;
             void _processFetchedData(const RestClient::response &r);
             const std::string _baseUrl;

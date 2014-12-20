@@ -20,6 +20,8 @@ namespace openbiz
 {
     namespace remote
     {
+        typedef std::map<std::string,std::string> QueryParameters;
+        
         class DataObject: public data::DataObject
         {
         public:        
@@ -31,6 +33,7 @@ namespace openbiz
             virtual ~DataObject() = default;
             
             virtual const std::string getUrl() const throw();
+            virtual const QueryParameters getQueryParameters() const throw();
             
             //fetch from remote but dont update local cache
             virtual const bool fetch() throw (openbiz::exception::NetworkConnectionException,

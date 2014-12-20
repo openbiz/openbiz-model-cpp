@@ -26,14 +26,30 @@ namespace openbiz
      */
     const std::string DataObject::getUrl() const throw()
     {
-        std::string uri = this->_baseUrl;
+        std::string url = this->_baseUrl;
         if(!this->_id.empty()){
-            uri.append("/"+this->_id);
+            url.append("/"+this->_id);
         }
-        return uri.c_str();
+        
+        QueryParameters paramenters = getQueryParameters();
+        if(paramenters.size()>0){
+            url += "?";
+            for(auto it = paramenters.cbegin(); it!= paramenters.cend(); it++)
+            {
+                url += (*it).first + "=" + (*it).second;
+            }
+        }
+        
+        return url;
     };
     
 
+    const QueryParameters openbiz::remote::DataObject::getQueryParameters() const throw()
+    {
+        QueryParameters queryParameters;
+        return queryParameters;
+    }
+    
     /*
      fetch remote data
      then parse data to local cache

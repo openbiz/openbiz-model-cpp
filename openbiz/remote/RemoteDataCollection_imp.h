@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 openbiz. All rights reserved.
 //
 #include "openbiz.h"
+#include <map>
 
 #ifndef Openbiz_RestModel_RemoteDataCollection_imp_h
 #define Openbiz_RestModel_RemoteDataCollection_imp_h
@@ -29,17 +30,36 @@ openbiz::remote::DataCollection<T>::~DataCollection(){
 template<typename T>
 const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 {
-    if(!_usingRemotePaging) return _baseUrl;
     
-    std::string formattedURL(this->_baseUrl);
-    formattedURL += "?per_page="+ std::to_string(this->_pageSize)+
-                    "&page="+std::to_string(this->_pageId);
+    openbiz::remote::QueryParameters paramenters = getQueryParameters();
+    if(paramenters.size()>0){
+        std::string url = _baseUrl;
+        url += "?";
+        for(auto it = paramenters.cbegin(); it!= paramenters.cend(); it++)
+        {
+            url += (*it).first + "=" + (*it).second;
+        }
+        return url;
+    }
+    return _baseUrl;
+};
+
+template<typename T>
+const openbiz::remote::QueryParameters openbiz::remote::DataCollection<T>::getQueryParameters() const throw()
+{
+    openbiz::remote::QueryParameters queryParameters;
+
+    if(!_usingRemotePaging) return queryParameters;
+    
+    queryParameters["per_page"] = std::to_string(this->_pageSize);
+    queryParameters["page"] = std::to_string(this->_pageId);
     if(!this->_keyword.empty())
     {
-        formattedURL += "&keyword="+ this->_keyword;
+        queryParameters["keyword"] = this->_keyword;
     }
-    return formattedURL;
-};
+    
+    return queryParameters;
+}
 
 template<typename T>
 void openbiz::remote::DataCollection<T>::fetch()

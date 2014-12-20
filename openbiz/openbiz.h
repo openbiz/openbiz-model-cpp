@@ -38,7 +38,7 @@ namespace openbiz
         template<typename T> class DataArray;
     }
     namespace remote
-    {
+    {        
         class DataObject;
         template<typename T> class DataCollection;
     }
