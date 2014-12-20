@@ -76,7 +76,7 @@ void openbiz::data::DataArray<T>::set(const unsigned int index, T &data)
 
 
 template<typename T>
-void openbiz::data::DataArray<T>::add(T &data)
+void openbiz::data::DataArray<T>::add(const T &data)
 {
     _vector->push_back(data);
 };
@@ -93,13 +93,8 @@ void openbiz::data::DataArray<T>::save()
         for(unsigned int i=0;i<records;i++)
         {
             std::string stringData;
-            if(typeid(T) == typeid(std::string) )
-            {
-                stringData = get(i);
-            }else{
-                stringData = get(i)->serialize();
-            }
-            openbiz::core::DB::getInstance()->insertRecord(_cacheName,i,stringData);
+            stringData = static_cast<std::string>(get(i));
+            openbiz::core::DB::getInstance()->insertRecord(_cacheName,std::to_string(i),stringData);
         }
     }
 };
