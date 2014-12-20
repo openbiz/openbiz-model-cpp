@@ -49,6 +49,12 @@ RestClient::response RestClient::get(const std::string& url)
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
+    
+    if(openbiz::isDebugNetworkEnabled())
+    {
+        std::cout << "GET: " << url <<std::endl;
+    }
+
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "GET";
@@ -120,6 +126,13 @@ RestClient::response RestClient::post(const std::string& url,
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
+    
+    if(openbiz::isDebugNetworkEnabled())
+    {
+        std::cout << "POST: " << url <<std::endl;
+        std::cout << "Payload: " << data <<std::endl;
+    }
+    
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "POST";
@@ -200,6 +213,13 @@ RestClient::response RestClient::put(const std::string& url,
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
+    if(openbiz::isDebugNetworkEnabled())
+    {
+        std::cout << "PUT: " << url <<std::endl;
+        std::cout << "Payload: " << data <<std::endl;
+    }
+    
+    
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "PUT";
@@ -286,6 +306,13 @@ RestClient::response RestClient::del(const std::string& url)
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
+    
+    if(openbiz::isDebugNetworkEnabled())
+    {
+        std::cout << "DELETE: " << url <<std::endl;
+    }
+
+    
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "PUT";

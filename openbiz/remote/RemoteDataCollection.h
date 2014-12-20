@@ -42,7 +42,8 @@ namespace openbiz
             void refresh();
             
         protected:
-            virtual const QueryParameters getQueryParameters() const throw();            
+            virtual const QueryParameters getQueryParameters() const throw();
+            QueryParameters _presetQueryParameters;
             bool _isUsingCachedData;
             void _processFetchedData(const RestClient::response &r);
             const std::string _baseUrl;

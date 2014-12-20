@@ -1,3 +1,6 @@
+#ifndef __libOpenbiz__
+#define __libOpenbiz__
+
 //系统标准库
 #include <iostream>
 #include <sqlite3.h>
@@ -24,7 +27,7 @@
 #include "exception.h"
 
 namespace openbiz
-{
+{    
     namespace core
     {
         class DB;
@@ -66,4 +69,9 @@ namespace openbiz
     void initialize(const std::string dbName);
     void cleanup();
     
+    void setDebugNetworkEnabled(bool isEnabled);
+    const bool isDebugNetworkEnabled();
+    
 }
+
+#endif

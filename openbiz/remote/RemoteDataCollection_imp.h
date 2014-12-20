@@ -18,6 +18,7 @@ openbiz::remote::DataCollection<T>::DataCollection(const std::string &url,
 _baseUrl(url),
 _usingRemotePaging( usingRemotePaging==RemotePaging::Supported?true:false ),
 _isUsingCachedData(false),
+_presetQueryParameters(QueryParameters()),
 openbiz::data::DataCollection<T>(cacheName){
     fetch();
 };
@@ -37,7 +38,7 @@ const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
         url += "?";
         for(auto it = paramenters.cbegin(); it!= paramenters.cend(); it++)
         {
-            url += (*it).first + "=" + (*it).second;
+            url += "&" + (*it).first + "=" + (*it).second;
         }
         return url;
     }
@@ -47,7 +48,7 @@ const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 template<typename T>
 const openbiz::remote::QueryParameters openbiz::remote::DataCollection<T>::getQueryParameters() const throw()
 {
-    openbiz::remote::QueryParameters queryParameters;
+    openbiz::remote::QueryParameters queryParameters = _presetQueryParameters;
 
     if(!_usingRemotePaging) return queryParameters;
     
