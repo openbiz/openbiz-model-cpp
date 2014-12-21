@@ -63,6 +63,10 @@
 		4A5ACEB019E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A5ACEB219E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A5ACEB319E8D04900F4FA04 /* RemoteDataCollection_imp.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A6A9E861A46C68C00A76D79 /* Debugger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A9E841A46C68C00A76D79 /* Debugger.cpp */; };
+		4A6A9E871A46C68C00A76D79 /* Debugger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A9E841A46C68C00A76D79 /* Debugger.cpp */; };
+		4A6A9E881A46C68C00A76D79 /* Debugger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6A9E851A46C68C00A76D79 /* Debugger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A6A9E891A46C68C00A76D79 /* Debugger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A6A9E851A46C68C00A76D79 /* Debugger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AD19E436CA004A73D4 /* curlbuild.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33319DC1EB800A33ACC /* curlbuild.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AE19E436CA004A73D4 /* curlrules.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33419DC1EB800A33ACC /* curlrules.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A91A7AF19E436CA004A73D4 /* curlver.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7DB33519DC1EB800A33ACC /* curlver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -174,6 +178,8 @@
 		4A56AB0E1A133D9B0013A083 /* DataArray_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataArray_imp.h; path = model/DataArray_imp.h; sourceTree = "<group>"; };
 		4A5ACEAE19E8CDAD00F4FA04 /* DataCollection_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataCollection_imp.h; path = model/DataCollection_imp.h; sourceTree = "<group>"; };
 		4A5ACEB119E8D04900F4FA04 /* RemoteDataCollection_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDataCollection_imp.h; path = remote/RemoteDataCollection_imp.h; sourceTree = "<group>"; };
+		4A6A9E841A46C68C00A76D79 /* Debugger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Debugger.cpp; path = debug/Debugger.cpp; sourceTree = "<group>"; };
+		4A6A9E851A46C68C00A76D79 /* Debugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Debugger.h; path = debug/Debugger.h; sourceTree = "<group>"; };
 		4A78DE8119DD388200A8B28C /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		4A78DE8419DD420000A8B28C /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = core/Object.cpp; sourceTree = "<group>"; };
 		4A78DE8519DD420000A8B28C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = core/Object.h; sourceTree = "<group>"; };
@@ -286,6 +292,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A6A9E831A46C66600A76D79 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				4A6A9E841A46C68C00A76D79 /* Debugger.cpp */,
+				4A6A9E851A46C68C00A76D79 /* Debugger.h */,
+			);
+			name = debug;
+			sourceTree = "<group>";
+		};
 		4A78DE8019DD378100A8B28C /* core */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +471,7 @@
 				4AEE731B19DD783500821A56 /* remote */,
 				4AB3FE6619DEDA22007727C2 /* exception */,
 				4AD60D341A09280200421FD6 /* util */,
+				4A6A9E831A46C66600A76D79 /* debug */,
 				4A7DB4E619DC2EA900A33ACC /* openbiz.cpp */,
 				4A7DB4E719DC2EA900A33ACC /* openbiz.h */,
 				4A78DE8119DD388200A8B28C /* config.h */,
@@ -709,6 +725,7 @@
 				4A2F5EDE1A4072AC002AF8B9 /* ThreadUtils-Apple.h in Headers */,
 				4A1E1C2C19E413700060B900 /* Object.h in Headers */,
 				4A91A7B119E436CA004A73D4 /* mprintf.h in Headers */,
+				4A6A9E881A46C68C00A76D79 /* Debugger.h in Headers */,
 				4A5ACEAF19E8CDAD00F4FA04 /* DataCollection_imp.h in Headers */,
 				4A1E1C4319E413C70060B900 /* version.h in Headers */,
 				4A1E1C3219E4138E0060B900 /* DataObject.h in Headers */,
@@ -761,6 +778,7 @@
 				4AB3FE9C19E10D49007727C2 /* FileUtils-Apple.h in Headers */,
 				4AEE73FA19DE940A00821A56 /* json.h in Headers */,
 				4AEE73FC19DE940A00821A56 /* value.h in Headers */,
+				4A6A9E891A46C68C00A76D79 /* Debugger.h in Headers */,
 				4A2F5EDF1A4072AD002AF8B9 /* ThreadUtils-Apple.h in Headers */,
 				4AE58DEB1A00CF6E0023E030 /* sqlite3_json_extension.h in Headers */,
 				4A1FEE8D19E50DAD003969DF /* PlatformConfig.h in Headers */,
@@ -882,6 +900,7 @@
 				4AEE740719DE940A00821A56 /* json_writer.cpp in Sources */,
 				4AEE736019DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AE58DE91A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */,
+				4A6A9E871A46C68C00A76D79 /* Debugger.cpp in Sources */,
 				4AB3FE9A19E10D49007727C2 /* FileUtils-Apple.mm in Sources */,
 				4AB3FE9319E10751007727C2 /* FileUtils.cpp in Sources */,
 				4A2F5EE11A4072B1002AF8B9 /* ThreadUtils-Apple.mm in Sources */,
@@ -910,6 +929,7 @@
 				4A4C2B2519E3ECEA001206AE /* DB.cpp in Sources */,
 				4AEE737819DD9EFA00821A56 /* restclient.cpp in Sources */,
 				4AE58DE81A00CF6E0023E030 /* sqlite3_json_extension.c in Sources */,
+				4A6A9E861A46C68C00A76D79 /* Debugger.cpp in Sources */,
 				4AEE735F19DD9D1800821A56 /* DataObject.cpp in Sources */,
 				4AEE736719DD9E9900821A56 /* openbiz.cpp in Sources */,
 				4A2F5EE01A4072B0002AF8B9 /* ThreadUtils-Apple.mm in Sources */,

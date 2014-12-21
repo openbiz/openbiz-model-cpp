@@ -11,6 +11,7 @@
 #include <vector>
 #include <regex>
 #include <cstdio>
+#include "openbiz.h"
 #include "DB.h"
 #include "PlatformMacros.h"
 #include "FileUtils.h"
@@ -236,6 +237,13 @@ namespace openbiz
             }
             sqlite3_finalize(stmt);
             _mtx.unlock();
+            if(Debugger::getDebugDatabaseOption()->DebugUpdateOperation && record!=nullptr)
+            {
+                std::cout << "Fetched Record :" << std::endl;
+                std::cout << "Table:" << tableName << std::endl;
+                std::cout << "RecordId:" << recordId << std::endl;
+                std::cout << "Data:" << record->data << std::endl;
+            }
             return record;
         }
         
@@ -243,6 +251,13 @@ namespace openbiz
                                     const std::string &recordId,
                                     const std::string &data) const
         {
+            if(Debugger::getDebugDatabaseOption()->DebugInsertOperation)
+            {
+                std::cout << "Insert Record :" << std::endl;
+                std::cout << "Table:" << tableName << std::endl;
+                std::cout << "RecordId:" << recordId << std::endl;
+                std::cout << "Data:" << data << std::endl;
+            }
             _mtx.lock();
             sqlite3_stmt *stmt;
             int rc;
@@ -250,10 +265,8 @@ namespace openbiz
             const char* sql =sqlString.c_str();
             
             sqlite3_prepare(_db, sql, -1, &stmt, NULL);
-            sqlite3_bind_text(stmt, 1,
-                                   recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
-            sqlite3_bind_text(stmt, 2,
-                                   data.c_str(),static_cast<int>(data.size()), SQLITE_STATIC);
+            sqlite3_bind_text(stmt, 1, recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
+            sqlite3_bind_text(stmt, 2, data.c_str(),static_cast<int>(data.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
             _mtx.unlock();
@@ -267,16 +280,22 @@ namespace openbiz
                                     const std::string &recordId,
                                     const std::string &data) const
         {
+            if(Debugger::getDebugDatabaseOption()->DebugUpdateOperation)
+            {
+                std::cout << "Update Record :" << std::endl;
+                std::cout << "Table:" << tableName << std::endl;
+                std::cout << "RecordId:" << recordId << std::endl;
+                std::cout << "Data:" << data << std::endl;
+            }
+            
             _mtx.lock();
             sqlite3_stmt *stmt;
             int rc;
             string sqlString(OPENBIZ_CACHE_UPDATE_RECORD_SQL(tableName));
             const char* sql = sqlString.c_str();
             sqlite3_prepare_v2(_db, sql, -1, &stmt, NULL);
-            sqlite3_bind_text(stmt, 1,
-                                   recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
-            sqlite3_bind_text(stmt, 2,
-                                   data.c_str(),static_cast<int>(data.size()), SQLITE_STATIC);
+            sqlite3_bind_text(stmt, 1, data.c_str(),static_cast<int>(data.size()), SQLITE_STATIC);
+            sqlite3_bind_text(stmt, 2, recordId.c_str(),static_cast<int>(recordId.size()), SQLITE_STATIC);
             rc = sqlite3_step(stmt);
             sqlite3_finalize(stmt);
             _mtx.unlock();

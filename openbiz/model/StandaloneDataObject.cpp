@@ -11,7 +11,9 @@ using namespace openbiz::data;
 StandaloneDataObject::StandaloneDataObject(const std::string &cacheName)
 :DataObject(cacheName)
 {
-    if(_isCacheEnabled) _id = "DEFAULT";
+    if(_isCacheEnabled){
+        _id = "DEFAULT";
+    }
 }
 
 StandaloneDataObject::~StandaloneDataObject()

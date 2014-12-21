@@ -50,7 +50,7 @@ RestClient::response RestClient::get(const std::string& url)
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
     
-    if(openbiz::isDebugNetworkEnabled())
+    if(openbiz::Debugger::isDebugNetworkEnabled())
     {
         std::cout << "GET: " << url <<std::endl;
     }
@@ -127,7 +127,7 @@ RestClient::response RestClient::post(const std::string& url,
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
     
-    if(openbiz::isDebugNetworkEnabled())
+    if(openbiz::Debugger::isDebugNetworkEnabled())
     {
         std::cout << "POST: " << url <<std::endl;
         std::cout << "Payload: " << data <<std::endl;
@@ -213,7 +213,7 @@ RestClient::response RestClient::put(const std::string& url,
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
-    if(openbiz::isDebugNetworkEnabled())
+    if(openbiz::Debugger::isDebugNetworkEnabled())
     {
         std::cout << "PUT: " << url <<std::endl;
         std::cout << "Payload: " << data <<std::endl;
@@ -307,7 +307,7 @@ RestClient::response RestClient::del(const std::string& url)
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
     
-    if(openbiz::isDebugNetworkEnabled())
+    if(openbiz::Debugger::isDebugNetworkEnabled())
     {
         std::cout << "DELETE: " << url <<std::endl;
     }

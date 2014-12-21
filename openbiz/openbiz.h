@@ -22,6 +22,7 @@
 #include "ThreadUtils.h"
 #include "PlatformMacros.h"
 #include "Util.h"
+#include "Debugger.h"
 
 //Openbiz自定义异常
 #include "exception.h"
@@ -69,9 +70,7 @@ namespace openbiz
     void initialize(const std::string dbName);
     void cleanup();
     
-    void setDebugNetworkEnabled(bool isEnabled);
-    const bool isDebugNetworkEnabled();
-    
+    class Debugger;
 }
 
 #endif

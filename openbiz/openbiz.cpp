@@ -20,16 +20,5 @@ namespace openbiz {
         core::DB::destroyInstance();
         curl_global_cleanup();
     };
-    
-    static bool debugNetworkState = false;
-    
-    void setDebugNetworkEnabled(bool isEnabled){
-        debugNetworkState = isEnabled;
-    }
-    
-    const bool isDebugNetworkEnabled()
-    {
-        return debugNetworkState;
-    }
 }
 
