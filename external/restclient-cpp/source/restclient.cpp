@@ -49,11 +49,6 @@ RestClient::response RestClient::get(const std::string& url)
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
-    
-    if(openbiz::Debugger::isDebugNetworkEnabled())
-    {
-        std::cout << "GET: " << url <<std::endl;
-    }
 
     /** create return struct */
     RestClient::response ret = {};
@@ -108,6 +103,13 @@ RestClient::response RestClient::get(const std::string& url)
         curl_global_cleanup();
     }
     
+    if(openbiz::Debugger::isDebugNetworkEnabled())
+    {
+        std::cout << "GET: " << url <<std::endl;
+        std::cout << "Code: " << ret.code <<std::endl;
+        std::cout << "Response: " << ret.body <<std::endl;
+    }
+    
     return ret;
 }
 /**
@@ -125,12 +127,6 @@ RestClient::response RestClient::post(const std::string& url,
 {
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
-    }
-    
-    if(openbiz::Debugger::isDebugNetworkEnabled())
-    {
-        std::cout << "POST: " << url <<std::endl;
-        std::cout << "Payload: " << data <<std::endl;
     }
     
     /** create return struct */
@@ -194,6 +190,15 @@ RestClient::response RestClient::post(const std::string& url,
         curl_easy_cleanup(curl);
         curl_global_cleanup();
     }
+
+    
+    if(openbiz::Debugger::isDebugNetworkEnabled())
+    {
+        std::cout << "POST: " << url <<std::endl;
+        std::cout << "Payload: " << data <<std::endl;
+        std::cout << "Code: " << ret.code <<std::endl;
+        std::cout << "Response: " << ret.body <<std::endl;
+    }
     
     return ret;
 }
@@ -213,12 +218,6 @@ RestClient::response RestClient::put(const std::string& url,
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
-    if(openbiz::Debugger::isDebugNetworkEnabled())
-    {
-        std::cout << "PUT: " << url <<std::endl;
-        std::cout << "Payload: " << data <<std::endl;
-    }
-    
     
     /** create return struct */
     RestClient::response ret = {};
@@ -291,6 +290,14 @@ RestClient::response RestClient::put(const std::string& url,
         curl_easy_cleanup(curl);
         curl_global_cleanup();
     }
+
+    if(openbiz::Debugger::isDebugNetworkEnabled())
+    {
+        std::cout << "PUT: " << url <<std::endl;
+        std::cout << "Payload: " << data <<std::endl;
+        std::cout << "Code: " << ret.code <<std::endl;
+        std::cout << "Response: " << ret.body <<std::endl;
+    }
     
     return ret;
 }
@@ -306,12 +313,6 @@ RestClient::response RestClient::del(const std::string& url)
     if(openbiz::ext::ThreadUtils::getInstance()->isOnMainThread()){
         throw std::runtime_error("Openbiz network operation should not runs on main thread");
     }
-    
-    if(openbiz::Debugger::isDebugNetworkEnabled())
-    {
-        std::cout << "DELETE: " << url <<std::endl;
-    }
-
     
     /** create return struct */
     RestClient::response ret = {};
@@ -366,6 +367,14 @@ RestClient::response RestClient::del(const std::string& url)
         
         curl_easy_cleanup(curl);
         curl_global_cleanup();
+    }
+
+    
+    if(openbiz::Debugger::isDebugNetworkEnabled())
+    {
+        std::cout << "DELETE: " << url <<std::endl;
+        std::cout << "Code: " << ret.code <<std::endl;
+        std::cout << "Response: " << ret.body <<std::endl;
     }
     
     return ret;
