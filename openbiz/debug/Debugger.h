@@ -15,7 +15,7 @@ namespace openbiz
     class Debugger
     {
     public:
-        static void setDebugNetworkEnabled(bool isEnabled);
+        static void setDebugNetworkEnabled();
         static const bool isDebugNetworkEnabled();
         
         typedef enum  {

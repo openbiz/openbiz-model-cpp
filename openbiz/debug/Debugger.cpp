@@ -11,8 +11,8 @@ using namespace openbiz;
 
 bool Debugger::_debugNetworkState = false;
 
-void Debugger::setDebugNetworkEnabled(bool isEnabled){
-    _debugNetworkState = isEnabled;
+void Debugger::setDebugNetworkEnabled(){
+    _debugNetworkState = true;
 }
 
 const bool Debugger::isDebugNetworkEnabled()
