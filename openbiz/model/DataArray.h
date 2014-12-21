@@ -40,6 +40,7 @@ namespace openbiz
             T& get(const unsigned int index) const;
             void add(const T &data);
             void set(const unsigned int index, T &data);
+            const bool has(const T &data);
             void clear();
             
             //local persisent cache feature

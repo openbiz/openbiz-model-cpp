@@ -81,6 +81,20 @@ void openbiz::data::DataArray<T>::add(const T &data)
     _vector->push_back(data);
 };
 
+template<typename T>
+const bool openbiz::data::DataArray<T>::has(const T &data)
+{
+    if(_vector->cbegin()!=_vector->cend()){
+        std::string stringData;
+        stringData = static_cast<std::string>(data);
+        for(auto it=_vector->cbegin();it!=_vector->cend();it++){
+            if(stringData.compare((*it))==0){
+                return true;
+            }                
+        }
+    }
+    return false;
+};
 
 #pragma mark - cache related feature
 template<typename T>
