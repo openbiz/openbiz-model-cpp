@@ -108,6 +108,7 @@ RestClient::response RestClient::get(const std::string& url)
         std::cout << "GET: " << url <<std::endl;
         std::cout << "Code: " << ret.code <<std::endl;
         std::cout << "Response: " << ret.body <<std::endl;
+        std::cout << std::string(15, '-') <<std::endl;        
     }
     
     return ret;
@@ -198,6 +199,7 @@ RestClient::response RestClient::post(const std::string& url,
         std::cout << "Payload: " << data <<std::endl;
         std::cout << "Code: " << ret.code <<std::endl;
         std::cout << "Response: " << ret.body <<std::endl;
+        std::cout << std::string(15, '-') <<std::endl;
     }
     
     return ret;
@@ -297,6 +299,7 @@ RestClient::response RestClient::put(const std::string& url,
         std::cout << "Payload: " << data <<std::endl;
         std::cout << "Code: " << ret.code <<std::endl;
         std::cout << "Response: " << ret.body <<std::endl;
+        std::cout << std::string(15, '-') <<std::endl;
     }
     
     return ret;
@@ -375,6 +378,7 @@ RestClient::response RestClient::del(const std::string& url)
         std::cout << "DELETE: " << url <<std::endl;
         std::cout << "Code: " << ret.code <<std::endl;
         std::cout << "Response: " << ret.body <<std::endl;
+        std::cout << std::string(15, '-') <<std::endl;
     }
     
     return ret;
