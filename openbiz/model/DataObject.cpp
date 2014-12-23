@@ -8,6 +8,7 @@
 
 #include "DataObject.h"
 #include "exception.h"
+#include "PlatformMacros.h"
 
 using namespace std;
 using namespace openbiz::core;
@@ -50,6 +51,7 @@ namespace openbiz
 
 #pragma mark - 实现自己的方法    
     DataObject::DataObject(const std::string &cacheName):
+    Object(),
     _isCacheEnabled(!cacheName.empty()),
     _cacheName(cacheName){
 
@@ -96,7 +98,7 @@ namespace openbiz
             //fetch record content
             this->parse(record->data);
             _lastUpdate = record->timestamp;
-            delete record; record = nullptr;
+            OPENBIZ_SAFE_DELETE(record);
             return true;
         }
         return false;

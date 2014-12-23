@@ -14,6 +14,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <mutex>
+#include "Object.h"
 
 namespace openbiz
 {
@@ -22,7 +23,7 @@ namespace openbiz
         class DB
         {
         public:
-            struct Record
+            struct Record : public openbiz::core::Object
             {
                 std::string Id;
                 std::string data;
@@ -60,11 +61,11 @@ namespace openbiz
             
             const bool removeAllRecords(const std::string &tableName) const;
             
-            const std::vector<Record*> *fetchRecords(const std::string &tableName,
+            const std::vector<Record> *fetchRecords(const std::string &tableName,
                                                     int offset=0,
                                                     int limit=-1) const;
             
-            const std::vector<Record*> *fetchRecords(const std::string &tableName,
+            const std::vector<Record> *fetchRecords(const std::string &tableName,
                                                      const std::string &keyword,
                                                      int offset=0,
                                                      int limit=-1) const;

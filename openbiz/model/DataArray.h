@@ -28,12 +28,16 @@ namespace openbiz
     namespace data
     {
         template<typename T>
-        class DataArray
+        class DataArray: public core::Object
         {
         public:
             explicit DataArray();
             explicit DataArray(const std::string &cacheName);
             virtual ~DataArray();
+            
+            const std::string serialize() const;
+            void parse(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);
+
             
             const bool isEmpty() const;
             const unsigned int getTotalRecords() const;

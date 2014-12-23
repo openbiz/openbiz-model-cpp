@@ -9,10 +9,31 @@
 #ifndef Openbiz_RestModel_DataArray_imp_h
 #define Openbiz_RestModel_DataArray_imp_h
 #include <stdexcept>
+#include "PlatformMacros.h"
+
+template<typename T>
+const std::string openbiz::data::DataArray<T>::serialize() const
+{
+    std::string dataString;
+    if(_vector->cbegin()!=_vector->cend()){
+        for(auto it=_vector->cbegin();it!=_vector->cend();it++){
+            dataString += (std::string)(*it)+"\n";
+        }
+    }
+    return dataString;
+}
+
+template<typename T>
+void openbiz::data::DataArray<T>::parse(const std::string &data)
+throw (openbiz::exception::DataFormatInvalidException)
+{
+    
+}
 
 #pragma mark - Constructor, ensure SQLite table exists
 template<typename T>
 openbiz::data::DataArray<T>::DataArray(const std::string &cacheName):
+Object(),
 _cacheName(cacheName),
 _isCacheEnabled(!cacheName.empty())
 {
@@ -33,8 +54,7 @@ DataArray("")
 template<typename T>
 openbiz::data::DataArray<T>::~DataArray()
 {
-    delete _vector;
-    _vector = nullptr;
+    OPENBIZ_SAFE_DELETE(_vector);
 };
 
 
@@ -117,7 +137,7 @@ template<typename T>
 void openbiz::data::DataArray<T>::fetch()
 {
     if(!isCacheEnabled()) return ;
-    const std::vector<openbiz::core::DB::Record*> *records;
+    const std::vector<openbiz::core::DB::Record> *records;
     records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName);
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
@@ -125,15 +145,16 @@ void openbiz::data::DataArray<T>::fetch()
             T record;
             if(typeid(T) == typeid(std::string))
             {
-                record = (*it)->data;
+                record = (*it).data;
             }
             else
             {
-                record = static_cast<T>((*it)->data);
+                record = static_cast<T>((*it).data);
             }
             add(record);
         }
     }
+    OPENBIZ_SAFE_DELETE(records);
 };
 
 

@@ -11,6 +11,7 @@
 
 #include <math.h>
 #include <stdexcept>
+#include "PlatformMacros.h"
 #define OPENBIZ_DEFAULT_COLLECTION_PAGESIZE 10
 
 
@@ -20,6 +21,7 @@ std::mutex openbiz::data::DataCollection<T>::_mtx;
 
 template<typename T>
 openbiz::data::DataCollection<T>::DataCollection(const std::string &cacheName, const bool isOwnPointers):
+Object(),
 _isOwnPointers(isOwnPointers),
 _isCacheEnabled(!cacheName.empty()),
 _cacheName(cacheName){
@@ -43,7 +45,7 @@ openbiz::data::DataCollection<T>::~DataCollection()
     if(_isOwnPointers){
         if(_collection->begin() != _collection->end()){
             for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
-                delete it->second;
+                it->second->release();
             }
         }
     }
@@ -207,21 +209,22 @@ void openbiz::data::DataCollection<T>::fetch()
     if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     
     if(!isCacheEnabled()) return ;
-    const std::vector<openbiz::core::DB::Record*> *records;
+    
+    _mtx.lock();
+    const std::vector<openbiz::core::DB::Record> *records;
     int offset = (getCurrentPageId()*getPageSize());
     if(_keyword.empty()){
         records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,getPageSize());
     }else{
         records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,_keyword,offset,getPageSize());
     }
-    _mtx.lock();
     if(records->size()>0){
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
             T* record = new T;
             if(!_cacheName.empty())
                 record->setCacheName(_cacheName);
-            record->parse((*it)->data);
+            record->parse((*it).data);
             
             if(record->getId().empty())
             {
@@ -231,7 +234,9 @@ void openbiz::data::DataCollection<T>::fetch()
             _collection->insert({record->getId(),record});
         }
     }
+    OPENBIZ_SAFE_DELETE(records);
     _mtx.unlock();
+    
     return ;
 };
 
@@ -357,7 +362,7 @@ void openbiz::data::DataCollection<T>::clear(){
     if(_isOwnPointers){
         if(_collection->begin() != _collection->end()){
             for(auto it = _collection->begin(); it!= _collection->end(); it++ ){
-                delete it->second;
+                it->second->release();
             }
         }
     }
@@ -388,7 +393,7 @@ throw(std::out_of_range,openbiz::exception::DataPermissionException)
     unsigned long realIndex = _collection->size() -1 - index;
 
     std::advance(it,realIndex);
-    return (T*)it->second;
+    return (T*)it->second->retain();
 };
 
 template<typename T>
@@ -401,7 +406,8 @@ throw(std::out_of_range,openbiz::exception::DataPermissionException)
     if (i == _collection->end()){
         throw std::out_of_range("key not found");
     }
-    return i->second;
+//    i->second->retain();
+    return i->second->retain();
 };
 
 template<typename T>
@@ -415,7 +421,7 @@ throw (std::out_of_range,openbiz::exception::DataPermissionException){
         throw std::out_of_range("key not found");
     }
     if(_isOwnPointers){
-        delete _collection->find(key)->second;
+        _collection->find(key)->second->release();
     }
     _collection->erase(key);
 };

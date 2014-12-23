@@ -305,10 +305,10 @@ namespace openbiz
             return false;
         };
         
-        const std::vector<DB::Record*> *DB::fetchRecords(const std::string &tableName, int offset, int limit) const
+        const std::vector<DB::Record> *DB::fetchRecords(const std::string &tableName, int offset, int limit) const
         {
             _mtx.lock();
-            std::vector<DB::Record*> *records = new std::vector<DB::Record*>;
+            std::vector<DB::Record> *records = new std::vector<DB::Record>;
             
             sqlite3_stmt *stmt;
             int rc;
@@ -321,10 +321,10 @@ namespace openbiz
             
             while(rc == SQLITE_ROW)
             {
-                DB::Record *record = new DB::Record;
-                record->Id      = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
-                record->data    = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
-                record->timestamp = static_cast<time_t>((sqlite3_column_int(stmt,2)));
+                DB::Record record;
+                record.Id      = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
+                record.data    = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
+                record.timestamp = static_cast<time_t>((sqlite3_column_int(stmt,2)));
                 records->push_back(record);
                 rc = sqlite3_step(stmt);
             }
@@ -333,10 +333,10 @@ namespace openbiz
             return records;
         };
         
-        const std::vector<DB::Record*> *DB::fetchRecords(const std::string &tableName, const std::string &keyword, int offset, int limit) const
+        const std::vector<DB::Record> *DB::fetchRecords(const std::string &tableName, const std::string &keyword, int offset, int limit) const
         {
             _mtx.lock();
-            std::vector<DB::Record*> *records = new std::vector<DB::Record*>;
+            std::vector<DB::Record> *records = new std::vector<DB::Record>;
             
             sqlite3_stmt *stmt;
             int rc;
@@ -351,10 +351,10 @@ namespace openbiz
             
             while(rc == SQLITE_ROW)
             {
-                DB::Record *record = new DB::Record;
-                record->Id      = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
-                record->data    = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
-                record->timestamp = static_cast<time_t>((sqlite3_column_int(stmt,2)));
+                DB::Record record;
+                record.Id      = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
+                record.data    = std::string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
+                record.timestamp = static_cast<time_t>((sqlite3_column_int(stmt,2)));
                 records->push_back(record);
                 rc = sqlite3_step(stmt);
             }

@@ -21,10 +21,16 @@ namespace openbiz
         public:
             Object();
             virtual ~Object() = 0;
-            virtual const std::string serialize() const = 0;
-            virtual void parse(const std::string &data) = 0;
-
+            virtual const std::string serialize();
+            virtual void parse(const std::string &data);
+            
+            Object* retain();
+            unsigned int release();
+            unsigned int release() const;
+            
         protected:
+        private:
+            unsigned int _refCount;
         };
     };
 }
