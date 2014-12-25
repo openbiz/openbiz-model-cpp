@@ -108,6 +108,12 @@ namespace openbiz
             }
         }
         
+        void DB::recreateDatabase()
+        {
+            DB::dropDatabase();
+            DB::getInstance()->initialize(_dbName);
+        }
+        
         void DB::dropDatabase()
         {
             if(!DB::_dbName.empty()){

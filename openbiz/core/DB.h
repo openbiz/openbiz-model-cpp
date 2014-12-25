@@ -35,6 +35,7 @@ namespace openbiz
             static DB* getInstance();
             static void destroyInstance();
             static void dropDatabase();
+            static void recreateDatabase();
             
             void initialize(const std::string &dbName);
             

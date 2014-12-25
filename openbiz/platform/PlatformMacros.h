@@ -10,5 +10,6 @@
 #define Openbiz_RestModel_PlatformMarcos_h
 
 #define OPENBIZ_SAFE_DELETE(p)   do { delete (p); (p) = nullptr; } while(0)
+#define OPENBIZ_SAFE_RELEASE(p)  do { if((p)->release() == 0){ (p) = nullptr; } } while(0)
 
 #endif
