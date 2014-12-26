@@ -212,7 +212,7 @@ void openbiz::data::DataCollection<T>::fetch()
     
     _mtx.lock();
     const std::vector<openbiz::core::DB::Record> *records;
-    int offset = (getCurrentPageId()*getPageSize());
+    int offset = ((getCurrentPageId()-1)*getPageSize());
     if(_keyword.empty()){
         records = openbiz::core::DB::getInstance()->fetchRecords(_cacheName,offset,getPageSize());
     }else{

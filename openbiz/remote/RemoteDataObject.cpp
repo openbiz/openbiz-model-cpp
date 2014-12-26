@@ -57,27 +57,34 @@ namespace openbiz
      */
     const bool DataObject::fetch() throw ( NetworkConnectionException,ServerErrorException )
     {
-        RestClient::response r = RestClient::get(this->getUrl());
-        switch(r.code)
-        {
-            case -1:
-                if(!data::DataObject::fetch())
-                {
-                    throw NetworkConnectionException(r);
-                }
-                break;
-            case 200:
-                data::DataObject::parse(r.body);
-                return true;
-                break;
-            case 500:
-                throw ServerErrorException(r);
-                break;
-            case 204:
-            default:
-                return false;
-                
+        try{
+            RestClient::response r = RestClient::get(this->getUrl());
+            switch(r.code)
+            {
+                case -1:
+                    if(!data::DataObject::fetch())
+                    {
+                        throw NetworkConnectionException(r);
+                    }
+                    break;
+                case 200:
+                    data::DataObject::parse(r.body);
+                    return true;
+                    break;
+                case 500:
+                    throw ServerErrorException(r);
+                    break;
+                case 204:
+                default:
+                    return false;
+                    
+            }
         }
+        catch(std::exception)
+        {
+            data::DataObject::fetch();
+        }
+  
         return true;
     };
     
