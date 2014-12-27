@@ -61,6 +61,9 @@ class RestClient
     inline static response post(const std::string& url,const std::string& data){
         return post(url,"application/json",data);
     };
+    inline static response post(const std::string& url){
+        return post(url,"application/json","");
+    };
     
     // HTTP PUT
     static response put(const std::string& url, const std::string& ctype,
