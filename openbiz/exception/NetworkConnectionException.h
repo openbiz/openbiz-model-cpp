@@ -22,16 +22,16 @@ namespace openbiz
         public:
             //直接传递RestClient::response对象过来 巨省事儿~
             NetworkConnectionException(RestClient::response r)
-            :uri(r.uri),method(r.method){} ;
+            :url(r.url),method(r.method){} ;
             
-            NetworkConnectionException(const std::string &uri)
-                :uri(uri){} ;
+            NetworkConnectionException(const std::string &url)
+                :url(url){} ;
             
-            NetworkConnectionException(const std::string &method,const std::string &uri)
-                :method(method),uri(uri){} ;
+            NetworkConnectionException(const std::string &method,const std::string &url)
+                :method(method),url(url){} ;
             
             const std::string method;
-            const std::string uri;
+            const std::string url;
             virtual const char* what() const throw();
         };
     }

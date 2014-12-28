@@ -143,14 +143,7 @@ void openbiz::data::DataArray<T>::fetch()
         for(auto it = records->cbegin(); it!= records->cend(); ++it )
         {
             T record;
-            if(typeid(T) == typeid(std::string))
-            {
-                record = (*it).data;
-            }
-            else
-            {
-                record = static_cast<T>((*it).data);
-            }
+            record = (*it).data;
             add(record);
         }
     }

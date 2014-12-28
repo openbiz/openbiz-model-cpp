@@ -16,7 +16,7 @@ namespace openbiz
         ServerErrorException::ServerErrorException(RestClient::response r) throw():
         method(r.method),
         payload(r.payload),
-        uri(r.uri),
+        url(r.url),
         _code(r.code),
         _raw(r.body)
         {
@@ -48,7 +48,7 @@ namespace openbiz
             std::string message;
             message += "Remote Server Error Exception: \n";
             message += "Method: \t" + this->method + "\n";
-            message += "URI: \t" + this->uri + "\n";
+            message += "URL: \t" + this->url + "\n";
             if(!this->payload.empty())
             {
                 message += "Payload: \t" + this->payload + "\n";

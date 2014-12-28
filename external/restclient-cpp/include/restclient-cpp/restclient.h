@@ -35,7 +35,7 @@ class RestClient
     /** response struct for queries */
     typedef struct
     {
-      std::string uri;
+      std::string url;
       std::string method;
       std::string payload;
       int code;

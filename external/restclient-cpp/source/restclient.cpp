@@ -53,7 +53,7 @@ RestClient::response RestClient::get(const std::string& url)
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "GET";
-    ret.uri = url;
+    ret.url = url;
     
     // use libcurl
     CURL *curl = NULL;
@@ -133,7 +133,7 @@ RestClient::response RestClient::post(const std::string& url,
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "POST";
-    ret.uri = url;
+    ret.url = url;
     ret.payload = data;
     /** build content-type header string */
     std::string ctype_header = "Content-Type: " + ctype;
@@ -224,7 +224,7 @@ RestClient::response RestClient::put(const std::string& url,
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "PUT";
-    ret.uri = url;
+    ret.url = url;
     ret.payload = data;
     /** build content-type header string */
     std::string ctype_header = "Content-Type: " + ctype;
@@ -320,7 +320,7 @@ RestClient::response RestClient::del(const std::string& url)
     /** create return struct */
     RestClient::response ret = {};
     ret.method = "PUT";
-    ret.uri = url;
+    ret.url = url;
     
     /** we want HTTP DELETE */
     const char* http_delete = "DELETE";
