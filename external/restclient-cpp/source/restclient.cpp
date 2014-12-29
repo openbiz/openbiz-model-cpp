@@ -319,7 +319,7 @@ RestClient::response RestClient::del(const std::string& url)
     
     /** create return struct */
     RestClient::response ret = {};
-    ret.method = "PUT";
+    ret.method = "DELETE";
     ret.url = url;
     
     /** we want HTTP DELETE */
