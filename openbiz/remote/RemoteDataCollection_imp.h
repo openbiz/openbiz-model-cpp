@@ -31,7 +31,7 @@ openbiz::remote::DataCollection<T>::~DataCollection(){
 template<typename T>
 const std::string openbiz::remote::DataCollection<T>::getUrl() const throw()
 {
-    
+    if(_baseUrl.empty()) return _baseUrl;
     openbiz::remote::QueryParameters paramenters = getQueryParameters();
     if(paramenters.size()>0){
         std::string url = _baseUrl;
@@ -65,6 +65,7 @@ const openbiz::remote::QueryParameters openbiz::remote::DataCollection<T>::getQu
 template<typename T>
 void openbiz::remote::DataCollection<T>::fetch()
 {
+    if(getUrl().empty()) return;
     RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
     {
