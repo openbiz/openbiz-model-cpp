@@ -13,6 +13,7 @@
 #include "openbiz.h"
 
 time_t openbiz::util::convertISOTime(const std::string &time){
+    if(time.empty())return 0;
     struct tm tm;
     struct tm tm2;
     strptime(time.c_str(), "%FT%TZ", &tm);
