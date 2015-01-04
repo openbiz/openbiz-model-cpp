@@ -56,7 +56,7 @@ const openbiz::remote::QueryParameters openbiz::remote::DataCollection<T>::getQu
     queryParameters["page"] = std::to_string(this->_pageId);
     if(!this->_keyword.empty())
     {
-        queryParameters["keyword"] = this->_keyword;
+        queryParameters["query"] = this->_keyword;
     }
     
     return queryParameters;
