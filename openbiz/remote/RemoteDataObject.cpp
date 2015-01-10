@@ -71,6 +71,7 @@ namespace openbiz
                     data::DataObject::parse(r.body);
                     return true;
                     break;
+                case 404:
                 case 500:
                     throw ServerErrorException(r);
                     break;
@@ -80,7 +81,7 @@ namespace openbiz
                     
             }
         }
-        catch(std::exception)
+        catch(NetworkConnectionException e)
         {
             data::DataObject::fetch();
         }
