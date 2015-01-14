@@ -20,6 +20,14 @@ namespace openbiz
 {
     namespace remote
     {
+        
+        enum DataPermission {
+            Create,
+            Write,
+            Read,
+            Delete
+        };
+        
         typedef std::map<std::string,std::string> QueryParameters;
         
         class DataObject: public data::DataObject
@@ -49,6 +57,7 @@ namespace openbiz
                                         openbiz::exception::ServerErrorException);
             
         protected:
+            virtual const bool _hasPermission(DataPermission permission) const throw();            
             time_t _lastSync;
             const std::string _baseUrl;
         };

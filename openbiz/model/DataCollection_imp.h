@@ -205,9 +205,7 @@ Json::Value openbiz::data::DataCollection<T>::_parseStringToJson(const std::stri
 //fetch all
 template<typename T>
 void openbiz::data::DataCollection<T>::fetch()
-{
-    if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
-    
+{    
     if(!isCacheEnabled()) return ;
     
     _mtx.lock();
@@ -308,7 +306,6 @@ template<typename T>
 void openbiz::data::DataCollection<T>::save()
 {
     _mtx.lock();
-    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     if(!isCacheEnabled()) return;
     for(auto it = _collection->begin(); it!= _collection->end(); ++it )
     {
@@ -321,7 +318,6 @@ void openbiz::data::DataCollection<T>::save()
 template<typename T>
 void openbiz::data::DataCollection<T>::destroy()
 {
-    if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
     _mtx.lock();
     for(auto it = _collection->begin(); it!= _collection->end(); ++it )
     {
@@ -382,7 +378,6 @@ template<typename T>
 T* openbiz::data::DataCollection<T>::get(const unsigned int index) 
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
-    if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     if(index >= _collection->size())
     {
         throw std::out_of_range("index is larger than size");
@@ -400,7 +395,6 @@ template<typename T>
 T* openbiz::data::DataCollection<T>::get(const std::string &key) const
 throw(std::out_of_range,openbiz::exception::DataPermissionException)
 {
-    if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
     
     auto i = _collection->find(key);
     if (i == _collection->end()){
@@ -414,7 +408,6 @@ template<typename T>
 void openbiz::data::DataCollection<T>::del(const std::string &key)
 throw (std::out_of_range,openbiz::exception::DataPermissionException){
     //permission check
-    if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
     
     auto i = _collection->find(key);
     if (i == _collection->end()){
@@ -435,7 +428,6 @@ const bool openbiz::data::DataCollection<T>::has(const std::string &key) const t
 template<typename T>
 void openbiz::data::DataCollection<T>::set(const std::string &key, T *item)
 throw(openbiz::exception::DataPermissionException){
-    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
     
     T* obj = _collection->find(key)->second;
     //release memory if assign a new object to same key
@@ -456,8 +448,6 @@ throw(openbiz::exception::DataPermissionException){
 template<typename T>
 void openbiz::data::DataCollection<T>::add(T *item)
 throw(openbiz::exception::DataPermissionException){
-    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
-
     _collection->insert({item->getId(), item});
     
 }
@@ -467,10 +457,5 @@ const std::string openbiz::data::DataCollection<T>::getCacheName() const
 {
     return  _cacheName;
 }
-
-template<typename T>
-const bool openbiz::data::DataCollection<T>::_hasPermission(DataPermission permission) const throw(){
-    return true;
-};
 
 #endif

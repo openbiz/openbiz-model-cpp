@@ -93,7 +93,6 @@ namespace openbiz
             void clear();
             void erase(const std::string &key);
             
-            virtual const bool _hasPermission(DataPermission permission) const throw();
             void parse(const Json::Value &records) throw ();
             void parseAndAppend(const Json::Value &records) throw ();
             Json::Value _parseStringToJson(const std::string &data) throw (openbiz::exception::DataFormatInvalidException);

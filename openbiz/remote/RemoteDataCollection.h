@@ -42,6 +42,7 @@ namespace openbiz
             void refresh();
             
         protected:
+            virtual const bool _hasPermission(DataPermission permission) const throw();            
             virtual const QueryParameters getQueryParameters() const throw();
             QueryParameters _presetQueryParameters;
             bool _isUsingCachedData;

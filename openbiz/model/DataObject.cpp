@@ -130,7 +130,6 @@ namespace openbiz
     const void DataObject::save() throw(openbiz::exception::DataValidationException,
                                         openbiz::exception::DataPermissionException)
     {
-    if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
         
         if(!this->isCacheEnabled()) return;
 
@@ -179,9 +178,5 @@ namespace openbiz
         if(this->_changed.isNull()) return false;
         return (this->_changed.size()>0);
     }
-    
-    const bool DataObject::_hasPermission(DataPermission permission) const throw(){
-        return true;
-    };
     
 }

@@ -49,13 +49,6 @@ namespace openbiz
 {
     namespace data
     {
-        enum DataPermission {
-            Create,
-            Write,
-            Read,
-            Delete
-        };
-        
         class DataObject: public core::Object
         {
         public:
@@ -116,7 +109,6 @@ namespace openbiz
             void setCacheName(std::string &cacheName);
             
         protected:
-            virtual const bool _hasPermission(DataPermission permission) const throw();
             std::string _id;
             Json::Value _data;
             Json::Value _previousData;

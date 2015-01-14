@@ -57,6 +57,7 @@ namespace openbiz
      */
     const bool DataObject::fetch() throw ( NetworkConnectionException,ServerErrorException )
     {
+        if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Fetch");        
         try{
             RestClient::response r = RestClient::get(this->getUrl());
             switch(r.code)
@@ -91,6 +92,9 @@ namespace openbiz
     
     const void DataObject::save() throw ( NetworkConnectionException,ServerErrorException,DataValidationException )
     {
+
+        if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Write");
+
         if( this->isCacheEnabled() &&  !this->hasChanged() )
             data::DataObject::save();
         
@@ -139,6 +143,9 @@ namespace openbiz
      */
     const void DataObject::destroy() throw ( NetworkConnectionException,ServerErrorException )
     {
+        
+        if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Delete");
+        
         RestClient::response r = RestClient::del(this->getUrl());
         switch(r.code)
         {
@@ -156,5 +163,10 @@ namespace openbiz
         }
         return ;
     }
+    
+    const bool DataObject::_hasPermission(DataPermission permission) const throw(){
+        return true;
+    };
 
 }
+

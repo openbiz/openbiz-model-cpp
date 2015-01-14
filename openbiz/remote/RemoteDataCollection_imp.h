@@ -65,6 +65,8 @@ const openbiz::remote::QueryParameters openbiz::remote::DataCollection<T>::getQu
 template<typename T>
 void openbiz::remote::DataCollection<T>::fetch()
 {
+    if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Fetch");
+    
     if(getUrl().empty()) return;
     RestClient::response r = RestClient::get(getUrl());
     switch(r.code)
@@ -100,6 +102,8 @@ void openbiz::remote::DataCollection<T>::fetch()
 template<typename T>
 void openbiz::remote::DataCollection<T>::refresh()
 {
+    if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Fetch");
+    
     int originalPageId = this->_pageId;
     this->_pageId = 1;
     
@@ -153,4 +157,10 @@ void openbiz::remote::DataCollection<T>::_processFetchedData(const RestClient::r
     openbiz::data::DataCollection<T>::save();
 }
 
+
+
+template<typename T>
+const bool openbiz::remote::DataCollection<T>::_hasPermission(DataPermission permission) const throw(){
+    return true;
+};
 #endif
