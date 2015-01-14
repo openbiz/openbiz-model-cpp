@@ -36,6 +36,7 @@ namespace openbiz
             url += "?";
             for(auto it = paramenters.cbegin(); it!= paramenters.cend(); it++)
             {
+                if((*it).second.empty()) continue;
                 url += (*it).first + "=" + (*it).second;
             }
         }
@@ -57,7 +58,7 @@ namespace openbiz
      */
     const bool DataObject::fetch() throw ( NetworkConnectionException,ServerErrorException )
     {
-        if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Fetch");        
+        if(!_hasPermission(DataPermission::Read)) throw openbiz::exception::DataPermissionException("Fetch");
         try{
             RestClient::response r = RestClient::get(this->getUrl());
             switch(r.code)
@@ -144,7 +145,7 @@ namespace openbiz
     const void DataObject::destroy() throw ( NetworkConnectionException,ServerErrorException )
     {
         
-        if(!_hasPermission(DataPermission::Write)) throw openbiz::exception::DataPermissionException("Delete");
+        if(!_hasPermission(DataPermission::Delete)) throw openbiz::exception::DataPermissionException("Delete");
         
         RestClient::response r = RestClient::del(this->getUrl());
         switch(r.code)
