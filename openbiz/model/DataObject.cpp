@@ -62,7 +62,7 @@ namespace openbiz
         return this->_id;
     }
     
-    void DataObject::unset(std::string &key)
+    void DataObject::unset(const std::string &key)
     {
         _data.removeMember(key);
         _changed[key]=Json::nullValue;

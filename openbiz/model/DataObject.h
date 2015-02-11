@@ -87,7 +87,7 @@ namespace openbiz
             const Json::Value get(const char *key) const { return _data[key]; };
             
             //unset a local attribute , but not saved
-            virtual void unset(std::string &key);
+            virtual void unset(const std::string &key);
             
             //clear local cache and attributes
             virtual void clear();
@@ -96,7 +96,7 @@ namespace openbiz
             virtual void reset();
             
             //return is the data new or not
-            const bool isNew() const throw();
+            virtual const bool isNew() const throw();
             
             const bool isCacheEnabled() const throw();
             
