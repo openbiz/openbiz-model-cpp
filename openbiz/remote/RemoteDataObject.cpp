@@ -37,7 +37,7 @@ namespace openbiz
             for(auto it = paramenters.cbegin(); it!= paramenters.cend(); it++)
             {
                 if((*it).second.empty()) continue;
-                url += (*it).first + "=" + (*it).second;
+                url += "&"+(*it).first + "=" + (*it).second;
             }
         }
         
