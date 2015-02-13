@@ -73,6 +73,7 @@ namespace openbiz
                     data::DataObject::parse(r.body);
                     return true;
                     break;
+                case 403:
                 case 404:
                 case 500:
                     throw ServerErrorException(r);
