@@ -32,7 +32,7 @@ Object* Object::retain()
 unsigned int Object::release() const
 {
     if ( 0 == _refCount -1 ) {
-        delete this;
+        //delete this;
         return 0;
     }
     return _refCount -1 ;
@@ -42,7 +42,7 @@ unsigned int Object::release()
 {
     _refCount --;
     if ( 0 == _refCount ) {
-        delete this;
+        //delete this;
         return 0;
     }
     return _refCount;

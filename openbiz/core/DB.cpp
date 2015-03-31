@@ -93,6 +93,7 @@ namespace openbiz
                 if(!_db){
                     const std::string path = ext::FileUtils::getInstance()->getWritablePath();
                     const std::string dbFullname = path + "/" + dbName;
+                    std::cout << "Opening database file: "  << dbFullname << std::endl;
                     int result = sqlite3_open(dbFullname.c_str(),&_db);
                     DB::_dbName = dbName;
                     if(result == SQLITE_OK){
@@ -100,10 +101,12 @@ namespace openbiz
                         sqlite3_json_extension_init(_db,NULL);
                     }
                     else{
+                        std::cout << "Con't open database file: " << path << dbFullname << std::endl;
                         throw std::runtime_error("Con't open database file: "+dbFullname);
                     }
                 }
             }else{
+                std::cout << "Please define a db name" << std::endl;
                 throw std::runtime_error("Please define a db name");
             }
         }

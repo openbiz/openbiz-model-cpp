@@ -11,7 +11,10 @@ namespace openbiz {
     
     void initialize(const string dbName)
     {
-        core::DB::getInstance()->initialize(dbName);
+        try{
+            core::DB::getInstance()->initialize(dbName);
+        }catch(std::exception e){
+        }
         curl_global_init(CURL_GLOBAL_ALL);
     };
     
